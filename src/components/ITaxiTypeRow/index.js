@@ -8,13 +8,13 @@ const ITaxiTypeRow = (props) => {
   const { type } = props;
   const getImage = () => {
     if (type.type === "UberX") {
-      return require(`../../assets/images/UberX.jpeg`);
+      return require(`../../assets/images/UberX.png`);
     }
     if (type.type === "Comfort") {
-      return require(`../../assets/images/Comfort.jpeg`);
+      return require(`../../assets/images/Mercedes.png`);
     }
     if (type.type === "UberXL") {
-      return require(`../../assets/images/UberXL.jpeg`);
+      return require(`../../assets/images/UberXL.png`);
     }
   };
   return (
