@@ -4,23 +4,32 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 import styles from "./styles";
 import PlaceRow from "./PlaceRow.js";
 import * as Location from "expo-location";
+import { useNavigation } from "@react-navigation/native";
 
 const homePlace = {
   description: "Acasa",
-  geometry: { location: { lat: 48.8152937, lng: 2.4597668 } },
+  geometry: { location: { latitude: 48.8152937, longitude: 2.4597668 } },
 };
 const workPlace = {
   description: "Job",
-  geometry: { location: { lat: 48.8496818, lng: 2.2940881 } },
+  geometry: { location: { latitude: 48.8496818, longitude: 2.2940881 } },
 };
 
 const DestinationSearch = (props) => {
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
+  const navigation = useNavigation();
+
+  const checkNavigation = () => {
+    console.warn("checkNavigation is called");
+    if (originPlace && destinationPlace) {
+      console.warn("here");
+      navigation.navigate("SearchResults");
+    }
+  };
 
   useEffect(() => {
-    if (originPlace && destinationPlace) {
-    }
+    checkNavigation();
   }, [originPlace, destinationPlace]);
 
   Location.installWebGeolocationPolyfill();
@@ -32,7 +41,7 @@ const DestinationSearch = (props) => {
         <GooglePlacesAutocomplete
           placeholder="Where from?"
           onPress={(data, details = null) => {
-            setOriginPlace({ data, details });
+            setOriginPlace({ data, details }, checkNavigation);
             console.log(data, details);
           }}
           suppressDefaultStyles
@@ -58,7 +67,7 @@ const DestinationSearch = (props) => {
         <GooglePlacesAutocomplete
           placeholder="Where to?"
           onPress={(data, details = null) => {
-            setDestinationPlace({ data, details });
+            setDestinationPlace({ data, details }, checkNavigation);
             console.log(data, details);
           }}
           suppressDefaultStyles

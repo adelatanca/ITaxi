@@ -8,9 +8,9 @@ const PlaceRow = ({ data }) => {
       <View style={styles.iconContainer}>
         {(() => {
           if (data.description == "Acasa") {
-            return <Entypo name="home" size={20} color={"white"} />;
+            return <Entypo name="home" size={20} color={"yellow"} />;
           } else if (data.description == "Job")
-            return <Entypo name="laptop" size={20} color={"white"} />;
+            return <Entypo name="laptop" size={20} color={"#f321ff"} />;
           else return <Entypo name="location" size={20} color={"white"} />;
         })()}
       </View>

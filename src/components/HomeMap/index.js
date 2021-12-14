@@ -21,9 +21,10 @@ const HomeMap = (props) => {
     <MapView
       style={{ height: 450, width: "100%" }}
       provider={PROVIDER_GOOGLE}
+      showsUserLocation={true}
       initialRegion={{
-        latitude: 28.450627,
-        longitude: -16.263045,
+        latitude: 47.046501,
+        longitude: 21.918943,
         latitudeDelta: 0.0222,
         longitudeDelta: 0.0121,
       }}

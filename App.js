@@ -1,9 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import HomeScreen from "./src/screens/HomeScreen";
+import RootNavigator from "./src/navigation/Root";
 import SearchResults from "./src/screens/SearchResults";
-import DestinationSearch from "./src/screens/DestinationSearch";
+import HomeScreen from "./src/screens/HomeScreen";
+import "react-native-gesture-handler";
+
 // import Geolocation from "@react-native-community/geolocation";
 // import { PermissionsAndroid, Platform } from "react-native";
 // import { AsyncStorage } from "react-native";
@@ -44,9 +46,8 @@ export default function App() {
   // }, []);
   return (
     <View>
+      <RootNavigator />
       {/* <HomeScreen /> */}
-      <DestinationSearch />
-      {/* <SearchResults /> */}
       <StatusBar style="auto" />
     </View>
   );
