@@ -48,6 +48,7 @@ export default function App() {
     <View>
       <RootNavigator />
       {/* <HomeScreen /> */}
+      {/* <SearchResults /> */}
       <StatusBar style="auto" />
     </View>
   );

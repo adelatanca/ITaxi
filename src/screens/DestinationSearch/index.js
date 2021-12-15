@@ -24,7 +24,10 @@ const DestinationSearch = (props) => {
     console.warn("checkNavigation is called");
     if (originPlace && destinationPlace) {
       console.warn("here");
-      navigation.navigate("SearchResults");
+      navigation.navigate("SearchResults", {
+        originPlace,
+        destinationPlace,
+      });
     }
   };
 
