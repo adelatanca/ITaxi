@@ -5,11 +5,11 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo";
 import { useNavigation } from "@react-navigation/native";
-
+import DestinationSearch from "../../screens/DestinationSearch";
 import styles from "./styles.js";
 
-const HomeSearch = (props) => {
-  const navigation = useNavigation();
+const HomeSearch = ({ navigation }) => {
+  //const navigation = useNavigation();
 
   const goToSearch = () => {
     navigation.navigate("DestinationSearch");

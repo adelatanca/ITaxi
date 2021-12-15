@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
 import styles from "./styles";
-import ITaxiTypeRow from "..//ITaxiTypeRow";
+import ITaxiTypeRow from "../ITaxiTypeRow";
 import typesData from "../../assets/data/types";
 
 const ITaxiTypes = (props) => {

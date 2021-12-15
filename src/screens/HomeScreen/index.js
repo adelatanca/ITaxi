@@ -9,10 +9,10 @@ import ITaxiTypes from "../../components/ITaxiTypes";
 const HomeScreen = (props) => {
   return (
     <View>
-      <View style={{ height: Dimensions.get("window").height - 400 }}>
+      {/* <View style={{ height: Dimensions.get("window").height - 400 }}>
         <HomeMap />
       </View>
-      <CovidMessage />
+      <CovidMessage /> */}
       <HomeSearch />
       <ITaxiTypes />
     </View>
