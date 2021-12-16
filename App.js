@@ -45,9 +45,5 @@ export default function App() {
   //     Geolocation.requestForegroundPermissionsAsync();
   //   }
   // }, []);
-  return (
-    <NavigationContainer>
-      <RootNavigator />
-    </NavigationContainer>
-  );
+  return <RootNavigator />;
 }
