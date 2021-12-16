@@ -13,28 +13,20 @@ const Stack = createStackNavigator();
 
 const RootNavigator = (props) => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={
-          {
-            // headerShown: false,
-          }
-        }
-        //  initialRouteName={"DestinationSearch"}
-      >
-        <Stack.Screen
-          name={"Homeeee"}
-          component={HomeScreen}
-          //  options={{ title: "Home Screen" }}
-        />
-        {/* <Stack.Screen
-          name={"DestinationSearch"}
-          component={DestinationSearch}
-          options={{ title: "Home Screen" }}
-        />
-        <Stack.Screen name={"SearchResults"} component={SearchResults} /> */}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName={"DestinationSearch"}
+    >
+      <Stack.Screen name={"Home"} component={HomeScreen} />
+      <Stack.Screen
+        name={"DestinationSearch"}
+        component={DestinationSearch}
+        options={{ title: "Home Screen" }}
+      />
+      <Stack.Screen name={"SearchResults"} component={SearchResults} />
+    </Stack.Navigator>
   );
 };
 
