@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-itaxi-dev-161714-authRole",
+      "UnauthRoleArn": "arn:aws:iam::889382976572:role/amplify-itaxi-dev-161714-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::889382976572:role/amplify-itaxi-dev-161714-authRole",
+      "Region": "eu-west-3",
+      "DeploymentBucketName": "amplify-itaxi-dev-161714-deployment",
+      "UnauthRoleName": "amplify-itaxi-dev-161714-unauthRole",
+      "StackName": "amplify-itaxi-dev-161714",
+      "StackId": "arn:aws:cloudformation:eu-west-3:889382976572:stack/amplify-itaxi-dev-161714/df772030-5e7a-11ec-8f8a-06e7796eb1ec",
+      "AmplifyAppId": "d2o5240c9pibfw"
+    },
+    "categories": {
+      "auth": {
+        "itaxi64c53ad664c53ad6": {}
+      },
+      "function": {
+        "itaxi64c53ad664c53ad6PostConfirmation": {}
+      }
+    }
+  }
+}

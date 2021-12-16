@@ -7,6 +7,10 @@ import HomeScreen from "./src/screens/HomeScreen";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 
+import Amplify from "aws-amplify";
+import config from "./aws-exports";
+Amplify.configure(config);
+
 // import Geolocation from "@react-native-community/geolocation";
 // import { PermissionsAndroid, Platform } from "react-native";
 // import { AsyncStorage } from "react-native";

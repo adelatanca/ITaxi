@@ -1,0 +1,9 @@
+{
+  "function": {
+    "itaxi64c53ad664c53ad6PostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  }
+}

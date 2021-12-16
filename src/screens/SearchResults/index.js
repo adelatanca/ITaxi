@@ -9,7 +9,7 @@ import { useRoute } from "@react-navigation/native";
 const SearchResult = (props) => {
   const route = useRoute();
 
-  console.log(route.params);
+  console.log("Route params are ", route.params);
 
   const { originPlace, destinationPlace } = route.params;
 
