@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "itaxi",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authitaxi7ff407ce7ff407ce",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

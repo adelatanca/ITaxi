@@ -7,6 +7,13 @@ import HomeScreen from "./src/screens/HomeScreen";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 
+import { withAuthenticator } from "aws-amplify-react-native";
+import Amplify from "@aws-amplify/core";
+import Auth from "@aws-amplify/auth";
+import config from "./aws-exports";
+Amplify.configure(config);
+Auth.configure(config);
+
 // import Geolocation from "@react-native-community/geolocation";
 // import { PermissionsAndroid, Platform } from "react-native";
 // import { AsyncStorage } from "react-native";
@@ -14,7 +21,7 @@ import * as Location from "expo-location";
 
 // navigator.geolocation = require("@react-native-community/geolocation");
 
-export default function App() {
+const App = () => {
   // const androidPermission = async () => {
   //   try {
   //     const granted = await PermissionsAndroid.request(
@@ -46,4 +53,6 @@ export default function App() {
   //   }
   // }, []);
   return <RootNavigator />;
-}
+};
+
+export default withAuthenticator(App);
