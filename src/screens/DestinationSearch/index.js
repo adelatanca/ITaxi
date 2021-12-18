@@ -8,11 +8,11 @@ import { useNavigation } from "@react-navigation/native";
 
 const homePlace = {
   description: "Acasa",
-  geometry: { location: { latitude: 47.093271, longitude: 21.9024223 } },
+  geometry: { location: { lat: 47.093271, lng: 21.9024223 } },
 };
 const workPlace = {
   description: "Job",
-  geometry: { location: { latitude: 47.0606603, longitude: 21.9188051 } },
+  geometry: { location: { lat: 47.0606603, lng: 21.9188051 } },
 };
 
 const DestinationSearch = (props) => {
@@ -22,9 +22,7 @@ const DestinationSearch = (props) => {
   const navigation = useNavigation();
 
   const checkNavigation = () => {
-    console.warn("checkNavigation is called");
     if (originPlace && destinationPlace) {
-      console.warn("here");
       navigation.navigate("SearchResults", {
         originPlace,
         destinationPlace,
