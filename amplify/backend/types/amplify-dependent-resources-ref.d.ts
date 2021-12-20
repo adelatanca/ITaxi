@@ -20,6 +20,7 @@ export type AmplifyDependentResourcesAttributes = {
     },
     "api": {
         "itaxi": {
+            "GraphQLAPIKeyOutput": "string",
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         }

@@ -15,7 +15,6 @@ const HomeScreen = ({ navigation }) => {
       <HomeMap />
       <CovidMessage />
       <HomeSearch />
-      <ITaxiTypes />
     </View>
   );
 };

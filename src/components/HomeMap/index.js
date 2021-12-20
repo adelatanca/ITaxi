@@ -1,25 +1,43 @@
-import React from "react";
-import { Image, FlatList } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Image } from "react-native";
 import styles from "./styles";
-import cars from "../../assets/data/cars";
+// import cars from "../../assets/data/cars";
 
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 
+import { API, graphqlOperation } from "aws-amplify";
+import { listCars } from "../../graphql/queries";
+
 const HomeMap = (props) => {
+  const [cars, setCars] = useState([]);
+
+  useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const response = await API.graphql(graphqlOperation(listCars));
+        setCars(response.data.listCars.items);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    fetchCars();
+  }, []);
+
   const getImage = (type) => {
-    if (type === "UberX") {
+    if (type === "ITaxiX") {
       return require(`../../assets/images/top-UberX.png`);
     }
     if (type === "Comfort") {
       return require(`../../assets/images/top-Mercedes.png`);
     }
-    if (type === "UberXL") {
+    if (type === "ITaxiXL") {
       return require(`../../assets/images/top-UberXL.png`);
     }
   };
   return (
     <MapView
-      style={{ height: 450, width: "100%" }}
+      style={{ height: 350, width: "100%" }}
       provider={PROVIDER_GOOGLE}
       showsUserLocation={true}
       initialRegion={{

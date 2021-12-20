@@ -11,7 +11,12 @@ import { withAuthenticator } from "aws-amplify-react-native";
 import Amplify from "@aws-amplify/core";
 import Auth from "@aws-amplify/auth";
 import config from "./aws-exports";
-Amplify.configure(config);
+Amplify.configure({
+  ...config,
+  Analytics: {
+    disabled: true,
+  },
+});
 Auth.configure(config);
 
 // import Geolocation from "@react-native-community/geolocation";
@@ -52,7 +57,25 @@ const App = () => {
   //     Geolocation.requestForegroundPermissionsAsync();
   //   }
   // }, []);
-  return <RootNavigator />;
+
+  // const signOut = () => {
+  //   Auth.signOut()
+  //     .then(() => {
+  //       console.log("signed out");
+  //       props.onStateChange("signedOut", null);
+  //       console.log("sign out");
+  //     })
+  //     .catch((err) => {
+  //       console.log("err: ", err);
+  //     });
+  // };
+
+  return (
+    <RootNavigator />
+    // <Text onPress={signOut} style={{ marginTop: 50 }}>
+    //   Sign Out
+    // </Text>
+  );
 };
 
 export default withAuthenticator(App);
