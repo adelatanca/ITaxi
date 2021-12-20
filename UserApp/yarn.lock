@@ -8590,10 +8590,10 @@
     "prop-types" "^15.7.2"
     "yargs" "^16.1.1"
 
-"react-native-web@^0.17.1", "react-native-web@>= 0.11":
-  "integrity" "sha512-lUnn+2O8ynQ6/gJKylSxm7DLi2vHw6AujdDV1+LSa8Epe1bYFJNUcJTEhJf0jNYUFGOujzMtuG8Mkz3HdWTkag=="
-  "resolved" "https://registry.npmjs.org/react-native-web/-/react-native-web-0.17.1.tgz"
-  "version" "0.17.1"
+"react-native-web@^0.17.5", "react-native-web@>= 0.11":
+  "integrity" "sha512-pdieIZi2/YeVTaOuIaeaLC6FMkk8h3pvPNruedH+6cWiE15Oz6BGjJ+5IafdXEyiipb1Y0+QuecW81fa3DVM4g=="
+  "resolved" "https://registry.npmjs.org/react-native-web/-/react-native-web-0.17.5.tgz"
+  "version" "0.17.5"
   dependencies:
     "array-find-index" "^1.0.2"
     "create-react-class" "^15.7.0"
