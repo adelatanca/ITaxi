@@ -44,7 +44,16 @@
               "userPoolId": "authitaxi7ff407ce7ff407ce"
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "API_KEY",
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 7,
+                "apiKeyExpirationDate": "2021-12-27T09:56:32.912Z",
+                "description": ""
+              }
+            }
+          ]
         }
       }
     }

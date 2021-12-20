@@ -17,7 +17,6 @@ const HomeSearch = (props) => {
 
   return (
     <View>
-      {/*  Input Box */}
       <Pressable onPress={goToSearch} style={styles.inputBox}>
         <Text style={styles.inputText}>Where To?</Text>
 
@@ -27,16 +26,12 @@ const HomeSearch = (props) => {
           <MaterialIcons name={"keyboard-arrow-down"} size={16} />
         </View>
       </Pressable>
-
-      {/* Previous destination */}
       <View style={styles.row}>
         <View style={styles.iconContainer}>
           <AntDesign name={"clockcircle"} size={20} color={"#ffffff"} />
         </View>
         <Text style={styles.destinationText}>Spin Nightclub</Text>
       </View>
-
-      {/* Home destination */}
       <View style={styles.row}>
         <View style={[styles.iconContainer, { backgroundColor: "#218cff" }]}>
           <Entypo name={"home"} size={20} color={"#ffffff"} />

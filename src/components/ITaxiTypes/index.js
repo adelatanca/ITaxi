@@ -4,7 +4,12 @@ import styles from "./styles";
 import ITaxiTypeRow from "..//ITaxiTypeRow";
 import typesData from "../../assets/data/types";
 
-const ITaxiTypes = (props) => {
+const ITaxiTypes = ({ typeState, onSubmit }) => {
+  // console.log("Type state " + props.typeState);
+  const [selectedType, setSelectedType] = typeState;
+  //    isSelected={type.type === selectedType}
+  //         onPress={() => setSelectedType(type.type)}
+
   const confirm = () => {
     console.warn("confirm");
   };
@@ -12,11 +17,16 @@ const ITaxiTypes = (props) => {
   return (
     <View>
       {typesData.map((type, i) => (
-        <ITaxiTypeRow type={type} key={i} />
+        <ITaxiTypeRow
+          type={type}
+          key={type.id}
+          isSelected={type.type === selectedType}
+          onPress={() => setSelectedType(type.type)}
+        />
       ))}
 
       <Pressable
-        onPress={confirm}
+        onPress={onSubmit}
         style={{
           backgroundColor: "black",
           padding: 10,
@@ -25,8 +35,7 @@ const ITaxiTypes = (props) => {
         }}
       >
         <Text style={{ color: "white", fontWeight: "bold" }}>
-          {" "}
-          Confirm ITaxi{" "}
+          Confirm ITaxi
         </Text>
       </Pressable>
     </View>

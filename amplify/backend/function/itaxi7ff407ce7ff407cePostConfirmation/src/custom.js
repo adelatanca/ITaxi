@@ -3,6 +3,12 @@ var ddb = new aws.DynamoDB();
 
 exports.handler = async (event, context) => {
   let date = new Date();
+
+  // if (!event.request.userAttributes.sub) {
+  //   console.log("No user in DynamoDB");
+  //   context.done(null, event);
+  //   return;
+  // }
   if (event.request.userAttributes.sub) {
     let params = {
       Item: {

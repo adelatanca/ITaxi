@@ -1,7 +1,7 @@
 export default [
   {
     id: "0",
-    type: "UberX",
+    type: "ItaxiX",
     latitude: 47.0498,
     longitude: 21.9169,
     heading: 130,
@@ -15,7 +15,7 @@ export default [
   },
   {
     id: "2",
-    type: "UberXL",
+    type: "ITaxiXL",
     latitude: 47.0467,
     longitude: 21.9093,
     heading: 250,

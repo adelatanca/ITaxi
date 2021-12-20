@@ -18,6 +18,7 @@
     "amazon-cognito-identity-js": "^5.2.3",
     "aws-amplify": "^4.3.11",
     "aws-amplify-react-native": "^6.0.2",
+    "aws-sdk": "^2.1046.0",
     "expo": "~43.0.2",
     "expo-location": "~13.0.4",
     "expo-splash-screen": "~0.13.5",
