@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "itaxi",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/Adela/Workspace/ITaxi/amplify/backend/api/itaxi/schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authitaxi7ff407ce7ff407ce"
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "API_KEY",
+        "expirationTime": 7,
+        "apiKeyExpirationDate": "2021-12-27T09:56:32.912Z",
+        "keyDescription": ""
+      }
+    ]
+  }
+}

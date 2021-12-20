@@ -1,0 +1,17 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "itaxi7ff407ce7ff407ce",
+  "functionName": "itaxi7ff407ce7ff407cePostConfirmation",
+  "resourceName": "itaxi7ff407ce7ff407cePostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/opt/homebrew/lib/node_modules/@aws-amplify/cli/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "triggerEventPath": "PostConfirmation.event.json",
+  "roleName": "itaxi7ff407ce7ff407cePostConfirmation",
+  "skipEdit": true,
+  "enableCors": false
+}
