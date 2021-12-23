@@ -3,13 +3,13 @@ import {View, Text, Pressable, Image} from 'react-native';
 import {Entypo} from '@expo/vector-icons';
 import styles from './styles.js';
 
-const NewOrderPopup = () => {
-  const onDecline = () => {
-    console.warn('declined');
-  };
-  const onAccept = () => {
-    console.warn('accept');
-  };
+const NewOrderPopup = ({newOrder, onAccept, onDecline, duration, distance}) => {
+  // const onDecline = () => {
+  //   console.warn('declined');
+  // };
+  // const onAccept = () => {
+  //   console.warn('accept');
+  // };
 
   return (
     <View style={styles.root}>
@@ -19,19 +19,19 @@ const NewOrderPopup = () => {
 
       <Pressable onPress={onAccept} style={styles.popupContainer}>
         <View style={styles.row}>
-          <Text style={styles.uberType}> UberX </Text>
+          <Text style={styles.uberType}> {newOrder.type} </Text>
 
           <View style={styles.userBg}>
             <Entypo name={'user'} size={35} color={'white'} />
           </View>
 
           <Text style={styles.uberType}>
-            <Entypo name={'star'} size={20} />5
+            <Entypo name={'star'} size={20} /> {newOrder.user.rating}
           </Text>
         </View>
 
-        <Text style={styles.minutes}> 2 min </Text>
-        <Text style={styles.distance}>0.2 mi </Text>
+        <Text style={styles.minutes}> {duration} min </Text>
+        <Text style={styles.distance}>{distance} km</Text>
       </Pressable>
     </View>
   );
