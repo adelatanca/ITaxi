@@ -9,6 +9,7 @@ import NewOrderPopup from '../../components/NewOrderPopup';
 
 import {Auth, API, graphqlOperation} from 'aws-amplify';
 import {getCar} from '../../graphql/queries';
+import {listOrders} from '../../graphql/queries';
 import {updateCar} from '../../graphql/mutations';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
@@ -28,20 +29,36 @@ const HomeScreen = () => {
   const [order, setOrder] = useState(null);
   const [myPosition, setMyPosition] = useState(null);
 
-  const [newOrder, setNewOrder] = useState({
-    id: '1',
-    type: 'ITaxiX',
-    originLatitude: 37.785999,
-    originLongitude: -122.406417,
-    destLatitude: 37.79825,
-    destLongitude: -122.4324,
-    //    destLatitude: 37.787999,
-    // destLongitude: -122.406417,  for testing COMPLETE ITAXI RED btn
-    user: {
-      rating: 3.0,
-      name: 'Adela',
+  const [newOrders, setNewOrders] = useState([
+    {
+      id: '1',
+      type: 'ITaxiX',
+      originLatitude: 37.785999,
+      originLongitude: -122.406417,
+      destLatitude: 37.79825,
+      destLongitude: -122.4324,
+      //    destLatitude: 37.787999,
+      // destLongitude: -122.406417,  for testing COMPLETE ITAXI RED btn
+      user: {
+        rating: 3.0,
+        name: 'Adela',
+      },
     },
-  });
+    // {
+    //   id: '2',
+    //   type: 'Comfort',
+    //   originLatitude: 37.785999,
+    //   originLongitude: -122.406417,
+    //   destLatitude: 37.79825,
+    //   destLongitude: -122.4324,
+    //   //    destLatitude: 37.787999,
+    //   // destLongitude: -122.406417,  for testing COMPLETE ITAXI RED btn
+    //   user: {
+    //     rating: 3.0,
+    //     name: 'Maria',
+    //   },
+    // },
+  ]);
 
   const fetchCar = async () => {
     try {
@@ -51,6 +68,21 @@ const HomeScreen = () => {
         graphqlOperation(getCar, {id: userData.attributes.sub}),
       );
       setCar(carData.data.getCar);
+      console.log('Car is ', car);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const fetchOrders = async () => {
+    try {
+      const ordersData = await API.graphql(
+        graphqlOperation(
+          listOrders,
+          // {filter: {status: {eq: 'NEW'}}}
+        ),
+      );
+      setNewOrders(ordersData.data.listOrders.items);
     } catch (e) {
       console.log(e);
     }
@@ -58,17 +90,18 @@ const HomeScreen = () => {
 
   useEffect(() => {
     fetchCar();
+    fetchOrders();
   }, []);
 
   const onDecline = () => {
-    setNewOrder(null);
+    setNewOrders(newOrders.slice(1));
   };
 
   const onAccept = newOrder => {
     setOrder(newOrder);
-    console.log('order is ', order);
-    setNewOrder(null);
-    console.log('new order after null ', newOrder);
+    console.log('new order is ', newOrder);
+    //  console.log(' order is ', order);
+    setNewOrders(newOrders.slice(1));
   };
 
   const onGoPress = async () => {
@@ -89,12 +122,35 @@ const HomeScreen = () => {
     }
   };
 
-  const onUserLocationChange = event => {
-    console.log(event.nativeEvent.coordinate);
-    setMyPosition(event.nativeEvent.coordinate);
+  const onUserLocationChange = async event => {
+    console.log('event dist ', event.distance);
+    console.log('event native', event.nativeEvent.coordinate);
+    // setMyPosition(event.nativeEvent.coordinate);
+
+    const {latitude, longitude, heading} = event.nativeEvent.coordinate;
+
+    try {
+      const userData = await Auth.currentAuthenticatedUser();
+
+      const input = {
+        id: userData.attributes.sub,
+        latitude,
+        longitude,
+        heading,
+      };
+
+      const updatedCar = await API.graphql(
+        graphqlOperation(updateCar, {input}),
+      );
+      setCar(updatedCar.data.updateCar);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const onDirectionFound = event => {
+    console.log(' order is ', order);
+    console.log('event dist ', event.distance);
     if (order) {
       setOrder({
         ...order,
@@ -120,6 +176,7 @@ const HomeScreen = () => {
   };
 
   const renderBottomTitle = () => {
+    // console.log(' order is ', order);
     if (order && order.isFinished) {
       return (
         <View style={{alignItems: 'center'}}>
@@ -136,7 +193,7 @@ const HomeScreen = () => {
               Complete {order.type}{' '}
             </Text>
           </View>
-          <Text style={styles.bottomText}> {order.user.name}</Text>
+          <Text style={styles.bottomText}> {order.username}</Text>
         </View>
       );
     }
@@ -161,7 +218,7 @@ const HomeScreen = () => {
             </View>
             <Text> {order.distance ? order.distance.toFixed(2) : '?'} km</Text>
           </View>
-          <Text style={styles.bottomText}>Dropping off {order.user.name}</Text>
+          <Text style={styles.bottomText}>Dropping off {order.username}</Text>
         </View>
       );
     }
@@ -185,7 +242,7 @@ const HomeScreen = () => {
             </View>
             <Text> {order.distance ? order.distance.toFixed(2) : '?'} km</Text>
           </View>
-          <Text style={styles.bottomText}>Picking up {order.user.name}</Text>
+          <Text style={styles.bottomText}>Picking up {order.username}</Text>
         </View>
       );
     }
@@ -211,7 +268,11 @@ const HomeScreen = () => {
         }}>
         {order && (
           <MapViewDirections
-            origin={myPosition}
+            origin={{
+              latitude: car?.latitude,
+              longitude: car?.longitude,
+            }}
+            // origin={myPosition}
             onReady={onDirectionFound}
             destination={getDestination()}
             apikey={GOOGLE_MAPS_APIKEY}
@@ -267,13 +328,13 @@ const HomeScreen = () => {
         <Entypo name={'menu'} size={35} color={'grey'} />
       </View>
 
-      {newOrder && (
+      {newOrders.length > 0 && !order && (
         <NewOrderPopup
-          newOrder={newOrder}
+          newOrder={newOrders[0]}
           duration={2}
           distance={1.4}
           onDecline={onDecline}
-          onAccept={() => onAccept(newOrder)}
+          onAccept={() => onAccept(newOrders[0])}
         />
       )}
     </View>

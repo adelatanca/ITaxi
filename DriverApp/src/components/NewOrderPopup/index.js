@@ -26,7 +26,7 @@ const NewOrderPopup = ({newOrder, onAccept, onDecline, duration, distance}) => {
           </View>
 
           <Text style={styles.uberType}>
-            <Entypo name={'star'} size={20} /> {newOrder.user.rating}
+            <Entypo name={'star'} size={20} /> {newOrder.user?.rating}
           </Text>
         </View>
 
