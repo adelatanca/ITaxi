@@ -15,13 +15,13 @@ import {updateCar} from '../../graphql/mutations';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
 
 const originLocation = {
-  latitude: 37.78825,
-  longitude: -122.4324,
+  latitude: 47.093271,
+  longitude: 21.9024223,
 };
 
 const destinationLocation = {
-  latitude: 37.771707,
-  longitude: -122.4053769,
+  latitude: 47.0411391,
+  longitude: 21.9259096,
 };
 
 const HomeScreen = () => {
@@ -30,20 +30,20 @@ const HomeScreen = () => {
   const [myPosition, setMyPosition] = useState(null);
 
   const [newOrders, setNewOrders] = useState([
-    {
-      id: '1',
-      type: 'ITaxiX',
-      originLatitude: 37.785999,
-      originLongitude: -122.406417,
-      destLatitude: 37.79825,
-      destLongitude: -122.4324,
-      //    destLatitude: 37.787999,
-      // destLongitude: -122.406417,  for testing COMPLETE ITAXI RED btn
-      user: {
-        rating: 3.0,
-        name: 'Adela',
-      },
-    },
+    // {
+    //   id: '1',
+    //   type: 'ITaxiX',
+    //   originLatitude: 37.785999,
+    //   originLongitude: -122.406417,
+    //   destLatitude: 37.79825,
+    //   destLongitude: -122.4324,
+    //   //    destLatitude: 37.787999,
+    //   // destLongitude: -122.406417,  for testing COMPLETE ITAXI RED btn
+    //   user: {
+    //     rating: 3.0,
+    //     name: 'Adela',
+    //   },
+    // },
     // {
     //   id: '2',
     //   type: 'Comfort',
@@ -262,8 +262,8 @@ const HomeScreen = () => {
         showsUserLocation={true}
         onUserLocationChange={onUserLocationChange}
         initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: 47.0411391,
+          longitude: 21.9259096,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}>
