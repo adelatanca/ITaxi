@@ -43,6 +43,8 @@ const App = () => {
     updateUserCar();
   }, []);
 
+  //Auth.signOut();
+
   return (
     <SafeAreaView>
       <StatusBar />

@@ -7,6 +7,10 @@ import {Ionicons} from '@expo/vector-icons';
 import styles from './styles';
 import NewOrderPopup from '../../components/NewOrderPopup';
 
+import {Auth, API, graphqlOperation} from 'aws-amplify';
+import {getCar} from '../../graphql/queries';
+import {updateCar} from '../../graphql/mutations';
+
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
 
 const originLocation = {
@@ -20,7 +24,7 @@ const destinationLocation = {
 };
 
 const HomeScreen = () => {
-  const [isOnline, setIsOnline] = useState(false);
+  const [car, setCar] = useState(null);
   const [order, setOrder] = useState(null);
   const [myPosition, setMyPosition] = useState(null);
 
@@ -39,6 +43,23 @@ const HomeScreen = () => {
     },
   });
 
+  const fetchCar = async () => {
+    try {
+      const userData = await Auth.currentAuthenticatedUser();
+
+      const carData = await API.graphql(
+        graphqlOperation(getCar, {id: userData.attributes.sub}),
+      );
+      setCar(carData.data.getCar);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    fetchCar();
+  }, []);
+
   const onDecline = () => {
     setNewOrder(null);
   };
@@ -50,8 +71,22 @@ const HomeScreen = () => {
     console.log('new order after null ', newOrder);
   };
 
-  const onGoPress = () => {
-    setIsOnline(!isOnline);
+  const onGoPress = async () => {
+    try {
+      const userData = await Auth.currentAuthenticatedUser();
+
+      const input = {
+        id: userData.attributes.sub,
+        isActive: !car.isActive,
+      };
+
+      const updatedCar = await API.graphql(
+        graphqlOperation(updateCar, {input}),
+      );
+      setCar(updatedCar.data.updateCar);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const onUserLocationChange = event => {
@@ -155,7 +190,7 @@ const HomeScreen = () => {
       );
     }
 
-    if (isOnline) {
+    if (car?.isActive) {
       return <Text style={styles.bottomText}> You're online</Text>;
     } else {
       return <Text style={styles.bottomText}> You're offline</Text>;
@@ -223,7 +258,7 @@ const HomeScreen = () => {
       </Pressable>
 
       <Pressable onPress={onGoPress} style={styles.goButton}>
-        <Text style={styles.goText}>{isOnline ? 'END' : 'GO'}</Text>
+        <Text style={styles.goText}>{car?.isActive ? 'END' : 'GO'}</Text>
       </Pressable>
 
       <View style={styles.bottomContainer}>
