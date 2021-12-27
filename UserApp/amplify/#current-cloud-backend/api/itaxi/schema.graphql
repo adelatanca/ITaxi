@@ -20,6 +20,7 @@ type User
   email: String!
 
   orders: [Order] @hasMany
+  car: Car
 }
 
 type Car
@@ -39,8 +40,13 @@ type Car
   latitude: Float
   longitude: Float
   heading: Float
+  carNumber: String
+  isActive: Boolean
 
   orders: [Order] @hasMany
+
+  userId: ID! @index(name: "byUser")
+  user: User @hasOne
 }
 
 type Order
@@ -56,9 +62,10 @@ type Order
     ]
   ) {
   id: ID!
-  createdAt: ID!
+  createdAt: String!
 
   type: String!
+  status: String
 
   originLatitude: Float!
   originLongitude: Float!
