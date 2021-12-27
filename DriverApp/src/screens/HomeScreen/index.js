@@ -123,7 +123,6 @@ const HomeScreen = () => {
   };
 
   const onUserLocationChange = async event => {
-    console.log('event dist ', event.distance);
     console.log('event native', event.nativeEvent.coordinate);
     // setMyPosition(event.nativeEvent.coordinate);
 
@@ -150,7 +149,7 @@ const HomeScreen = () => {
 
   const onDirectionFound = event => {
     console.log(' order is ', order);
-    console.log('event dist ', event.distance);
+    console.log('event is ', event);
     if (order) {
       setOrder({
         ...order,
@@ -224,6 +223,8 @@ const HomeScreen = () => {
     }
 
     if (order) {
+      console.log(order);
+      console.log('is ordeeer');
       return (
         <View style={{alignItems: 'center'}}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -274,6 +275,10 @@ const HomeScreen = () => {
             }}
             // origin={myPosition}
             onReady={onDirectionFound}
+            onError={errorMessage => {
+              console.log(errorMessage);
+            }}
+            lineDashPattern={[0]}
             destination={getDestination()}
             apikey={GOOGLE_MAPS_APIKEY}
             strokeColor="pink"

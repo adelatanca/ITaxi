@@ -8,7 +8,12 @@ import {withAuthenticator} from 'aws-amplify-react-native';
 import {getCarId} from './src/graphql/queries';
 import {createCar} from './src/graphql/mutations';
 
-Amplify.configure(config);
+Amplify.configure({
+  ...config,
+  Analytics: {
+    disabled: true,
+  },
+});
 
 const App = () => {
   useEffect(() => {
