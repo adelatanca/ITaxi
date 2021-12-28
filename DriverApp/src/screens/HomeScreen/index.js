@@ -10,7 +10,7 @@ import NewOrderPopup from '../../components/NewOrderPopup';
 import {Auth, API, graphqlOperation} from 'aws-amplify';
 import {getCar} from '../../graphql/queries';
 import {listOrders} from '../../graphql/queries';
-import {updateCar} from '../../graphql/mutations';
+import {updateCar, updateOrder} from '../../graphql/mutations';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
 
@@ -77,10 +77,7 @@ const HomeScreen = () => {
   const fetchOrders = async () => {
     try {
       const ordersData = await API.graphql(
-        graphqlOperation(
-          listOrders,
-          // {filter: {status: {eq: 'NEW'}}}
-        ),
+        graphqlOperation(listOrders, {filter: {status: {eq: 'NEW'}}}),
       );
       setNewOrders(ordersData.data.listOrders.items);
     } catch (e) {
@@ -97,10 +94,20 @@ const HomeScreen = () => {
     setNewOrders(newOrders.slice(1));
   };
 
-  const onAccept = newOrder => {
-    setOrder(newOrder);
-    console.log('new order is ', newOrder);
-    //  console.log(' order is ', order);
+  const onAccept = async newOrder => {
+    try {
+      const input = {
+        id: newOrder.id,
+        status: 'PICKING_UP_CLIENT',
+        carId: car.id,
+      };
+      const orderData = await API.graphql(
+        graphqlOperation(updateOrder, {input}),
+      );
+      setOrder(orderData.data.updateOrder);
+    } catch (e) {
+      console.log(e);
+    }
     setNewOrders(newOrders.slice(1));
   };
 
@@ -149,14 +156,14 @@ const HomeScreen = () => {
 
   const onDirectionFound = event => {
     console.log(' order is ', order);
-    console.log('event is ', event);
+    // console.log('event is ', event);
     if (order) {
       setOrder({
         ...order,
         distance: event.distance,
         duration: event.duration,
-        pickedUp: order.pickedUp || event.distance < 1.5,
-        isFinished: order.pickedUp && event.distance < 1.5,
+        pickedUp: order.pickedUp || event.distance < 1,
+        isFinished: order.pickedUp && event.distance < 1,
       });
     }
   };
@@ -197,8 +204,8 @@ const HomeScreen = () => {
       );
     }
 
-    if (order && order.pickedUp) {
-      console.log('order picked up red ', order.pickedUp);
+    if (order && order.pickedUp != true) {
+      console.log('order username is', order.username);
       return (
         <View style={{alignItems: 'center'}}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -224,7 +231,7 @@ const HomeScreen = () => {
 
     if (order) {
       console.log(order);
-      console.log('is ordeeer');
+      console.log('is ordeer');
       return (
         <View style={{alignItems: 'center'}}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>

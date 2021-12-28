@@ -48,13 +48,14 @@ const SearchResult = (props) => {
           input: input,
         })
       );
-      console.log(response);
-      Alert.alert("Yeey!", "Your order has been placed!", [
-        {
-          text: "Go home",
-          onPress: () => navigation.navigate("Home"),
-        },
-      ]);
+      // console.log(response);
+      // Alert.alert("Yeey!", "Your order has been placed!", [
+      //   {
+      //     text: "Go home",
+      //     onPress: () => navigation.navigate("Home"),
+      //   },
+      // ]);
+      navigation.navigate("OrderPage", { id: response.data.createOrder.id });
     } catch (error) {
       console.error(error);
     }

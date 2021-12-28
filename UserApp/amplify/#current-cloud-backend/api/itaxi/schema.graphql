@@ -3,6 +3,10 @@
 input AMPLIFY {
   globalAuthRule: AuthRule = { allow: public }
 } # FOR TESTING ONLY!
+schema {
+  query: Query
+  subscription: Subscription
+}
 type User
   @model
   @auth(
@@ -78,4 +82,8 @@ type Order
 
   carId: ID! @index(name: "byCar", sortKeyFields: ["createdAt"])
   car: Car @hasOne
+}
+type Subscription {
+  onOrderUpdated(id: ID!): Order @aws_subscribe(mutations: ["updateOrder"])
+  onCarUpdated(id: ID!): Car @aws_subscribe(mutations: ["updateCar"])
 }
