@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Pressable, Appearance } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
@@ -22,6 +22,10 @@ const DummyScreen = (props) => (
 );
 
 const RootNavigator = (props) => {
+  const [theme, setTheme] = useState(Appearance.getColorScheme());
+  Appearance.addChangeListener((scheme) => {
+    setTheme(scheme.colorScheme);
+  });
   return (
     <NavigationContainer>
       <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />}>

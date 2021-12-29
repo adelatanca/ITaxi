@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Image } from "react-native";
+import { Image, Appearance, useColorScheme } from "react-native";
 import styles from "./styles";
 // import cars from "../../assets/data/cars";
+
+import mapDarkStyle from "../../assets/data/mapDarkStyle";
 
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 
@@ -10,6 +12,8 @@ import { listCars } from "../../graphql/queries";
 
 const HomeMap = (props) => {
   const [cars, setCars] = useState([]);
+
+  let colorScheme = useColorScheme();
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -40,6 +44,7 @@ const HomeMap = (props) => {
       style={{ height: 350, width: "100%" }}
       provider={PROVIDER_GOOGLE}
       showsUserLocation={true}
+      customMapStyle={colorScheme == "light" ? [] : mapDarkStyle}
       initialRegion={{
         latitude: 47.046501,
         longitude: 21.918943,

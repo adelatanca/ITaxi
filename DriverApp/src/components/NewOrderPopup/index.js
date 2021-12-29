@@ -14,7 +14,7 @@ const NewOrderPopup = ({newOrder, onAccept, onDecline, duration, distance}) => {
   return (
     <View style={styles.root}>
       <Pressable onPress={onDecline} style={styles.declineButton}>
-        <Text style={styles.declineText}>Decline </Text>
+        <Text style={styles.declineText}>Refuza </Text>
       </Pressable>
 
       <Pressable onPress={onAccept} style={styles.popupContainer}>

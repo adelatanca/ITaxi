@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Dimensions, Alert } from "react-native";
+import { View, Text, Dimensions, Alert, TouchableOpacity } from "react-native";
 // import styles from "./styles";
 import OrderMap from "../../components/OrderMap";
 import { API, graphqlOperation } from "aws-amplify";
@@ -80,10 +80,9 @@ const OrderScreen = (props) => {
 
   return (
     <View>
-      <View style={{ height: Dimensions.get("window").height - 400 }}>
+      <View style={{ height: Dimensions.get("window").height - 300 }}>
         <OrderMap car={car} />
       </View>
-
       <View>
         <Text>Order status: {order?.status} </Text>
       </View>

@@ -3,6 +3,9 @@ import React from "react";
 import MapViewDirections from "react-native-maps-directions";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 
+import { Appearance, useColorScheme } from "react-native";
+import mapDarkStyle from "../../assets/data/mapDarkStyle";
+
 const GOOGLE_MAPS_APIKEY = "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk";
 
 const RouteMap = ({ origin, destination }) => {
@@ -16,10 +19,13 @@ const RouteMap = ({ origin, destination }) => {
     longitude: destination.details.geometry.location.lng,
   };
 
+  let colorScheme = useColorScheme();
+
   return (
     <MapView
       style={{ height: 450, width: "100%" }}
       provider={PROVIDER_GOOGLE}
+      customMapStyle={colorScheme == "light" ? [] : mapDarkStyle}
       showsUserLocation={true}
       initialRegion={{
         latitude: 47.0416,

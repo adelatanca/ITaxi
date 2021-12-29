@@ -38,14 +38,14 @@ const styles = StyleSheet.create({
 
   balanceButton: {
     position: 'absolute',
-    backgroundColor: '#1c1c1c',
-    width: 100,
+    backgroundColor: '#a3a9afbf',
+    width: 150,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 50,
     top: 10,
-    left: Dimensions.get('window').width / 2 - 50,
+    left: Dimensions.get('window').width / 2 - 70,
   },
   balanceText: {
     fontSize: 24,

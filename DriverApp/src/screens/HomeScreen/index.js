@@ -1,6 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, Dimensions, Pressable} from 'react-native';
-import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import React, {useState, useEffect, useRef} from 'react';
+import {
+  View,
+  Text,
+  Dimensions,
+  Pressable,
+  Appearance,
+  Button,
+  useColorScheme,
+} from 'react-native';
+import MapView, {
+  PROVIDER_GOOGLE,
+  Marker,
+  AnimatedRegion,
+} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import {Entypo} from '@expo/vector-icons';
 import {Ionicons} from '@expo/vector-icons';
@@ -11,6 +23,9 @@ import {Auth, API, graphqlOperation} from 'aws-amplify';
 import {getCar} from '../../graphql/queries';
 import {listOrders} from '../../graphql/queries';
 import {updateCar, updateOrder} from '../../graphql/mutations';
+import mapDarkStyle from '../../assets/data/mapDarkStyle';
+
+import {getDistance} from 'geolib';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
 
@@ -28,6 +43,8 @@ const HomeScreen = () => {
   const [car, setCar] = useState(null);
   const [order, setOrder] = useState(null);
   const [myPosition, setMyPosition] = useState(null);
+
+  const [distance, setDistance] = useState(null);
 
   const [newOrders, setNewOrders] = useState([
     // {
@@ -60,6 +77,30 @@ const HomeScreen = () => {
     // },
   ]);
 
+  const mapRef = useRef(null);
+  const [region, setRegion] = useState(null);
+
+  let colorScheme = useColorScheme();
+
+  const calculateDistance = () => {
+    console.log('calc dist is called');
+    if (newOrders[0]) {
+      var dis = getDistance(
+        {
+          latitude: newOrders[0].originLatitude,
+          longitude: newOrders[0].originLongitude,
+        },
+        {
+          latitude: newOrders[0].destLatitude,
+          longitude: newOrders[0].destLongitude,
+        },
+      );
+      dis = dis / 1000;
+      setDistance(dis);
+      console.log(dis);
+    }
+  };
+
   const fetchCar = async () => {
     try {
       const userData = await Auth.currentAuthenticatedUser();
@@ -91,6 +132,7 @@ const HomeScreen = () => {
   }, []);
 
   const onDecline = () => {
+    //  console.log(newOrders);
     setNewOrders(newOrders.slice(1));
   };
 
@@ -131,7 +173,7 @@ const HomeScreen = () => {
 
   const onUserLocationChange = async event => {
     console.log('event native', event.nativeEvent.coordinate);
-    // setMyPosition(event.nativeEvent.coordinate);
+    setMyPosition(event.nativeEvent.coordinate);
 
     const {latitude, longitude, heading} = event.nativeEvent.coordinate;
 
@@ -154,9 +196,20 @@ const HomeScreen = () => {
     }
   };
 
+  const currentLocation = {
+    latitude: myPosition.latitude,
+    longitude: myPosition.longitude,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+  };
+  const goToCurrentLocation = () => {
+    //complete this animation in 3 seconds
+    mapRef.current.animateToRegion(currentLocation, 3 * 1000);
+  };
+
   const onDirectionFound = event => {
     console.log(' order is ', order);
-    // console.log('event is ', event);
+    console.log('event is ', event.distance);
     if (order) {
       setOrder({
         ...order,
@@ -204,7 +257,7 @@ const HomeScreen = () => {
       );
     }
 
-    if (order && order.pickedUp != true) {
+    if (order && order.pickedUp) {
       console.log('order username is', order.username);
       return (
         <View style={{alignItems: 'center'}}>
@@ -261,19 +314,23 @@ const HomeScreen = () => {
       return <Text style={styles.bottomText}> You're offline</Text>;
     }
   };
+
   return (
     <View>
       <MapView
+        ref={mapRef}
         style={{height: Dimensions.get('window').height - 150, width: '100%'}}
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}
+        customMapStyle={colorScheme == 'light' ? [] : mapDarkStyle}
         onUserLocationChange={onUserLocationChange}
         initialRegion={{
           latitude: 47.0411391,
           longitude: 21.9259096,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
-        }}>
+        }}
+        onRegionChangeComplete={region => setRegion(region)}>
         {order && (
           <MapViewDirections
             origin={{
@@ -301,7 +358,7 @@ const HomeScreen = () => {
         onPress={() => console.warn('Balance')}
         style={styles.balanceButton}>
         <Text style={styles.balanceText}>
-          <Text style={{color: 'green'}}>$</Text>
+          <Text style={{color: 'green'}}>LEI </Text>
           0.00
         </Text>
       </Pressable>
@@ -325,9 +382,9 @@ const HomeScreen = () => {
       </Pressable>
 
       <Pressable
-        onPress={() => console.warn('hey')}
+        onPress={() => goToCurrentLocation()}
         style={[styles.roundButton, {bottom: 110, right: 10}]}>
-        <Entypo name={'menu'} size={35} color={'grey'} />
+        <Entypo name={'direction'} size={35} color={'grey'} />
       </Pressable>
 
       <Pressable onPress={onGoPress} style={styles.goButton}>
@@ -343,9 +400,10 @@ const HomeScreen = () => {
       {newOrders.length > 0 && !order && (
         <NewOrderPopup
           newOrder={newOrders[0]}
-          duration={2}
-          distance={1.4}
-          onDecline={onDecline}
+          //   duration={orderDuration}
+          distance={distance}
+          //  onDecline={onDecline}
+          onDecline={calculateDistance}
           onAccept={() => onAccept(newOrders[0])}
         />
       )}

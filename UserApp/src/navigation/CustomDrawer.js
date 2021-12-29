@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, Switch } from "react-native";
 import styles from "./styles";
 import {
   DrawerContentScrollView,
@@ -56,16 +56,6 @@ const CustomDrawer = (props) => {
         >
           <Text style={{ color: "#dddddd", paddingVertical: 5 }}>
             Do more with your account
-          </Text>
-        </Pressable>
-
-        <Pressable
-          onPress={() => {
-            console.log("make money driving");
-          }}
-        >
-          <Text style={{ color: "white", paddingVertical: 5 }}>
-            Make money driving{" "}
           </Text>
         </Pressable>
       </View>
