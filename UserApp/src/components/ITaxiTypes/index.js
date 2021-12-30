@@ -4,15 +4,16 @@ import styles from "./styles";
 import ITaxiTypeRow from "..//ITaxiTypeRow";
 import typesData from "../../assets/data/types";
 
-const ITaxiTypes = ({ typeState, onSubmit }) => {
+const ITaxiTypes = ({ typeState, onSubmit, hours, minutes, km }) => {
   // console.log("Type state " + props.typeState);
   const [selectedType, setSelectedType] = typeState;
-  //    isSelected={type.type === selectedType}
-  //         onPress={() => setSelectedType(type.type)}
 
   const confirm = () => {
     console.warn("confirm");
   };
+  console.log("hours from taxi types", hours);
+
+  console.log("minutes from taxi types", minutes);
 
   return (
     <View>
@@ -20,6 +21,9 @@ const ITaxiTypes = ({ typeState, onSubmit }) => {
         <ITaxiTypeRow
           type={type}
           key={type.id}
+          hours={hours}
+          minutes={minutes}
+          km={km}
           isSelected={type.type === selectedType}
           onPress={() => setSelectedType(type.type)}
         />

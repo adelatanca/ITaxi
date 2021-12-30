@@ -7,7 +7,7 @@ const OrderMap = ({ car }) => {
     if (type === "ITaxiX") {
       return require(`../../assets/images/top-UberX.png`);
     }
-    if (type === "Comfort") {
+    if (type === "Confort") {
       return require(`../../assets/images/top-Mercedes.png`);
     }
     if (type === "ITaxiXL") {

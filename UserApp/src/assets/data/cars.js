@@ -8,7 +8,7 @@ export default [
   },
   {
     id: "1",
-    type: "Comfort",
+    type: "Confort",
     latitude: 47.0557,
     longitude: 21.9276,
     heading: 0,
@@ -22,7 +22,7 @@ export default [
   },
   {
     id: "3",
-    type: "Comfort",
+    type: "Confort",
     latitude: 47.046534,
     longitude: 21.918958,
     heading: 30,

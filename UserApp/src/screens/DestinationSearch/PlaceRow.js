@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
+import AntDesign from "react-native-vector-icons/AntDesign";
 import styles from "./styles";
 const PlaceRow = ({ data }) => {
   return (
@@ -8,14 +9,31 @@ const PlaceRow = ({ data }) => {
       <View style={styles.iconContainer}>
         {(() => {
           if (data.description == "Acasa") {
-            return <Entypo name="home" size={20} color={"yellow"} />;
+            return (
+              <View
+                style={[styles.iconContainer, { backgroundColor: "#218cff" }]}
+              >
+                <Entypo name="home" size={25} color={"white"} />
+              </View>
+            );
           } else if (data.description == "Job")
-            return <Entypo name="laptop" size={20} color={"#f321ff"} />;
-          else return <Entypo name="location" size={20} color={"white"} />;
+            return (
+              <View style={[styles.iconContainer]}>
+                <AntDesign name="laptop" size={25} color={"white"} />
+              </View>
+            );
+          else
+            return (
+              <View
+                style={[styles.iconContainer, { backgroundColor: "#b5e3b269" }]}
+              >
+                <Entypo name="location-pin" size={25} color={"#28ed1df7"} />
+              </View>
+            );
         })()}
       </View>
       <Text style={styles.locationText}>
-        {data.description || data.vicinity}{" "}
+        {data.description || data.vicinity}
       </Text>
     </View>
   );

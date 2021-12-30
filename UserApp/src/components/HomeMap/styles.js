@@ -7,6 +7,12 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },
+  roundButton: {
+    position: "absolute",
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 25,
+  },
 });
 
 export default styles;

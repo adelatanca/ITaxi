@@ -7,9 +7,7 @@ const CovidMessage = (props) => {
     <View style={styles.container}>
       <Text style={styles.title}>Calatoreste doar daca este necesar! </Text>
       <Text style={styles.text}>
-        This method has the advantage of fonts being copied from this module at
-        build time so that the fonts and JS are always in sync, making upgrades
-        painless.{" "}
+        Cu noi poti sa calatoresti in siguranta :){" "}
       </Text>
       <Text style={styles.learnMore}>Ai grija de sanatatea ta! </Text>
     </View>

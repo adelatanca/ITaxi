@@ -69,7 +69,7 @@ const CustomDrawer = (props) => {
       >
         <Text
           style={{
-            color: "black",
+            color: "grey",
             padding: 5,
             paddingLeft: 20,
             marginTop: 20,

@@ -197,8 +197,8 @@ const HomeScreen = () => {
   };
 
   const currentLocation = {
-    latitude: myPosition.latitude,
-    longitude: myPosition.longitude,
+    latitude: myPosition?.latitude,
+    longitude: myPosition?.longitude,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   };

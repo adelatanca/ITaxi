@@ -3,14 +3,28 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     height: "100%",
+    top: 50,
+  },
+  close: {
+    fontSize: 10,
+    marginHorizontal: 7,
+    bottom: 30,
+    fontWeight: "bold",
+  },
+  setDestination: {
+    color: "black",
+    fontSize: 20,
+    marginHorizontal: 120,
+    bottom: 55,
+    fontWeight: "bold",
   },
   textInput: {
     padding: 10,
-    backgroundColor: "#eee",
+    backgroundColor: "#4dcb4d94",
     marginVertical: 5,
     marginLeft: 20,
+    borderRadius: 10,
   },
-
   separator: {
     backgroundColor: "#efefef",
     height: 1,
@@ -37,32 +51,35 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginRight: 15,
   },
-  locationText: {},
+  locationText: { marginLeft: 5 },
 
   circle: {
-    width: 7,
-    height: 7,
-    backgroundColor: "red",
+    width: 10,
+    height: 10,
+    backgroundColor: "#75eb75",
     position: "absolute",
-    top: 20,
-    left: 15,
+    top: 17,
+    left: 14,
     borderRadius: 5,
   },
   line: {
     width: 3,
     height: 50,
-    backgroundColor: "#c4c4c4",
+    backgroundColor: "#8b87938c",
     position: "absolute",
     top: 28,
     left: 17,
   },
-  square: {
-    width: 7,
-    height: 7,
-    backgroundColor: "red",
+  pin: {
+    color: "#4d8beb",
     position: "absolute",
-    top: 80,
-    left: 15,
+    top: 77,
+    left: 8,
+  },
+  iconContainer: {
+    backgroundColor: "#b3b3b3",
+    padding: 3,
+    borderRadius: 25,
   },
 });
 

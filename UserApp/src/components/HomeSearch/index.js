@@ -18,7 +18,10 @@ const HomeSearch = (props) => {
   return (
     <View>
       <Pressable onPress={goToSearch} style={styles.inputBox}>
-        <Text style={styles.inputText}>Where To?</Text>
+        <View style={styles.iconContainer}>
+          <AntDesign name={"search1"} size={20} color={"#ffffff"} />
+        </View>
+        <Text style={styles.inputText}>Incotro?</Text>
 
         <View style={styles.timeContainer}>
           <AntDesign name={"clockcircle"} size={16} color={"#535353"} />
@@ -28,15 +31,15 @@ const HomeSearch = (props) => {
       </Pressable>
       <View style={styles.row}>
         <View style={styles.iconContainer}>
-          <AntDesign name={"clockcircle"} size={20} color={"#ffffff"} />
+          <Entypo name={"location-pin"} size={20} color={"#ffffff"} />
         </View>
-        <Text style={styles.destinationText}>Spin Nightclub</Text>
+        <Text style={styles.destinationText}>Loc anterioara 1</Text>
       </View>
       <View style={styles.row}>
         <View style={[styles.iconContainer, { backgroundColor: "#218cff" }]}>
-          <Entypo name={"home"} size={20} color={"#ffffff"} />
+          <Entypo name={"location-pin"} size={20} color={"#ffffff"} />
         </View>
-        <Text style={styles.destinationText}>Spin Nightclub</Text>
+        <Text style={styles.destinationText}>Loc anterioara 2</Text>
       </View>
     </View>
   );
