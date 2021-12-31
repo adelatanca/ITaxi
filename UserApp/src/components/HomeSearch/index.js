@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Pressable } from "react-native";
 
 import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import styles from "./styles.js";
 
 const HomeSearch = (props) => {
+  const [prevLocation, setPrevLocation] = useState(null);
   const navigation = useNavigation();
 
   const goToSearch = () => {
     navigation.navigate("DestinationSearch");
   };
+
+  const getValue = () => {
+    AsyncStorage.getItem("destination").then((value) => {
+      setPrevLocation(value);
+    });
+  };
+
+  useEffect(() => {
+    getValue();
+  });
 
   return (
     <View>
@@ -33,7 +45,7 @@ const HomeSearch = (props) => {
         <View style={styles.iconContainer}>
           <Entypo name={"location-pin"} size={20} color={"#ffffff"} />
         </View>
-        <Text style={styles.destinationText}>Loc anterioara 1</Text>
+        <Text style={styles.destinationText}>{prevLocation}</Text>
       </View>
       <View style={styles.row}>
         <View style={[styles.iconContainer, { backgroundColor: "#218cff" }]}>

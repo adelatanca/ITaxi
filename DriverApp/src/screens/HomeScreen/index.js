@@ -402,8 +402,8 @@ const HomeScreen = () => {
           newOrder={newOrders[0]}
           //   duration={orderDuration}
           distance={distance}
-          //  onDecline={onDecline}
-          onDecline={calculateDistance}
+          onDecline={onDecline}
+          //  onDecline={calculateDistance}
           onAccept={() => onAccept(newOrders[0])}
         />
       )}

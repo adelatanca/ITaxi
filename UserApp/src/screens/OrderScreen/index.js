@@ -14,46 +14,45 @@ const OrderScreen = (props) => {
   const [order, setOrder] = useState(null);
 
   const route = useRoute();
+  console.log(route.params.id);
 
-  console.log(route.params?.id);
-
+  // Fetch order on initial render
   useEffect(() => {
     const fetchOrder = async () => {
       try {
         const orderData = await API.graphql(
-          graphqlOperation(getOrder, {
-            id: route.params.id,
-          })
+          graphqlOperation(getOrder, { id: route.params.id })
         );
+
         setOrder(orderData.data.getOrder);
+        console.log(order, "is order");
       } catch (e) {}
     };
     fetchOrder();
   }, []);
 
+  // Subscribe to order updates
   useEffect(() => {
     const subscription = API.graphql(
       graphqlOperation(onOrderUpdated, { id: route.params.id })
     ).subscribe({
-      next: ({ provider, value }) => {
-        console.log({ provider, value });
-        setOrder(value.data.onOrderUpdated);
-      },
+      next: ({ value }) => setOrder(value.data.onOrderUpdated),
       error: (error) => console.warn(error),
     });
+
     return () => subscription.unsubscribe();
   }, []);
 
+  // Fetch Car data when order is updated
   useEffect(() => {
     if (!order?.carId || order.carId === "1") {
       return;
     }
+
     const fetchCar = async () => {
       try {
         const carData = await API.graphql(
-          graphqlOperation(getCar, {
-            id: order.carId,
-          })
+          graphqlOperation(getCar, { id: order.carId })
         );
         setCar(carData.data.getCar);
       } catch (e) {}
@@ -61,22 +60,22 @@ const OrderScreen = (props) => {
     fetchCar();
   }, [order]);
 
+  // Subscribe to car updates
   useEffect(() => {
     if (!order?.carId || order.carId === "1") {
       return;
     }
+
     const subscription = API.graphql(
       graphqlOperation(onCarUpdated, { id: order.carId })
     ).subscribe({
-      next: ({ provider, value }) => {
-        console.log({ provider, value });
-        // console.log(order.carId);
-        setOrder(value.data.onCarUpdated);
-      },
+      next: ({ value }) => setCar(value.data.onCarUpdated),
       error: (error) => console.warn(error),
     });
+
     return () => subscription.unsubscribe();
   }, [order]);
+  console.log("the car is", car);
 
   return (
     <View>

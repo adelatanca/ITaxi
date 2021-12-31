@@ -4,7 +4,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeNavigator from "./Home";
-import DestinationSearch from "../screens/DestinationSearch";
+import HistoryScreen from "../screens/HistoryScreen";
+import AboutUsScreen from "../screens/AboutUsScreen";
 import CustomDrawer from "./CustomDrawer";
 
 const Drawer = createDrawerNavigator();
@@ -34,11 +35,11 @@ const RootNavigator = (props) => {
 
         <Drawer.Screen
           name="Istoric curse"
-          component={DestinationSearch}
+          component={HistoryScreen}
         ></Drawer.Screen>
 
         <Drawer.Screen name="Despre noi">
-          {() => <DummyScreen name={"Despre noi"} />}
+          {() => <DummyScreen name="Despre noi" component={AboutUsScreen} />}
         </Drawer.Screen>
 
         <Drawer.Screen name="Wallet">

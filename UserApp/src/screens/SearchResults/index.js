@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Dimensions, Alert } from "react-native";
+import { View, Text, Dimensions, Alert, Pressable } from "react-native";
 // import styles from "./styles";
 import ITaxiTypes from "../../components/ITaxiTypes";
 import RouteMap from "../../components/RouteMap";
@@ -7,6 +7,8 @@ import RouteMap from "../../components/RouteMap";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { API, graphqlOperation, Auth } from "aws-amplify";
 import { createOrder } from "../../graphql/mutations";
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const SearchResult = (props) => {
   const typeState = useState({});
@@ -58,6 +60,37 @@ const SearchResult = (props) => {
     }
   };
 
+  // NOT WORKING AS EXPECTED
+
+  // var destinations = [[]];
+  // const setDestinations = () => {
+  //   destinations.push(destinationPlace?.data.description);
+  //   console.log(destinations, "dest array");
+  // };
+
+  // AsyncStorage.setItem(["destination", JSON.stringify(destinations)]);
+  // // AsyncStorage.multiSet([
+  // //   ["destination", destinationPlace?.data.description],
+  // //   ["dest", destinationPlace?.data.description],
+  // // ]);
+
+  // const getValue = () => {
+  //   AsyncStorage.getItem("destination").then((value) => {
+  //     console.log("from AsyncStorage1", value);
+  //     //  console.log("from AsyncStorage2", value[1][1]);
+  //   });
+  // };
+
+  // GOOD
+
+  AsyncStorage.setItem("destination", destinationPlace?.data.description);
+
+  const getValue = () => {
+    AsyncStorage.getItem("destination").then((value) => {
+      console.log("from AsyncStorage", value);
+    });
+  };
+
   const timeConvert = (n) => {
     var num = n;
     var hours = num / 60;
@@ -70,7 +103,8 @@ const SearchResult = (props) => {
 
   useEffect(() => {
     console.log(timeConvert(time));
-  }, []);
+    // setDestinations();
+  });
 
   console.log("time from search results", time);
 
@@ -96,6 +130,9 @@ const SearchResult = (props) => {
           km={km}
         />
       </View>
+      <Pressable onPress={() => getValue()}>
+        <Text> Click me AsyncStorage </Text>
+      </Pressable>
     </View>
   );
 };
