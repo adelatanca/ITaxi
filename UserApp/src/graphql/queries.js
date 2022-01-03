@@ -68,6 +68,7 @@ export const listUsers = /* GraphQL */ `
         id
         username
         email
+        phoneNumber
         orders {
           nextToken
         }
@@ -180,6 +181,7 @@ export const listCars = /* GraphQL */ `
           email
           createdAt
           updatedAt
+          phoneNumber
         }
         createdAt
         updatedAt
@@ -283,6 +285,7 @@ export const listOrders = /* GraphQL */ `
           email
           createdAt
           updatedAt
+          phoneNumber
         }
         carId
         car {

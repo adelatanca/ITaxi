@@ -18,7 +18,7 @@
       "function": {
         "itaxi7ff407ce7ff407cePostConfirmation": {
           "deploymentBucketName": "amplify-itaxi-dev-212124-deployment",
-          "s3Key": "amplify-builds/itaxi7ff407ce7ff407cePostConfirmation-374369766d536a566e46-build.zip"
+          "s3Key": "amplify-builds/itaxi7ff407ce7ff407cePostConfirmation-472f583145626c58656e-build.zip"
         }
       }
     }

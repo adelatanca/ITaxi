@@ -376,9 +376,9 @@ const HomeScreen = () => {
       </Pressable>
 
       <Pressable
-        onPress={() => console.warn('hey')}
+        onPress={() => Auth.signOut()}
         style={[styles.roundButton, {bottom: 110, left: 10}]}>
-        <Entypo name={'menu'} size={35} color={'grey'} />
+        <Entypo name={'log-out'} size={35} color={'grey'} />
       </Pressable>
 
       <Pressable

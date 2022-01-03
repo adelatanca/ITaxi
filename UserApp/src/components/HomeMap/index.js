@@ -76,15 +76,15 @@ const HomeMap = (props) => {
     <View>
       <MapView
         ref={mapRef}
-        style={{ height: 455, width: "100%" }}
+        style={{ height: 405, width: "100%" }}
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}
         customMapStyle={colorScheme == "light" ? [] : mapDarkStyle}
         initialRegion={{
           latitude: 47.046501,
           longitude: 21.918943,
-          latitudeDelta: 0.0222,
-          longitudeDelta: 0.0121,
+          latitudeDelta: 0.1222,
+          longitudeDelta: 0.1121,
         }}
         onUserLocationChange={onUserLocationChange}
         onRegionChangeComplete={(region) => setRegion(region)}

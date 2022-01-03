@@ -45,7 +45,7 @@
         "IdentityPoolName": "itaxi7ff407ce_identitypool_7ff407ce__dev",
         "UserPoolName": "itaxi7ff407ce_userpool_7ff407ce"
       },
-      "lastPushTimeStamp": "2021-12-28T19:12:09.945Z",
+      "lastPushTimeStamp": "2022-01-03T15:37:18.457Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-itaxi-dev-212124-deployment/amplify-cfn-templates/auth/itaxi7ff407ce7ff407ce-cloudformation-template.json",
         "logicalId": "authitaxi7ff407ce7ff407ce"
@@ -63,15 +63,20 @@
         "Name": "itaxi7ff407ce7ff407cePostConfirmation-dev",
         "LambdaExecutionRole": "itaxi7ff407ce7ff407cePostConfirmation-dev"
       },
-      "lastPushTimeStamp": "2021-12-28T19:12:09.947Z",
+      "lastPushTimeStamp": "2022-01-03T15:37:18.466Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-itaxi-dev-212124-deployment/amplify-cfn-templates/function/itaxi7ff407ce7ff407cePostConfirmation-cloudformation-template.json",
         "logicalId": "functionitaxi7ff407ce7ff407cePostConfirmation"
       },
       "s3Bucket": {
         "deploymentBucketName": "amplify-itaxi-dev-212124-deployment",
-        "s3Key": "amplify-builds/itaxi7ff407ce7ff407cePostConfirmation-374369766d536a566e46-build.zip"
-      }
+        "s3Key": "amplify-builds/itaxi7ff407ce7ff407cePostConfirmation-472f583145626c58656e-build.zip"
+      },
+      "lastBuildTimeStamp": "2022-01-03T15:33:10.764Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-01-03T15:33:10.830Z",
+      "distZipFilename": "itaxi7ff407ce7ff407cePostConfirmation-472f583145626c58656e-build.zip",
+      "lastPushDirHash": "CsH1ZEvmaEclRDny4aFbbG/8Rj8="
     }
   },
   "api": {
@@ -101,12 +106,12 @@
         "GraphQLAPIEndpointOutput": "https://l33oul33bfbmpif6vljxd3zjnq.appsync-api.eu-west-3.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-actc4hxyd5fvjh4mac5lnrz2qa"
       },
-      "lastPushTimeStamp": "2021-12-28T19:12:11.760Z",
+      "lastPushTimeStamp": "2022-01-03T15:37:18.466Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-itaxi-dev-212124-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiitaxi"
       },
-      "lastPushDirHash": "E8OHlXS8KLNqbcnfHuhxTr7XSik="
+      "lastPushDirHash": "lHV9sgu9snbriPkeL4VXC0krBio="
     }
   }
 }
