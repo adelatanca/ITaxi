@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 0,
     left: 10,
-    right: 10,
+    right: 35,
   },
 
   row: {
@@ -80,6 +80,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#b3b3b3",
     padding: 3,
     borderRadius: 25,
+  },
+  addStop: {
+    position: "absolute",
+    top: 67,
+    left: 360,
   },
 });
 

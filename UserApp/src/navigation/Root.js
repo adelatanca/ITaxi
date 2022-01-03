@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeNavigator from "./Home";
 import HistoryScreen from "../screens/HistoryScreen";
 import AboutUsScreen from "../screens/AboutUsScreen";
+import RatingScreen from "../screens/RatingScreen";
 import CustomDrawer from "./CustomDrawer";
 
 const Drawer = createDrawerNavigator();
@@ -42,9 +43,7 @@ const RootNavigator = (props) => {
           {() => <DummyScreen name="Despre noi" component={AboutUsScreen} />}
         </Drawer.Screen>
 
-        <Drawer.Screen name="Wallet">
-          {() => <DummyScreen name={"Wallet"} />}
-        </Drawer.Screen>
+        <Drawer.Screen name="Rating" component={RatingScreen}></Drawer.Screen>
       </Drawer.Navigator>
     </NavigationContainer>
   );

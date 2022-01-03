@@ -36,6 +36,8 @@ const DestinationSearch = (props) => {
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
 
+  const [addStopStation, setAddStopStation] = useState(false);
+
   const [regionMap, setRegionMap] = useState({
     latitude: 47.093271,
     longitude: 21.9024223,
@@ -56,6 +58,43 @@ const DestinationSearch = (props) => {
 
   const goToHome = () => {
     navigation.navigate("Home");
+  };
+
+  const addStop = () => {
+    console.log("add stop");
+    setAddStopStation(true);
+    renderStop();
+  };
+
+  const renderStop = () => {
+    if (addStopStation == true) {
+      return (
+        <GooglePlacesAutocomplete
+          placeholder="Adauga oprire"
+          onPress={(data, details = null) => {
+            setDestinationPlace({ data, details });
+            // console.log(data, details);
+          }}
+          suppressDefaultStyles
+          textInputProps={{ placeholderTextColor: "black" }}
+          styles={{
+            textInput: styles.textInput,
+            container: {
+              ...styles.autocompleteContainer,
+              top: 115,
+            },
+            separator: styles.separator,
+          }}
+          enablePoweredByContainer={false}
+          fetchDetails
+          query={{
+            key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
+            language: "en",
+          }}
+          renderRow={(data) => <PlaceRow data={data} />}
+        />
+      );
+    }
   };
 
   useEffect(() => {
@@ -126,6 +165,8 @@ const DestinationSearch = (props) => {
           predefinedPlaces={[homePlace, workPlace]}
         />
 
+        {renderStop()}
+
         <GooglePlacesAutocomplete
           placeholder="Cauta destinatia"
           onPress={(data, details = null) => {
@@ -154,6 +195,11 @@ const DestinationSearch = (props) => {
         <View style={styles.line} />
         <View style={styles.pin}>
           <Entypo name={"location-pin"} size={23} color={"#4a5ef5de"} />
+        </View>
+        <View style={styles.addStop}>
+          <Pressable onPress={() => addStop()}>
+            <AntDesign name={"plus"} size={25} />
+          </Pressable>
         </View>
       </View>
       {renderError()}
