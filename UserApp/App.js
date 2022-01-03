@@ -7,7 +7,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { withAuthenticator } from "aws-amplify-react-native";
+import { withAuthenticator, Authenticator } from "aws-amplify-react-native";
 import Amplify from "@aws-amplify/core";
 import Auth from "@aws-amplify/auth";
 import config from "./aws-exports";
@@ -71,11 +71,10 @@ const App = () => {
   // };
 
   return (
+    // <RootNavigator />
+
     <RootNavigator />
-    // <Text onPress={signOut} style={{ marginTop: 50 }}>
-    //   Sign Out
-    // </Text>
   );
 };
 
-export default withAuthenticator(App);
+export default App;

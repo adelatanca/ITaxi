@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   price: {
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 15,
     marginLeft: 5,
   },
 });

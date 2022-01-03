@@ -26,7 +26,7 @@ const ITaxiTypeRow = (props) => {
   } else {
     var hoursProps = props?.hours;
     var minutesProps = props?.minutes;
-    var kmProps = props?.km.toString().substr(0, 5);
+    var kmProps = props?.km.toString().substr(0, 4);
     var price = (props?.km * 3.49).toString().substr(0, 5);
 
     if (type.type == "Confort") {
@@ -37,6 +37,57 @@ const ITaxiTypeRow = (props) => {
     }
   }
 
+  const renderMiddle = () => {
+    if (hoursProps == 0) {
+      console.log(" tipul hoursProps", typeof hoursProps);
+      return (
+        <View style={styles.middleContainer}>
+          <Text style={styles.type}>
+            {type.type} <Ionicons name={"person"} size={16} />
+            {type.nrPers}
+          </Text>
+
+          <Text style={styles.time}>
+            La destinatie in {minutesProps} minute.
+          </Text>
+          <Text style={styles.time}>Distanta {kmProps} km </Text>
+        </View>
+      );
+    }
+
+    if (hoursProps == 1) {
+      return (
+        <View style={styles.middleContainer}>
+          <Text style={styles.type}>
+            {type.type} <Ionicons name={"person"} size={16} />
+            {type.nrPers}
+          </Text>
+
+          <Text style={styles.time}>
+            La destinatie intr-o ora si {minutesProps} minute.
+          </Text>
+          <Text style={styles.time}>Distanta {kmProps} km </Text>
+        </View>
+      );
+    }
+
+    if (hoursProps > 1) {
+      return (
+        <View style={styles.middleContainer}>
+          <Text style={styles.type}>
+            {type.type} <Ionicons name={"person"} size={16} />
+            {type.nrPers}
+          </Text>
+
+          <Text style={styles.time}>
+            La destinatie in {hoursProps} ore si {minutesProps} minute.
+          </Text>
+          <Text style={styles.time}>Distanta {kmProps} km </Text>
+        </View>
+      );
+    }
+  };
+
   return (
     <Pressable
       onPress={onPress}
@@ -46,20 +97,10 @@ const ITaxiTypeRow = (props) => {
       ]}
     >
       <Image style={styles.image} source={getImage()} />
-      <View style={styles.middleContainer}>
-        <Text style={styles.type}>
-          {type.type} <Ionicons name={"person"} size={16} />
-          {type.nrPers}
-        </Text>
-
-        <Text style={styles.time}>
-          La destinatie in {hoursProps} ore si {minutesProps} minute.
-        </Text>
-        <Text style={styles.time}>Distanta {kmProps} km </Text>
-      </View>
+      {renderMiddle()}
 
       <View style={styles.rightContainer}>
-        <Ionicons name={"pricetag"} size={18} color={"#47d742"} />
+        <Ionicons name={"cash"} size={18} color={"#47d742"} />
         <Text style={styles.price}> {price} LEI </Text>
       </View>
     </Pressable>

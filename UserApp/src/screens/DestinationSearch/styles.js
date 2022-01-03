@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   setDestination: {
     color: "black",
     fontSize: 20,
-    marginHorizontal: 120,
+    marginHorizontal: 100,
     bottom: 55,
     fontWeight: "bold",
   },

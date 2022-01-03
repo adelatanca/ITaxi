@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Pressable, Switch } from "react-native";
 import styles from "./styles";
 import {
@@ -6,9 +6,28 @@ import {
   DrawerItemList,
 } from "@react-navigation/drawer";
 
-import { Auth } from "aws-amplify";
+import { Auth, API, graphqlOperation } from "aws-amplify";
+import { listUsers } from "../graphql/queries";
 
 const CustomDrawer = (props) => {
+  const [user, setUser] = useState(null);
+
+  const fetchUser = async () => {
+    try {
+      const user = await API.graphql(graphqlOperation(listUsers));
+      setUser(user.data.listUsers.items);
+      // console.log(user.data.listUsers.items, "the user");
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+  // console.log(user[0]?.username, "is user");
+
   return (
     <DrawerContentScrollView {...props}>
       <View style={{ backgroundColor: "#212121", padding: 15 }}>
@@ -23,8 +42,12 @@ const CustomDrawer = (props) => {
             }}
           />
           <View>
-            <Text style={{ color: "white", fontSize: 24 }}> Adela Tanca </Text>
-            <Text style={{ color: "lightgrey", fontSize: 24 }}> 5.00 * </Text>
+            <Text style={{ color: "white", fontSize: 24 }}>
+              {user[0].username}
+            </Text>
+            <Text style={{ color: "lightgrey", fontSize: 13 }}>
+              {user[0].email}
+            </Text>
           </View>
         </View>
 
