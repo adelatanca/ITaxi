@@ -26,7 +26,7 @@ const CustomDrawer = (props) => {
     fetchUser();
   }, []);
 
-  console.log(user[0], "is user");
+  // console.log(user[0], "is user");
 
   return (
     <DrawerContentScrollView {...props}>
@@ -43,10 +43,10 @@ const CustomDrawer = (props) => {
           />
           <View>
             <Text style={{ color: "white", fontSize: 24 }}>
-              {user[0].username}
+              {/* {user[0].username} */}
             </Text>
             <Text style={{ color: "lightgrey", fontSize: 13 }}>
-              {user[0].email}
+              {/* {user[0].email} */}
             </Text>
           </View>
         </View>

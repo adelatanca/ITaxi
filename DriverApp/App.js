@@ -40,6 +40,7 @@ const App = () => {
         id: authenticatedUser.attributes.sub,
         type: 'ITaxiX',
         userId: authenticatedUser.attributes.sub,
+        carNumber: 'BH-09-ADL',
       };
 
       await API.graphql(graphqlOperation(createCar, {input: newCar}));
