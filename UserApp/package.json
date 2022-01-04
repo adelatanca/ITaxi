@@ -12,6 +12,7 @@
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/netinfo": "^7.1.6",
+    "@react-native-picker/picker": "^2.2.1",
     "@react-navigation/drawer": "^6.1.8",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
@@ -36,8 +37,10 @@
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.1",
+    "react-native-star-rating": "^1.1.0",
     "react-native-vector-icons": "^9.0.0",
-    "react-native-web": "^0.17.5"
+    "react-native-web": "^0.17.5",
+    "react-rating-stars-component": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
