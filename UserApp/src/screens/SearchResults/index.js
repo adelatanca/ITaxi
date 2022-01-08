@@ -22,7 +22,7 @@ const SearchResult = (props) => {
 
   console.log(route.params);
 
-  const { originPlace, destinationPlace } = route.params;
+  const { originPlace, destinationPlace, stopPlace } = route.params;
 
   const onSubmit = async () => {
     const [type] = typeState;
@@ -43,6 +43,13 @@ const SearchResult = (props) => {
 
         destLatitude: destinationPlace.details.geometry.location.lat,
         destLongitude: destinationPlace.details.geometry.location.lng,
+
+        stopLatitude: stopPlace
+          ? stopPlace.details.geometry.location.lat
+          : destinationPlace.details.geometry.location.lat,
+        stopLongitude: stopPlace
+          ? stopPlace.details.geometry.location.lng
+          : destinationPlace.details.geometry.location.lng,
 
         userId: userInfo.attributes.sub,
         carId: "1",
@@ -117,6 +124,7 @@ const SearchResult = (props) => {
         <RouteMap
           origin={originPlace}
           destination={destinationPlace}
+          stop={stopPlace}
           passTime={(time) => setTime(time)}
           passKm={(km) => setKm(km)}
         />

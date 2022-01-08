@@ -92,7 +92,7 @@ const HomeMap = (props) => {
         {cars.map((car) => (
           <Marker
             key={car.id}
-            coordinate={{ latitude: car.latitude, longitude: car.longitude }}
+            coordinate={{ latitude: car?.latitude, longitude: car?.longitude }}
           >
             <Image
               style={{

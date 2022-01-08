@@ -32,14 +32,15 @@ const ITaxiTypes = ({ typeState, onSubmit, hours, minutes, km }) => {
       <Pressable
         onPress={onSubmit}
         style={{
-          backgroundColor: "black",
+          backgroundColor: "#45a8f2",
           padding: 10,
           margin: 10,
+          borderRadius: 20,
           alignItems: "center",
         }}
       >
         <Text style={{ color: "white", fontWeight: "bold" }}>
-          Confirm ITaxi
+          Confirma ITaxi
         </Text>
       </Pressable>
     </View>

@@ -81,6 +81,9 @@ type Order
   destLatitude: Float!
   destLongitude: Float!
 
+  stopLatitude: Float!
+  stopLongitude: Float!
+
   userId: ID! @index(name: "byUser")
   user: User @hasOne
 

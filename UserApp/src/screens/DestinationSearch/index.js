@@ -35,6 +35,7 @@ const longitudeDelta = 0.025;
 const DestinationSearch = (props) => {
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
+  const [stopPlace, setStopPlace] = useState(null);
 
   const [addStopStation, setAddStopStation] = useState(false);
 
@@ -48,10 +49,18 @@ const DestinationSearch = (props) => {
   const navigation = useNavigation();
 
   const checkNavigation = () => {
-    if (originPlace && destinationPlace) {
+    if (originPlace && destinationPlace && !addStopStation) {
+      setStopPlace(false);
       navigation.navigate("SearchResults", {
         originPlace,
         destinationPlace,
+        stopPlace,
+      });
+    } else if (originPlace && destinationPlace && stopPlace) {
+      navigation.navigate("SearchResults", {
+        originPlace,
+        destinationPlace,
+        stopPlace,
       });
     }
   };
@@ -63,43 +72,16 @@ const DestinationSearch = (props) => {
   const addStop = () => {
     console.log("add stop");
     setAddStopStation(true);
-    renderStop();
   };
 
-  const renderStop = () => {
-    if (addStopStation == true) {
-      return (
-        <GooglePlacesAutocomplete
-          placeholder="Adauga oprire"
-          onPress={(data, details = null) => {
-            setDestinationPlace({ data, details });
-            // console.log(data, details);
-          }}
-          suppressDefaultStyles
-          textInputProps={{ placeholderTextColor: "black" }}
-          styles={{
-            textInput: styles.textInput,
-            container: {
-              ...styles.autocompleteContainer,
-              top: 115,
-            },
-            separator: styles.separator,
-          }}
-          enablePoweredByContainer={false}
-          fetchDetails
-          query={{
-            key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
-            language: "en",
-          }}
-          renderRow={(data) => <PlaceRow data={data} />}
-        />
-      );
-    }
+  const deleteStop = () => {
+    console.log("delete stop");
+    setAddStopStation(false);
   };
 
   useEffect(() => {
     checkNavigation();
-  }, [originPlace, destinationPlace]);
+  }, [originPlace, destinationPlace, stopPlace]);
 
   Location.installWebGeolocationPolyfill();
   navigator.geolocation.getCurrentPosition();
@@ -129,82 +111,182 @@ const DestinationSearch = (props) => {
     // }
   };
 
-  return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <View style={styles.close}>
-          <Pressable onPress={() => goToHome()}>
-            <AntDesign name={"close"} size={25} />
+  if (!addStopStation) {
+    return (
+      <SafeAreaView>
+        <View style={styles.container}>
+          <View style={styles.close}>
+            <Pressable onPress={() => goToHome()}>
+              <AntDesign name={"close"} size={25} />
+            </Pressable>
+          </View>
+          <Text style={styles.setDestination}>Seteaza destinatia </Text>
+          <GooglePlacesAutocomplete
+            placeholder="Cauta punctul de preluare"
+            onPress={(data, details = null) => {
+              setOriginPlace({ data, details });
+              //  console.log(data, details);
+            }}
+            suppressDefaultStyles
+            currentLocation={true}
+            currentLocationLabel="Locatia curenta"
+            styles={{
+              textInput: styles.textInput,
+              container: styles.autocompleteContainer,
+              listView: styles.listView,
+              separator: styles.separator,
+            }}
+            textInputProps={{ placeholderTextColor: "black" }}
+            enablePoweredByContainer={false}
+            fetchDetails
+            query={{
+              key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
+              language: "en",
+            }}
+            renderRow={(data) => <PlaceRow data={data} />}
+            renderDescription={(data) => data.description || data.vecinity}
+            predefinedPlaces={[homePlace, workPlace]}
+          />
+
+          <GooglePlacesAutocomplete
+            placeholder="Cauta destinatia"
+            onPress={(data, details = null) => {
+              setDestinationPlace({ data, details });
+              // console.log(data, details);
+            }}
+            suppressDefaultStyles
+            textInputProps={{ placeholderTextColor: "black" }}
+            styles={{
+              textInput: styles.textInput,
+              container: {
+                ...styles.autocompleteContainer,
+                top: 55,
+              },
+              separator: styles.separator,
+            }}
+            enablePoweredByContainer={false}
+            fetchDetails
+            query={{
+              key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
+              language: "en",
+            }}
+            renderRow={(data) => <PlaceRow data={data} />}
+          />
+          <View style={styles.circle} />
+          <View style={styles.line} />
+          <View style={styles.pin}>
+            <Entypo name={"location-pin"} size={23} color={"#4a5ef5de"} />
+          </View>
+          <View style={styles.addStop}>
+            <Pressable onPress={() => addStop()}>
+              <AntDesign name={"plus"} size={25} />
+            </Pressable>
+          </View>
+        </View>
+        {renderError()}
+      </SafeAreaView>
+    );
+  } else {
+    return (
+      <SafeAreaView>
+        <View style={styles.container}>
+          <View style={styles.close}>
+            <Pressable onPress={() => goToHome()}>
+              <AntDesign name={"close"} size={25} />
+            </Pressable>
+          </View>
+          <Text style={styles.setDestination}>Seteaza destinatia </Text>
+          <GooglePlacesAutocomplete
+            placeholder="Cauta punctul de preluare"
+            onPress={(data, details = null) => {
+              setOriginPlace({ data, details });
+              //  console.log(data, details);
+            }}
+            suppressDefaultStyles
+            currentLocation={true}
+            currentLocationLabel="Locatia curenta"
+            styles={{
+              textInput: styles.textInput,
+              container: styles.autocompleteContainer,
+              listView: styles.listViewStopOrigin,
+              separator: styles.separator,
+            }}
+            textInputProps={{ placeholderTextColor: "black" }}
+            enablePoweredByContainer={false}
+            fetchDetails
+            query={{
+              key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
+              language: "en",
+            }}
+            renderRow={(data) => <PlaceRow data={data} />}
+            renderDescription={(data) => data.description || data.vecinity}
+            predefinedPlaces={[homePlace, workPlace]}
+          />
+
+          <GooglePlacesAutocomplete
+            placeholder="Cauta destinatia"
+            onPress={(data, details = null) => {
+              setDestinationPlace({ data, details });
+              // console.log(data, details);
+            }}
+            suppressDefaultStyles
+            textInputProps={{ placeholderTextColor: "black" }}
+            styles={{
+              listView: styles.listViewStop,
+              textInput: styles.textInput,
+              container: {
+                ...styles.autocompleteContainer,
+                top: 55,
+              },
+              separator: styles.separator,
+            }}
+            enablePoweredByContainer={false}
+            fetchDetails
+            query={{
+              key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
+              language: "en",
+            }}
+            renderRow={(data) => <PlaceRow data={data} />}
+          />
+          <View style={styles.circle} />
+          <View style={styles.circleStop} />
+          <View style={styles.lineStop} />
+          <View style={styles.pinStop}>
+            <Entypo name={"location-pin"} size={23} color={"#4a5ef5de"} />
+          </View>
+          <GooglePlacesAutocomplete
+            placeholder="Adauga oprire"
+            onPress={(data, details = null) => {
+              setStopPlace({ data, details });
+              // console.log(data, details);
+            }}
+            suppressDefaultStyles
+            textInputProps={{ placeholderTextColor: "black" }}
+            styles={{
+              textInput: styles.textInput,
+              container: {
+                ...styles.autocompleteContainer,
+                top: 110,
+              },
+              separator: styles.separator,
+            }}
+            enablePoweredByContainer={false}
+            fetchDetails
+            query={{
+              key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
+              language: "en",
+            }}
+            renderRow={(data) => <PlaceRow data={data} />}
+          />
+
+          <Pressable style={styles.deleteStop} onPress={() => deleteStop()}>
+            <AntDesign name={"minus"} size={25} />
           </Pressable>
         </View>
-        <Text style={styles.setDestination}>Seteaza destinatia </Text>
-        <GooglePlacesAutocomplete
-          placeholder="Cauta punctul de preluare"
-          onPress={(data, details = null) => {
-            setOriginPlace({ data, details });
-            //  console.log(data, details);
-          }}
-          suppressDefaultStyles
-          currentLocation={true}
-          currentLocationLabel="Locatia curenta"
-          styles={{
-            textInput: styles.textInput,
-            container: styles.autocompleteContainer,
-            listView: styles.listView,
-            separator: styles.separator,
-          }}
-          textInputProps={{ placeholderTextColor: "black" }}
-          enablePoweredByContainer={false}
-          fetchDetails
-          query={{
-            key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
-            language: "en",
-          }}
-          renderRow={(data) => <PlaceRow data={data} />}
-          renderDescription={(data) => data.description || data.vecinity}
-          predefinedPlaces={[homePlace, workPlace]}
-        />
-
-        {renderStop()}
-
-        <GooglePlacesAutocomplete
-          placeholder="Cauta destinatia"
-          onPress={(data, details = null) => {
-            setDestinationPlace({ data, details });
-            // console.log(data, details);
-          }}
-          suppressDefaultStyles
-          textInputProps={{ placeholderTextColor: "black" }}
-          styles={{
-            textInput: styles.textInput,
-            container: {
-              ...styles.autocompleteContainer,
-              top: 55,
-            },
-            separator: styles.separator,
-          }}
-          enablePoweredByContainer={false}
-          fetchDetails
-          query={{
-            key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
-            language: "en",
-          }}
-          renderRow={(data) => <PlaceRow data={data} />}
-        />
-        <View style={styles.circle} />
-        <View style={styles.line} />
-        <View style={styles.pin}>
-          <Entypo name={"location-pin"} size={23} color={"#4a5ef5de"} />
-        </View>
-        <View style={styles.addStop}>
-          <Pressable onPress={() => addStop()}>
-            <AntDesign name={"plus"} size={25} />
-          </Pressable>
-        </View>
-      </View>
-      {renderError()}
-    </SafeAreaView>
-  );
+        {renderError()}
+      </SafeAreaView>
+    );
+  }
 };
 
 export default DestinationSearch;

@@ -43,7 +43,7 @@ const ITaxiTypeRow = (props) => {
       return (
         <View style={styles.middleContainer}>
           <Text style={styles.type}>
-            {type.type} <Ionicons name={"person"} size={16} />
+            {type.type} <Ionicons name={"person"} size={16} color={"#45a8f2"} />
             {type.nrPers}
           </Text>
 
@@ -59,7 +59,7 @@ const ITaxiTypeRow = (props) => {
       return (
         <View style={styles.middleContainer}>
           <Text style={styles.type}>
-            {type.type} <Ionicons name={"person"} size={16} />
+            {type.type} <Ionicons name={"person"} size={16} color={"#45a8f2"} />
             {type.nrPers}
           </Text>
 
@@ -75,7 +75,7 @@ const ITaxiTypeRow = (props) => {
       return (
         <View style={styles.middleContainer}>
           <Text style={styles.type}>
-            {type.type} <Ionicons name={"person"} size={16} />
+            {type.type} <Ionicons name={"person"} size={16} color={"#45a8f2"} />
             {type.nrPers}
           </Text>
 

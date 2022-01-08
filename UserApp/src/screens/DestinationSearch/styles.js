@@ -33,6 +33,14 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 105,
   },
+  listViewStop: {
+    position: "absolute",
+    top: 103,
+  },
+  listViewStopOrigin: {
+    position: "absolute",
+    top: 155,
+  },
   autocompleteContainer: {
     position: "absolute",
     top: 0,
@@ -84,7 +92,35 @@ const styles = StyleSheet.create({
   addStop: {
     position: "absolute",
     top: 67,
-    left: 360,
+    left: 380,
+  },
+  deleteStop: {
+    position: "absolute",
+    top: 120,
+    left: 380,
+  },
+  circleStop: {
+    width: 10,
+    height: 10,
+    backgroundColor: "#4d8beb",
+    position: "absolute",
+    top: 75,
+    left: 13,
+    borderRadius: 5,
+  },
+  lineStop: {
+    width: 3,
+    height: 105,
+    backgroundColor: "#8b87938c",
+    position: "absolute",
+    top: 25,
+    left: 17,
+  },
+  pinStop: {
+    color: "#4d8beb",
+    position: "absolute",
+    top: 125,
+    left: 8,
   },
 });
 
