@@ -46,36 +46,7 @@ const HomeScreen = () => {
 
   const [distance, setDistance] = useState(null);
 
-  const [newOrders, setNewOrders] = useState([
-    // {
-    //   id: '1',
-    //   type: 'ITaxiX',
-    //   originLatitude: 37.785999,
-    //   originLongitude: -122.406417,
-    //   destLatitude: 37.79825,
-    //   destLongitude: -122.4324,
-    //   //    destLatitude: 37.787999,
-    //   // destLongitude: -122.406417,  for testing COMPLETE ITAXI RED btn
-    //   user: {
-    //     rating: 3.0,
-    //     name: 'Adela',
-    //   },
-    // },
-    // {
-    //   id: '2',
-    //   type: 'Comfort',
-    //   originLatitude: 37.785999,
-    //   originLongitude: -122.406417,
-    //   destLatitude: 37.79825,
-    //   destLongitude: -122.4324,
-    //   //    destLatitude: 37.787999,
-    //   // destLongitude: -122.406417,  for testing COMPLETE ITAXI RED btn
-    //   user: {
-    //     rating: 3.0,
-    //     name: 'Maria',
-    //   },
-    // },
-  ]);
+  const [newOrders, setNewOrders] = useState([]);
 
   const mapRef = useRef(null);
   const [region, setRegion] = useState(null);
@@ -118,7 +89,7 @@ const HomeScreen = () => {
   const fetchOrders = async () => {
     try {
       const ordersData = await API.graphql(
-        graphqlOperation(listOrders, {filter: {status: {eq: 'NEW'}}}),
+        graphqlOperation(listOrders, {filter: {status: {eq: 'Noua'}}}),
       );
       setNewOrders(ordersData.data.listOrders.items);
     } catch (e) {
@@ -140,7 +111,7 @@ const HomeScreen = () => {
     try {
       const input = {
         id: newOrder.id,
-        status: 'PICKING_UP_CLIENT',
+        status: 'Preluare client',
         carId: car.id,
       };
       const orderData = await API.graphql(
@@ -258,7 +229,6 @@ const HomeScreen = () => {
     }
 
     if (order && order.pickedUp) {
-      console.log('order username is', order.username);
       return (
         <View style={{alignItems: 'center'}}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -363,7 +333,7 @@ const HomeScreen = () => {
         </Text>
       </Pressable>
 
-      <Pressable
+      {/* <Pressable
         onPress={() => console.warn('hey')}
         style={[styles.roundButton, {top: 10, left: 10}]}>
         <Entypo name={'menu'} size={35} color={'grey'} />
@@ -373,7 +343,7 @@ const HomeScreen = () => {
         onPress={() => console.warn('hey')}
         style={[styles.roundButton, {top: 10, right: 10}]}>
         <Entypo name={'menu'} size={35} color={'grey'} />
-      </Pressable>
+      </Pressable> */}
 
       <Pressable
         onPress={() => Auth.signOut()}

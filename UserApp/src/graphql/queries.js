@@ -18,6 +18,8 @@ export const getUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -115,6 +117,8 @@ export const getCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -206,6 +210,8 @@ export const getOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      stopLatitude
+      stopLongitude
       userId
       user {
         id
@@ -283,6 +289,8 @@ export const listOrders = /* GraphQL */ `
         originLongitude
         destLatitude
         destLongitude
+        stopLatitude
+        stopLongitude
         userId
         user {
           id

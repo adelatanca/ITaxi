@@ -21,6 +21,8 @@ export const createUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -82,6 +84,8 @@ export const updateUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -143,6 +147,8 @@ export const deleteUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -207,6 +213,8 @@ export const createCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -274,6 +282,8 @@ export const updateCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -341,6 +351,8 @@ export const deleteCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -399,6 +411,8 @@ export const createOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      stopLatitude
+      stopLongitude
       userId
       user {
         id
@@ -474,6 +488,8 @@ export const updateOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      stopLatitude
+      stopLongitude
       userId
       user {
         id
@@ -549,6 +565,8 @@ export const deleteOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      stopLatitude
+      stopLongitude
       userId
       user {
         id

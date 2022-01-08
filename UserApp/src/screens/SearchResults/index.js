@@ -44,6 +44,8 @@ const SearchResult = (props) => {
         destLatitude: destinationPlace.details.geometry.location.lat,
         destLongitude: destinationPlace.details.geometry.location.lng,
 
+        // POATE NULL in loc de destinationPlace.details.geometry.location.lat
+
         stopLatitude: stopPlace
           ? stopPlace.details.geometry.location.lat
           : destinationPlace.details.geometry.location.lat,
@@ -53,7 +55,7 @@ const SearchResult = (props) => {
 
         userId: userInfo.attributes.sub,
         carId: "1",
-        status: "NEW",
+        status: "Noua",
       };
 
       const response = await API.graphql(

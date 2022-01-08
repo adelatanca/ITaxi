@@ -12,6 +12,8 @@ export const onOrderUpdated = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      stopLatitude
+      stopLongitude
       userId
       user {
         id
@@ -93,6 +95,8 @@ export const onCarUpdated = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -154,6 +158,8 @@ export const onCreateUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -212,6 +218,8 @@ export const onUpdateUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -270,6 +278,8 @@ export const onDeleteUser = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -331,6 +341,8 @@ export const onCreateCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -395,6 +407,8 @@ export const onUpdateCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -459,6 +473,8 @@ export const onDeleteCar = /* GraphQL */ `
           originLongitude
           destLatitude
           destLongitude
+          stopLatitude
+          stopLongitude
           userId
           carId
           updatedAt
@@ -514,6 +530,8 @@ export const onCreateOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      stopLatitude
+      stopLongitude
       userId
       user {
         id
@@ -586,6 +604,8 @@ export const onUpdateOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      stopLatitude
+      stopLongitude
       userId
       user {
         id
@@ -658,6 +678,8 @@ export const onDeleteOrder = /* GraphQL */ `
       originLongitude
       destLatitude
       destLongitude
+      stopLatitude
+      stopLongitude
       userId
       user {
         id

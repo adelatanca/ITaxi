@@ -5,7 +5,9 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
+import UserAvatar from "react-native-user-avatar";
 
+import AntDesign from "react-native-vector-icons/AntDesign";
 import { Auth, API, graphqlOperation } from "aws-amplify";
 import { listUsers } from "../graphql/queries";
 
@@ -35,20 +37,23 @@ const CustomDrawer = (props) => {
       <DrawerContentScrollView {...props}>
         <View style={{ backgroundColor: "#212121", padding: 15 }}>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <View
-              style={{
-                backgroundColor: "#cacaca",
-                width: 50,
-                height: 50,
-                borderRadius: 25,
-                marginRight: 10,
-              }}
+            <View />
+            <UserAvatar
+              size={50}
+              name={user[0].username}
+              style={{ marginRight: 5 }}
+            />
+            <AntDesign
+              name={"form"}
+              size={23}
+              color={"white"}
+              style={{ right: 25, top: 16 }}
             />
             <View>
-              <Text style={{ color: "white", fontSize: 24 }}>
+              <Text style={{ color: "white", fontSize: 24, right: 10 }}>
                 {user[0].username}
               </Text>
-              <Text style={{ color: "lightgrey", fontSize: 13 }}>
+              <Text style={{ color: "lightgrey", fontSize: 13, right: 10 }}>
                 {user[0].email}
               </Text>
             </View>
