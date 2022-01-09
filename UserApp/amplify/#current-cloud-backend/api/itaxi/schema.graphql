@@ -17,7 +17,11 @@ type User
         ownerField: "username"
         operations: [read, create, delete, update]
       }
-      { allow: groups, groups: ["Admin"], operations: [read] }
+      {
+        allow: groups
+        groups: ["Admin"]
+        operations: [read, create, delete, update]
+      }
     ]
   ) {
   id: ID!
@@ -39,7 +43,11 @@ type Car
         ownerField: "username"
         operations: [read, create, delete, update]
       }
-      { allow: groups, groups: ["Admin"], operations: [read] }
+      {
+        allow: groups
+        groups: ["Admin"]
+        operations: [read, create, delete, update]
+      }
     ]
   ) {
   id: ID!
@@ -66,7 +74,11 @@ type Order
         ownerField: "username"
         operations: [read, create, delete, update]
       }
-      { allow: groups, groups: ["Admin"], operations: [read] }
+      {
+        allow: groups
+        groups: ["Admin"]
+        operations: [read, create, delete, update]
+      }
     ]
   ) {
   id: ID!
