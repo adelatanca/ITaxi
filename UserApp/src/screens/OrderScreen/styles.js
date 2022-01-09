@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     // borderTopColor: "#919191",
     borderBottomWidth: 1,
     borderBottomColor: "#919191",
-    paddingVertical: 2,
+    paddingVertical: 1,
   },
   title: {
     flexDirection: "row",
@@ -64,6 +64,14 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     flexDirection: "row",
     left: 184,
+    color: "#919191",
+  },
+  pretData: {
+    top: 10,
+    fontSize: 17,
+    marginBottom: 20,
+    flexDirection: "row",
+    left: 310,
     color: "#919191",
   },
 });

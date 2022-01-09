@@ -17,15 +17,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
-  minutes: {
+  pornire: {
     color: 'lightgrey',
-    fontSize: 36,
+    fontSize: 15,
   },
-  distance: {
+  destinatie: {
     color: 'lightgrey',
-    fontSize: 26,
+    fontSize: 15,
   },
-  uberType: {
+  username: {
     color: 'lightgrey',
     fontSize: 20,
     marginHorizontal: 10,
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
   },
   userBg: {
     backgroundColor: '#008bff',
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 60,

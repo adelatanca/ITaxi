@@ -98,7 +98,7 @@ const OrderScreen = (props) => {
 
   return (
     <View>
-      <View style={{ height: Dimensions.get("window").height - 410 }}>
+      <View style={{ height: Dimensions.get("window").height - 440 }}>
         <OrderMap car={car} />
       </View>
       <View style={styles.container}>
@@ -122,6 +122,10 @@ const OrderScreen = (props) => {
         <View style={styles.line}>
           <Text style={styles.comanda}>Telefon</Text>
           <Text style={styles.telData}>{user?.phoneNumber.slice(2, 12)}</Text>
+        </View>
+        <View style={styles.line}>
+          <Text style={styles.comanda}>Pret</Text>
+          <Text style={styles.pretData}>9.5 LEI</Text>
         </View>
       </View>
     </View>

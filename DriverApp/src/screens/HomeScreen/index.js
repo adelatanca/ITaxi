@@ -43,11 +43,8 @@ const HomeScreen = () => {
   const [car, setCar] = useState(null);
   const [order, setOrder] = useState(null);
   const [myPosition, setMyPosition] = useState(null);
-
   const [distance, setDistance] = useState(null);
-
   const [newOrders, setNewOrders] = useState([]);
-
   const mapRef = useRef(null);
   const [region, setRegion] = useState(null);
 
@@ -333,47 +330,24 @@ const HomeScreen = () => {
         </Text>
       </Pressable>
 
-      {/* <Pressable
-        onPress={() => console.warn('hey')}
-        style={[styles.roundButton, {top: 10, left: 10}]}>
-        <Entypo name={'menu'} size={35} color={'grey'} />
-      </Pressable>
-
-      <Pressable
-        onPress={() => console.warn('hey')}
-        style={[styles.roundButton, {top: 10, right: 10}]}>
-        <Entypo name={'menu'} size={35} color={'grey'} />
-      </Pressable> */}
-
-      <Pressable
-        onPress={() => Auth.signOut()}
-        style={[styles.roundButton, {bottom: 110, left: 10}]}>
-        <Entypo name={'log-out'} size={35} color={'grey'} />
-      </Pressable>
-
-      <Pressable
-        onPress={() => goToCurrentLocation()}
-        style={[styles.roundButton, {bottom: 110, right: 10}]}>
-        <Entypo name={'direction'} size={35} color={'grey'} />
-      </Pressable>
-
       <Pressable onPress={onGoPress} style={styles.goButton}>
         <Text style={styles.goText}>{car?.isActive ? 'END' : 'GO'}</Text>
       </Pressable>
 
       <View style={styles.bottomContainer}>
-        <Ionicons name={'options'} size={35} color={'grey'} />
+        <Pressable onPress={() => Auth.signOut()}>
+          <Entypo name={'log-out'} size={35} color={'grey'} />
+        </Pressable>
         {renderBottomTitle()}
-        <Entypo name={'menu'} size={35} color={'grey'} />
+        <Pressable onPress={() => goToCurrentLocation()}>
+          <Entypo name={'direction'} size={35} color={'grey'} />
+        </Pressable>
       </View>
 
       {newOrders.length > 0 && !order && (
         <NewOrderPopup
           newOrder={newOrders[0]}
-          //   duration={orderDuration}
-          distance={distance}
           onDecline={onDecline}
-          //  onDecline={calculateDistance}
           onAccept={() => onAccept(newOrders[0])}
         />
       )}

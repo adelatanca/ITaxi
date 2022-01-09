@@ -92,12 +92,12 @@ const styles = StyleSheet.create({
   addStop: {
     position: "absolute",
     top: 67,
-    left: 380,
+    left: 395,
   },
   deleteStop: {
     position: "absolute",
     top: 120,
-    left: 380,
+    left: 395,
   },
   circleStop: {
     width: 10,
