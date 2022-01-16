@@ -4,6 +4,8 @@ import styles from "./styles";
 
 import Ionicons from "react-native-vector-icons/Ionicons";
 
+import { updateOrder } from "../../graphql/mutations";
+
 const ITaxiTypeRow = (props) => {
   const { type, onPress, isSelected, hours, minutes, km } = props;
   const getImage = () => {
@@ -17,9 +19,6 @@ const ITaxiTypeRow = (props) => {
       return require(`../../assets/images/UberXL.png`);
     }
   };
-
-  // var hours = new Date().getHours();
-  // var min = new Date().getMinutes();
 
   if (props.km == null) {
     console.log("props null");
@@ -39,7 +38,6 @@ const ITaxiTypeRow = (props) => {
 
   const renderMiddle = () => {
     if (hoursProps == 0) {
-      console.log(" tipul hoursProps", typeof hoursProps);
       return (
         <View style={styles.middleContainer}>
           <Text style={styles.type}>
@@ -98,10 +96,9 @@ const ITaxiTypeRow = (props) => {
     >
       <Image style={styles.image} source={getImage()} />
       {renderMiddle()}
-
       <View style={styles.rightContainer}>
         <Ionicons name={"cash"} size={18} color={"#47d742"} />
-        <Text style={styles.price}> {price} LEI </Text>
+        <Text style={styles.price}>{price} LEI </Text>
       </View>
     </Pressable>
   );

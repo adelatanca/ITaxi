@@ -1,19 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Pressable } from "react-native";
 import styles from "./styles";
 import ITaxiTypeRow from "..//ITaxiTypeRow";
 import typesData from "../../assets/data/types";
 
-const ITaxiTypes = ({ typeState, onSubmit, hours, minutes, km }) => {
-  // console.log("Type state " + props.typeState);
+const ITaxiTypes = ({
+  typeState,
+  onSubmit,
+  hours,
+  minutes,
+  km,
+  priceState,
+}) => {
   const [selectedType, setSelectedType] = typeState;
 
-  const confirm = () => {
-    console.warn("confirm");
-  };
-  console.log("hours from taxi types", hours);
+  const [selectedPrice, setSelectedPrice] = priceState;
 
-  console.log("minutes from taxi types", minutes);
+  if (km == null) {
+    console.log("props null");
+  } else {
+    var hoursProps = hours;
+    var minutesProps = minutes;
+    var kmProps = km.toString().substr(0, 4);
+    var price = (km * 3.49).toString().substr(0, 5);
+
+    if (typeState[0] == "Confort") {
+      price = (km * 4.59).toString().substr(0, 5);
+    }
+    if (typeState[0] == "ITaxiXL") {
+      price = (km * 2.79).toString().substr(0, 5);
+    }
+  }
 
   return (
     <View>
@@ -25,7 +42,10 @@ const ITaxiTypes = ({ typeState, onSubmit, hours, minutes, km }) => {
           minutes={minutes}
           km={km}
           isSelected={type.type === selectedType}
-          onPress={() => setSelectedType(type.type)}
+          onPress={() => {
+            setSelectedType(type.type);
+            setSelectedPrice(price);
+          }}
         />
       ))}
 

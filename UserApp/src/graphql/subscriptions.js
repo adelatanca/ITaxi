@@ -14,6 +14,7 @@ export const onOrderUpdated = /* GraphQL */ `
       destLongitude
       stopLatitude
       stopLongitude
+      pret
       userId
       user {
         id
@@ -97,6 +98,7 @@ export const onCarUpdated = /* GraphQL */ `
           destLongitude
           stopLatitude
           stopLongitude
+          pret
           userId
           carId
           updatedAt
@@ -160,6 +162,7 @@ export const onCreateUser = /* GraphQL */ `
           destLongitude
           stopLatitude
           stopLongitude
+          pret
           userId
           carId
           updatedAt
@@ -220,6 +223,7 @@ export const onUpdateUser = /* GraphQL */ `
           destLongitude
           stopLatitude
           stopLongitude
+          pret
           userId
           carId
           updatedAt
@@ -280,6 +284,7 @@ export const onDeleteUser = /* GraphQL */ `
           destLongitude
           stopLatitude
           stopLongitude
+          pret
           userId
           carId
           updatedAt
@@ -343,6 +348,7 @@ export const onCreateCar = /* GraphQL */ `
           destLongitude
           stopLatitude
           stopLongitude
+          pret
           userId
           carId
           updatedAt
@@ -409,6 +415,7 @@ export const onUpdateCar = /* GraphQL */ `
           destLongitude
           stopLatitude
           stopLongitude
+          pret
           userId
           carId
           updatedAt
@@ -475,6 +482,7 @@ export const onDeleteCar = /* GraphQL */ `
           destLongitude
           stopLatitude
           stopLongitude
+          pret
           userId
           carId
           updatedAt
@@ -532,6 +540,7 @@ export const onCreateOrder = /* GraphQL */ `
       destLongitude
       stopLatitude
       stopLongitude
+      pret
       userId
       user {
         id
@@ -606,6 +615,7 @@ export const onUpdateOrder = /* GraphQL */ `
       destLongitude
       stopLatitude
       stopLongitude
+      pret
       userId
       user {
         id
@@ -680,6 +690,7 @@ export const onDeleteOrder = /* GraphQL */ `
       destLongitude
       stopLatitude
       stopLongitude
+      pret
       userId
       user {
         id

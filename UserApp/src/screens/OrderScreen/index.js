@@ -127,7 +127,7 @@ const OrderScreen = (props) => {
         </View>
         <View style={styles.line}>
           <Text style={styles.comanda}>Preț</Text>
-          <Text style={styles.comandaData}>9.5 LEI</Text>
+          <Text style={styles.comandaData}>{order?.pret} LEI</Text>
         </View>
       </View>
     </View>

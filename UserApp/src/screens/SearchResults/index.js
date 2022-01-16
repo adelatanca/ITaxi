@@ -21,6 +21,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const SearchResult = (props) => {
   const typeState = useState({});
+  const priceState = useState({});
   const [time, setTime] = useState(null);
   const [hours, setHours] = useState(null);
   const [minutes, setMinutes] = useState(null);
@@ -35,7 +36,8 @@ const SearchResult = (props) => {
 
   const onSubmit = async () => {
     const [type] = typeState;
-    if (!type) {
+    const [pret] = priceState;
+    if (!type && !priceState) {
       return;
     }
 
@@ -65,6 +67,7 @@ const SearchResult = (props) => {
         userId: userInfo.attributes.sub,
         carId: "1",
         status: "Noua",
+        pret: pret,
       };
 
       const response = await API.graphql(
@@ -100,11 +103,6 @@ const SearchResult = (props) => {
     console.log(timeConvert(time));
   });
 
-  console.log("time from search results", time);
-
-  console.log("hours from search result", hours);
-
-  console.log("minutes from search result", minutes);
   return (
     <View style={{ display: "flex", justifyContent: "space-between" }}>
       <View style={{ height: Dimensions.get("window").height - 550 }}>
@@ -124,7 +122,9 @@ const SearchResult = (props) => {
             color={"#45a8f2"}
             style={{ top: 7 }}
           />
-          <Button title="Card">Card</Button>
+          <Button title="Card" onPress={() => console.warn("Card")}>
+            Card
+          </Button>
         </View>
         <View style={styles.rightButton}>
           <Ionicons
@@ -133,21 +133,22 @@ const SearchResult = (props) => {
             color={"#45a8f2"}
             style={{ top: 7 }}
           />
-          <Button title="Numerar"></Button>
+          <Button
+            title="Numerar"
+            onPress={() => console.warn("Numerar")}
+          ></Button>
         </View>
       </View>
       <View style={{ height: 400 }}>
         <ITaxiTypes
           typeState={typeState}
+          priceState={priceState}
           onSubmit={onSubmit}
           hours={hours}
           minutes={minutes}
           km={km}
         />
       </View>
-      {/* <Pressable onPress={() => getValue()}>
-        <Text> Click me AsyncStorage </Text>
-      </Pressable> */}
     </View>
   );
 };
