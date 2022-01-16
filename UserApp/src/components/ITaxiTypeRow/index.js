@@ -48,9 +48,9 @@ const ITaxiTypeRow = (props) => {
           </Text>
 
           <Text style={styles.time}>
-            La destinatie in {minutesProps} minute.
+            La destinație în {minutesProps} minute.
           </Text>
-          <Text style={styles.time}>Distanta {kmProps} km </Text>
+          <Text style={styles.time}>Distanța {kmProps} km </Text>
         </View>
       );
     }
@@ -64,9 +64,9 @@ const ITaxiTypeRow = (props) => {
           </Text>
 
           <Text style={styles.time}>
-            La destinatie intr-o ora si {minutesProps} minute.
+            La destinație într-o ora și {minutesProps} minute.
           </Text>
-          <Text style={styles.time}>Distanta {kmProps} km </Text>
+          <Text style={styles.time}>Distanța {kmProps} km </Text>
         </View>
       );
     }
@@ -80,9 +80,9 @@ const ITaxiTypeRow = (props) => {
           </Text>
 
           <Text style={styles.time}>
-            La destinatie in {hoursProps} ore si {minutesProps} minute.
+            La destinație în {hoursProps} ore și {minutesProps} minute.
           </Text>
-          <Text style={styles.time}>Distanta {kmProps} km </Text>
+          <Text style={styles.time}>Distanța {kmProps} km </Text>
         </View>
       );
     }

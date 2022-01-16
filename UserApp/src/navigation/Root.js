@@ -6,6 +6,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeNavigator from "./Home";
 import HistoryScreen from "../screens/HistoryScreen";
 import AboutUsScreen from "../screens/AboutUsScreen";
+import AsistentaScreen from "../screens/AsistentaScreen";
+import PromotiiScreen from "../screens/PromotiiScreen";
 import RatingScreen from "../screens/RatingScreen";
 import CustomDrawer from "./CustomDrawer";
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -34,7 +36,7 @@ const RootNavigator = (props) => {
     <NavigationContainer>
       <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />}>
         <Drawer.Screen
-          name="Calatoreste"
+          name="Călătorește"
           component={HomeNavigator}
           options={{
             drawerIcon: (config) => (
@@ -54,8 +56,8 @@ const RootNavigator = (props) => {
         ></Drawer.Screen>
 
         <Drawer.Screen
-          name="Promotii"
-          component={AboutUsScreen}
+          name="Promoții"
+          component={PromotiiScreen}
           options={{
             drawerIcon: (config) => (
               <AntDesign name={"tago"} size={20} color={"gray"} />
@@ -72,8 +74,8 @@ const RootNavigator = (props) => {
           }}
         ></Drawer.Screen>
         <Drawer.Screen
-          name="Asistenta"
-          component={AboutUsScreen}
+          name="Asistență"
+          component={AsistentaScreen}
           options={{
             drawerIcon: (config) => (
               <AntDesign name={"phone"} size={20} color={"gray"} />
@@ -82,14 +84,13 @@ const RootNavigator = (props) => {
         ></Drawer.Screen>
         <Drawer.Screen
           name="Despre noi"
+          component={AboutUsScreen}
           options={{
             drawerIcon: (config) => (
               <AntDesign name={"infocirlceo"} size={20} color={"gray"} />
             ),
           }}
-        >
-          {() => <DummyScreen name="Despre noi" component={AboutUsScreen} />}
-        </Drawer.Screen>
+        ></Drawer.Screen>
       </Drawer.Navigator>
     </NavigationContainer>
   );

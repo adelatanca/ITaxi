@@ -33,7 +33,7 @@ const HomeSearch = (props) => {
         <View style={styles.iconContainer}>
           <AntDesign name={"search1"} size={20} color={"#ffffff"} />
         </View>
-        <Text style={styles.inputText}>Incotro?</Text>
+        <Text style={styles.inputText}>Încotro?</Text>
 
         <View style={styles.timeContainer}>
           <AntDesign name={"clockcircle"} size={16} color={"gray"} />

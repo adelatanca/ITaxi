@@ -104,28 +104,30 @@ const OrderScreen = (props) => {
       <View style={styles.container}>
         <Text style={styles.title}>Rezumat</Text>
         <View style={styles.line}>
-          <Text style={styles.comanda}>Comanda </Text>
+          <Text style={styles.comanda}>Comandă </Text>
           <Text style={styles.comandaData}>{order?.status} </Text>
         </View>
         <View style={styles.line}>
-          <Text style={styles.comanda}>Numar masina </Text>
-          <Text style={styles.nrData}>{car?.carNumber} </Text>
+          <Text style={styles.comanda}>Număr mașină </Text>
+          <Text style={styles.comandaData}>{car?.carNumber} </Text>
         </View>
         <View style={styles.line}>
           <Text style={styles.comanda}>Tipul </Text>
-          <Text style={styles.typeData}> {car?.type} </Text>
+          <Text style={styles.comandaData}> {car?.type} </Text>
         </View>
         <View style={styles.line}>
-          <Text style={styles.comanda}>Cursa cu </Text>
-          <Text style={styles.nameData}> {car?.username} </Text>
+          <Text style={styles.comanda}>Cursă cu </Text>
+          <Text style={styles.comandaData}> {car?.username} </Text>
         </View>
         <View style={styles.line}>
           <Text style={styles.comanda}>Telefon</Text>
-          <Text style={styles.telData}>{user?.phoneNumber.slice(2, 12)}</Text>
+          <Text style={styles.comandaData}>
+            {user?.phoneNumber.slice(2, 12)}
+          </Text>
         </View>
         <View style={styles.line}>
-          <Text style={styles.comanda}>Pret</Text>
-          <Text style={styles.pretData}>9.5 LEI</Text>
+          <Text style={styles.comanda}>Preț</Text>
+          <Text style={styles.comandaData}>9.5 LEI</Text>
         </View>
       </View>
     </View>

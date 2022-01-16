@@ -39,8 +39,8 @@ const ITaxiTypes = ({ typeState, onSubmit, hours, minutes, km }) => {
           alignItems: "center",
         }}
       >
-        <Text style={{ color: "white", fontWeight: "bold" }}>
-          Confirma ITaxi
+        <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
+          Confirmă ITaxi
         </Text>
       </Pressable>
     </View>

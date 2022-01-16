@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Dimensions, Alert, Pressable } from "react-native";
-// import styles from "./styles";
+import {
+  View,
+  Text,
+  Dimensions,
+  Alert,
+  Button,
+  SafeAreaView,
+} from "react-native";
+import styles from "./styles";
 import ITaxiTypes from "../../components/ITaxiTypes";
 import RouteMap from "../../components/RouteMap";
-
+import Entypo from "react-native-vector-icons/Entypo";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { API, graphqlOperation, Auth } from "aws-amplify";
 import { createOrder } from "../../graphql/mutations";
+import AntDesign from "react-native-vector-icons/AntDesign";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -69,29 +78,6 @@ const SearchResult = (props) => {
     }
   };
 
-  // NOT WORKING AS EXPECTED
-
-  // var destinations = [[]];
-  // const setDestinations = () => {
-  //   destinations.push(destinationPlace?.data.description);
-  //   console.log(destinations, "dest array");
-  // };
-
-  // AsyncStorage.setItem(["destination", JSON.stringify(destinations)]);
-  // // AsyncStorage.multiSet([
-  // //   ["destination", destinationPlace?.data.description],
-  // //   ["dest", destinationPlace?.data.description],
-  // // ]);
-
-  // const getValue = () => {
-  //   AsyncStorage.getItem("destination").then((value) => {
-  //     console.log("from AsyncStorage1", value);
-  //     //  console.log("from AsyncStorage2", value[1][1]);
-  //   });
-  // };
-
-  // GOOD
-
   AsyncStorage.setItem("destination", destinationPlace?.data.description);
 
   const getValue = () => {
@@ -112,7 +98,6 @@ const SearchResult = (props) => {
 
   useEffect(() => {
     console.log(timeConvert(time));
-    // setDestinations();
   });
 
   console.log("time from search results", time);
@@ -122,7 +107,7 @@ const SearchResult = (props) => {
   console.log("minutes from search result", minutes);
   return (
     <View style={{ display: "flex", justifyContent: "space-between" }}>
-      <View style={{ height: Dimensions.get("window").height - 520 }}>
+      <View style={{ height: Dimensions.get("window").height - 550 }}>
         <RouteMap
           origin={originPlace}
           destination={destinationPlace}
@@ -130,6 +115,26 @@ const SearchResult = (props) => {
           passTime={(time) => setTime(time)}
           passKm={(km) => setKm(km)}
         />
+      </View>
+      <View style={{ flexDirection: "row" }}>
+        <View style={styles.leftButton}>
+          <AntDesign
+            name={"creditcard"}
+            size={23}
+            color={"#45a8f2"}
+            style={{ top: 7 }}
+          />
+          <Button title="Card">Card</Button>
+        </View>
+        <View style={styles.rightButton}>
+          <Ionicons
+            name={"ios-cash-outline"}
+            size={23}
+            color={"#45a8f2"}
+            style={{ top: 7 }}
+          />
+          <Button title="Numerar"></Button>
+        </View>
       </View>
       <View style={{ height: 400 }}>
         <ITaxiTypes
@@ -140,9 +145,9 @@ const SearchResult = (props) => {
           km={km}
         />
       </View>
-      <Pressable onPress={() => getValue()}>
+      {/* <Pressable onPress={() => getValue()}>
         <Text> Click me AsyncStorage </Text>
-      </Pressable>
+      </Pressable> */}
     </View>
   );
 };

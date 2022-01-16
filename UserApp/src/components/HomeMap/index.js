@@ -114,7 +114,7 @@ const HomeMap = (props) => {
         onPress={() => goToCurrentLocation()}
         style={[styles.roundButton, { bottom: 10, right: 10 }]}
       >
-        <Entypo name={"direction"} size={35} color={"grey"} />
+        <Entypo name={"direction"} size={35} color={"#45a8f2"} />
       </Pressable>
     </View>
   );

@@ -25,9 +25,9 @@ const PlaceRow = ({ data }) => {
           else
             return (
               <View
-                style={[styles.iconContainer, { backgroundColor: "#b5e3b269" }]}
+                style={[styles.iconContainer, { backgroundColor: "white" }]}
               >
-                <Entypo name="location-pin" size={25} color={"#28ed1df7"} />
+                <Entypo name="location-pin" size={25} color={"#45a8f29e"} />
               </View>
             );
         })()}

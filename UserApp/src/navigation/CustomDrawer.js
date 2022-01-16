@@ -35,7 +35,7 @@ const CustomDrawer = (props) => {
   } else {
     return (
       <DrawerContentScrollView {...props}>
-        <View style={{ backgroundColor: "#212121", padding: 15 }}>
+        <View style={{ backgroundColor: "#45a8f2", padding: 15 }}>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View />
             <UserAvatar
@@ -53,7 +53,7 @@ const CustomDrawer = (props) => {
               <Text style={{ color: "white", fontSize: 24, right: 10 }}>
                 {user[0].username}
               </Text>
-              <Text style={{ color: "lightgrey", fontSize: 13, right: 10 }}>
+              <Text style={{ color: "white", fontSize: 14, right: 10 }}>
                 {user[0].email}
               </Text>
             </View>
@@ -62,33 +62,34 @@ const CustomDrawer = (props) => {
           <View
             style={{
               borderTopWidth: 1,
-              borderTopColor: "#919191",
-              borderBottomWidth: 1,
-              borderBottomColor: "#919191",
+              borderTopColor: "white",
               paddingVertical: 5,
               marginVertical: 15,
             }}
           >
             <Pressable
               onPress={() => {
-                console.log("Messages");
+                console.log("Do more with your account");
               }}
             >
-              <Text style={{ color: "#dddddd", paddingVertical: 5 }}>
-                Messages
+              <Text
+                style={{
+                  color: "white",
+                  paddingVertical: 5,
+                  fontWeight: "bold",
+                  fontSize: 16,
+                  marginTop: 10,
+                }}
+              >
+                Devino șofer partener
+              </Text>
+              <Text
+                style={{ color: "white", paddingVertical: 5, fontSize: 15 }}
+              >
+                Câștigă bani dupa propriul program
               </Text>
             </Pressable>
           </View>
-
-          <Pressable
-            onPress={() => {
-              console.log("Do more with your account");
-            }}
-          >
-            <Text style={{ color: "#dddddd", paddingVertical: 5 }}>
-              Do more with your account
-            </Text>
-          </Pressable>
         </View>
 
         <DrawerItemList {...props} />

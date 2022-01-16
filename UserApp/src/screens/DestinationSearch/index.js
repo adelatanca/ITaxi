@@ -120,16 +120,16 @@ const DestinationSearch = (props) => {
               <AntDesign name={"close"} size={25} />
             </Pressable>
           </View>
-          <Text style={styles.setDestination}>Seteaza destinatia </Text>
+          <Text style={styles.setDestination}>Setează destinația </Text>
           <GooglePlacesAutocomplete
-            placeholder="Cauta punctul de preluare"
+            placeholder="Caută punctul de preluare"
             onPress={(data, details = null) => {
               setOriginPlace({ data, details });
               //  console.log(data, details);
             }}
             suppressDefaultStyles
             currentLocation={true}
-            currentLocationLabel="Locatia curenta"
+            currentLocationLabel="Locația curentă"
             styles={{
               textInput: styles.textInput,
               container: styles.autocompleteContainer,
@@ -149,7 +149,7 @@ const DestinationSearch = (props) => {
           />
 
           <GooglePlacesAutocomplete
-            placeholder="Cauta destinatia"
+            placeholder="Caută destinația"
             onPress={(data, details = null) => {
               setDestinationPlace({ data, details });
               // console.log(data, details);
@@ -195,16 +195,16 @@ const DestinationSearch = (props) => {
               <AntDesign name={"close"} size={25} />
             </Pressable>
           </View>
-          <Text style={styles.setDestination}>Seteaza destinatia </Text>
+          <Text style={styles.setDestination}>Setează destinația </Text>
           <GooglePlacesAutocomplete
-            placeholder="Cauta punctul de preluare"
+            placeholder="Caută punctul de preluare"
             onPress={(data, details = null) => {
               setOriginPlace({ data, details });
               //  console.log(data, details);
             }}
             suppressDefaultStyles
             currentLocation={true}
-            currentLocationLabel="Locatia curenta"
+            currentLocationLabel="Locația curentă"
             styles={{
               textInput: styles.textInput,
               container: styles.autocompleteContainer,
@@ -224,7 +224,7 @@ const DestinationSearch = (props) => {
           />
 
           <GooglePlacesAutocomplete
-            placeholder="Cauta destinatia"
+            placeholder="Caută destinația"
             onPress={(data, details = null) => {
               setDestinationPlace({ data, details });
               // console.log(data, details);
@@ -255,7 +255,7 @@ const DestinationSearch = (props) => {
             <Entypo name={"location-pin"} size={23} color={"#4a5ef5de"} />
           </View>
           <GooglePlacesAutocomplete
-            placeholder="Adauga oprire"
+            placeholder="Adaugă oprire"
             onPress={(data, details = null) => {
               setStopPlace({ data, details });
               // console.log(data, details);

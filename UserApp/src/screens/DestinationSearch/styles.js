@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     padding: 10,
-    backgroundColor: "#4dcb4d94",
+    backgroundColor: "#45a8f29e",
     marginVertical: 5,
     marginLeft: 20,
     borderRadius: 10,
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   circle: {
     width: 10,
     height: 10,
-    backgroundColor: "#75eb75",
+    backgroundColor: "#45a8f29e",
     position: "absolute",
     top: 15,
     left: 14,
