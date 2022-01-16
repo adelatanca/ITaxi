@@ -36,8 +36,8 @@ const HomeSearch = (props) => {
         <Text style={styles.inputText}>Incotro?</Text>
 
         <View style={styles.timeContainer}>
-          <AntDesign name={"clockcircle"} size={16} color={"purple"} />
-          <Text>Now</Text>
+          <AntDesign name={"clockcircle"} size={16} color={"gray"} />
+          <Text>Acum</Text>
           <MaterialIcons name={"keyboard-arrow-down"} size={16} />
         </View>
       </Pressable>
@@ -47,12 +47,12 @@ const HomeSearch = (props) => {
         </View>
         <Text style={styles.destinationText}>{prevLocation}</Text>
       </View>
-      <View style={styles.row}>
+      {/* <View style={styles.row}>
         <View style={[styles.iconContainer, { backgroundColor: "#218cff" }]}>
           <Entypo name={"location-pin"} size={20} color={"#ffffff"} />
         </View>
         <Text style={styles.destinationText}>Loc anterioara 2</Text>
-      </View>
+      </View> */}
     </View>
   );
 };

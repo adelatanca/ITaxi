@@ -76,7 +76,7 @@ const HomeMap = (props) => {
     <View>
       <MapView
         ref={mapRef}
-        style={{ height: 405, width: "100%" }}
+        style={{ height: 475, width: "100%" }}
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}
         customMapStyle={colorScheme == "light" ? [] : mapDarkStyle}

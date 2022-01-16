@@ -10,39 +10,29 @@ import styles from "./styles.js";
 import { useNavigation } from "@react-navigation/native";
 
 const Post = (props) => {
-  const post = props.post;
   const width = useWindowDimensions().width;
 
   const navigation = useNavigation();
 
-  const goToPostPage = () => {
-    // navigation.navigate("Post", { postId: post.id });
-  };
-
   return (
-    <Pressable
-      onPress={goToPostPage}
-      style={[styles.container, { width: width - 60 }]}
-    >
+    <Pressable style={[styles.container, { width: width - 60 }]}>
       <View style={styles.innerContainer}>
         <Image
           style={styles.image}
-          source={require(`../../assets/images/ITaxi_App.png`)}
-          //   source={{
-          //     uri: "https://chargedevs.com/wp-content/uploads/2015/11/Nissan-LEAF-electric-taxis.jpg",
-          //   }}
+          source={{
+            uri: props.image,
+          }}
         />
 
         <View style={{ flex: 1, marginHorizontal: 10 }}>
-          <Text style={styles.bedrooms}>50% reducere</Text>
+          <Text style={styles.bedrooms}>{props.title}</Text>
 
           <Text style={styles.description} numberOfLines={3}>
-            Invita-ti prietenii prin aplicatie si primesti o reducere la
-            urmatoarele 5 calatorii.
+            {props.content}
           </Text>
 
           <Text style={styles.prices}>
-            <Text style={styles.price}>50% </Text>pe calatorie
+            <Text style={styles.price}>{props.subtitle}</Text>
           </Text>
         </View>
       </View>
