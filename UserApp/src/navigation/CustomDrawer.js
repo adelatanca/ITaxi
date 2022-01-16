@@ -100,13 +100,14 @@ const CustomDrawer = (props) => {
         >
           <Text
             style={{
+              fontSize: 20,
               color: "grey",
               padding: 5,
               paddingLeft: 20,
-              marginTop: 20,
+              marginTop: 320,
             }}
           >
-            Logout
+            <AntDesign name={"logout"} size={20} color={"gray"} /> Logout
           </Text>
         </Pressable>
       </DrawerContentScrollView>

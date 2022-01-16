@@ -36,7 +36,7 @@ const HomeSearch = (props) => {
         <Text style={styles.inputText}>Incotro?</Text>
 
         <View style={styles.timeContainer}>
-          <AntDesign name={"clockcircle"} size={16} color={"#535353"} />
+          <AntDesign name={"clockcircle"} size={16} color={"purple"} />
           <Text>Now</Text>
           <MaterialIcons name={"keyboard-arrow-down"} size={16} />
         </View>

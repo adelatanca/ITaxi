@@ -8,6 +8,7 @@ import HistoryScreen from "../screens/HistoryScreen";
 import AboutUsScreen from "../screens/AboutUsScreen";
 import RatingScreen from "../screens/RatingScreen";
 import CustomDrawer from "./CustomDrawer";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 const Drawer = createDrawerNavigator();
 
@@ -32,18 +33,63 @@ const RootNavigator = (props) => {
   return (
     <NavigationContainer>
       <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />}>
-        <Drawer.Screen name="Calatoreste" component={HomeNavigator} />
+        <Drawer.Screen
+          name="Calatoreste"
+          component={HomeNavigator}
+          options={{
+            drawerIcon: (config) => (
+              <AntDesign name={"car"} size={20} color={"gray"} />
+            ),
+          }}
+        />
 
         <Drawer.Screen
           name="Istoric curse"
           component={HistoryScreen}
+          options={{
+            drawerIcon: (config) => (
+              <AntDesign name={"clockcircleo"} size={20} color={"gray"} />
+            ),
+          }}
         ></Drawer.Screen>
 
-        <Drawer.Screen name="Despre noi">
+        <Drawer.Screen
+          name="Promotii"
+          component={AboutUsScreen}
+          options={{
+            drawerIcon: (config) => (
+              <AntDesign name={"tago"} size={20} color={"gray"} />
+            ),
+          }}
+        ></Drawer.Screen>
+        <Drawer.Screen
+          name="Rating"
+          component={RatingScreen}
+          options={{
+            drawerIcon: (config) => (
+              <AntDesign name={"staro"} size={20} color={"gray"} />
+            ),
+          }}
+        ></Drawer.Screen>
+        <Drawer.Screen
+          name="Asistenta"
+          component={AboutUsScreen}
+          options={{
+            drawerIcon: (config) => (
+              <AntDesign name={"phone"} size={20} color={"gray"} />
+            ),
+          }}
+        ></Drawer.Screen>
+        <Drawer.Screen
+          name="Despre noi"
+          options={{
+            drawerIcon: (config) => (
+              <AntDesign name={"infocirlceo"} size={20} color={"gray"} />
+            ),
+          }}
+        >
           {() => <DummyScreen name="Despre noi" component={AboutUsScreen} />}
         </Drawer.Screen>
-
-        <Drawer.Screen name="Rating" component={RatingScreen}></Drawer.Screen>
       </Drawer.Navigator>
     </NavigationContainer>
   );
