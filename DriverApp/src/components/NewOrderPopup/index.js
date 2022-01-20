@@ -65,7 +65,7 @@ const NewOrderPopup = ({newOrder, onAccept, onDecline}) => {
           <View style={styles.userBg}>
             <Entypo name={'user'} size={30} color={'white'} />
           </View>
-          <Text style={styles.username}> {newOrder.username} </Text>
+          <Text style={styles.username}> {newOrder.userId} </Text>
         </View>
         <Text style={{color: 'white', fontSize: 20}}>Telefon - 035353443</Text>
 

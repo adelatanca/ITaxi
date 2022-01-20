@@ -7,6 +7,7 @@ import {
   Appearance,
   Button,
   useColorScheme,
+  Modal,
 } from 'react-native';
 import MapView, {
   PROVIDER_GOOGLE,
@@ -26,6 +27,7 @@ import {updateCar, updateOrder} from '../../graphql/mutations';
 import mapDarkStyle from '../../assets/data/mapDarkStyle';
 
 import {getDistance} from 'geolib';
+import {useNavigation} from '@react-navigation/native';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
 
@@ -48,10 +50,13 @@ const HomeScreen = () => {
   const mapRef = useRef(null);
   const [region, setRegion] = useState(null);
 
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const navigation = useNavigation();
+
   let colorScheme = useColorScheme();
 
   const calculateDistance = () => {
-    console.log('calc dist is called');
     if (newOrders[0]) {
       var dis = getDistance(
         {
@@ -100,7 +105,6 @@ const HomeScreen = () => {
   }, []);
 
   const onDecline = () => {
-    //  console.log(newOrders);
     setNewOrders(newOrders.slice(1));
   };
 
@@ -202,8 +206,39 @@ const HomeScreen = () => {
     };
   };
 
+  const goToHistory = () => {
+    navigation.navigate('Istoric comenzi');
+    console.warn('history');
+  };
+
+  const renderModalData = () => {
+    if (modalVisible) {
+      return (
+        <View style={styles.centeredView}>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              setModalVisible(!modalVisible);
+            }}>
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={styles.modalText}>Profil</Text>
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => setModalVisible(!modalVisible)}>
+                  <Text style={styles.textStyle}>Inchide</Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
+        </View>
+      );
+    }
+  };
+
   const renderBottomTitle = () => {
-    // console.log(' order is ', order);
     if (order && order.isFinished) {
       return (
         <View style={{alignItems: 'center'}}>
@@ -286,7 +321,7 @@ const HomeScreen = () => {
     <View>
       <MapView
         ref={mapRef}
-        style={{height: Dimensions.get('window').height - 150, width: '100%'}}
+        style={{height: Dimensions.get('window').height - 190, width: '100%'}}
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}
         customMapStyle={colorScheme == 'light' ? [] : mapDarkStyle}
@@ -320,7 +355,6 @@ const HomeScreen = () => {
         <Marker coordinate={originLocation} title={'Origin'} />
         <Marker coordinate={destinationLocation} title={'Destination'} />
       </MapView>
-
       <Pressable
         onPress={() => console.warn('Balance')}
         style={styles.balanceButton}>
@@ -329,11 +363,17 @@ const HomeScreen = () => {
           0.00
         </Text>
       </Pressable>
-
+      <Pressable
+        onPress={() => setModalVisible(true)}
+        style={styles.hamburgerButton}>
+        <Entypo name={'menu'} size={35} color={'grey'} />
+      </Pressable>
+      <Pressable onPress={() => goToHistory()} style={styles.historyButton}>
+        <Entypo name={'stopwatch'} size={35} color={'grey'} />
+      </Pressable>
       <Pressable onPress={onGoPress} style={styles.goButton}>
         <Text style={styles.goText}>{car?.isActive ? 'END' : 'GO'}</Text>
       </Pressable>
-
       <View style={styles.bottomContainer}>
         <Pressable onPress={() => Auth.signOut()}>
           <Entypo name={'log-out'} size={35} color={'grey'} />
@@ -343,7 +383,6 @@ const HomeScreen = () => {
           <Entypo name={'direction'} size={35} color={'grey'} />
         </Pressable>
       </View>
-
       {newOrders.length > 0 && !order && (
         <NewOrderPopup
           newOrder={newOrders[0]}
@@ -351,6 +390,7 @@ const HomeScreen = () => {
           onAccept={() => onAccept(newOrders[0])}
         />
       )}
+      {renderModalData()}
     </View>
   );
 };

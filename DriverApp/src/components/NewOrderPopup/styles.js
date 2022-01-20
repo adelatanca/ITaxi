@@ -11,19 +11,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#00000099',
   },
   popupContainer: {
-    backgroundColor: 'black',
+    backgroundColor: '#45a8f2',
     borderRadius: 10,
-    height: 250,
+    height: 350,
     alignItems: 'center',
     justifyContent: 'space-around',
   },
   pornire: {
     color: 'lightgrey',
-    fontSize: 15,
+    fontSize: 18,
   },
   destinatie: {
     color: 'lightgrey',
-    fontSize: 15,
+    fontSize: 18,
   },
   username: {
     color: 'lightgrey',
@@ -43,10 +43,12 @@ const styles = StyleSheet.create({
     borderRadius: 60,
   },
   declineButton: {
-    backgroundColor: 'black',
+    backgroundColor: '#45a8f2',
     padding: 20,
     borderRadius: 50,
     width: 100,
+    bottom: 10,
+    right: 5,
     alignItems: 'center',
   },
   declineText: {

@@ -86,7 +86,7 @@ const CustomDrawer = (props) => {
               <Text
                 style={{ color: "white", paddingVertical: 5, fontSize: 15 }}
               >
-                Câștigă bani dupa propriul program
+                Câștigă bani după propriul program
               </Text>
             </Pressable>
           </View>

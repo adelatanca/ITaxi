@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
-
   balanceButton: {
     position: 'absolute',
     backgroundColor: '#a3a9afbf',
@@ -51,6 +50,75 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'white',
     fontWeight: 'bold',
+  },
+  historyButton: {
+    position: 'absolute',
+    backgroundColor: 'white',
+    width: 55,
+    height: 55,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 50,
+    top: 10,
+    left: Dimensions.get('window').width - 80,
+  },
+  hamburgerButton: {
+    position: 'absolute',
+    backgroundColor: 'white',
+    width: 55,
+    height: 55,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 50,
+    top: 10,
+    left: Dimensions.get('window').width - 400,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    right: 87,
+    width: 330,
+    height: 865,
+    bottom: -10,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+    top: 720,
+    left: 10,
+  },
+  buttonOpen: {
+    backgroundColor: '#45a8f2',
+  },
+  buttonClose: {
+    backgroundColor: '#45a8f2',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
   },
 });
 

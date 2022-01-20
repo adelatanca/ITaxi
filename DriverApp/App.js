@@ -8,6 +8,15 @@ import {withAuthenticator} from 'aws-amplify-react-native';
 import {getCarId} from './src/graphql/queries';
 import {createCar} from './src/graphql/mutations';
 
+import {LogBox} from 'react-native';
+
+LogBox.ignoreLogs([
+  "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
+]);
+
+import 'react-native-gesture-handler';
+import Router from './src/navigation/Root';
+
 Amplify.configure({
   ...config,
   Analytics: {
@@ -49,14 +58,7 @@ const App = () => {
     updateUserCar();
   }, []);
 
-  //Auth.signOut();
-
-  return (
-    <SafeAreaView>
-      <StatusBar />
-      <HomeScreen />
-    </SafeAreaView>
-  );
+  return <Router />;
 };
 
 export default withAuthenticator(App);
