@@ -5,7 +5,7 @@ import styles from './styles.js';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
 
-const NewOrderPopup = ({newOrder, onAccept, onDecline}) => {
+const NewOrderPopup = ({newOrder, onAccept, onDecline, client}) => {
   const [pornire, setPornire] = useState(null);
   const [destinatie, setDestinatie] = useState(null);
 
@@ -65,7 +65,7 @@ const NewOrderPopup = ({newOrder, onAccept, onDecline}) => {
           <View style={styles.userBg}>
             <Entypo name={'user'} size={30} color={'white'} />
           </View>
-          <Text style={styles.username}> {newOrder.userId} </Text>
+          <Text style={styles.username}>{client}</Text>
         </View>
         <Text style={{color: 'white', fontSize: 20}}>Telefon - 035353443</Text>
 

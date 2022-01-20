@@ -16,9 +16,10 @@ const CustomDrawer = (props) => {
 
   const fetchUser = async () => {
     try {
-      const user = await API.graphql(graphqlOperation(listUsers));
-      setUser(user.data.listUsers.items);
-      // console.log(user.data.listUsers.items, "the user");
+      const userData = await Auth.currentAuthenticatedUser();
+      setUser(userData);
+      console.log(userData.attributes.email, "EMAIL");
+      console.log(userData.username, "the user");
     } catch (e) {
       console.log(e);
     }
@@ -28,9 +29,7 @@ const CustomDrawer = (props) => {
     fetchUser();
   }, []);
 
-  // console.log(user[0], "is user");
-
-  if (!user[0]) {
+  if (!user) {
     return <Text>Please Wait</Text>;
   } else {
     return (
@@ -40,7 +39,7 @@ const CustomDrawer = (props) => {
             <View />
             <UserAvatar
               size={50}
-              name={user[0].username}
+              name={user.username}
               style={{ marginRight: 5 }}
             />
             <AntDesign
@@ -51,10 +50,10 @@ const CustomDrawer = (props) => {
             />
             <View>
               <Text style={{ color: "white", fontSize: 24, right: 10 }}>
-                {user[0].username}
+                {user?.username}
               </Text>
               <Text style={{ color: "white", fontSize: 14, right: 10 }}>
-                {user[0].email}
+                {user.attributes?.email}
               </Text>
             </View>
           </View>

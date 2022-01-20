@@ -22,7 +22,7 @@ import NewOrderPopup from '../../components/NewOrderPopup';
 
 import {Auth, API, graphqlOperation} from 'aws-amplify';
 import {getCar} from '../../graphql/queries';
-import {listOrders} from '../../graphql/queries';
+import {listOrders, listUsers} from '../../graphql/queries';
 import {updateCar, updateOrder} from '../../graphql/mutations';
 import mapDarkStyle from '../../assets/data/mapDarkStyle';
 
@@ -49,8 +49,10 @@ const HomeScreen = () => {
   const [newOrders, setNewOrders] = useState([]);
   const mapRef = useRef(null);
   const [region, setRegion] = useState(null);
-
+  const [user, setUser] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
+
+  const [userOrder, setUserOrder] = useState([]);
 
   const navigation = useNavigation();
 
@@ -73,6 +75,19 @@ const HomeScreen = () => {
       console.log(dis);
     }
   };
+
+  const fetchUser = async () => {
+    try {
+      const user = await API.graphql(graphqlOperation(listUsers));
+      setUser(user.data.listUsers.items);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
 
   const fetchCar = async () => {
     try {
@@ -103,6 +118,16 @@ const HomeScreen = () => {
     fetchCar();
     fetchOrders();
   }, []);
+
+  useEffect(() => {
+    console.log('THEOR', newOrders[0]?.userId);
+    user.map(userData => {
+      if (userData.id == newOrders[0]?.userId) {
+        setUserOrder(userData.username);
+      }
+      console.log('USERDATA ', userData.id);
+    });
+  });
 
   const onDecline = () => {
     setNewOrders(newOrders.slice(1));
@@ -385,6 +410,7 @@ const HomeScreen = () => {
       </View>
       {newOrders.length > 0 && !order && (
         <NewOrderPopup
+          client={userOrder}
           newOrder={newOrders[0]}
           onDecline={onDecline}
           onAccept={() => onAccept(newOrders[0])}

@@ -83,3 +83,39 @@ export const listOrders = /* GraphQL */ `
     }
   }
 `;
+export const listUsers = /* GraphQL */ `
+  query ListUsers(
+    $filter: ModelUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        username
+        email
+        phoneNumber
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          carNumber
+          isActive
+          userId
+          createdAt
+          updatedAt
+          carUserId
+          username
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
