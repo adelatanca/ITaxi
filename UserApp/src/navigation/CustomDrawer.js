@@ -73,7 +73,7 @@ const CustomDrawer = (props) => {
             >
               <Text
                 style={{
-                  color: "white",
+                  color: "orange",
                   paddingVertical: 5,
                   fontWeight: "bold",
                   fontSize: 16,
@@ -83,7 +83,12 @@ const CustomDrawer = (props) => {
                 Devino șofer partener
               </Text>
               <Text
-                style={{ color: "white", paddingVertical: 5, fontSize: 15 }}
+                style={{
+                  color: "orange",
+                  paddingVertical: 5,
+                  fontSize: 14,
+                  fontWeight: "bold",
+                }}
               >
                 Câștigă bani după propriul program
               </Text>

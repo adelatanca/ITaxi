@@ -26,20 +26,10 @@ import {listOrders, listUsers} from '../../graphql/queries';
 import {updateCar, updateOrder} from '../../graphql/mutations';
 import mapDarkStyle from '../../assets/data/mapDarkStyle';
 
-import {getDistance} from 'geolib';
 import {useNavigation} from '@react-navigation/native';
-
+import UserAvatar from 'react-native-user-avatar';
+import StarRating from 'react-native-star-rating';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
-
-const originLocation = {
-  latitude: 47.093271,
-  longitude: 21.9024223,
-};
-
-const destinationLocation = {
-  latitude: 47.0411391,
-  longitude: 21.9259096,
-};
 
 const HomeScreen = () => {
   const [car, setCar] = useState(null);
@@ -51,34 +41,33 @@ const HomeScreen = () => {
   const [region, setRegion] = useState(null);
   const [user, setUser] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
-
   const [userOrder, setUserOrder] = useState([]);
+  const [currentUser, setCurrentUser] = useState([]);
+  const [usernameOrdered, setUsernameOrdered] = useState(null);
+  const currentLocation = {
+    latitude: myPosition?.latitude,
+    longitude: myPosition?.longitude,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+  };
 
   const navigation = useNavigation();
 
   let colorScheme = useColorScheme();
 
-  const calculateDistance = () => {
-    if (newOrders[0]) {
-      var dis = getDistance(
-        {
-          latitude: newOrders[0].originLatitude,
-          longitude: newOrders[0].originLongitude,
-        },
-        {
-          latitude: newOrders[0].destLatitude,
-          longitude: newOrders[0].destLongitude,
-        },
-      );
-      dis = dis / 1000;
-      setDistance(dis);
-      console.log(dis);
+  const fetchCurrentUser = async () => {
+    try {
+      const userData = await Auth.currentAuthenticatedUser();
+      setCurrentUser(userData);
+    } catch (e) {
+      console.log(e);
     }
   };
 
   const fetchUser = async () => {
     try {
       const user = await API.graphql(graphqlOperation(listUsers));
+
       setUser(user.data.listUsers.items);
     } catch (e) {
       console.log(e);
@@ -87,6 +76,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     fetchUser();
+    fetchCurrentUser();
   }, []);
 
   const fetchCar = async () => {
@@ -97,7 +87,6 @@ const HomeScreen = () => {
         graphqlOperation(getCar, {id: userData.attributes.sub}),
       );
       setCar(carData.data.getCar);
-      console.log('Car is ', car);
     } catch (e) {
       console.log(e);
     }
@@ -119,13 +108,37 @@ const HomeScreen = () => {
     fetchOrders();
   }, []);
 
+  const originLocation = {
+    latitude: order?.originLatitude,
+    longitude: order?.originLongitude,
+  };
+
+  const destinationLocation = {
+    latitude: order?.destLatitude,
+    longitude: order?.destLongitude,
+  };
+
+  const wayPoint = [
+    {
+      latitude: order?.originLatitude,
+      longitude: order?.originLongitude,
+    },
+  ];
+
+  // const stopLocation = {
+  //   latitude: stop
+  //     ? stop.details.geometry.location.lat
+  //     : destination.details.geometry.location.lat,
+  //   longitude: stop
+  //     ? stop.details.geometry.location.lng
+  //     : destination.details.geometry.location.lng,
+  // };
+
   useEffect(() => {
-    console.log('THEOR', newOrders[0]?.userId);
     user.map(userData => {
       if (userData.id == newOrders[0]?.userId) {
         setUserOrder(userData.username);
       }
-      console.log('USERDATA ', userData.id);
     });
   });
 
@@ -169,7 +182,6 @@ const HomeScreen = () => {
   };
 
   const onUserLocationChange = async event => {
-    console.log('event native', event.nativeEvent.coordinate);
     setMyPosition(event.nativeEvent.coordinate);
 
     const {latitude, longitude, heading} = event.nativeEvent.coordinate;
@@ -193,14 +205,7 @@ const HomeScreen = () => {
     }
   };
 
-  const currentLocation = {
-    latitude: myPosition?.latitude,
-    longitude: myPosition?.longitude,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-  };
   const goToCurrentLocation = () => {
-    //complete this animation in 3 seconds
     mapRef.current.animateToRegion(currentLocation, 3 * 1000);
   };
 
@@ -233,8 +238,15 @@ const HomeScreen = () => {
 
   const goToHistory = () => {
     navigation.navigate('Istoric comenzi');
-    console.warn('history');
   };
+
+  useEffect(() => {
+    user.map(userData => {
+      if (userData.id == order?.userId) {
+        setUsernameOrdered(userData.username);
+      }
+    });
+  });
 
   const renderModalData = () => {
     if (modalVisible) {
@@ -249,11 +261,33 @@ const HomeScreen = () => {
             }}>
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
-                <Text style={styles.modalText}>Profil</Text>
+                <Text style={styles.modalText}>Profilul tău</Text>
+                <UserAvatar size={85} name={currentUser.username} />
+                <Entypo
+                  name={'edit'}
+                  size={35}
+                  color={'white'}
+                  style={styles.editProfileImage}
+                />
+                <Text style={styles.rating}>
+                  <StarRating
+                    style={styles.rating}
+                    halfStarEnabled={true}
+                    maxStars={5}
+                    rating={3}
+                    // starStyle={{fontSize: 15}}
+                    fullStarColor={'orange'}
+                  />
+                </Text>
+                <Text style={styles.username}>{currentUser.username}</Text>
+                <Text style={styles.email}>{currentUser.attributes.email}</Text>
+
+                <Text style={styles.car}>{car.carNumber}</Text>
+                <Text style={styles.car}>{car.type}</Text>
                 <Pressable
                   style={[styles.button, styles.buttonClose]}
                   onPress={() => setModalVisible(!modalVisible)}>
-                  <Text style={styles.textStyle}>Inchide</Text>
+                  <Text style={styles.close}>Închide</Text>
                 </Pressable>
               </View>
             </View>
@@ -304,7 +338,7 @@ const HomeScreen = () => {
             </View>
             <Text> {order.distance ? order.distance.toFixed(2) : '?'} km</Text>
           </View>
-          <Text style={styles.bottomText}>Dropping off {order.username}</Text>
+          <Text style={styles.bottomText}>{usernameOrdered} coboară</Text>
         </View>
       );
     }
@@ -330,15 +364,15 @@ const HomeScreen = () => {
             </View>
             <Text> {order.distance ? order.distance.toFixed(2) : '?'} km</Text>
           </View>
-          <Text style={styles.bottomText}>Picking up {order.username}</Text>
+          <Text style={styles.bottomText}>Preluare {usernameOrdered}</Text>
         </View>
       );
     }
 
     if (car?.isActive) {
-      return <Text style={styles.bottomText}> You're online</Text>;
+      return <Text style={styles.bottomText}>Disponibil</Text>;
     } else {
-      return <Text style={styles.bottomText}> You're offline</Text>;
+      return <Text style={styles.bottomText}>Indisponibil</Text>;
     }
   };
 
@@ -364,13 +398,15 @@ const HomeScreen = () => {
               latitude: car?.latitude,
               longitude: car?.longitude,
             }}
-            // origin={myPosition}
+            waypoints={wayPoint}
+            destination={destinationLocation}
+            optimizeWaypoints={true}
             onReady={onDirectionFound}
             onError={errorMessage => {
               console.log(errorMessage);
             }}
             lineDashPattern={[0]}
-            destination={getDestination()}
+            //  destination={getDestination()}
             apikey={GOOGLE_MAPS_APIKEY}
             strokeColor="pink"
             strokeWidth={5}
@@ -391,21 +427,21 @@ const HomeScreen = () => {
       <Pressable
         onPress={() => setModalVisible(true)}
         style={styles.hamburgerButton}>
-        <Entypo name={'menu'} size={35} color={'grey'} />
+        <Entypo name={'menu'} size={35} color={'orange'} />
       </Pressable>
       <Pressable onPress={() => goToHistory()} style={styles.historyButton}>
-        <Entypo name={'stopwatch'} size={35} color={'grey'} />
+        <Entypo name={'stopwatch'} size={35} color={'orange'} />
       </Pressable>
       <Pressable onPress={onGoPress} style={styles.goButton}>
         <Text style={styles.goText}>{car?.isActive ? 'END' : 'GO'}</Text>
       </Pressable>
       <View style={styles.bottomContainer}>
         <Pressable onPress={() => Auth.signOut()}>
-          <Entypo name={'log-out'} size={35} color={'grey'} />
+          <Entypo name={'log-out'} size={35} color={'orange'} />
         </Pressable>
         {renderBottomTitle()}
         <Pressable onPress={() => goToCurrentLocation()}>
-          <Entypo name={'direction'} size={35} color={'grey'} />
+          <Entypo name={'direction'} size={35} color={'orange'} />
         </Pressable>
       </View>
       {newOrders.length > 0 && !order && (

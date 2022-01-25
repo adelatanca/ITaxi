@@ -67,10 +67,11 @@ const NewOrderPopup = ({newOrder, onAccept, onDecline, client}) => {
           </View>
           <Text style={styles.username}>{client}</Text>
         </View>
-        <Text style={{color: 'white', fontSize: 20}}>Telefon - 035353443</Text>
-
-        <Text style={styles.pornire}> Pornire - {pornire}</Text>
-        <Text style={styles.destinatie}>Destinatie - {destinatie}</Text>
+        <View style={styles.info}>
+          <Text style={styles.phone}>Telefon - 035353443</Text>
+          <Text style={styles.pornire}>Pornire - {pornire}</Text>
+          <Text style={styles.destinatie}>Destinatie - {destinatie}</Text>
+        </View>
       </Pressable>
     </View>
   );

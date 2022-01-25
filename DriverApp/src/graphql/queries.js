@@ -119,3 +119,39 @@ export const listUsers = /* GraphQL */ `
     }
   }
 `;
+export const listCars = /* GraphQL */ `
+  query ListCars(
+    $filter: ModelCarFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCars(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        type
+        latitude
+        longitude
+        heading
+        carNumber
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          phoneNumber
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+        carUserId
+        username
+      }
+      nextToken
+    }
+  }
+`;

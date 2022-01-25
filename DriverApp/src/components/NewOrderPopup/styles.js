@@ -17,18 +17,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
-  pornire: {
-    color: 'lightgrey',
-    fontSize: 18,
-  },
-  destinatie: {
-    color: 'lightgrey',
-    fontSize: 18,
-  },
   username: {
     color: 'lightgrey',
     fontSize: 20,
     marginHorizontal: 10,
+    fontWeight: 'bold',
   },
   row: {
     flexDirection: 'row',
@@ -53,6 +46,31 @@ const styles = StyleSheet.create({
   },
   declineText: {
     color: 'white',
+    fontWeight: 'bold',
+  },
+  info: {
+    padding: 12,
+    bottom: 70,
+  },
+  phone: {
+    color: 'white',
+    top: 5,
+    fontSize: 20,
+    justifyContent: 'center',
+    fontWeight: 'bold',
+  },
+  pornire: {
+    color: 'white',
+    fontSize: 18,
+    top: 20,
+    justifyContent: 'center',
+    fontWeight: 'bold',
+  },
+  destinatie: {
+    color: 'white',
+    fontSize: 18,
+    top: 30,
+    justifyContent: 'center',
     fontWeight: 'bold',
   },
 });

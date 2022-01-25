@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     elevation: 2,
-    top: 720,
+    top: 350,
     left: 10,
   },
   buttonOpen: {
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   buttonClose: {
     backgroundColor: '#45a8f2',
   },
-  textStyle: {
+  close: {
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
@@ -119,6 +119,31 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+  editProfileImage: {
+    bottom: 39,
+    left: 26,
+  },
+  username: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    margin: 5,
+  },
+  email: {
+    fontWeight: 'bold',
+    fontSize: 15,
+  },
+  car: {
+    top: 20,
+    fontWeight: 'bold',
+    fontSize: 18,
+    bottom: 5,
+    margin: 5,
+  },
+  rating: {
+    bottom: 10,
   },
 });
 
