@@ -33,7 +33,7 @@ const ITaxiTypes = ({
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       {typesData.map((type, i) => (
         <ITaxiTypeRow
           type={type}
@@ -57,6 +57,13 @@ const ITaxiTypes = ({
           margin: 10,
           borderRadius: 20,
           alignItems: "center",
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.45,
+          shadowRadius: 3.84,
         }}
       >
         <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>

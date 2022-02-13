@@ -2,14 +2,15 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: "pink",
-    padding: 10,
+    backgroundColor: "white",
+    padding: 15,
+    borderRadius: 35,
   },
   line: {
     flexDirection: "row",
     // borderTopWidth: 1,
     // borderTopColor: "#919191",
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.50,
     borderBottomColor: "#919191",
     paddingVertical: 1,
   },
@@ -21,6 +22,13 @@ const styles = StyleSheet.create({
     marginVertical: 12,
     color: "#45a8f2",
     fontWeight: "bold",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.34,
   },
   comanda: {
     top: 10,

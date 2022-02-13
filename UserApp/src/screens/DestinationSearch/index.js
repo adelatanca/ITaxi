@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
-  TextInput,
   SafeAreaView,
   Pressable,
-  Image,
 } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import styles from "./styles";
@@ -14,12 +12,6 @@ import * as Location from "expo-location";
 import { useNavigation } from "@react-navigation/native";
 import Entypo from "react-native-vector-icons/Entypo";
 import AntDesign from "react-native-vector-icons/AntDesign";
-import MapView, {
-  PROVIDER_GOOGLE,
-  Marker,
-  AnimatedRegion,
-} from "react-native-maps";
-
 const homePlace = {
   description: "Acasa",
   geometry: { location: { lat: 47.093271, lng: 21.9024223 } },
@@ -69,13 +61,15 @@ const DestinationSearch = (props) => {
     navigation.navigate("Home");
   };
 
+  const goToSearchOnMap = () => {
+    navigation.navigate("SearchOnMapScreen");
+  };
+
   const addStop = () => {
-    console.log("add stop");
     setAddStopStation(true);
   };
 
   const deleteStop = () => {
-    console.log("delete stop");
     setAddStopStation(false);
   };
 
@@ -112,7 +106,7 @@ const DestinationSearch = (props) => {
   };
 
   if (addStopStation) {
-      return (
+    return (
       <SafeAreaView>
         <View style={styles.container}>
           <View style={styles.close}>
@@ -203,17 +197,23 @@ const DestinationSearch = (props) => {
             }}
             renderRow={(data) => <PlaceRow data={data} />}
           />
-
           <Pressable style={styles.deleteStop} onPress={() => deleteStop()}>
             <AntDesign name={"minus"} size={25} />
           </Pressable>
+
+          <View style={styles.searchOnMapView}>
+            <Pressable onPress={() => goToSearchOnMap()}>
+              <Entypo style={styles.searchOnMapPin} name={'location-pin'} size={35} color={'#4d8beb'} />
+              <Text style={styles.searchOnMap}>Caută pe hartă </Text>
+            </Pressable>
+          </View>
         </View>
         {renderError()}
       </SafeAreaView>
     );
-   
+
   } else {
-   return (
+    return (
       <SafeAreaView>
         <View style={styles.container}>
           <View style={styles.close}>
@@ -253,7 +253,7 @@ const DestinationSearch = (props) => {
             placeholder="Caută destinația"
             onPress={(data, details = null) => {
               setDestinationPlace({ data, details });
-              // console.log(data, details);
+              //console.log("FROMTHERE " + data, details);
             }}
             suppressDefaultStyles
             textInputProps={{ placeholderTextColor: "black" }}
@@ -278,12 +278,23 @@ const DestinationSearch = (props) => {
           <View style={styles.pin}>
             <Entypo name={"location-pin"} size={23} color={"#4a5ef5de"} />
           </View>
+
           <View style={styles.addStop}>
             <Pressable onPress={() => addStop()}>
               <AntDesign name={"plus"} size={25} />
             </Pressable>
           </View>
+
+          <View style={styles.searchOnMapView}>
+            <Pressable onPress={() => goToSearchOnMap()}>
+              <Entypo style={styles.searchOnMapPin} name={'location-pin'} size={35} color={'#4d8beb'} />
+              <Text style={styles.searchOnMap}>Caută pe hartă </Text>
+            </Pressable>
+          </View>
+
         </View>
+
+
         {renderError()}
       </SafeAreaView>
     );

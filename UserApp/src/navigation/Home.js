@@ -3,6 +3,7 @@ import styles from "./styles";
 import HomeScreen from "../screens/HomeScreen";
 import DestinationSearch from "../screens/DestinationSearch";
 import SearchResults from "../screens/SearchResults";
+import SearchOnMapScreen from '../screens/SearchOnMapScreen';
 import OrderScreen from "../screens/OrderScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -22,6 +23,7 @@ const HomeNavigator = (props) => {
         component={DestinationSearch}
         options={{ title: "Home Screen" }}
       />
+      <Stack.Screen name={"SearchOnMapScreen"} component={SearchOnMapScreen} />
       <Stack.Screen name={"SearchResults"} component={SearchResults} />
       <Stack.Screen name={"OrderPage"} component={OrderScreen} />
     </Stack.Navigator>

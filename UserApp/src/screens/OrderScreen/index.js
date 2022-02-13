@@ -26,7 +26,7 @@ const OrderScreen = (props) => {
           graphqlOperation(getUser, { id: order.carId })
         );
         setUser(userData.data.getUser);
-      } catch (e) {}
+      } catch (e) { }
     };
     fetchUser();
   }, []);
@@ -41,7 +41,7 @@ const OrderScreen = (props) => {
 
         setOrder(orderData.data.getOrder);
         console.log(order, "is order");
-      } catch (e) {}
+      } catch (e) { }
     };
     fetchOrder();
   }, []);
@@ -70,7 +70,7 @@ const OrderScreen = (props) => {
           graphqlOperation(getCar, { id: order.carId })
         );
         setCar(carData.data.getCar);
-      } catch (e) {}
+      } catch (e) { }
     };
     fetchCar();
   }, [order]);

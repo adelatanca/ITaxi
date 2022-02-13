@@ -10,6 +10,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 7,
     bottom: 30,
     fontWeight: "bold",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.45,
+    shadowRadius: 3.84,
   },
   setDestination: {
     color: "black",
@@ -17,6 +24,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 100,
     bottom: 55,
     fontWeight: "bold",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.35,
+    shadowRadius: 3.84,
   },
   textInput: {
     padding: 10,
@@ -77,12 +91,26 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 25,
     left: 17,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.45,
+    shadowRadius: 3.84,
   },
   pin: {
     color: "#4d8beb",
     position: "absolute",
     top: 73,
     left: 8,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.35,
+    shadowRadius: 3.84,
   },
   iconContainer: {
     backgroundColor: "#b3b3b3",
@@ -93,11 +121,25 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 67,
     left: 395,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.45,
+    shadowRadius: 3.84,
   },
   deleteStop: {
     position: "absolute",
     top: 120,
     left: 395,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.45,
+    shadowRadius: 3.84,
   },
   circleStop: {
     width: 10,
@@ -115,13 +157,49 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 25,
     left: 17,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.45,
+    shadowRadius: 3.84,
   },
   pinStop: {
     color: "#4d8beb",
     position: "absolute",
     top: 125,
     left: 8,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.45,
+    shadowRadius: 3.84,
   },
+  searchOnMapPin: {
+    fontSize: 20,
+    right: 20,
+    top: 22,
+    fontWeight: "bold",
+  },
+  searchOnMap: {
+    color: "black",
+    fontSize: 20,
+    fontWeight: "bold",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.35,
+    shadowRadius: 3.84,
+  },
+  searchOnMapView: {
+    marginHorizontal: 140,
+    top: 657,
+  }
 });
 
 export default styles;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   View,
-  Text,
   Dimensions,
   Alert,
   Button,
@@ -104,7 +103,7 @@ const SearchResult = (props) => {
   });
 
   return (
-    <View style={{ display: "flex", justifyContent: "space-between" }}>
+    <View style={styles.container}>
       <View style={{ height: Dimensions.get("window").height - 550 }}>
         <RouteMap
           origin={originPlace}

@@ -1,6 +1,11 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    justifyContent: "space-between",
+    backgroundColor: "white",
+  },
   leftButton: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -13,6 +18,13 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     width: 120,
     padding: 6,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.45,
+    shadowRadius: 3.84,
   },
   rightButton: {
     flexDirection: "row",
@@ -26,6 +38,13 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     width: 120,
     padding: 6,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.45,
+    shadowRadius: 3.84,
   },
 });
 
