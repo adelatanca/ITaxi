@@ -52,7 +52,7 @@ const NewOrderPopup = ({newOrder, onAccept, onDecline, client}) => {
   useEffect(() => {
     getOriginAddress();
     getDestinationAddress();
-  }, []);
+  });
 
   return (
     <View style={styles.root}>
