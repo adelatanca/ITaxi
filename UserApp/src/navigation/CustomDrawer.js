@@ -73,7 +73,7 @@ const CustomDrawer = (props) => {
             >
               <Text
                 style={{
-                  color: "orange",
+                  color: "white",
                   paddingVertical: 5,
                   fontWeight: "bold",
                   fontSize: 16,
@@ -84,7 +84,7 @@ const CustomDrawer = (props) => {
               </Text>
               <Text
                 style={{
-                  color: "orange",
+                  color: "white",
                   paddingVertical: 5,
                   fontSize: 14,
                   fontWeight: "bold",

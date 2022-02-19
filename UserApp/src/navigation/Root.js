@@ -3,6 +3,7 @@ import { View, Text, Pressable, Appearance } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
+import styles from './styles';
 import HomeNavigator from "./Home";
 import HistoryScreen from "../screens/HistoryScreen";
 import AboutUsScreen from "../screens/AboutUsScreen";

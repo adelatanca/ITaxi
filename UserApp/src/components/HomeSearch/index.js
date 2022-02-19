@@ -14,7 +14,12 @@ const HomeSearch = (props) => {
   const navigation = useNavigation();
 
   const goToSearch = () => {
-    navigation.navigate("DestinationSearch");
+    const region = "";
+    const destinatie = "";
+    navigation.navigate("DestinationSearch", {
+      region,
+      destinatie
+    });
   };
 
   const getValue = () => {

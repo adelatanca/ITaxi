@@ -9,7 +9,6 @@ import {
 import styles from "./styles";
 import HomeMap from "../../components/HomeMap";
 import HomeSearch from "../../components/HomeSearch";
-import CovidMessage from "../../components/CovidMessage";
 import PostCarouselItem from "../../components/PostCarouselItem";
 
 const HomeScreen = ({ navigation }) => {
@@ -59,7 +58,6 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={{ height: Dimensions.get("window").height - 400 }}>
       <HomeMap />
-      {/* <CovidMessage /> */}
       <View>
         <FlatList
           horizontal

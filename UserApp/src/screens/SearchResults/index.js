@@ -29,9 +29,9 @@ const SearchResult = (props) => {
   const route = useRoute();
   const navigation = useNavigation();
 
-  console.log(route.params);
+  // console.log(route.params);
 
-  const { originPlace, destinationPlace, stopPlace } = route.params;
+  const { originPlace, destinationPlace, stopPlace, destinatie } = route.params;
 
   const onSubmit = async () => {
     const [type] = typeState;
@@ -51,17 +51,16 @@ const SearchResult = (props) => {
         originLatitude: originPlace.details.geometry.location.lat,
         originLongitude: originPlace.details.geometry.location.lng,
 
-        destLatitude: destinationPlace.details.geometry.location.lat,
-        destLongitude: destinationPlace.details.geometry.location.lng,
-
-        // POATE NULL in loc de destinationPlace.details.geometry.location.lat
+        destLatitude: destinationPlace?.details?.geometry?.location?.lat || destinationPlace?.latitude,
+        destLongitude: destinationPlace?.details?.geometry?.location?.lng || destinationPlace?.longitude,
 
         stopLatitude: stopPlace
           ? stopPlace.details.geometry.location.lat
-          : destinationPlace.details.geometry.location.lat,
+          : destinationPlace.details?.geometry?.location?.lat || destinationPlace?.latitude,
         stopLongitude: stopPlace
           ? stopPlace.details.geometry.location.lng
-          : destinationPlace.details.geometry.location.lng,
+          : destinationPlace.details?.geometry?.location?.lng || destinationPlace?.longitude,
+
 
         userId: userInfo.attributes.sub,
         carId: "1",
@@ -80,12 +79,13 @@ const SearchResult = (props) => {
     }
   };
 
-  AsyncStorage.setItem("destination", destinationPlace?.data.description);
+  AsyncStorage.setItem("destination", destinatie || destinationPlace?.data.description);
 
   const getValue = () => {
     AsyncStorage.getItem("destination").then((value) => {
       console.log("from AsyncStorage", value);
     });
+    console.log("from AsyncStorage", destinatie);
   };
 
   const timeConvert = (n) => {
@@ -100,6 +100,7 @@ const SearchResult = (props) => {
 
   useEffect(() => {
     console.log(timeConvert(time));
+    // getValue();
   });
 
   return (

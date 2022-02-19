@@ -11,23 +11,23 @@ const PlaceRow = ({ data }) => {
           if (data.description == "Acasa") {
             return (
               <View
-                style={[styles.iconContainer, { backgroundColor: "#218cff" }]}
+                style={[styles.iconContainer]}
               >
-                <Entypo name="home" size={25} color={"white"} />
+                <Entypo style={styles.icon} name="home" size={25} color={"white"} />
               </View>
             );
           } else if (data.description == "Job")
             return (
               <View style={[styles.iconContainer]}>
-                <AntDesign name="laptop" size={25} color={"white"} />
+                <AntDesign style={styles.icon} name="laptop" size={25} color={"white"} />
               </View>
             );
           else
             return (
               <View
-                style={[styles.iconContainer, { backgroundColor: "white" }]}
+                style={[styles.iconContainer]}
               >
-                <Entypo name="location-pin" size={25} color={"#45a8f29e"} />
+                <Entypo style={styles.icon} name="location-pin" size={25} color={"white"} />
               </View>
             );
         })()}

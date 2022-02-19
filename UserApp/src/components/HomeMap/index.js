@@ -65,8 +65,6 @@ const HomeMap = (props) => {
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   };
-
-  console.log("my poz ", myPosition);
   const goToCurrentLocation = () => {
     //complete this animation in 3 seconds
     mapRef.current.animateToRegion(currentLocation, 3 * 1000);

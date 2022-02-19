@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
         left: Dimensions.get('window').width - 60,
     },
     locationPin: {
-        left: 20,
-        top: 24,
+        left: 5,
+        top: 28,
     },
     confirm: {
         top: 10,
@@ -85,8 +85,18 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
     },
     street: {
-        left: 65,
-        fontSize: 20,
+        width: "80%",
+        flex: 1,
+        left: 35,
+        top: 6,
+        fontSize: 15,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.35,
+        shadowRadius: 3.84,
     }
 
 });

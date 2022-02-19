@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, Image, useColorScheme, Dimensions, Pressable, Text, } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import mapDarkStyle from "../../assets/data/mapDarkStyle";
@@ -10,6 +10,7 @@ const GOOGLE_MAPS_APIKEY = "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk";
 const SearchOnMapScreen = () => {
     const [region, setRegion] = useState(null);
     const [myPosition, setMyPosition] = useState(null);
+    const [destinatie, setDestinatie] = useState(null);
     const mapRef = useRef(null);
     let colorScheme = useColorScheme();
     const navigation = useNavigation();
@@ -28,10 +29,32 @@ const SearchOnMapScreen = () => {
     };
 
     const onChangeValue = region => {
-        alert(JSON.stringify(region))
+
+        // alert(JSON.stringify(region))
         setRegion(region);
-        console.log(region)
+        console.log("THEREGION ", region)
     }
+
+
+    const getDestinationAddress = () => {
+        fetch(
+            'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+            region?.latitude +
+            ',' +
+            region?.longitude +
+            '&key=' +
+            GOOGLE_MAPS_APIKEY,
+        )
+            .then(response => response.json())
+            .then(responseJson => {
+                const responseAdd = responseJson.results.map(
+                    address => address.formatted_address,
+                );
+                //   console.log('FORMATAT ' + JSON.stringify(responseAdd[3]));
+                setDestinatie(responseAdd[3]);
+            });
+    };
+
     const onUserLocationChange = async (event) => {
         setMyPosition(event.nativeEvent.coordinate);
     };
@@ -41,6 +64,17 @@ const SearchOnMapScreen = () => {
     }
     const goToCurrentPosition = () => {
         mapRef.current.animateToRegion(currentLocation, 3 * 1000);
+    }
+
+    useEffect(() => {
+        getDestinationAddress();
+    });
+
+    const sendToDestinationSearchInput = () => {
+        navigation.navigate("DestinationSearch", {
+            region,
+            destinatie
+        });
     }
 
     return (
@@ -72,12 +106,13 @@ const SearchOnMapScreen = () => {
             <View style={styles.container}>
                 <Text style={styles.confirm}>Confirmă locația</Text>
                 <Entypo style={styles.locationPin} name={"location-pin"} size={25} color={"#45a8f2"} />
-                <Text style={styles.street}>Strada</Text>
-                <Pressable style={styles.editButton}>
+                <Text style={styles.street} numberOfLines={1} ellipsizeMode='tail'>{destinatie}</Text>
+                <Pressable style={styles.editButton} onPress={() => goToDestinationSearch()}>
                     <AntDesign name={"edit"} size={25} color={"#45a8f2"} />
                 </Pressable>
                 <Pressable
                     style={styles.confirmButton}
+                    onPress={() => sendToDestinationSearchInput()}
                 >
                     <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
                         Confirmare

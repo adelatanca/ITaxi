@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   Text,
@@ -9,9 +9,10 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 import styles from "./styles";
 import PlaceRow from "./PlaceRow.js";
 import * as Location from "expo-location";
-import { useNavigation } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 import Entypo from "react-native-vector-icons/Entypo";
 import AntDesign from "react-native-vector-icons/AntDesign";
+
 const homePlace = {
   description: "Acasa",
   geometry: { location: { lat: 47.093271, lng: 21.9024223 } },
@@ -38,6 +39,15 @@ const DestinationSearch = (props) => {
     longitudeDelta,
   });
 
+  const ref = useRef();
+  const route = useRoute();
+  const { region, destinatie } = route.params;
+
+  useEffect(() => {
+    ref?.current?.setAddressText(destinatie);
+    setDestinationPlace(region);
+  }, []);
+
   const navigation = useNavigation();
 
   const checkNavigation = () => {
@@ -47,12 +57,14 @@ const DestinationSearch = (props) => {
         originPlace,
         destinationPlace,
         stopPlace,
+        destinatie
       });
     } else if (originPlace && destinationPlace && stopPlace) {
       navigation.navigate("SearchResults", {
         originPlace,
         destinationPlace,
         stopPlace,
+        destinatie
       });
     }
   };
@@ -144,6 +156,7 @@ const DestinationSearch = (props) => {
 
           <GooglePlacesAutocomplete
             placeholder="Caută destinația"
+            ref={ref}
             onPress={(data, details = null) => {
               setDestinationPlace({ data, details });
               // console.log(data, details);
@@ -251,12 +264,14 @@ const DestinationSearch = (props) => {
 
           <GooglePlacesAutocomplete
             placeholder="Caută destinația"
+            ref={ref}
             onPress={(data, details = null) => {
               setDestinationPlace({ data, details });
-              //console.log("FROMTHERE " + data, details);
+              //  console.log("FROMTHERE " + data, details);
             }}
             suppressDefaultStyles
-            textInputProps={{ placeholderTextColor: "black" }}
+            textInputProps={{ placeholderTextColor: "black" }
+            }
             styles={{
               textInput: styles.textInput,
               container: {
@@ -293,8 +308,6 @@ const DestinationSearch = (props) => {
           </View>
 
         </View>
-
-
         {renderError()}
       </SafeAreaView>
     );

@@ -199,6 +199,15 @@ const styles = StyleSheet.create({
   searchOnMapView: {
     marginHorizontal: 140,
     top: 657,
+  },
+  icon: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.95,
+    shadowRadius: 3.84,
   }
 });
 

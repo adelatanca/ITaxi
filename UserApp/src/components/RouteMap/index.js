@@ -11,34 +11,62 @@ const GOOGLE_MAPS_APIKEY = "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk";
 
 const RouteMap = ({ origin, destination, passTime, passKm, stop }) => {
   const [cars, setCars] = useState([]);
+
   const originLocation = {
     latitude: origin.details.geometry.location.lat,
     longitude: origin.details.geometry.location.lng,
   };
 
   const destinationLocation = {
-    latitude: destination.details.geometry.location.lat,
-    longitude: destination.details.geometry.location.lng,
+    latitude: destination?.details?.geometry?.location?.lat || destination?.latitude,
+    longitude: destination?.details?.geometry?.location?.lng || destination?.longitude,
   };
 
   const stopLocation = {
     latitude: stop
       ? stop.details.geometry.location.lat
-      : destination.details.geometry.location.lat,
+      : destination.details?.geometry?.location?.lat || destination?.latitude,
     longitude: stop
       ? stop.details.geometry.location.lng
-      : destination.details.geometry.location.lng,
+      : destination.details?.geometry?.location?.lng || destination?.longitude,
   };
   const wayPoint = [
     {
       latitude: stop
         ? stop.details.geometry.location.lat
-        : destination.details.geometry.location.lat,
+        : destination.details?.geometry?.location?.lat || destination?.latitude,
       longitude: stop
         ? stop.details.geometry.location.lng
-        : destination.details.geometry.location.lng,
+        : destination.details?.geometry?.location?.lng || destination?.longitude,
     },
   ];
+
+
+  // const destinationLocationOnMap = {
+  //   latitude: destination.latitude,
+  //   longitude: destination.longitude,
+  // };
+
+  // const stopLocationOnMap = {
+  //   latitude: stop
+  //     ? stop.details.geometry.location.lat
+  //     : destination.latitude,
+  //   longitude: stop
+  //     ? stop.details.geometry.location.lng
+  //     : destination.longitude,
+  // };
+
+  // const wayPointOnMap = [
+  //   {
+  //     latitude: stop
+  //       ? stop.details.geometry.location.lat
+  //       : destination.latitude,
+  //     longitude: stop
+  //       ? stop.details.geometry.location.lng
+  //       : destination.longitude,
+  //   },
+  // ];
+
   let colorScheme = useColorScheme();
 
   useEffect(() => {
