@@ -45,6 +45,8 @@ const HomeScreen = () => {
   const [userOrder, setUserOrder] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [usernameOrdered, setUsernameOrdered] = useState(null);
+  const [hasStop, setStop] = useState(false);
+
   const currentLocation = {
     latitude: myPosition?.latitude,
     longitude: myPosition?.longitude,
@@ -121,19 +123,23 @@ const HomeScreen = () => {
 
   const wayPoint = [
     {
-      latitude: order?.originLatitude,
-      longitude: order?.originLongitude,
+      latitude: order
+        ? order?.stopLatitude
+        : order?.destLatitude,
+      longitude: order
+        ? order?.stopLongitude
+        : order?.destLongitude,
     },
   ];
 
-  // const stopLocation = {
-  //   latitude: stop
-  //     ? stop.details.geometry.location.lat
-  //     : destination.details.geometry.location.lat,
-  //   longitude: stop
-  //     ? stop.details.geometry.location.lng
-  //     : destination.details.geometry.location.lng,
-  // };
+  const stopLocation = {
+    latitude: order
+      ? order?.stopLatitude
+      : order?.destLatitude,
+    longitude: order
+      ? order?.stopLongitude
+      : order?.destLongitude,
+  };
 
   useEffect(() => {
     user.map(userData => {
@@ -242,6 +248,9 @@ const HomeScreen = () => {
   };
 
   useEffect(() => {
+    if (order?.destLatitude != order?.stopLatitude) {
+      setStop(true)
+    }
     user.map(userData => {
       if (userData.id == order?.userId) {
         setUsernameOrdered(userData.username);
@@ -261,6 +270,8 @@ const HomeScreen = () => {
       return require(`../../assets/images/UberXL.png`);
     }
   };
+
+  console.log("HASSTOP", hasStop)
 
   const renderModalData = () => {
     if (modalVisible) {
@@ -397,85 +408,175 @@ const HomeScreen = () => {
       return <Text style={styles.bottomText}>Indisponibil</Text>;
     }
   };
+  if (hasStop) {
 
-  return (
-    <View>
-      <MapView
-        ref={mapRef}
-        style={{ height: Dimensions.get('window').height - 190, width: '100%' }}
-        provider={PROVIDER_GOOGLE}
-        showsUserLocation={true}
-        customMapStyle={colorScheme == 'light' ? [] : mapDarkStyle}
-        onUserLocationChange={onUserLocationChange}
-        initialRegion={{
-          latitude: 47.0411391,
-          longitude: 21.9259096,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-        onRegionChangeComplete={region => setRegion(region)}>
-        {order && (
-          <MapViewDirections
-            origin={{
-              latitude: car?.latitude,
-              longitude: car?.longitude,
-            }}
-            waypoints={wayPoint}
-            destination={destinationLocation}
-            optimizeWaypoints={true}
-            onReady={onDirectionFound}
-            onError={errorMessage => {
-              console.log(errorMessage);
-            }}
-            lineDashPattern={[0]}
-            //  destination={getDestination()}
-            apikey={GOOGLE_MAPS_APIKEY}
-            strokeColor="pink"
-            strokeWidth={5}
+
+    return (
+      <View>
+        <MapView
+          ref={mapRef}
+          style={{ height: Dimensions.get('window').height - 190, width: '100%' }}
+          provider={PROVIDER_GOOGLE}
+          showsUserLocation={true}
+          customMapStyle={colorScheme == 'light' ? [] : mapDarkStyle}
+          onUserLocationChange={onUserLocationChange}
+          initialRegion={{
+            latitude: 47.0411391,
+            longitude: 21.9259096,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+          onRegionChangeComplete={region => setRegion(region)}>
+          {order && (
+            <MapViewDirections
+              origin={{
+                latitude: car?.latitude,
+                longitude: car?.longitude,
+              }}
+              waypoints={wayPoint}
+              destination={destinationLocation}
+              optimizeWaypoints={true}
+              onReady={onDirectionFound}
+              onError={errorMessage => {
+                console.log(errorMessage);
+              }}
+              lineDashPattern={[0]}
+              //  destination={getDestination()}
+              apikey={GOOGLE_MAPS_APIKEY}
+              strokeColor="pink"
+              strokeWidth={5}
+            />
+          )}
+
+          <Marker coordinate={originLocation} title={'Origin'} />
+          <Marker coordinate={stopLocation} title={'Stop'} />
+          <Marker coordinate={destinationLocation} title={'Destination'} />
+
+          <Marker coordinate={originLocation} title={'Origin'} />
+          <Marker coordinate={destinationLocation} title={'Destination'} />
+
+        </MapView>
+        <Pressable
+          onPress={() => console.warn('Balance')}
+          style={styles.balanceButton}>
+          <Text style={styles.balanceText}>
+            <Text style={{ color: 'green' }}>LEI </Text>
+            0.00
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => setModalVisible(true)}
+          style={styles.hamburgerButton}>
+          <Entypo name={'menu'} size={35} color={'orange'} />
+        </Pressable>
+        <Pressable onPress={() => goToHistory()} style={styles.historyButton}>
+          <Entypo name={'stopwatch'} size={35} color={'orange'} />
+        </Pressable>
+        <Pressable onPress={onGoPress} style={styles.goButton}>
+          <Text style={styles.goText}>{car?.isActive ? 'END' : 'GO'}</Text>
+        </Pressable>
+        <View style={styles.bottomContainer}>
+          <Pressable onPress={() => Auth.signOut()}>
+            <Entypo name={'log-out'} size={35} color={'orange'} />
+          </Pressable>
+          {renderBottomTitle()}
+          <Pressable onPress={() => goToCurrentLocation()}>
+            <Entypo name={'direction'} size={35} color={'orange'} />
+          </Pressable>
+        </View>
+        {newOrders.length > 0 && !order && (
+          <NewOrderPopup
+            client={userOrder}
+            newOrder={newOrders[0]}
+            onDecline={onDecline}
+            onAccept={() => onAccept(newOrders[0])}
           />
         )}
-
-        <Marker coordinate={originLocation} title={'Origin'} />
-        <Marker coordinate={destinationLocation} title={'Destination'} />
-      </MapView>
-      <Pressable
-        onPress={() => console.warn('Balance')}
-        style={styles.balanceButton}>
-        <Text style={styles.balanceText}>
-          <Text style={{ color: 'green' }}>LEI </Text>
-          0.00
-        </Text>
-      </Pressable>
-      <Pressable
-        onPress={() => setModalVisible(true)}
-        style={styles.hamburgerButton}>
-        <Entypo name={'menu'} size={35} color={'orange'} />
-      </Pressable>
-      <Pressable onPress={() => goToHistory()} style={styles.historyButton}>
-        <Entypo name={'stopwatch'} size={35} color={'orange'} />
-      </Pressable>
-      <Pressable onPress={onGoPress} style={styles.goButton}>
-        <Text style={styles.goText}>{car?.isActive ? 'END' : 'GO'}</Text>
-      </Pressable>
-      <View style={styles.bottomContainer}>
-        <Pressable onPress={() => Auth.signOut()}>
-          <Entypo name={'log-out'} size={35} color={'orange'} />
-        </Pressable>
-        {renderBottomTitle()}
-        <Pressable onPress={() => goToCurrentLocation()}>
-          <Entypo name={'direction'} size={35} color={'orange'} />
-        </Pressable>
+        {renderModalData()}
       </View>
-      {newOrders.length > 0 && !order && (
-        <NewOrderPopup
-          client={userOrder}
-          newOrder={newOrders[0]}
-          onDecline={onDecline}
-          onAccept={() => onAccept(newOrders[0])}
-        />
-      )}
-      {renderModalData()}
-    </View>
-  );
+    );
+  }
+  else {
+    return (
+      <View>
+        <MapView
+          ref={mapRef}
+          style={{ height: Dimensions.get('window').height - 190, width: '100%' }}
+          provider={PROVIDER_GOOGLE}
+          showsUserLocation={true}
+          customMapStyle={colorScheme == 'light' ? [] : mapDarkStyle}
+          onUserLocationChange={onUserLocationChange}
+          initialRegion={{
+            latitude: 47.0411391,
+            longitude: 21.9259096,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+          onRegionChangeComplete={region => setRegion(region)}>
+          {order && (
+            <MapViewDirections
+              origin={{
+                latitude: car?.latitude,
+                longitude: car?.longitude,
+              }}
+              waypoints={wayPoint}
+              destination={destinationLocation}
+              optimizeWaypoints={true}
+              onReady={onDirectionFound}
+              onError={errorMessage => {
+                console.log(errorMessage);
+              }}
+              lineDashPattern={[0]}
+              //  destination={getDestination()}
+              apikey={GOOGLE_MAPS_APIKEY}
+              strokeColor="pink"
+              strokeWidth={5}
+            />
+          )}
+
+          <Marker coordinate={originLocation} title={'Origin'} />
+          <Marker coordinate={destinationLocation} title={'Destination'} />
+
+        </MapView>
+        <Pressable
+          onPress={() => console.warn('Balance')}
+          style={styles.balanceButton}>
+          <Text style={styles.balanceText}>
+            <Text style={{ color: 'green' }}>LEI </Text>
+            0.00
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => setModalVisible(true)}
+          style={styles.hamburgerButton}>
+          <Entypo name={'menu'} size={35} color={'orange'} />
+        </Pressable>
+        <Pressable onPress={() => goToHistory()} style={styles.historyButton}>
+          <Entypo name={'stopwatch'} size={35} color={'orange'} />
+        </Pressable>
+        <Pressable onPress={onGoPress} style={styles.goButton}>
+          <Text style={styles.goText}>{car?.isActive ? 'END' : 'GO'}</Text>
+        </Pressable>
+        <View style={styles.bottomContainer}>
+          <Pressable onPress={() => Auth.signOut()}>
+            <Entypo name={'log-out'} size={35} color={'orange'} />
+          </Pressable>
+          {renderBottomTitle()}
+          <Pressable onPress={() => goToCurrentLocation()}>
+            <Entypo name={'direction'} size={35} color={'orange'} />
+          </Pressable>
+        </View>
+        {newOrders.length > 0 && !order && (
+          <NewOrderPopup
+            client={userOrder}
+            newOrder={newOrders[0]}
+            onDecline={onDecline}
+            onAccept={() => onAccept(newOrders[0])}
+          />
+        )}
+        {renderModalData()}
+      </View>
+    );
+  }
 };
 export default HomeScreen;
