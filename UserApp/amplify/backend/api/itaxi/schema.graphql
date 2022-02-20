@@ -98,6 +98,8 @@ type Order
 
   pret: Float
 
+  paymentMethod: String
+
   userId: ID! @index(name: "byUser")
   user: User @hasOne
 

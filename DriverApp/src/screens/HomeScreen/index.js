@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   Button,
   useColorScheme,
   Modal,
+  Image
 } from 'react-native';
 import MapView, {
   PROVIDER_GOOGLE,
@@ -15,18 +16,18 @@ import MapView, {
   AnimatedRegion,
 } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
-import {Entypo} from '@expo/vector-icons';
-import {Ionicons} from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import styles from './styles';
 import NewOrderPopup from '../../components/NewOrderPopup';
 
-import {Auth, API, graphqlOperation} from 'aws-amplify';
-import {getCar} from '../../graphql/queries';
-import {listOrders, listUsers} from '../../graphql/queries';
-import {updateCar, updateOrder} from '../../graphql/mutations';
+import { Auth, API, graphqlOperation } from 'aws-amplify';
+import { getCar } from '../../graphql/queries';
+import { listOrders, listUsers } from '../../graphql/queries';
+import { updateCar, updateOrder } from '../../graphql/mutations';
 import mapDarkStyle from '../../assets/data/mapDarkStyle';
 
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import UserAvatar from 'react-native-user-avatar';
 import StarRating from 'react-native-star-rating';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
@@ -84,7 +85,7 @@ const HomeScreen = () => {
       const userData = await Auth.currentAuthenticatedUser();
 
       const carData = await API.graphql(
-        graphqlOperation(getCar, {id: userData.attributes.sub}),
+        graphqlOperation(getCar, { id: userData.attributes.sub }),
       );
       setCar(carData.data.getCar);
     } catch (e) {
@@ -95,7 +96,7 @@ const HomeScreen = () => {
   const fetchOrders = async () => {
     try {
       const ordersData = await API.graphql(
-        graphqlOperation(listOrders, {filter: {status: {eq: 'Noua'}}}),
+        graphqlOperation(listOrders, { filter: { status: { eq: 'Noua' } } }),
       );
       setNewOrders(ordersData.data.listOrders.items);
     } catch (e) {
@@ -154,7 +155,7 @@ const HomeScreen = () => {
         carId: car.id,
       };
       const orderData = await API.graphql(
-        graphqlOperation(updateOrder, {input}),
+        graphqlOperation(updateOrder, { input }),
       );
       setOrder(orderData.data.updateOrder);
     } catch (e) {
@@ -173,7 +174,7 @@ const HomeScreen = () => {
       };
 
       const updatedCar = await API.graphql(
-        graphqlOperation(updateCar, {input}),
+        graphqlOperation(updateCar, { input }),
       );
       setCar(updatedCar.data.updateCar);
     } catch (e) {
@@ -184,7 +185,7 @@ const HomeScreen = () => {
   const onUserLocationChange = async event => {
     setMyPosition(event.nativeEvent.coordinate);
 
-    const {latitude, longitude, heading} = event.nativeEvent.coordinate;
+    const { latitude, longitude, heading } = event.nativeEvent.coordinate;
 
     try {
       const userData = await Auth.currentAuthenticatedUser();
@@ -197,7 +198,7 @@ const HomeScreen = () => {
       };
 
       const updatedCar = await API.graphql(
-        graphqlOperation(updateCar, {input}),
+        graphqlOperation(updateCar, { input }),
       );
       setCar(updatedCar.data.updateCar);
     } catch (e) {
@@ -248,6 +249,19 @@ const HomeScreen = () => {
     });
   });
 
+
+  const getImage = (type) => {
+    if (type === "ITaxiX") {
+      return require(`../../assets/images/UberX.png`);
+    }
+    if (type === "Confort") {
+      return require(`../../assets/images/Mercedes.png`);
+    }
+    if (type === "ITaxiXL") {
+      return require(`../../assets/images/UberXL.png`);
+    }
+  };
+
   const renderModalData = () => {
     if (modalVisible) {
       return (
@@ -263,6 +277,7 @@ const HomeScreen = () => {
               <View style={styles.modalView}>
                 <Text style={styles.modalText}>Profilul tău</Text>
                 <UserAvatar size={85} name={currentUser.username} />
+
                 <Entypo
                   name={'edit'}
                   size={35}
@@ -281,7 +296,14 @@ const HomeScreen = () => {
                 </Text>
                 <Text style={styles.username}>{currentUser.username}</Text>
                 <Text style={styles.email}>{currentUser.attributes.email}</Text>
-
+                <Image
+                  style={{
+                    width: 90,
+                    height: 90,
+                    resizeMode: "contain",
+                  }}
+                  source={getImage(car.type)}
+                />
                 <Text style={styles.car}>{car.carNumber}</Text>
                 <Text style={styles.car}>{car.type}</Text>
                 <Pressable
@@ -300,7 +322,7 @@ const HomeScreen = () => {
   const renderBottomTitle = () => {
     if (order && order.isFinished) {
       return (
-        <View style={{alignItems: 'center'}}>
+        <View style={{ alignItems: 'center' }}>
           <View
             style={{
               flexDirection: 'row',
@@ -310,7 +332,7 @@ const HomeScreen = () => {
               width: 200,
               padding: 10,
             }}>
-            <Text style={{color: 'white', fontWeight: 'bold'}}>
+            <Text style={{ color: 'white', fontWeight: 'bold' }}>
               Complete {order.type}{' '}
             </Text>
           </View>
@@ -321,8 +343,8 @@ const HomeScreen = () => {
 
     if (order && order.pickedUp) {
       return (
-        <View style={{alignItems: 'center'}}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{ alignItems: 'center' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text> {order.duration ? order.duration.toFixed(1) : '?'} min</Text>
             <View
               style={{
@@ -347,8 +369,8 @@ const HomeScreen = () => {
       console.log(order);
       console.log('is ordeer');
       return (
-        <View style={{alignItems: 'center'}}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={{ alignItems: 'center' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text> {order.duration ? order.duration.toFixed(1) : '?'} min</Text>
             <View
               style={{
@@ -380,7 +402,7 @@ const HomeScreen = () => {
     <View>
       <MapView
         ref={mapRef}
-        style={{height: Dimensions.get('window').height - 190, width: '100%'}}
+        style={{ height: Dimensions.get('window').height - 190, width: '100%' }}
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}
         customMapStyle={colorScheme == 'light' ? [] : mapDarkStyle}
@@ -420,7 +442,7 @@ const HomeScreen = () => {
         onPress={() => console.warn('Balance')}
         style={styles.balanceButton}>
         <Text style={styles.balanceText}>
-          <Text style={{color: 'green'}}>LEI </Text>
+          <Text style={{ color: 'green' }}>LEI </Text>
           0.00
         </Text>
       </Pressable>

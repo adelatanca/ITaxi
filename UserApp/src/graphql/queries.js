@@ -21,6 +21,7 @@ export const getUser = /* GraphQL */ `
           stopLatitude
           stopLongitude
           pret
+          paymentMethod
           userId
           carId
           updatedAt
@@ -121,6 +122,7 @@ export const getCar = /* GraphQL */ `
           stopLatitude
           stopLongitude
           pret
+          paymentMethod
           userId
           carId
           updatedAt
@@ -215,6 +217,7 @@ export const getOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       pret
+      paymentMethod
       userId
       user {
         id
@@ -295,6 +298,7 @@ export const listOrders = /* GraphQL */ `
         stopLatitude
         stopLongitude
         pret
+        paymentMethod
         userId
         user {
           id

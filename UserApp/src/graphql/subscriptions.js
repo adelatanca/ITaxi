@@ -15,6 +15,7 @@ export const onOrderUpdated = /* GraphQL */ `
       stopLatitude
       stopLongitude
       pret
+      paymentMethod
       userId
       user {
         id
@@ -99,6 +100,7 @@ export const onCarUpdated = /* GraphQL */ `
           stopLatitude
           stopLongitude
           pret
+          paymentMethod
           userId
           carId
           updatedAt
@@ -163,6 +165,7 @@ export const onCreateUser = /* GraphQL */ `
           stopLatitude
           stopLongitude
           pret
+          paymentMethod
           userId
           carId
           updatedAt
@@ -224,6 +227,7 @@ export const onUpdateUser = /* GraphQL */ `
           stopLatitude
           stopLongitude
           pret
+          paymentMethod
           userId
           carId
           updatedAt
@@ -285,6 +289,7 @@ export const onDeleteUser = /* GraphQL */ `
           stopLatitude
           stopLongitude
           pret
+          paymentMethod
           userId
           carId
           updatedAt
@@ -349,6 +354,7 @@ export const onCreateCar = /* GraphQL */ `
           stopLatitude
           stopLongitude
           pret
+          paymentMethod
           userId
           carId
           updatedAt
@@ -416,6 +422,7 @@ export const onUpdateCar = /* GraphQL */ `
           stopLatitude
           stopLongitude
           pret
+          paymentMethod
           userId
           carId
           updatedAt
@@ -483,6 +490,7 @@ export const onDeleteCar = /* GraphQL */ `
           stopLatitude
           stopLongitude
           pret
+          paymentMethod
           userId
           carId
           updatedAt
@@ -541,6 +549,7 @@ export const onCreateOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       pret
+      paymentMethod
       userId
       user {
         id
@@ -616,6 +625,7 @@ export const onUpdateOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       pret
+      paymentMethod
       userId
       user {
         id
@@ -691,6 +701,7 @@ export const onDeleteOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       pret
+      paymentMethod
       userId
       user {
         id

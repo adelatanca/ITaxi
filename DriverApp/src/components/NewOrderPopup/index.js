@@ -1,22 +1,24 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, Pressable, Image} from 'react-native';
-import {Entypo} from '@expo/vector-icons';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Pressable, Image } from 'react-native';
+import { Entypo } from '@expo/vector-icons';
 import styles from './styles.js';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
 
-const NewOrderPopup = ({newOrder, onAccept, onDecline, client}) => {
+const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
   const [pornire, setPornire] = useState(null);
   const [destinatie, setDestinatie] = useState(null);
+  const [oprire, setOprire] = useState(null);
+  const [isStop, setIsStop] = useState(null);
 
   const getOriginAddress = () => {
     fetch(
       'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-        newOrder?.originLatitude +
-        ',' +
-        newOrder?.originLongitude +
-        '&key=' +
-        GOOGLE_MAPS_APIKEY,
+      newOrder?.originLatitude +
+      ',' +
+      newOrder?.originLongitude +
+      '&key=' +
+      GOOGLE_MAPS_APIKEY,
     )
       .then(response => response.json())
       .then(responseJson => {
@@ -32,11 +34,11 @@ const NewOrderPopup = ({newOrder, onAccept, onDecline, client}) => {
   const getDestinationAddress = () => {
     fetch(
       'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-        newOrder?.destLatitude +
-        ',' +
-        newOrder?.destLongitude +
-        '&key=' +
-        GOOGLE_MAPS_APIKEY,
+      newOrder?.destLatitude +
+      ',' +
+      newOrder?.destLongitude +
+      '&key=' +
+      GOOGLE_MAPS_APIKEY,
     )
       .then(response => response.json())
       .then(responseJson => {
@@ -48,10 +50,33 @@ const NewOrderPopup = ({newOrder, onAccept, onDecline, client}) => {
         //  console.log('FORMATAT ' + JSON.stringify(responseJson.results));
       });
   };
+  const getStopAddress = () => {
+    fetch(
+      'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+      newOrder?.stopLatitude +
+      ',' +
+      newOrder?.stopLongitude +
+      '&key=' +
+      GOOGLE_MAPS_APIKEY,
+    )
+      .then(response => response.json())
+      .then(responseJson => {
+        const responseAdd = responseJson.results.map(
+          address => address.formatted_address,
+        );
+        console.log('FORMATAT ' + JSON.stringify(responseAdd[3]));
+        setOprire(responseAdd[3]);
+        //  console.log('FORMATAT ' + JSON.stringify(responseJson.results));
+      });
+  };
 
   useEffect(() => {
     getOriginAddress();
     getDestinationAddress();
+    if (newOrder?.stopLatitude != newOrder?.destLatitude) {
+      getStopAddress();
+      setIsStop(true);
+    }
   });
 
   return (
@@ -68,9 +93,19 @@ const NewOrderPopup = ({newOrder, onAccept, onDecline, client}) => {
           <Text style={styles.username}>{client}</Text>
         </View>
         <View style={styles.info}>
-          <Text style={styles.phone}>Telefon - 035353443</Text>
-          <Text style={styles.pornire}>Pornire - {pornire}</Text>
-          <Text style={styles.destinatie}>Destinatie - {destinatie}</Text>
+          <View style={styles.line}>
+            <Entypo name={'phone'} size={18} color={'white'} />
+            <Text style={styles.phone} numberOfLines={1} ellipsizeMode='tail'>Telefon - 035353443</Text>
+          </View>
+          <View style={styles.line}>
+            <Entypo name={'location-pin'} size={20} color={'white'} />
+            <Text style={styles.pornire} numberOfLines={1} ellipsizeMode='tail'>Pornire - {pornire}</Text>
+          </View>
+          {isStop ? <View style={styles.line}><Entypo name={'location-pin'} size={20} color={'white'} /><Text style={styles.oprire} numberOfLines={1} ellipsizeMode='tail'>Oprire - {oprire}</Text></View> : null}
+          <View style={styles.line}>
+            <Entypo name={'location-pin'} size={20} color={'white'} />
+            <Text style={styles.destinatie} numberOfLines={1} ellipsizeMode='tail'>Destinatie - {destinatie}</Text>
+          </View>
         </View>
       </Pressable>
     </View>

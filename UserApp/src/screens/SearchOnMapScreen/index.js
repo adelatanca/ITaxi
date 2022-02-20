@@ -60,7 +60,8 @@ const SearchOnMapScreen = () => {
     };
 
     const goToDestinationSearch = () => {
-        navigation.navigate("DestinationSearch");
+        navigation.navigate("DestinationSearch", region,
+            destinatie);
     }
     const goToCurrentPosition = () => {
         mapRef.current.animateToRegion(currentLocation, 3 * 1000);

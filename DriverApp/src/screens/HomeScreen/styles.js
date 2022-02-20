@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 const styles = StyleSheet.create({
   bottomContainer: {
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     margin: 20,
     right: 87,
     width: 330,
-    height: 865,
+    height: 935,
     bottom: -10,
     backgroundColor: 'white',
     borderRadius: 20,
@@ -117,7 +117,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalText: {
-    marginBottom: 15,
+    marginTop: 30,
+    marginBottom: 30,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 18,

@@ -6,7 +6,7 @@ import { API, graphqlOperation } from "aws-amplify";
 import { getOrder, getCar, getUser } from "../../graphql/queries";
 import { onOrderUpdated } from "./subscriptions";
 import { onCarUpdated } from "./subscriptions";
-import { listUsers } from "../../graphql/queries";
+import UserAvatar from 'react-native-user-avatar';
 
 import { useRoute } from "@react-navigation/native";
 
@@ -98,11 +98,12 @@ const OrderScreen = (props) => {
 
   return (
     <View>
-      <View style={{ height: Dimensions.get("window").height - 440 }}>
+      <View style={{ height: Dimensions.get("window").height - 580 }}>
         <OrderMap car={car} />
       </View>
       <View style={styles.container}>
         <Text style={styles.title}>Rezumat</Text>
+        <UserAvatar size={55} style={{ width: "30%", left: 145, height: 80 }} name={"Ade"} />
         <View style={styles.line}>
           <Text style={styles.comanda}>Comandă </Text>
           <Text style={styles.comandaData}>{order?.status} </Text>

@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 15,
     borderRadius: 35,
+    height: 600
   },
   line: {
     flexDirection: "row",

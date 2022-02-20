@@ -25,7 +25,7 @@ const SearchResult = (props) => {
   const [hours, setHours] = useState(null);
   const [minutes, setMinutes] = useState(null);
   const [km, setKm] = useState(null);
-
+  const [paymentMethod, setPaymentMethod] = useState(null);
   const route = useRoute();
   const navigation = useNavigation();
 
@@ -36,6 +36,7 @@ const SearchResult = (props) => {
   const onSubmit = async () => {
     const [type] = typeState;
     const [pret] = priceState;
+
     if (!type && !priceState) {
       return;
     }
@@ -66,6 +67,7 @@ const SearchResult = (props) => {
         carId: "1",
         status: "Noua",
         pret: pret,
+        paymentMethod: paymentMethod,
       };
 
       const response = await API.graphql(
@@ -98,6 +100,10 @@ const SearchResult = (props) => {
     setMinutes(rminutes);
   };
 
+  const setPayment = (payment) => {
+    setPaymentMethod(payment)
+  }
+
   useEffect(() => {
     console.log(timeConvert(time));
     // getValue();
@@ -122,7 +128,7 @@ const SearchResult = (props) => {
             color={"#45a8f2"}
             style={{ top: 7 }}
           />
-          <Button title="Card" onPress={() => console.warn("Card")}>
+          <Button title="Card" onPress={() => setPayment("Card")}>
             Card
           </Button>
         </View>
@@ -135,7 +141,7 @@ const SearchResult = (props) => {
           />
           <Button
             title="Numerar"
-            onPress={() => console.warn("Numerar")}
+            onPress={() => setPayment("Numerar")}
           ></Button>
         </View>
       </View>
