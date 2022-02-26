@@ -8,6 +8,7 @@ export const getUser = /* GraphQL */ `
       username
       email
       phoneNumber
+      profilePicture
       orders {
         items {
           id
@@ -50,6 +51,7 @@ export const getUser = /* GraphQL */ `
           username
           email
           phoneNumber
+          profilePicture
           createdAt
           updatedAt
         }
@@ -75,6 +77,7 @@ export const listUsers = /* GraphQL */ `
         username
         email
         phoneNumber
+        profilePicture
         orders {
           nextToken
         }
@@ -140,6 +143,7 @@ export const getCar = /* GraphQL */ `
         username
         email
         phoneNumber
+        profilePicture
         orders {
           nextToken
         }
@@ -191,6 +195,7 @@ export const listCars = /* GraphQL */ `
           username
           email
           phoneNumber
+          profilePicture
           createdAt
           updatedAt
         }
@@ -224,6 +229,7 @@ export const getOrder = /* GraphQL */ `
         username
         email
         phoneNumber
+        profilePicture
         orders {
           nextToken
         }
@@ -262,6 +268,7 @@ export const getOrder = /* GraphQL */ `
           username
           email
           phoneNumber
+          profilePicture
           createdAt
           updatedAt
         }
@@ -305,6 +312,7 @@ export const listOrders = /* GraphQL */ `
           username
           email
           phoneNumber
+          profilePicture
           createdAt
           updatedAt
         }

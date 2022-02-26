@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   },
   editProfileImage: {
     bottom: 39,
-    left: 26,
+    left: 34,
   },
   username: {
     fontWeight: 'bold',

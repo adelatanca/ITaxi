@@ -217,8 +217,8 @@ const HomeScreen = () => {
   };
 
   const onDirectionFound = event => {
-    console.log(' order is ', order);
-    console.log('event is ', event.distance);
+    // console.log(' order is ', order);
+    // console.log('event is ', event.distance);
     if (order) {
       setOrder({
         ...order,
@@ -259,6 +259,7 @@ const HomeScreen = () => {
   });
 
 
+
   const getImage = (type) => {
     if (type === "ITaxiX") {
       return require(`../../assets/images/UberX.png`);
@@ -270,8 +271,6 @@ const HomeScreen = () => {
       return require(`../../assets/images/UberXL.png`);
     }
   };
-
-  console.log("HASSTOP", hasStop)
 
   const renderModalData = () => {
     if (modalVisible) {
@@ -287,7 +286,16 @@ const HomeScreen = () => {
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
                 <Text style={styles.modalText}>Profilul tău</Text>
-                <UserAvatar size={85} name={currentUser.username} />
+                {/* <UserAvatar size={85} name={currentUser.username} /> */}
+                <Image
+                  style={{
+                    width: 100,
+                    height: 100,
+                    borderRadius: 20
+                    //resizeMode: "contain",
+                  }}
+                  source={{ uri: user[0].profilePicture }}
+                />
 
                 <Entypo
                   name={'edit'}
@@ -323,6 +331,7 @@ const HomeScreen = () => {
                   <Text style={styles.close}>Închide</Text>
                 </Pressable>
               </View>
+
             </View>
           </Modal>
         </View>
@@ -409,8 +418,6 @@ const HomeScreen = () => {
     }
   };
   if (hasStop) {
-
-
     return (
       <View>
         <MapView

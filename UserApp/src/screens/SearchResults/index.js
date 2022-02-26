@@ -28,6 +28,7 @@ const SearchResult = (props) => {
   const [paymentMethod, setPaymentMethod] = useState(null);
   const route = useRoute();
   const navigation = useNavigation();
+  const [havePaymentType, setPaymentType] = useState(false);
 
   // console.log(route.params);
 
@@ -40,44 +41,53 @@ const SearchResult = (props) => {
     if (!type && !priceState) {
       return;
     }
+    if (havePaymentType === false || havePaymentType === null) {
+      Alert.alert('Alege o metoda de plata', '', [
+        {
+          text: 'Cancel',
+        }
+      ]);
+    }
 
-    try {
-      const userInfo = await Auth.currentAuthenticatedUser();
+    else if (havePaymentType === true) {
+      try {
+        const userInfo = await Auth.currentAuthenticatedUser();
 
-      const date = new Date();
+        const date = new Date();
 
-      const input = {
-        createdAt: date.toISOString(),
-        type,
-        originLatitude: originPlace.details.geometry.location.lat,
-        originLongitude: originPlace.details.geometry.location.lng,
+        const input = {
+          createdAt: date.toISOString(),
+          type,
+          originLatitude: originPlace.details.geometry.location.lat,
+          originLongitude: originPlace.details.geometry.location.lng,
 
-        destLatitude: destinationPlace?.details?.geometry?.location?.lat || destinationPlace?.latitude,
-        destLongitude: destinationPlace?.details?.geometry?.location?.lng || destinationPlace?.longitude,
+          destLatitude: destinationPlace?.details?.geometry?.location?.lat || destinationPlace?.latitude,
+          destLongitude: destinationPlace?.details?.geometry?.location?.lng || destinationPlace?.longitude,
 
-        stopLatitude: stopPlace
-          ? stopPlace.details.geometry.location.lat
-          : destinationPlace.details?.geometry?.location?.lat || destinationPlace?.latitude,
-        stopLongitude: stopPlace
-          ? stopPlace.details.geometry.location.lng
-          : destinationPlace.details?.geometry?.location?.lng || destinationPlace?.longitude,
+          stopLatitude: stopPlace
+            ? stopPlace.details.geometry.location.lat
+            : destinationPlace.details?.geometry?.location?.lat || destinationPlace?.latitude,
+          stopLongitude: stopPlace
+            ? stopPlace.details.geometry.location.lng
+            : destinationPlace.details?.geometry?.location?.lng || destinationPlace?.longitude,
 
 
-        userId: userInfo.attributes.sub,
-        carId: "1",
-        status: "Noua",
-        pret: pret,
-        paymentMethod: paymentMethod,
-      };
+          userId: userInfo.attributes.sub,
+          carId: "1",
+          status: "Noua",
+          pret: pret,
+          paymentMethod: paymentMethod,
+        };
 
-      const response = await API.graphql(
-        graphqlOperation(createOrder, {
-          input: input,
-        })
-      );
-      navigation.navigate("OrderPage", { id: response.data.createOrder.id });
-    } catch (error) {
-      console.error(error);
+        const response = await API.graphql(
+          graphqlOperation(createOrder, {
+            input: input,
+          })
+        );
+        navigation.navigate("OrderPage", { id: response.data.createOrder.id });
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
@@ -102,10 +112,11 @@ const SearchResult = (props) => {
 
   const setPayment = (payment) => {
     setPaymentMethod(payment)
+    setPaymentType(true);
   }
 
   useEffect(() => {
-    console.log(timeConvert(time));
+    timeConvert(time);
     // getValue();
   });
 

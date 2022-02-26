@@ -29,6 +29,8 @@ type User
   email: String!
   phoneNumber: String!
 
+  profilePicture: String
+
   orders: [Order] @hasMany
   car: Car
 }

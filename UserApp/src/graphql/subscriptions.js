@@ -22,6 +22,7 @@ export const onOrderUpdated = /* GraphQL */ `
         username
         email
         phoneNumber
+        profilePicture
         orders {
           nextToken
         }
@@ -60,6 +61,7 @@ export const onOrderUpdated = /* GraphQL */ `
           username
           email
           phoneNumber
+          profilePicture
           createdAt
           updatedAt
         }
@@ -118,6 +120,7 @@ export const onCarUpdated = /* GraphQL */ `
         username
         email
         phoneNumber
+        profilePicture
         orders {
           nextToken
         }
@@ -152,6 +155,7 @@ export const onCreateUser = /* GraphQL */ `
       username
       email
       phoneNumber
+      profilePicture
       orders {
         items {
           id
@@ -194,6 +198,7 @@ export const onCreateUser = /* GraphQL */ `
           username
           email
           phoneNumber
+          profilePicture
           createdAt
           updatedAt
         }
@@ -214,6 +219,7 @@ export const onUpdateUser = /* GraphQL */ `
       username
       email
       phoneNumber
+      profilePicture
       orders {
         items {
           id
@@ -256,6 +262,7 @@ export const onUpdateUser = /* GraphQL */ `
           username
           email
           phoneNumber
+          profilePicture
           createdAt
           updatedAt
         }
@@ -276,6 +283,7 @@ export const onDeleteUser = /* GraphQL */ `
       username
       email
       phoneNumber
+      profilePicture
       orders {
         items {
           id
@@ -318,6 +326,7 @@ export const onDeleteUser = /* GraphQL */ `
           username
           email
           phoneNumber
+          profilePicture
           createdAt
           updatedAt
         }
@@ -372,6 +381,7 @@ export const onCreateCar = /* GraphQL */ `
         username
         email
         phoneNumber
+        profilePicture
         orders {
           nextToken
         }
@@ -440,6 +450,7 @@ export const onUpdateCar = /* GraphQL */ `
         username
         email
         phoneNumber
+        profilePicture
         orders {
           nextToken
         }
@@ -508,6 +519,7 @@ export const onDeleteCar = /* GraphQL */ `
         username
         email
         phoneNumber
+        profilePicture
         orders {
           nextToken
         }
@@ -556,6 +568,7 @@ export const onCreateOrder = /* GraphQL */ `
         username
         email
         phoneNumber
+        profilePicture
         orders {
           nextToken
         }
@@ -594,6 +607,7 @@ export const onCreateOrder = /* GraphQL */ `
           username
           email
           phoneNumber
+          profilePicture
           createdAt
           updatedAt
         }
@@ -632,6 +646,7 @@ export const onUpdateOrder = /* GraphQL */ `
         username
         email
         phoneNumber
+        profilePicture
         orders {
           nextToken
         }
@@ -670,6 +685,7 @@ export const onUpdateOrder = /* GraphQL */ `
           username
           email
           phoneNumber
+          profilePicture
           createdAt
           updatedAt
         }
@@ -708,6 +724,7 @@ export const onDeleteOrder = /* GraphQL */ `
         username
         email
         phoneNumber
+        profilePicture
         orders {
           nextToken
         }
@@ -746,6 +763,7 @@ export const onDeleteOrder = /* GraphQL */ `
           username
           email
           phoneNumber
+          profilePicture
           createdAt
           updatedAt
         }

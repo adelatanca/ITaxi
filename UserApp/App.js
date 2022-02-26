@@ -43,7 +43,9 @@ const dict = {
     "User does not exist": "Nu există acest username",
     "Custom auth lambda trigger is not configured for the user pool. ": "Eroare",
     "Reset your password": "Resetează parola",
-    "Send": "Trimite"
+    "Send": "Trimite",
+    "User cannot be confirmed. Current status is CONFIRMED": "User deja confirmat",
+    "Invalid verification code provided, please try again": "Cod de confirmare invalid, încearcă din nou."
   }
 };
 
