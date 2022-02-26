@@ -76,12 +76,6 @@ const HomeScreen = () => {
       console.log(e);
     }
   };
-
-  useEffect(() => {
-    fetchUser();
-    fetchCurrentUser();
-  }, []);
-
   const fetchCar = async () => {
     try {
       const userData = await Auth.currentAuthenticatedUser();
@@ -95,10 +89,20 @@ const HomeScreen = () => {
     }
   };
 
+  useEffect(() => {
+    fetchUser();
+    fetchCurrentUser();
+    fetchCar();
+  }, []);
+
   const fetchOrders = async () => {
     try {
+      const userData = await Auth.currentAuthenticatedUser();
+      const carData = await API.graphql(
+        graphqlOperation(getCar, { id: userData.attributes.sub }),
+      );
       const ordersData = await API.graphql(
-        graphqlOperation(listOrders, { filter: { status: { eq: 'Noua' } } }),
+        graphqlOperation(listOrders, { filter: { status: { eq: 'Noua' }, type: { eq: carData.data.getCar.type } } }),
       );
       setNewOrders(ordersData.data.listOrders.items);
     } catch (e) {
@@ -107,7 +111,6 @@ const HomeScreen = () => {
   };
 
   useEffect(() => {
-    fetchCar();
     fetchOrders();
   }, []);
 
@@ -148,6 +151,7 @@ const HomeScreen = () => {
       }
     });
   });
+
 
   const onDecline = () => {
     setNewOrders(newOrders.slice(1));
@@ -258,8 +262,6 @@ const HomeScreen = () => {
     });
   });
 
-
-
   const getImage = (type) => {
     if (type === "ITaxiX") {
       return require(`../../assets/images/UberX.png`);
@@ -353,8 +355,7 @@ const HomeScreen = () => {
               padding: 10,
             }}>
             <Text style={{ color: 'white', fontWeight: 'bold' }}>
-              Complete {order.type}{' '}
-            </Text>
+              Complete {order.type}</Text>
           </View>
           <Text style={styles.bottomText}> {order.username}</Text>
         </View>
