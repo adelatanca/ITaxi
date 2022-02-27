@@ -36,7 +36,6 @@ const HomeScreen = () => {
   const [car, setCar] = useState(null);
   const [order, setOrder] = useState(null);
   const [myPosition, setMyPosition] = useState(null);
-  const [distance, setDistance] = useState(null);
   const [newOrders, setNewOrders] = useState([]);
   const mapRef = useRef(null);
   const [region, setRegion] = useState(null);
@@ -46,6 +45,9 @@ const HomeScreen = () => {
   const [currentUser, setCurrentUser] = useState([]);
   const [usernameOrdered, setUsernameOrdered] = useState(null);
   const [hasStop, setStop] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const [minutes, setMinutes] = useState(null);
+  const [hours, setHours] = useState(null);
 
   const currentLocation = {
     latitude: myPosition?.latitude,
@@ -112,6 +114,23 @@ const HomeScreen = () => {
 
   useEffect(() => {
     fetchOrders();
+    const fetching = async () => {
+      try {
+        const userData = await Auth.currentAuthenticatedUser();
+        const carData = await API.graphql(
+          graphqlOperation(getCar, { id: userData.attributes.sub }),
+        );
+        console.log("ACTIVE - ", carData.data.getCar.isActive)
+        setIsActive(carData.data.getCar.isActive);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    const interval = setInterval(() => {
+      if (fetching())
+        fetchOrders()
+    }, 10000)
+    return () => clearInterval(interval)
   }, []);
 
   const originLocation = {
@@ -260,6 +279,16 @@ const HomeScreen = () => {
         setUsernameOrdered(userData.username);
       }
     });
+
+    if (order?.duration) {
+      var num = order?.duration;
+      var hours = num / 60;
+      var rhours = Math.floor(hours);
+      var minutes = (hours - rhours) * 60;
+      var rminutes = Math.round(minutes);
+      setHours(rhours);
+      setMinutes(rminutes);
+    }
   });
 
   const getImage = (type) => {
@@ -361,12 +390,11 @@ const HomeScreen = () => {
         </View>
       );
     }
-
-    if (order && order.pickedUp) {
+    if (order && order.pickedUp && hours != 0) {
       return (
         <View style={{ alignItems: 'center' }}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Text> {order.duration ? order.duration.toFixed(1) : '?'} min</Text>
+            <Text> {hours}h {minutes} min</Text>
             <View
               style={{
                 backgroundColor: 'red',
@@ -386,13 +414,13 @@ const HomeScreen = () => {
       );
     }
 
-    if (order) {
-      console.log(order);
-      console.log('is ordeer');
+    if (order && hours != 0) {
+      // console.log(order);
+      // console.log('is ordeer');
       return (
         <View style={{ alignItems: 'center' }}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Text> {order.duration ? order.duration.toFixed(1) : '?'} min</Text>
+            <Text> {hours}h {minutes} min</Text>
             <View
               style={{
                 backgroundColor: 'green',
@@ -412,13 +440,65 @@ const HomeScreen = () => {
       );
     }
 
+    if (order && order.pickedUp && hours == 0) {
+      return (
+        <View style={{ alignItems: 'center' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text> {minutes} min</Text>
+            <View
+              style={{
+                backgroundColor: 'red',
+                width: 35,
+                height: 35,
+                alignItems: 'center',
+                marginHorizontal: 10,
+                justifyContent: 'center',
+                borderRadius: 20,
+              }}>
+              <Entypo name={'user'} size={35} color={'white'} />
+            </View>
+            <Text> {order.distance ? order.distance.toFixed(2) : '?'} km</Text>
+          </View>
+          <Text style={styles.bottomText}>{usernameOrdered} coboară</Text>
+        </View>
+      );
+    }
+
+    if (order && hours == 0) {
+      // console.log(order);
+      // console.log('is ordeer');
+      return (
+        <View style={{ alignItems: 'center' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text> {minutes} min</Text>
+            <View
+              style={{
+                backgroundColor: 'green',
+                width: 35,
+                height: 35,
+                alignItems: 'center',
+                marginHorizontal: 10,
+                justifyContent: 'center',
+                borderRadius: 20,
+              }}>
+              <Entypo name={'user'} size={35} color={'white'} />
+            </View>
+            <Text> {order.distance ? order.distance.toFixed(2) : '?'} km</Text>
+          </View>
+          <Text style={styles.bottomText}>Preluare {usernameOrdered}</Text>
+        </View>
+      );
+    }
+
+
     if (car?.isActive) {
       return <Text style={styles.bottomText}>Disponibil</Text>;
     } else {
       return <Text style={styles.bottomText}>Indisponibil</Text>;
     }
   };
-  if (hasStop) {
+
+  if (hasStop === true) {
     return (
       <View>
         <MapView
@@ -455,14 +535,9 @@ const HomeScreen = () => {
               strokeWidth={5}
             />
           )}
-
-          <Marker coordinate={originLocation} title={'Origin'} />
-          <Marker coordinate={stopLocation} title={'Stop'} />
-          <Marker coordinate={destinationLocation} title={'Destination'} />
-
-          <Marker coordinate={originLocation} title={'Origin'} />
-          <Marker coordinate={destinationLocation} title={'Destination'} />
-
+          {originLocation.latitude !== undefined ? (<Marker coordinate={originLocation} title={'Origin'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Origin'} />)}
+          {stopLocation.latitude !== undefined ? (<Marker coordinate={stopLocation} title={'Stop'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Stop'} />)}
+          {destinationLocation.latitude !== undefined ? (<Marker coordinate={destinationLocation} title={'Destination'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Destination'} />)}
         </MapView>
         <Pressable
           onPress={() => console.warn('Balance')}
@@ -492,7 +567,7 @@ const HomeScreen = () => {
             <Entypo name={'direction'} size={35} color={'orange'} />
           </Pressable>
         </View>
-        {newOrders.length > 0 && !order && (
+        {newOrders.length > 0 && !order && isActive === true && (
           <NewOrderPopup
             client={userOrder}
             newOrder={newOrders[0]}
@@ -542,9 +617,8 @@ const HomeScreen = () => {
             />
           )}
 
-          <Marker coordinate={originLocation} title={'Origin'} />
-          <Marker coordinate={destinationLocation} title={'Destination'} />
-
+          {originLocation.latitude !== undefined ? (<Marker coordinate={originLocation} title={'Origin'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Origin'} />)}
+          {destinationLocation.latitude !== undefined ? (<Marker coordinate={destinationLocation} title={'Destination'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Destination'} />)}
         </MapView>
         <Pressable
           onPress={() => console.warn('Balance')}
@@ -574,7 +648,7 @@ const HomeScreen = () => {
             <Entypo name={'direction'} size={35} color={'orange'} />
           </Pressable>
         </View>
-        {newOrders.length > 0 && !order && (
+        {newOrders.length > 0 && !order && isActive === true && (
           <NewOrderPopup
             client={userOrder}
             newOrder={newOrders[0]}

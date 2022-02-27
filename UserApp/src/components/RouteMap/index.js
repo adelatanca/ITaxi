@@ -97,7 +97,7 @@ const RouteMap = ({ origin, destination, passTime, passKm, stop }) => {
   const onDirectionFound = (event) => {
     passTime(event.duration);
     passKm(event.distance);
-    console.log("event duration is ", event.duration.toString().substr(0, 2));
+    // console.log("event duration is ", event.duration.toString().substr(0, 2));
     //console.log("event distance is ", event.distance);
   };
 

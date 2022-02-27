@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { View, Image, Text, Pressable } from "react-native";
 import styles from "./styles";
-
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import { updateOrder } from "../../graphql/mutations";
 
 const ITaxiTypeRow = (props) => {
   const { type, onPress, isSelected, hours, minutes, km } = props;
@@ -21,7 +19,7 @@ const ITaxiTypeRow = (props) => {
   };
 
   if (props.km == null) {
-    console.log("props null");
+    // console.log("props null");
   } else {
     var hoursProps = props?.hours;
     var minutesProps = props?.minutes;

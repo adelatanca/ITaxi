@@ -17,17 +17,18 @@ const OrderScreen = (props) => {
   const [phoneNumber, setPhoneNumber] = useState(null);
 
   const route = useRoute();
-  console.log(route.params.id);
+  // console.log(route.params.id);
+  const fetchUser = async () => {
+    try {
+      const userData = await API.graphql(
+        graphqlOperation(getUser, { id: order.carId })
+      );
+
+      setUser(userData.data.getUser);
+    } catch (e) { }
+  };
 
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const userData = await API.graphql(
-          graphqlOperation(getUser, { id: order.carId })
-        );
-        setUser(userData.data.getUser);
-      } catch (e) { }
-    };
     fetchUser();
   }, []);
 
@@ -71,7 +72,6 @@ const OrderScreen = (props) => {
           graphqlOperation(getCar, { id: order.carId })
         );
         setCar(carData.data.getCar);
-        console.log("curenT ", carData.data)
       } catch (e) { }
     };
     fetchCar();
@@ -98,13 +98,12 @@ const OrderScreen = (props) => {
     return () => subscription.unsubscribe();
   }, [order]);
 
-
-
   return (
     <View>
-      <View style={{ height: Dimensions.get("window").height - 580 }}>
+      <View style={{ height: Dimensions.get("window").height - 550 }}>
         <OrderMap car={car} />
       </View>
+
       <View style={styles.container}>
         <Text style={styles.title}>Rezumatul călătoriei</Text>
         {/* <UserAvatar size={55} style={{ width: "30%", left: 145, height: 80 }} name={"Ade"} /> */}

@@ -17,7 +17,7 @@ const ITaxiTypes = ({
   const [selectedPrice, setSelectedPrice] = priceState;
 
   if (km == null) {
-    console.log("props null");
+    // console.log("props null");
   } else {
     var hoursProps = hours;
     var minutesProps = minutes;

@@ -5,7 +5,14 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 15,
     borderRadius: 35,
-    height: 600
+    height: 600,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.67,
+    shadowRadius: 3,
   },
   line: {
     flexDirection: "row",
@@ -14,6 +21,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.50,
     borderBottomColor: "#919191",
     paddingVertical: 1,
+    shadowOpacity: 0.19,
   },
   title: {
     flexDirection: "row",

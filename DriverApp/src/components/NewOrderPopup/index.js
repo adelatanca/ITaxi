@@ -95,16 +95,16 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
         <View style={styles.info}>
           <View style={styles.line}>
             <Entypo name={'phone'} size={18} color={'white'} />
-            <Text style={styles.phone} numberOfLines={1} ellipsizeMode='tail'>Telefon - 035353443</Text>
+            <Text style={styles.phone} numberOfLines={1} ellipsizeMode='tail'>  035353443</Text>
           </View>
           <View style={styles.line}>
             <Entypo name={'location-pin'} size={20} color={'white'} />
-            <Text style={styles.pornire} numberOfLines={1} ellipsizeMode='tail'>Pornire - {pornire}</Text>
+            <Text style={styles.pornire} numberOfLines={1} ellipsizeMode='tail'> {pornire}</Text>
           </View>
-          {isStop ? <View style={styles.line}><Entypo name={'location-pin'} size={20} color={'white'} /><Text style={styles.oprire} numberOfLines={1} ellipsizeMode='tail'>Oprire - {oprire}</Text></View> : null}
+          {isStop ? <View style={styles.line}><Entypo name={'time-slot'} size={18} color={'white'} /><Text style={styles.oprire} numberOfLines={1} ellipsizeMode='tail'> {oprire}</Text></View> : null}
           <View style={styles.line}>
-            <Entypo name={'location-pin'} size={20} color={'white'} />
-            <Text style={styles.destinatie} numberOfLines={1} ellipsizeMode='tail'>Destinatie - {destinatie}</Text>
+            <Entypo name={'location'} size={18} color={'white'} />
+            <Text style={styles.destinatie} numberOfLines={1} ellipsizeMode='tail'> {destinatie}</Text>
           </View>
         </View>
       </Pressable>

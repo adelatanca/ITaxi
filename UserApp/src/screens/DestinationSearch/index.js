@@ -46,7 +46,12 @@ const DestinationSearch = (props) => {
   useEffect(() => {
     ref?.current?.setAddressText(destinatie);
     setDestinationPlace(region);
-  }, []);
+    const interval = setInterval(() => {
+      ref?.current?.setAddressText(destinatie);
+      setDestinationPlace(region);
+    }, 5000)
+    return () => clearInterval(interval)
+  });
 
   const navigation = useNavigation();
 
