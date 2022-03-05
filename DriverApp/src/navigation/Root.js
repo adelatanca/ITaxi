@@ -1,8 +1,9 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import HistoryScreen from '../screens/HistoryScreen';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
+import PaymentScreen from '../../../UserApp/src/screens/PaymentScreen';
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,7 @@ const RootNavigator = () => {
           headerShown: true,
         }}>
         <Stack.Screen name={'Călătorește'} component={HomeScreen} />
+        <Stack.Screen name={'Plătește'} component={PaymentScreen} />
         <Stack.Screen name={'Istoric comenzi'} component={HistoryScreen} />
       </Stack.Navigator>
     </NavigationContainer>

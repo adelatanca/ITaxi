@@ -84,7 +84,13 @@ const SearchResult = (props) => {
             input: input,
           })
         );
-        navigation.navigate("OrderPage", { id: response.data.createOrder.id });
+        if (paymentMethod === "Card") {
+          navigation.navigate("PaymentScreen", { pret: pret, id: response.data.createOrder.id, emailPayment: userInfo.attributes.email });
+        }
+        else {
+          navigation.navigate("OrderPage", { id: response.data.createOrder.id });
+        }
+
       } catch (error) {
         console.error(error);
       }
