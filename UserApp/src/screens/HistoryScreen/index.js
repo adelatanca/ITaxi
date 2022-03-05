@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Image, Appearance, useColorScheme, Text, View } from "react-native";
-import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
-import mapDarkStyle from "../../assets/data/mapDarkStyle";
+import styles from './styles';
 
 const HistoryScreen = (props) => {
   let colorScheme = useColorScheme();

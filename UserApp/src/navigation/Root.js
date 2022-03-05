@@ -10,6 +10,7 @@ import AboutUsScreen from "../screens/AboutUsScreen";
 import AsistentaScreen from "../screens/AsistentaScreen";
 import PromotiiScreen from "../screens/PromotiiScreen";
 import RatingScreen from "../screens/RatingScreen";
+import PaymentScreen from "../screens/PaymentScreen";
 import CustomDrawer from "./CustomDrawer";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
@@ -76,7 +77,7 @@ const RootNavigator = (props) => {
         ></Drawer.Screen>
         <Drawer.Screen
           name="Asistență"
-          component={AsistentaScreen}
+          component={PaymentScreen}
           options={{
             drawerIcon: (config) => (
               <AntDesign name={"phone"} size={20} color={"gray"} />

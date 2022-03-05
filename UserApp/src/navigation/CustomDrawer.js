@@ -18,8 +18,6 @@ const CustomDrawer = (props) => {
     try {
       const userData = await Auth.currentAuthenticatedUser();
       setUser(userData);
-      console.log(userData.attributes.email, "EMAIL");
-      console.log(userData.username, "the user");
     } catch (e) {
       console.log(e);
     }
