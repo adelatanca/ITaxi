@@ -1,13 +1,59 @@
-import React, { useState } from "react";
-import { Image, Appearance, useColorScheme, Text, View } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Image, FlatList, useColorScheme, Text, View } from "react-native";
 import styles from './styles';
+import HistoryRow from '../../components/HistoryRow';
+import { Auth, API, graphqlOperation } from 'aws-amplify';
+import { listOrders, listUsers } from '../../graphql/queries';
+import { ScrollView } from "react-native-gesture-handler";
 
 const HistoryScreen = (props) => {
+  const [orders, setOrders] = useState(null);
   let colorScheme = useColorScheme();
 
+  const fetchOrders = async () => {
+    try {
+      const userData = await Auth.currentAuthenticatedUser();
+      const ordersData = await API.graphql(
+        graphqlOperation(listOrders, { filter: { userId: { eq: userData.attributes.sub } } }),
+      );
+      setOrders(ordersData.data.listOrders.items);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
+
+  const dateConstruct = () => {
+    orders?.map((order, i) => {
+      console.log("DATA - day ", order.createdAt.slice(8, 10));
+      console.log("DATA - month ", order.createdAt.slice(5, 7));
+      console.log("HOUR ", order.createdAt.slice(11, 16))
+    })
+  }
+
+  useEffect(() => {
+    dateConstruct();
+  });
+
+
   return (
-    <View>
-      <Text> This is your history </Text>
+    <View style={styles.container}>
+      <Text style={styles.istoricTitle}> Istoric curse </Text>
+      <ScrollView>
+        {orders?.map((order, i) => (
+          <HistoryRow
+            orderPrice={order.pret}
+            orderDay={order.createdAt.slice(8, 10)}
+            orderMonth={order.createdAt.slice(5, 7)}
+            orderHour={order.createdAt.slice(11, 16)}
+            key={i}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 };

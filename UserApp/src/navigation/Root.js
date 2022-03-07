@@ -77,7 +77,7 @@ const RootNavigator = (props) => {
         ></Drawer.Screen>
         <Drawer.Screen
           name="Asistență"
-          component={PaymentScreen}
+          component={AsistentaScreen}
           options={{
             drawerIcon: (config) => (
               <AntDesign name={"phone"} size={20} color={"gray"} />
