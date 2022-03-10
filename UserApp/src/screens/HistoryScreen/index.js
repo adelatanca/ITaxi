@@ -31,6 +31,7 @@ const HistoryScreen = (props) => {
     orders?.map((order, i) => {
       console.log("DATA - day ", order.createdAt.slice(8, 10));
       console.log("DATA - month ", order.createdAt.slice(5, 7));
+      console.log("DATA - year ", order.createdAt.slice(0, 4))
       console.log("HOUR ", order.createdAt.slice(11, 16))
     })
   }
@@ -46,10 +47,13 @@ const HistoryScreen = (props) => {
       <ScrollView>
         {orders?.map((order, i) => (
           <HistoryRow
+            orderObject={order}
             orderPrice={order.pret}
             orderDay={order.createdAt.slice(8, 10)}
             orderMonth={order.createdAt.slice(5, 7)}
             orderHour={order.createdAt.slice(11, 16)}
+            orderYear={order.createdAt.slice(0, 4)}
+            destination={[order.destLatitude, order.destLongitude]}
             key={i}
           />
         ))}

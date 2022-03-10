@@ -6,10 +6,12 @@ import { Auth, API, graphqlOperation } from 'aws-amplify';
 import { listOrders, listUsers } from '../../graphql/queries';
 
 import { useNavigation } from '@react-navigation/native';
+const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
 
-const HistoryRow = ({ orderPrice, orderDay, orderMonth, orderHour }) => {
+const HistoryRow = ({ orderObject, orderPrice, orderDay, orderMonth, orderHour, orderYear, destination }) => {
     const [orders, setOrders] = useState(null);
     const [orderMonthName, setOrderMonthName] = useState(null);
+    const [destinatie, setDestinatie] = useState(null);
     let colorScheme = useColorScheme();
     const navigation = useNavigation();
 
@@ -28,10 +30,6 @@ const HistoryRow = ({ orderPrice, orderDay, orderMonth, orderHour }) => {
     useEffect(() => {
         fetchOrders();
     }, []);
-
-    const goToHistorySpecificScreen = () => {
-        navigation.navigate('Istoric specific');
-    }
 
     const getMonth = () => {
         switch (orderMonth) {
@@ -76,21 +74,46 @@ const HistoryRow = ({ orderPrice, orderDay, orderMonth, orderHour }) => {
         }
     }
 
+    const getDestinationAddress = () => {
+        fetch(
+            'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+            destination[0] +
+            ',' +
+            destination[1] +
+            '&key=' +
+            GOOGLE_MAPS_APIKEY,
+        )
+            .then(response => response.json())
+            .then(responseJson => {
+                const responseAdd = responseJson.results.map(
+                    address => address.formatted_address,
+                );
+                console.log('FORMATAT ' + JSON.stringify(responseAdd[2]));
+                setDestinatie(responseAdd[4]);
+                //  console.log('FORMATAT ' + JSON.stringify(responseJson.results));
+            });
+    };
+
     useEffect(() => {
         getMonth();
+        getDestinationAddress();
     }, []);
+
+    const goToHistorySpecificScreen = () => {
+        navigation.navigate('Istoric specific', { orderYear, orderDay, orderMonthName, orderObject, orderMonth });
+    }
 
 
     return (
-        <Pressable onPress={() => { console.log("PRESSED"); goToHistorySpecificScreen() }} style={styles.container}>
+        <Pressable onPress={() => { goToHistorySpecificScreen() }} style={styles.container}>
             <View style={styles.row}>
                 <AntDesign name={"car"} size={25} color={"#45a8f2"} />
             </View>
-            <View>
+            <View style={styles.container}>
+                <Text style={styles.streets} ellipsizeMode='tail' numberOfLines={1}>{destinatie}</Text>
                 <Text style={styles.date}>{orderDay} {orderMonthName}., {orderHour}</Text>
                 <Text style={styles.price}>LEI {orderPrice}</Text>
             </View>
-
         </Pressable>
     );
 };

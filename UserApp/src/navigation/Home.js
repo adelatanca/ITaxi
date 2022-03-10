@@ -30,7 +30,6 @@ const HomeNavigator = (props) => {
       <Stack.Screen name={"PaymentScreen"} component={PaymentScreen} />
       <Stack.Screen name={"OrderPage"} component={OrderScreen} />
       <Stack.Screen name={"Istoric specific"} component={HistorySpecificScreen} />
-
     </Stack.Navigator>
   );
 };
