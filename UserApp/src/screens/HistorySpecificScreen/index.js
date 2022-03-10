@@ -3,6 +3,7 @@ import { View, StyleSheet, Text } from "react-native";
 import styles from "../HistorySpecificScreen/styles";
 import UserAvatar from 'react-native-user-avatar';
 import { useRoute, useNavigation } from "@react-navigation/native";
+import HistoryMap from "../../components/HistoryMap";
 
 const HistorySpecificScreen = () => {
     let driverName = "Costica";
@@ -18,9 +19,10 @@ const HistorySpecificScreen = () => {
         <View style={styles.container}>
             <View style={styles.avatarDateName}>
                 <Text style={styles.driverName}>Cursa cu {driverName}</Text>
-                <Text style={styles.orderYear}>{day}, {orderDay} {orderMonthName}. {orderYear}</Text>
+                <Text style={styles.orderDate}>{day}, {orderDay} {orderMonthName}. {orderYear}</Text>
                 <UserAvatar size={55} style={styles.avatar} name={"Ade"} />
             </View>
+            <HistoryMap style={styles.map} />
         </View>
     );
 };

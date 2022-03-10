@@ -6,7 +6,6 @@ import SearchResults from "../screens/SearchResults";
 import SearchOnMapScreen from '../screens/SearchOnMapScreen';
 import PaymentScreen from "../screens/PaymentScreen";
 import OrderScreen from "../screens/OrderScreen";
-import HistorySpecificScreen from "../screens/HistorySpecificScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
@@ -29,7 +28,6 @@ const HomeNavigator = (props) => {
       <Stack.Screen name={"SearchResults"} component={SearchResults} />
       <Stack.Screen name={"PaymentScreen"} component={PaymentScreen} />
       <Stack.Screen name={"OrderPage"} component={OrderScreen} />
-      <Stack.Screen name={"Istoric specific"} component={HistorySpecificScreen} />
     </Stack.Navigator>
   );
 };

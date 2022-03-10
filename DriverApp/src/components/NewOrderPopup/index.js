@@ -25,7 +25,7 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
         const responseAdd = responseJson.results.map(
           address => address.formatted_address,
         );
-        console.log('FORMATAT origin ' + JSON.stringify(responseAdd[3]));
+        // console.log('FORMATAT origin ' + JSON.stringify(responseAdd[3]));
         setPornire(responseAdd[3]);
         //  console.log('FORMATAT ' + JSON.stringify(responseJson.results));
       });
@@ -45,7 +45,7 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
         const responseAdd = responseJson.results.map(
           address => address.formatted_address,
         );
-        console.log('FORMATAT ' + JSON.stringify(responseAdd[3]));
+        // console.log('FORMATAT ' + JSON.stringify(responseAdd[3]));
         setDestinatie(responseAdd[3]);
         //  console.log('FORMATAT ' + JSON.stringify(responseJson.results));
       });
@@ -64,7 +64,7 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
         const responseAdd = responseJson.results.map(
           address => address.formatted_address,
         );
-        console.log('FORMATAT ' + JSON.stringify(responseAdd[3]));
+        // console.log('FORMATAT ' + JSON.stringify(responseAdd[3]));
         setOprire(responseAdd[3]);
         //  console.log('FORMATAT ' + JSON.stringify(responseJson.results));
       });

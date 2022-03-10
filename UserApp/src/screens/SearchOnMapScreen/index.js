@@ -6,7 +6,9 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import styles from '../SearchOnMapScreen/styles';
+
 const GOOGLE_MAPS_APIKEY = "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk";
+
 const SearchOnMapScreen = () => {
     const [region, setRegion] = useState(null);
     const [myPosition, setMyPosition] = useState(null);

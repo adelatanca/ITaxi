@@ -13,6 +13,7 @@ import RatingScreen from "../screens/RatingScreen";
 import PaymentScreen from "../screens/PaymentScreen";
 import CustomDrawer from "./CustomDrawer";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import HistoryNavigator from "./History";
 
 const Drawer = createDrawerNavigator();
 
@@ -49,7 +50,7 @@ const RootNavigator = (props) => {
 
         <Drawer.Screen
           name="Istoric curse"
-          component={HistoryScreen}
+          component={HistoryNavigator}
           options={{
             drawerIcon: (config) => (
               <AntDesign name={"clockcircleo"} size={20} color={"gray"} />
