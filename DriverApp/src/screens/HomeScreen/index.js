@@ -52,8 +52,8 @@ const HomeScreen = () => {
   const currentLocation = {
     latitude: myPosition?.latitude,
     longitude: myPosition?.longitude,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
+    latitudeDelta: 1,
+    longitudeDelta: 1,
   };
 
   const navigation = useNavigation();
@@ -145,14 +145,23 @@ const HomeScreen = () => {
 
   const wayPoint = [
     {
-      latitude: order
-        ? order?.stopLatitude
-        : order?.destLatitude,
-      longitude: order
-        ? order?.stopLongitude
-        : order?.destLongitude,
+      latitude: order?.originLatitude,
+      longitude: order?.originLongitude
+    },
+    {
+      latitude: order?.stopLatitude,
+      longitude: order?.stopLongitude
     },
   ];
+
+  const wayPointOrigin = [
+    {
+      latitude:
+        order?.originLatitude,
+      longitude:
+        order?.originLongitude,
+    },
+  ]
 
   const stopLocation = {
     latitude: order
@@ -511,8 +520,8 @@ const HomeScreen = () => {
           initialRegion={{
             latitude: 47.0411391,
             longitude: 21.9259096,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitudeDelta: 1,
+            longitudeDelta: 1,
           }}
           onRegionChangeComplete={region => setRegion(region)}>
           {order && (
@@ -523,7 +532,7 @@ const HomeScreen = () => {
               }}
               waypoints={wayPoint}
               destination={destinationLocation}
-              optimizeWaypoints={true}
+              // optimizeWaypoints={true}
               onReady={onDirectionFound}
               onError={errorMessage => {
                 console.log(errorMessage);
@@ -592,8 +601,8 @@ const HomeScreen = () => {
           initialRegion={{
             latitude: 47.0411391,
             longitude: 21.9259096,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitudeDelta: 1,
+            longitudeDelta: 1,
           }}
           onRegionChangeComplete={region => setRegion(region)}>
           {order && (
@@ -602,9 +611,9 @@ const HomeScreen = () => {
                 latitude: car?.latitude,
                 longitude: car?.longitude,
               }}
-              waypoints={wayPoint}
+              waypoints={wayPointOrigin}
               destination={destinationLocation}
-              optimizeWaypoints={true}
+              // optimizeWaypoints={true}
               onReady={onDirectionFound}
               onError={errorMessage => {
                 console.log(errorMessage);

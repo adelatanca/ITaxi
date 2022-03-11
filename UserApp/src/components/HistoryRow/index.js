@@ -74,29 +74,29 @@ const HistoryRow = ({ orderObject, orderPrice, orderDay, orderMonth, orderHour, 
         }
     }
 
-    const getDestinationAddress = () => {
-        fetch(
-            'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-            destination[0] +
-            ',' +
-            destination[1] +
-            '&key=' +
-            GOOGLE_MAPS_APIKEY,
-        )
-            .then(response => response.json())
-            .then(responseJson => {
-                const responseAdd = responseJson.results.map(
-                    address => address.formatted_address,
-                );
-                console.log('FORMATAT ' + JSON.stringify(responseAdd[2]));
-                setDestinatie(responseAdd[4]);
-                //  console.log('FORMATAT ' + JSON.stringify(responseJson.results));
-            });
-    };
+    // const getDestinationAddress = () => {
+    //     fetch(
+    //         'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+    //         destination[0] +
+    //         ',' +
+    //         destination[1] +
+    //         '&key=' +
+    //         GOOGLE_MAPS_APIKEY,
+    //     )
+    //         .then(response => response.json())
+    //         .then(responseJson => {
+    //             const responseAdd = responseJson.results.map(
+    //                 address => address.formatted_address,
+    //             );
+    //             console.log('FORMATAT ' + JSON.stringify(responseAdd[2]));
+    //             setDestinatie(responseAdd[4]);
+    //             //  console.log('FORMATAT ' + JSON.stringify(responseJson.results));
+    //         });
+    // };
 
     useEffect(() => {
         getMonth();
-        getDestinationAddress();
+        // getDestinationAddress();
     }, []);
 
     const goToHistorySpecificScreen = () => {
@@ -110,7 +110,7 @@ const HistoryRow = ({ orderObject, orderPrice, orderDay, orderMonth, orderHour, 
                 <AntDesign name={"car"} size={25} color={"#45a8f2"} />
             </View>
             <View style={styles.container}>
-                <Text style={styles.streets} ellipsizeMode='tail' numberOfLines={1}>{destinatie}</Text>
+                <Text style={styles.streets} ellipsizeMode='tail' numberOfLines={1}>{destination}</Text>
                 <Text style={styles.date}>{orderDay} {orderMonthName}., {orderHour}</Text>
                 <Text style={styles.price}>LEI {orderPrice}</Text>
             </View>

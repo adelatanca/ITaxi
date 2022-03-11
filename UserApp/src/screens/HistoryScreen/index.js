@@ -53,7 +53,7 @@ const HistoryScreen = (props) => {
             orderMonth={order.createdAt.slice(5, 7)}
             orderHour={order.createdAt.slice(11, 16)}
             orderYear={order.createdAt.slice(0, 4)}
-            destination={[order.destLatitude, order.destLongitude]}
+            destination={order.destinationName}
             key={i}
           />
         ))}
