@@ -30,9 +30,12 @@ const SearchResult = (props) => {
   const navigation = useNavigation();
   const [havePaymentType, setPaymentType] = useState(false);
 
-  // console.log(route.params);
 
   const { originPlace, destinationPlace, stopPlace, destinatie } = route.params;
+
+  let originName = originPlace?.data?.description;
+  let stopName = stopPlace ? stopPlace?.data?.description : null;
+  // let destinationName = destinationPlace?.data?.description;
 
   const onSubmit = async () => {
     const [type] = typeState;
@@ -51,6 +54,7 @@ const SearchResult = (props) => {
 
     else if (havePaymentType === true) {
       try {
+
         const userInfo = await Auth.currentAuthenticatedUser();
 
         const date = new Date();
@@ -60,6 +64,10 @@ const SearchResult = (props) => {
           type,
           originLatitude: originPlace.details.geometry.location.lat,
           originLongitude: originPlace.details.geometry.location.lng,
+
+          originName: originName,
+          destinationName: destinatie,
+          stopName: stopName,
 
           destLatitude: destinationPlace?.details?.geometry?.location?.lat || destinationPlace?.latitude,
           destLongitude: destinationPlace?.details?.geometry?.location?.lng || destinationPlace?.longitude,

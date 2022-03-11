@@ -81,7 +81,6 @@ const SearchOnMapScreen = () => {
     }
 
     return (
-
         <View style={{ display: "flex" }}>
             <View style={{ height: Dimensions.get("window").height - 300 }}>
                 <MapView

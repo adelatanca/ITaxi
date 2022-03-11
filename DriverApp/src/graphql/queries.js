@@ -50,6 +50,9 @@ export const listOrders = /* GraphQL */ `
         destLongitude
         stopLatitude
         stopLongitude
+        originName
+        destinationName
+        stopName
         userId
         user {
           id

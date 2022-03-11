@@ -58,6 +58,9 @@ export const updateOrder = /* GraphQL */ `
       destLongitude
       stopLatitude
       stopLongitude
+      originName
+      destinationName
+      stopName
       userId
       carId
       updatedAt

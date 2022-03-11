@@ -10,7 +10,6 @@ import {
 import styles from "./styles";
 // import cars from "../../assets/data/cars";
 import { Entypo } from "@expo/vector-icons";
-import MapViewDirections from "react-native-maps-directions";
 import mapDarkStyle from "../../assets/data/mapDarkStyle";
 
 import MapView, {

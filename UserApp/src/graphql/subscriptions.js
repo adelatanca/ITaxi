@@ -8,12 +8,15 @@ export const onOrderUpdated = /* GraphQL */ `
       createdAt
       type
       status
+      originName
       originLatitude
       originLongitude
       destLatitude
       destLongitude
+      destinationName
       stopLatitude
       stopLongitude
+      stopName
       pret
       paymentMethod
       userId
@@ -95,12 +98,15 @@ export const onCarUpdated = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -162,12 +168,15 @@ export const onCreateUser = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -226,12 +235,15 @@ export const onUpdateUser = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -290,12 +302,15 @@ export const onDeleteUser = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -356,12 +371,15 @@ export const onCreateCar = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -425,12 +443,15 @@ export const onUpdateCar = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -494,12 +515,15 @@ export const onDeleteCar = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -554,12 +578,15 @@ export const onCreateOrder = /* GraphQL */ `
       createdAt
       type
       status
+      originName
       originLatitude
       originLongitude
       destLatitude
       destLongitude
+      destinationName
       stopLatitude
       stopLongitude
+      stopName
       pret
       paymentMethod
       userId
@@ -632,12 +659,15 @@ export const onUpdateOrder = /* GraphQL */ `
       createdAt
       type
       status
+      originName
       originLatitude
       originLongitude
       destLatitude
       destLongitude
+      destinationName
       stopLatitude
       stopLongitude
+      stopName
       pret
       paymentMethod
       userId
@@ -710,12 +740,15 @@ export const onDeleteOrder = /* GraphQL */ `
       createdAt
       type
       status
+      originName
       originLatitude
       originLongitude
       destLatitude
       destLongitude
+      destinationName
       stopLatitude
       stopLongitude
+      stopName
       pret
       paymentMethod
       userId

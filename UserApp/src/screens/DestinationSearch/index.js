@@ -94,8 +94,10 @@ const DestinationSearch = (props) => {
     checkNavigation();
   }, [originPlace, destinationPlace, stopPlace]);
 
+
   Location.installWebGeolocationPolyfill();
   navigator.geolocation.getCurrentPosition();
+  // console.log(originPlace.data.description)
 
   const renderError = () => {
     // if (!destinationPlace?.data.geometry.location.lat) {

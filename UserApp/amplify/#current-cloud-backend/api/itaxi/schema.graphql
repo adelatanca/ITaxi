@@ -89,14 +89,20 @@ type Order
   type: String!
   status: String
 
+  originName: String
+
   originLatitude: Float!
   originLongitude: Float!
 
   destLatitude: Float!
   destLongitude: Float!
 
+  destinationName: String
+
   stopLatitude: Float!
   stopLongitude: Float!
+
+  stopName: String
 
   pret: Float
 

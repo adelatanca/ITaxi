@@ -18,12 +18,15 @@ export const createUser = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -85,12 +88,15 @@ export const updateUser = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -152,12 +158,15 @@ export const deleteUser = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -221,12 +230,15 @@ export const createCar = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -293,12 +305,15 @@ export const updateCar = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -365,12 +380,15 @@ export const deleteCar = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -428,12 +446,15 @@ export const createOrder = /* GraphQL */ `
       createdAt
       type
       status
+      originName
       originLatitude
       originLongitude
       destLatitude
       destLongitude
+      destinationName
       stopLatitude
       stopLongitude
+      stopName
       pret
       paymentMethod
       userId
@@ -509,12 +530,15 @@ export const updateOrder = /* GraphQL */ `
       createdAt
       type
       status
+      originName
       originLatitude
       originLongitude
       destLatitude
       destLongitude
+      destinationName
       stopLatitude
       stopLongitude
+      stopName
       pret
       paymentMethod
       userId
@@ -590,12 +614,15 @@ export const deleteOrder = /* GraphQL */ `
       createdAt
       type
       status
+      originName
       originLatitude
       originLongitude
       destLatitude
       destLongitude
+      destinationName
       stopLatitude
       stopLongitude
+      stopName
       pret
       paymentMethod
       userId

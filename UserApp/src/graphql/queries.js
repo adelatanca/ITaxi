@@ -15,12 +15,15 @@ export const getUser = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -118,12 +121,15 @@ export const getCar = /* GraphQL */ `
           createdAt
           type
           status
+          originName
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          destinationName
           stopLatitude
           stopLongitude
+          stopName
           pret
           paymentMethod
           userId
@@ -215,12 +221,15 @@ export const getOrder = /* GraphQL */ `
       createdAt
       type
       status
+      originName
       originLatitude
       originLongitude
       destLatitude
       destLongitude
+      destinationName
       stopLatitude
       stopLongitude
+      stopName
       pret
       paymentMethod
       userId
@@ -298,12 +307,15 @@ export const listOrders = /* GraphQL */ `
         createdAt
         type
         status
+        originName
         originLatitude
         originLongitude
         destLatitude
         destLongitude
+        destinationName
         stopLatitude
         stopLongitude
+        stopName
         pret
         paymentMethod
         userId
