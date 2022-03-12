@@ -45,7 +45,7 @@
         "IdentityPoolName": "itaxi7ff407ce_identitypool_7ff407ce__dev",
         "UserPoolName": "itaxi7ff407ce_userpool_7ff407ce"
       },
-      "lastPushTimeStamp": "2022-03-11T17:53:58.380Z",
+      "lastPushTimeStamp": "2022-03-12T15:11:43.346Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-itaxi-dev-212124-deployment/amplify-cfn-templates/auth/itaxi7ff407ce7ff407ce-cloudformation-template.json",
         "logicalId": "authitaxi7ff407ce7ff407ce"
@@ -63,7 +63,7 @@
         "Name": "itaxi7ff407ce7ff407cePostConfirmation-dev",
         "LambdaExecutionRole": "itaxi7ff407ce7ff407cePostConfirmation-dev"
       },
-      "lastPushTimeStamp": "2022-03-11T17:53:58.382Z",
+      "lastPushTimeStamp": "2022-03-12T15:11:43.349Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-itaxi-dev-212124-deployment/amplify-cfn-templates/function/itaxi7ff407ce7ff407cePostConfirmation-cloudformation-template.json",
         "logicalId": "functionitaxi7ff407ce7ff407cePostConfirmation"
@@ -106,12 +106,12 @@
         "GraphQLAPIEndpointOutput": "https://l33oul33bfbmpif6vljxd3zjnq.appsync-api.eu-west-3.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-actc4hxyd5fvjh4mac5lnrz2qa"
       },
-      "lastPushTimeStamp": "2022-03-11T17:54:00.711Z",
+      "lastPushTimeStamp": "2022-03-12T15:11:45.746Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-itaxi-dev-212124-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiitaxi"
       },
-      "lastPushDirHash": "0wdYforYvACZGmWnLMAGE9at7jY="
+      "lastPushDirHash": "iiFhbR5Xg5SI+6fu35Lk8euuYPM="
     }
   }
 }

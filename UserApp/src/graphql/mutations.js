@@ -27,6 +27,7 @@ export const createUser = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -97,6 +98,7 @@ export const updateUser = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -167,6 +169,7 @@ export const deleteUser = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -239,6 +242,7 @@ export const createCar = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -314,6 +318,7 @@ export const updateCar = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -389,6 +394,7 @@ export const deleteCar = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -455,6 +461,7 @@ export const createOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       stopName
+      duration
       pret
       paymentMethod
       userId
@@ -539,6 +546,7 @@ export const updateOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       stopName
+      duration
       pret
       paymentMethod
       userId
@@ -623,6 +631,7 @@ export const deleteOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       stopName
+      duration
       pret
       paymentMethod
       userId

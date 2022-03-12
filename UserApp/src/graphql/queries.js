@@ -24,6 +24,7 @@ export const getUser = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -130,6 +131,7 @@ export const getCar = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -230,6 +232,7 @@ export const getOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       stopName
+      duration
       pret
       paymentMethod
       userId
@@ -316,6 +319,7 @@ export const listOrders = /* GraphQL */ `
         stopLatitude
         stopLongitude
         stopName
+        duration
         pret
         paymentMethod
         userId

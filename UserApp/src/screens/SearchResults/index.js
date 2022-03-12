@@ -79,6 +79,7 @@ const SearchResult = (props) => {
             ? stopPlace.details.geometry.location.lng
             : destinationPlace.details?.geometry?.location?.lng || destinationPlace?.longitude,
 
+          duration: time,
 
           userId: userInfo.attributes.sub,
           carId: "1",

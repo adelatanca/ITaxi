@@ -6,7 +6,7 @@ import { Auth, API, graphqlOperation } from 'aws-amplify';
 import { listOrders, listUsers } from '../../graphql/queries';
 
 import { useNavigation } from '@react-navigation/native';
-const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
+const GOOGLE_MAPS_APIKEY = 'AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw';
 
 const HistoryRow = ({ orderObject, orderPrice, orderDay, orderMonth, orderHour, orderYear, destination }) => {
     const [orders, setOrders] = useState(null);

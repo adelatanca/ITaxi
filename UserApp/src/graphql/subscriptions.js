@@ -17,6 +17,7 @@ export const onOrderUpdated = /* GraphQL */ `
       stopLatitude
       stopLongitude
       stopName
+      duration
       pret
       paymentMethod
       userId
@@ -107,6 +108,7 @@ export const onCarUpdated = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -177,6 +179,7 @@ export const onCreateUser = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -244,6 +247,7 @@ export const onUpdateUser = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -311,6 +315,7 @@ export const onDeleteUser = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -380,6 +385,7 @@ export const onCreateCar = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -452,6 +458,7 @@ export const onUpdateCar = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -524,6 +531,7 @@ export const onDeleteCar = /* GraphQL */ `
           stopLatitude
           stopLongitude
           stopName
+          duration
           pret
           paymentMethod
           userId
@@ -587,6 +595,7 @@ export const onCreateOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       stopName
+      duration
       pret
       paymentMethod
       userId
@@ -668,6 +677,7 @@ export const onUpdateOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       stopName
+      duration
       pret
       paymentMethod
       userId
@@ -749,6 +759,7 @@ export const onDeleteOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       stopName
+      duration
       pret
       paymentMethod
       userId

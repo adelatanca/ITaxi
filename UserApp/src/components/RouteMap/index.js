@@ -7,7 +7,7 @@ import { Appearance, useColorScheme, Image } from "react-native";
 import mapDarkStyle from "../../assets/data/mapDarkStyle";
 import { API, graphqlOperation } from "aws-amplify";
 import { listCars } from "../../graphql/queries";
-const GOOGLE_MAPS_APIKEY = "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk";
+const GOOGLE_MAPS_APIKEY = "AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw";
 
 const RouteMap = ({ origin, destination, passTime, passKm, stop }) => {
   const [cars, setCars] = useState([]);

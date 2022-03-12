@@ -61,6 +61,7 @@ export const updateOrder = /* GraphQL */ `
       originName
       destinationName
       stopName
+      duration
       userId
       carId
       updatedAt

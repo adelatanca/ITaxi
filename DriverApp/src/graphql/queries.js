@@ -53,6 +53,7 @@ export const listOrders = /* GraphQL */ `
         originName
         destinationName
         stopName
+        duration
         userId
         user {
           id

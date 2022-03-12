@@ -3,7 +3,7 @@ import { View, Text, Pressable, Image } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import styles from './styles.js';
 
-const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
+const GOOGLE_MAPS_APIKEY = 'AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw';
 
 const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
   const [pornire, setPornire] = useState(null);

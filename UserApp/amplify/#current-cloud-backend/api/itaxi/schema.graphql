@@ -104,6 +104,8 @@ type Order
 
   stopName: String
 
+  duration: Float
+
   pret: Float
 
   paymentMethod: String

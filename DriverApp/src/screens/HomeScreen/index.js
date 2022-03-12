@@ -30,7 +30,7 @@ import mapDarkStyle from '../../assets/data/mapDarkStyle';
 import { useNavigation } from '@react-navigation/native';
 import UserAvatar from 'react-native-user-avatar';
 import StarRating from 'react-native-star-rating';
-const GOOGLE_MAPS_APIKEY = 'AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk';
+const GOOGLE_MAPS_APIKEY = 'AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw';
 
 const HomeScreen = () => {
   const [car, setCar] = useState(null);
@@ -532,7 +532,7 @@ const HomeScreen = () => {
               }}
               waypoints={wayPoint}
               destination={destinationLocation}
-              // optimizeWaypoints={true}
+              optimizeWaypoints={true}
               onReady={onDirectionFound}
               onError={errorMessage => {
                 console.log(errorMessage);
@@ -613,7 +613,7 @@ const HomeScreen = () => {
               }}
               waypoints={wayPointOrigin}
               destination={destinationLocation}
-              // optimizeWaypoints={true}
+              optimizeWaypoints={true}
               onReady={onDirectionFound}
               onError={errorMessage => {
                 console.log(errorMessage);

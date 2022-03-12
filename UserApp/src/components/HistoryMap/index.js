@@ -6,24 +6,34 @@ import styles from "./styles";
 import { Entypo } from "@expo/vector-icons";
 
 
-const HistoryMap = () => {
+const HistoryMap = ({ orderObject }) => {
     let colorScheme = useColorScheme();
     let stop = true;
-    const currentCarLocation = {
-        latitude: 47.02881859999999,
-        longitude: 21.8989388,
+    const originLocation = {
+        latitude: orderObject?.originLatitude,
+        longitude: orderObject?.originLongitude,
         latitudeDelta: 0.01,
         longitudeDelta: 0.01,
     };
 
     const destinationLocation = {
-        latitude: 47.0622573,
-        longitude: 21.9279491,
+        latitude: orderObject?.destLatitude,
+        longitude: orderObject?.destLongitude,
         latitudeDelta: 0.01,
         longitudeDelta: 0.01,
     };
 
-    if (stop != null || stop != false) {
+    const stopLocation = {
+        latitude: orderObject?.stopLatitude,
+        longitude: orderObject?.stopLongitude,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+    }
+
+    console.log("OBJ ", stopLocation)
+
+    if (orderObject?.stopName != null) {
+        console.log("HAS STOP ")
         return (
             <View style={styles.map}>
                 <MapView
@@ -39,14 +49,14 @@ const HistoryMap = () => {
                     }}
                 >
 
-                    <Marker coordinate={currentCarLocation} title={"Origin"} pinColor="#108ef0" />
-                    <Marker coordinate={destinationLocation} title={"Oprire"} pinColor="#a54bffbd" />
+                    <Marker coordinate={originLocation} title={"Origin"} pinColor="#108ef0" />
+                    <Marker coordinate={stopLocation} title={"Oprire"} pinColor="#a54bffbd" />
                     <Marker coordinate={destinationLocation} title={"Destination"} pinColor="#7110f0" />
                 </MapView>
             </View>
         );
     }
-    if (stop == null || stop == false) {
+    if (orderObject?.stopName === null) {
         return (
             <View style={styles.map}>
                 <MapView
@@ -61,9 +71,8 @@ const HistoryMap = () => {
                         longitudeDelta: 0.521,
                     }}
                 >
-
-                    <Marker coordinate={currentCarLocation} title={"Origin"} />
-                    <Marker coordinate={destinationLocation} title={"Destination"} />
+                    <Marker coordinate={originLocation} title={"Origin"} pinColor="#108ef0" />
+                    <Marker coordinate={destinationLocation} title={"Destination"} pinColor="#7110f0" />
                 </MapView>
             </View>
         );

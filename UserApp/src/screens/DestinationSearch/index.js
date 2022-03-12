@@ -49,7 +49,7 @@ const DestinationSearch = (props) => {
     const interval = setInterval(() => {
       ref?.current?.setAddressText(destinatie);
       setDestinationPlace(region);
-    }, 5000)
+    }, 99999999999999999999999999999)
     return () => clearInterval(interval)
   });
 
@@ -153,7 +153,7 @@ const DestinationSearch = (props) => {
             enablePoweredByContainer={false}
             fetchDetails
             query={{
-              key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
+              key: "AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw",
               language: "en",
             }}
             renderRow={(data) => <PlaceRow data={data} />}
@@ -182,7 +182,7 @@ const DestinationSearch = (props) => {
             enablePoweredByContainer={false}
             fetchDetails
             query={{
-              key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
+              key: "AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw",
               language: "en",
             }}
             renderRow={(data) => <PlaceRow data={data} />}
@@ -212,7 +212,7 @@ const DestinationSearch = (props) => {
             enablePoweredByContainer={false}
             fetchDetails
             query={{
-              key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
+              key: "AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw",
               language: "en",
             }}
             renderRow={(data) => <PlaceRow data={data} />}
@@ -261,7 +261,7 @@ const DestinationSearch = (props) => {
             enablePoweredByContainer={false}
             fetchDetails
             query={{
-              key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
+              key: "AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw",
               language: "en",
             }}
             renderRow={(data) => <PlaceRow data={data} />}
@@ -290,7 +290,7 @@ const DestinationSearch = (props) => {
             enablePoweredByContainer={false}
             fetchDetails
             query={{
-              key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
+              key: "AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw",
               language: "en",
             }}
             renderRow={(data) => <PlaceRow data={data} />}
