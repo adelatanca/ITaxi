@@ -4,11 +4,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
-        margin: 20,
+        bottom: 350,
     },
     input: {
         backgroundColor: "#efefefef",
-
         borderRadius: 8,
         fontSize: 20,
         height: 50,

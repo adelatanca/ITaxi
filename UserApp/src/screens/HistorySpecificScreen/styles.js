@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
     driverName: {
         fontWeight: "bold",
-        fontSize: 20,
+        fontSize: 18,
         top: 10,
         // left: 5
     },
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         color: "gray",
         textTransform: 'capitalize',
         top: 40,
-        right: 158,
+        right: 217,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     avatar: {
         width: "35%",
         top: 5,
-        left: 15,
+        right: 50,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,

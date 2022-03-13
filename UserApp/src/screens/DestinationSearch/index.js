@@ -14,7 +14,7 @@ import Entypo from "react-native-vector-icons/Entypo";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
 const homePlace = {
-  description: "Acasa",
+  description: "Acasă",
   geometry: { location: { lat: 47.093271, lng: 21.9024223 } },
 };
 const workPlace = {

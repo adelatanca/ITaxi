@@ -47,7 +47,7 @@ const SearchResult = (props) => {
     if (havePaymentType === false || havePaymentType === null) {
       Alert.alert('Alege o metoda de plata', '', [
         {
-          text: 'Inchide',
+          text: 'Închide',
         }
       ]);
     }

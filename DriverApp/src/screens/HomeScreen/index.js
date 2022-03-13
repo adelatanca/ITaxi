@@ -52,8 +52,8 @@ const HomeScreen = () => {
   const currentLocation = {
     latitude: myPosition?.latitude,
     longitude: myPosition?.longitude,
-    latitudeDelta: 1,
-    longitudeDelta: 1,
+    latitudeDelta: 0.035,
+    longitudeDelta: 0.035,
   };
 
   const navigation = useNavigation();
@@ -78,6 +78,7 @@ const HomeScreen = () => {
       console.log(e);
     }
   };
+
   const fetchCar = async () => {
     try {
       const userData = await Auth.currentAuthenticatedUser();
@@ -120,7 +121,7 @@ const HomeScreen = () => {
         const carData = await API.graphql(
           graphqlOperation(getCar, { id: userData.attributes.sub }),
         );
-        console.log("ACTIVE - ", carData.data.getCar.isActive)
+        // console.log("ACTIVE - ", carData.data.getCar.isActive)
         setIsActive(carData.data.getCar.isActive);
       } catch (e) {
         console.log(e);
@@ -331,8 +332,14 @@ const HomeScreen = () => {
                   style={{
                     width: 100,
                     height: 100,
-                    borderRadius: 20
-                    //resizeMode: "contain",
+                    borderRadius: 20,
+                    shadowColor: '#000',
+                    shadowOffset: {
+                      width: 3,
+                      height: 2,
+                    },
+                    shadowOpacity: 5.25,
+                    shadowRadius: 4,
                   }}
                   source={{ uri: user[0].profilePicture }}
                 />
@@ -360,6 +367,13 @@ const HomeScreen = () => {
                     width: 90,
                     height: 90,
                     resizeMode: "contain",
+                    shadowColor: '#000',
+                    shadowOffset: {
+                      width: 0,
+                      height: 2,
+                    },
+                    shadowOpacity: 5.25,
+                    shadowRadius: 4,
                   }}
                   source={getImage(car.type)}
                 />

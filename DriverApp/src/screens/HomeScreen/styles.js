@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     elevation: 2,
-    top: 350,
+    top: 330,
     left: 10,
   },
   buttonOpen: {
@@ -110,11 +110,19 @@ const styles = StyleSheet.create({
   },
   buttonClose: {
     backgroundColor: '#45a8f2',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 1,
+      height: 2,
+    },
+    shadowOpacity: 5.25,
+    shadowRadius: 4,
   },
   close: {
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
+
   },
   modalText: {
     marginTop: 30,

@@ -67,7 +67,7 @@ const RootNavigator = (props) => {
             ),
           }}
         ></Drawer.Screen>
-        <Drawer.Screen
+        {/* <Drawer.Screen
           name="Rating"
           component={RatingScreen}
           options={{
@@ -75,7 +75,7 @@ const RootNavigator = (props) => {
               <AntDesign name={"staro"} size={20} color={"gray"} />
             ),
           }}
-        ></Drawer.Screen>
+        ></Drawer.Screen> */}
         <Drawer.Screen
           name="Asistență"
           component={AsistentaScreen}

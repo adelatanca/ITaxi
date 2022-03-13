@@ -32,6 +32,75 @@ export const getCar = /* GraphQL */ `
   }
 `;
 
+export const getUser = /* GraphQL */ `
+  query GetUser($id: ID!) {
+    getUser(id: $id) {
+      id
+      username
+      email
+      phoneNumber
+      profilePicture
+      orders {
+        items {
+          id
+          createdAt
+          type
+          status
+          originName
+          originLatitude
+          originLongitude
+          destLatitude
+          destLongitude
+          destinationName
+          stopLatitude
+          stopLongitude
+          stopName
+          duration
+          pret
+          paymentMethod
+          userId
+          carId
+          updatedAt
+          userOrdersId
+          carOrdersId
+          orderUserId
+          orderCarId
+          username
+        }
+        nextToken
+      }
+      car {
+        id
+        type
+        latitude
+        longitude
+        heading
+        carNumber
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          phoneNumber
+          profilePicture
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+        carUserId
+        username
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
 export const listOrders = /* GraphQL */ `
   query ListOrders(
     $filter: ModelOrderFilterInput
@@ -53,6 +122,8 @@ export const listOrders = /* GraphQL */ `
         originName
         destinationName
         stopName
+        pret
+        paymentMethod
         duration
         userId
         user {

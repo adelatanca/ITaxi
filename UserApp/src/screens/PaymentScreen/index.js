@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Image, Button, useColorScheme, Text, View, TextInput, Alert } from "react-native";
 import { CardField, StripeProvider, useConfirmPayment, PaymentElement, useStripe } from '@stripe/stripe-react-native';
 import styles from './styles';
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 
 import axios from 'axios';
 
@@ -10,7 +10,7 @@ const API_URL = "http://localhost:3000";
 
 const PaymentScreen = (props) => {
     const route = useRoute();
-
+    const navigation = useNavigation();
     const { pret, id, emailPayment } = route.params;
     const { initPaymentSheet, presentPaymentSheet } = useStripe();
     const [loadingtwo, setLoading] = useState(false);
@@ -75,7 +75,8 @@ const PaymentScreen = (props) => {
         if (error) {
             Alert.alert(`Eroare: ${error.code}`, error.message);
         } else {
-            Alert.alert('Success', 'Your order is confirmed!');
+            Alert.alert('Success', 'Comandă confirmată');
+            navigation.navigate("OrderPage", { id });
         }
     };
 
@@ -145,10 +146,9 @@ const PaymentScreen = (props) => {
                 {/* <Button
                     onPress={handlePayPress} title="Pay" /> */}
                 <Button
-                    onPress={openPaymentSheet} title="Payment Sheet" />
+                    onPress={openPaymentSheet} title="Plata cu cardul în derulare" />
             </View>
         </StripeProvider>
-
     );
 };
 

@@ -8,7 +8,7 @@ const PlaceRow = ({ data }) => {
     <View style={styles.row}>
       <View style={styles.iconContainer}>
         {(() => {
-          if (data.description == "Acasa") {
+          if (data.description == "Acasă") {
             return (
               <View
                 style={[styles.iconContainer]}

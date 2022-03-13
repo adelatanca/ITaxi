@@ -75,7 +75,7 @@ const HistorySpecificScreen = () => {
     const sendRating = () => {
         Alert.alert('Multumim pentru rating!', '', [
             {
-                text: 'Inchide',
+                text: 'Închide',
             }
         ]);
     }
@@ -107,7 +107,7 @@ const HistorySpecificScreen = () => {
                                 <Pressable
                                     style={styles.buttonClose}
                                     onPress={() => setModalVisible(!modalVisible)}>
-                                    <AntDesign name={"close"} size={30} color={"#45a8f2"} style={{ font: "bold" }} />
+                                    <AntDesign name={"close"} size={30} color={"#45a8f2"} />
                                 </Pressable>
                                 <Text style={styles.ratingContainer}>
                                     <StarRating
@@ -146,7 +146,7 @@ const HistorySpecificScreen = () => {
                     <AntDesign name={"back"} size={25} color={"#45a8f2"} />
                 </Pressable>
                 <View style={styles.avatarDateName}>
-                    <Text style={styles.driverName}>Cursa cu {driverName}</Text>
+                    <Text style={styles.driverName}>Cursă cu {driverName}, {orderObject.type}</Text>
                     <Text style={styles.orderDate}>{day}, {orderDay} {orderMonthName}. {orderYear}</Text>
                     <View style={styles.avatar}>
                         <Image
@@ -173,16 +173,16 @@ const HistorySpecificScreen = () => {
                 </View>
 
                 <Pressable onPress={() => { console.log("Rating"), setModalVisible(true) }} style={styles.ratingButton}>
-                    <Text style={styles.rating}>Ofera soferului ratingul tau </Text>
+                    <Text style={styles.rating}>Oferă șoferului ratingul tău</Text>
                     <AntDesign name={"star"} size={26} color={"#fef20c"} style={{ left: 40 }} />
                 </Pressable>
 
                 <View style={styles.plata}>
                     <View style={styles.divider}>
                     </View>
-                    <Text style={styles.titluPlata}>Plata</Text>
+                    <Text style={styles.titluPlata}>Plată</Text>
                     <View style={styles.metodaPlata}>
-                        <Text style={styles.textMetodaPlata}>Metoda de plata</Text>
+                        <Text style={styles.textMetodaPlata}>Metoda de plată</Text>
                         <Text style={styles.paymentMethod}>{orderObject.paymentMethod} {orderObject.paymentMethod === 'Numerar' ? <Ionicons name={"cash-outline"} size={18} color={"#45a8f2"} /> : <AntDesign
                             name={"creditcard"}
                             size={18}
@@ -209,7 +209,7 @@ const HistorySpecificScreen = () => {
                     <AntDesign name={"back"} size={25} color={"#45a8f2"} />
                 </Pressable>
                 <View style={styles.avatarDateName}>
-                    <Text style={styles.driverName}>Cursa cu {driverName}</Text>
+                    <Text style={styles.driverName}>Cursă cu {driverName}, {orderObject.type}</Text>
                     <Text style={styles.orderDate}>{day}, {orderDay} {orderMonthName}. {orderYear}</Text>
                     <View style={styles.avatar}>
                         <Image
@@ -244,16 +244,16 @@ const HistorySpecificScreen = () => {
                 </View>
 
                 <Pressable onPress={() => { console.log("Rating"), setModalVisible(true) }} style={styles.ratingButton}>
-                    <Text style={styles.rating}>Ofera soferului ratingul tau </Text>
+                    <Text style={styles.rating}>Oferă șoferului ratingul tău</Text>
                     <AntDesign name={"star"} size={26} color={"#fef20c"} style={{ left: 40 }} />
                 </Pressable>
 
                 <View style={styles.plata}>
                     <View style={styles.divider}>
                     </View>
-                    <Text style={styles.titluPlata}>Plata</Text>
+                    <Text style={styles.titluPlata}>Plată</Text>
                     <View style={styles.metodaPlata}>
-                        <Text style={styles.textMetodaPlata}>Metoda de plata</Text>
+                        <Text style={styles.textMetodaPlata}>Metoda de plată</Text>
                         <Text style={styles.paymentMethod}>{orderObject.paymentMethod} {orderObject.paymentMethod === 'Numerar' ? <Ionicons name={"cash-outline"} size={18} color={"#45a8f2"} /> : <AntDesign
                             name={"creditcard"}
                             size={18}
