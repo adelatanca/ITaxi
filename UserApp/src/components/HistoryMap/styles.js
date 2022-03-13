@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     map: {
-        top: 30,
+        top: 10,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.45,
         shadowRadius: 3.1,
     }
-
 });
 
 export default styles;

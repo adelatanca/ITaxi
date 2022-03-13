@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
         backgroundColor: "white",
-        height: "100%"
+        height: "100%",
+        // backgroundColor: 'rgba(0,0,0,0.7)',
     },
     dots: {
         flexDirection: "row",
@@ -27,6 +28,7 @@ const styles = StyleSheet.create({
         // left: 5
     },
     orderDate: {
+        height: 20,
         fontSize: 13,
         color: "gray",
         textTransform: 'capitalize',
@@ -41,9 +43,9 @@ const styles = StyleSheet.create({
         shadowRadius: 3.34,
     },
     avatar: {
-        width: "15%",
-        top: 12,
-        left: 30,
+        width: "35%",
+        top: 5,
+        left: 15,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -53,41 +55,41 @@ const styles = StyleSheet.create({
         shadowRadius: 3.34,
     },
     map: {
-        height: "200"
+        height: "200",
     },
     originNameStreet: {
         left: 55,
-        top: 65,
+        top: 30,
         fontSize: 18,
         width: "80%"
     },
     originHour: {
         left: 55,
-        top: 70,
+        top: 35,
         fontSize: 13,
         color: "grey"
     },
     stopNameStreet: {
         left: 55,
-        top: 105,
+        top: 70,
         fontSize: 18,
         width: "80%"
     },
     stopnHour: {
         left: 55,
-        top: 108,
+        top: 75,
         fontSize: 13,
         color: "grey"
     },
     destinationNameStreet: {
         left: 55,
-        top: 85,
+        top: 50,
         fontSize: 18,
         width: "80%"
     },
     destinationHour: {
         left: 55,
-        top: 90,
+        top: 55,
         fontSize: 13,
         color: "grey"
     },
@@ -96,7 +98,7 @@ const styles = StyleSheet.create({
         height: 10,
         backgroundColor: "#45a8f29e",
         position: "absolute",
-        top: 410,
+        top: 390,
         left: 47,
         borderRadius: 5,
     },
@@ -105,7 +107,7 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: "#8b87938c",
         position: "absolute",
-        top: 417,
+        top: 400,
         left: 50,
         shadowColor: "#000",
         shadowOffset: {
@@ -118,7 +120,7 @@ const styles = StyleSheet.create({
     pin: {
         color: "#4d8beb",
         position: "absolute",
-        top: 460,
+        top: 445,
         left: 40,
         shadowColor: "#000",
         shadowOffset: {
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
         height: 10,
         backgroundColor: "#4d8beb",
         position: "absolute",
-        top: 470,
+        top: 450,
         left: 48,
         borderRadius: 5,
     },
@@ -142,7 +144,7 @@ const styles = StyleSheet.create({
         height: 105,
         backgroundColor: "#8b87938c",
         position: "absolute",
-        top: 420,
+        top: 400,
         left: 51,
         shadowColor: "#000",
         shadowOffset: {
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
     pinStop: {
         color: "#4d8beb",
         position: "absolute",
-        top: 520,
+        top: 500,
         left: 42,
         shadowColor: "#000",
         shadowOffset: {
@@ -177,7 +179,7 @@ const styles = StyleSheet.create({
         width: 360,
         left: 15,
         color: "red",
-        top: 140,
+        top: 110,
         padding: 10,
         backgroundColor: "#dfdfdf4d",
         borderRadius: 125,
@@ -203,7 +205,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3.34,
     },
     plata: {
-        top: 180,
+        top: 160,
     },
     titluPlata: {
         fontWeight: "bold",
@@ -235,7 +237,61 @@ const styles = StyleSheet.create({
         marginLeft: "auto",
         fontSize: 18,
         fontWeight: "bold"
-    }
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 22,
+    },
+    button: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+        top: 350,
+        left: 10,
+    },
+    modalText: {
+        fontSize: 17,
+        fontWeight: "bold"
+    },
+    buttonClose: {
+        top: -40,
+        left: 130,
+    },
+    buttonSendRating: {
+        top: 80,
+        color: "#45a8f2"
+    },
+    buttonSendText: {
+        color: "#45a8f2",
+        fontSize: 19,
+        fontWeight: '600'
+    },
+    modalView: {
+        margin: 20,
+        width: 330,
+        height: 250,
+        bottom: -10,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    ratingContainer: {
+        top: 15,
+    },
+    textStyle: {
+        // top: 30,
+    },
 });
 
 export default styles;

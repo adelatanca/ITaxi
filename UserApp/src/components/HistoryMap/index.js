@@ -30,10 +30,7 @@ const HistoryMap = ({ orderObject }) => {
         longitudeDelta: 0.01,
     }
 
-    console.log("OBJ ", stopLocation)
-
     if (orderObject?.stopName != null) {
-        console.log("HAS STOP ")
         return (
             <View style={styles.map}>
                 <MapView

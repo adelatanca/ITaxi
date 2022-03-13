@@ -27,18 +27,18 @@ const HistoryScreen = (props) => {
   }, []);
 
 
-  const dateConstruct = () => {
-    orders?.map((order, i) => {
-      console.log("DATA - day ", order.createdAt.slice(8, 10));
-      console.log("DATA - month ", order.createdAt.slice(5, 7));
-      console.log("DATA - year ", order.createdAt.slice(0, 4))
-      console.log("HOUR ", order.createdAt.slice(11, 16))
-    })
-  }
+  // const dateConstruct = () => {
+  //   orders?.map((order, i) => {
+  //     console.log("DATA - day ", order.createdAt.slice(8, 10));
+  //     console.log("DATA - month ", order.createdAt.slice(5, 7));
+  //     console.log("DATA - year ", order.createdAt.slice(0, 4))
+  //     console.log("HOUR ", order.createdAt.slice(11, 16))
+  //   })
+  // }
 
-  useEffect(() => {
-    dateConstruct();
-  });
+  // useEffect(() => {
+  //   dateConstruct();
+  // });
 
 
   return (

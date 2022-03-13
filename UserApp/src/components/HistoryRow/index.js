@@ -100,7 +100,7 @@ const HistoryRow = ({ orderObject, orderPrice, orderDay, orderMonth, orderHour, 
     }, []);
 
     const goToHistorySpecificScreen = () => {
-        navigation.navigate('Istoric specific', { orderYear, orderDay, orderMonthName, orderObject, orderMonth });
+        navigation.navigate('Istoric specific', { orderYear, orderDay, orderMonthName, orderObject, orderMonth, orderHour });
     }
 
 
