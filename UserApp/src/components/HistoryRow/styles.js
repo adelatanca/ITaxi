@@ -23,13 +23,13 @@ const styles = StyleSheet.create({
     date: {
         color: "#5d5d5d",
         top: 20,
-        right: 233
+        right: "755%"
     },
     price: {
         fontWeight: "bold",
         fontSize: 17,
         justifyContent: "flex-end",
-        right: 70,
+        right: "310%"
     },
     streets: {
         left: 8,

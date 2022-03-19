@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#00000099',
   },
   popupContainer: {
-    backgroundColor: '#188ee980',
+    backgroundColor: '#ec7211bd',
     borderRadius: 10,
     height: 350,
     alignItems: 'center',
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   userBg: {
-    backgroundColor: '#008bff',
+    backgroundColor: '#edb99173',
     width: 50,
     height: 50,
     alignItems: 'center',
@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
     borderRadius: 60,
   },
   declineButton: {
-    backgroundColor: '#188ee980',
+    backgroundColor: '#ec7211bd',
     padding: 20,
     borderRadius: 50,
     width: 100,
     bottom: 10,
-    right: 5,
+    left: 140,
     fontWeight: "bold",
     alignItems: 'center',
     shadowColor: '#000',

@@ -59,6 +59,7 @@ export const updateOrder = /* GraphQL */ `
       stopLatitude
       stopLongitude
       originName
+      pret
       destinationName
       stopName
       duration

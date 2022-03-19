@@ -10,6 +10,13 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: "bold",
         marginBottom: 20,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
     }
 });
 

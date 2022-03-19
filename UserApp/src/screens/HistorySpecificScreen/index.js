@@ -234,7 +234,7 @@ const HistorySpecificScreen = () => {
 
                 {/*HERE PUT THE DESTINATION NAME INSTEAD OF STOP NAME*/}
                 <Text style={styles.stopNameStreet} numberOfLines={1} ellipsizeMode='tail'>{orderObject.destinationName}</Text>
-                <Text style={styles.stopnHour}>{destinationTime}</Text>
+                <Text style={styles.stopHour}>{destinationTime}</Text>
 
                 <View style={styles.circle} />
                 <View style={styles.circleStop} />

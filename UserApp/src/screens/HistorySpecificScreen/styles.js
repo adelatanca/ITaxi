@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     },
     avatarDateName: {
         flexDirection: "row",
+        //  justifyContent: 'space-between',
         bottom: 10
     },
     driverName: {
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         width: "80%"
     },
-    stopnHour: {
+    stopHour: {
         left: 55,
         top: 75,
         fontSize: 13,

@@ -566,8 +566,8 @@ const HomeScreen = () => {
           onPress={() => console.warn('Balance')}
           style={styles.balanceButton}>
           <Text style={styles.balanceText}>
-            <Text style={{ color: 'green' }}>LEI </Text>
-            0.00
+            {order?.pret}
+            <Text style={{ color: 'green' }}> LEI </Text>
           </Text>
         </Pressable>
         <Pressable
@@ -647,8 +647,8 @@ const HomeScreen = () => {
           onPress={() => console.warn('Balance')}
           style={styles.balanceButton}>
           <Text style={styles.balanceText}>
-            <Text style={{ color: 'green' }}>LEI </Text>
-            0.00
+            {order?.pret}
+            <Text style={{ color: 'green' }}> LEI </Text>
           </Text>
         </Pressable>
         <Pressable
