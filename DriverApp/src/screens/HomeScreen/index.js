@@ -20,13 +20,11 @@ import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import styles from './styles';
 import NewOrderPopup from '../../components/NewOrderPopup';
-
 import { Auth, API, graphqlOperation } from 'aws-amplify';
 import { getCar } from '../../graphql/queries';
 import { listOrders, listUsers } from '../../graphql/queries';
 import { updateCar, updateOrder } from '../../graphql/mutations';
 import mapDarkStyle from '../../assets/data/mapDarkStyle';
-
 import { useNavigation } from '@react-navigation/native';
 import UserAvatar from 'react-native-user-avatar';
 import StarRating from 'react-native-star-rating';

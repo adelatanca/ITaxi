@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Image, Appearance, useColorScheme, Text, View } from 'react-native';
+import { Image, Appearance, useColorScheme, Text, View, Pressable } from 'react-native';
 import HistoryRow from '../../components/HistoryRow';
 import { ScrollView } from "react-native-gesture-handler";
 import { Auth, API, graphqlOperation } from 'aws-amplify';
 import { listOrders, listUsers } from '../../graphql/queries';
 import styles from './styles';
-
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { useNavigation } from '@react-navigation/native';
 
 const HistoryScreen = props => {
   const [orders, setOrders] = useState(null);
   let colorScheme = useColorScheme();
-
+  const navigation = useNavigation();
   const fetchOrders = async () => {
     try {
       const userData = await Auth.currentAuthenticatedUser();
@@ -27,11 +28,23 @@ const HistoryScreen = props => {
     fetchOrders();
   }, []);
 
+
+  const goToStats = () => {
+    navigation.navigate('Statistici');
+  };
+
   console.log({ orders })
 
   return (
     <View style={styles.container}>
-      <Text style={styles.istoricTitle}> Istoric comenzi</Text>
+      <View style={styles.statsTitle}>
+        <Text style={styles.istoricTitle}> Istoric comenzi </Text>
+        <Pressable onPress={() => { goToStats() }}>
+          <Ionicons style={styles.stats} name={"stats-chart-sharp"} size={30} color={"#45a8f2"} />
+        </Pressable>
+      </View>
+
+
       <ScrollView>
         {orders?.map((order, i) => (
           <HistoryRow
