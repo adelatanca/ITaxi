@@ -210,7 +210,7 @@ const HistorySpecificScreen = () => {
                 </Pressable>
                 <View style={styles.avatarDateName}>
                     <Text style={styles.driverName}>Cursă cu {driverName}, {orderObject.type}</Text>
-                    <Text style={styles.orderDate}>{day}, {orderDay} {orderMonthName}. {orderYear}</Text>
+
                     <View style={styles.avatar}>
                         <Image
                             style={{
@@ -222,6 +222,7 @@ const HistorySpecificScreen = () => {
                             source={{ uri: driverImage?.profilePicture }}
                         />
                     </View>
+                    <Text style={styles.orderDate}>{day}, {orderDay} {orderMonthName}. {orderYear}</Text>
                 </View>
                 <HistoryMap style={styles.map} orderObject={orderObject} />
 

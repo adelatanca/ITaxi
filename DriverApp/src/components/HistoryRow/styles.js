@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
         color: "gray",
         textTransform: 'capitalize',
         bottom: 87,
-        left: 10,
+        left: 8,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,

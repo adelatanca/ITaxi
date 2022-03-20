@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -47,6 +47,17 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.45,
     shadowRadius: 3.84,
+  },
+  historyButton: {
+    position: 'absolute',
+    backgroundColor: 'white',
+    width: 55,
+    height: 55,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 50,
+    top: 10,
+    left: Dimensions.get('window').width - 80,
   },
 });
 

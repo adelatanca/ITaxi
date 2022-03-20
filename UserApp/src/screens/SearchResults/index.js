@@ -5,6 +5,7 @@ import {
   Alert,
   Button,
   SafeAreaView,
+  Pressable
 } from "react-native";
 import styles from "./styles";
 import ITaxiTypes from "../../components/ITaxiTypes";
@@ -15,8 +16,8 @@ import { API, graphqlOperation, Auth } from "aws-amplify";
 import { createOrder } from "../../graphql/mutations";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
-
 import AsyncStorage from "@react-native-async-storage/async-storage";
+const GOOGLE_MAPS_APIKEY = "AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw";
 
 const SearchResult = (props) => {
   const typeState = useState({});
@@ -31,9 +32,30 @@ const SearchResult = (props) => {
   const [havePaymentType, setPaymentType] = useState(false);
 
 
-  const { originPlace, destinationPlace, stopPlace, destinatie } = route.params;
+  const { originPlace, destinationPlace, stopPlace, destinatie, hasPromotion } = route.params;
 
-  let originName = originPlace?.data?.description;
+  let originName;
+  if (originPlace?.data?.description == 'Job' || originPlace?.data?.description == 'Acasă') {
+    fetch(
+      'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+      originPlace?.data?.geometry?.location?.lat +
+      ',' +
+      originPlace?.data?.geometry?.location?.lng +
+      '&key=' +
+      GOOGLE_MAPS_APIKEY,
+    )
+      .then(response => response.json())
+      .then(responseJson => {
+        const responseAdd = responseJson.results.map(
+          address => address.formatted_address,
+        );
+        //   console.log('FORMATAT ' + JSON.stringify(responseAdd[3]));
+        originName = responseAdd[3];
+      });
+  }
+  else {
+    originName = originPlace?.data?.description;
+  }
   let stopName = stopPlace ? stopPlace?.data?.description : null;
   // let destinationName = destinationPlace?.data?.description;
 
@@ -62,8 +84,8 @@ const SearchResult = (props) => {
         const input = {
           createdAt: date.toISOString(),
           type,
-          originLatitude: originPlace.details.geometry.location.lat,
-          originLongitude: originPlace.details.geometry.location.lng,
+          originLatitude: originPlace?.details.geometry.location.lat,
+          originLongitude: originPlace?.details.geometry.location.lng,
 
           originName: originName,
           destinationName: destinatie,
@@ -73,11 +95,11 @@ const SearchResult = (props) => {
           destLongitude: destinationPlace?.details?.geometry?.location?.lng || destinationPlace?.longitude,
 
           stopLatitude: stopPlace
-            ? stopPlace.details.geometry.location.lat
-            : destinationPlace.details?.geometry?.location?.lat || destinationPlace?.latitude,
+            ? stopPlace?.details.geometry.location.lat
+            : destinationPlace?.details?.geometry?.location?.lat || destinationPlace?.latitude,
           stopLongitude: stopPlace
-            ? stopPlace.details.geometry.location.lng
-            : destinationPlace.details?.geometry?.location?.lng || destinationPlace?.longitude,
+            ? stopPlace?.details.geometry.location.lng
+            : destinationPlace?.details?.geometry?.location?.lng || destinationPlace?.longitude,
 
           duration: time,
 
@@ -86,6 +108,7 @@ const SearchResult = (props) => {
           status: "Noua",
           pret: pret,
           paymentMethod: paymentMethod,
+          hasPromotion: hasPromotion
         };
 
         const response = await API.graphql(
@@ -135,6 +158,12 @@ const SearchResult = (props) => {
     // getValue();
   });
 
+
+  const goToPromotii = () => {
+    navigation.navigate("Promoții", { originPlace, destinationPlace, stopPlace, destinatie })
+  }
+
+
   return (
     <View style={styles.container}>
       <View style={{ height: Dimensions.get("window").height - 550 }}>
@@ -146,6 +175,9 @@ const SearchResult = (props) => {
           passKm={(km) => setKm(km)}
         />
       </View>
+      <Pressable onPress={() => goToPromotii()} style={styles.historyButton}>
+        <Entypo name={'price-tag'} size={35} color={'#45a8f2'} />
+      </Pressable>
       <View style={{ flexDirection: "row" }}>
         <View style={styles.leftButton}>
           <AntDesign
@@ -179,6 +211,7 @@ const SearchResult = (props) => {
           hours={hours}
           minutes={minutes}
           km={km}
+          hasPromotion={hasPromotion}
         />
       </View>
     </View>

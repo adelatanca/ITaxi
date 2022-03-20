@@ -18,23 +18,27 @@ const styles = StyleSheet.create({
         width: "10%"
     },
     avatarDateName: {
+        width: "100%",
         flexDirection: "row",
         //  justifyContent: 'space-between',
         bottom: 10
     },
     driverName: {
+        width: "90%",
         fontWeight: "bold",
         fontSize: 18,
         top: 10,
         // left: 5
     },
     orderDate: {
+        flexDirection: "column",
+        width: "50%",
         height: 20,
         fontSize: 13,
         color: "gray",
         textTransform: 'capitalize',
         top: 40,
-        right: 217,
+        right: 417,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -44,7 +48,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3.34,
     },
     avatar: {
-        width: "35%",
+        width: "auto",
         top: 5,
         right: 50,
         shadowColor: "#000",

@@ -56,20 +56,23 @@ const DestinationSearch = (props) => {
   const navigation = useNavigation();
 
   const checkNavigation = () => {
+    let hasPromotion = false;
     if (originPlace && destinationPlace && !addStopStation) {
       setStopPlace(false);
       navigation.navigate("SearchResults", {
         originPlace,
         destinationPlace,
         stopPlace,
-        destinatie
+        destinatie,
+        hasPromotion
       });
     } else if (originPlace && destinationPlace && stopPlace) {
       navigation.navigate("SearchResults", {
         originPlace,
         destinationPlace,
         stopPlace,
-        destinatie
+        destinatie,
+        hasPromotion
       });
     }
   };

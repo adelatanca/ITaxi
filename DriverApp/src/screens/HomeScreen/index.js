@@ -37,6 +37,7 @@ const HomeScreen = () => {
   const [newOrders, setNewOrders] = useState([]);
   const mapRef = useRef(null);
   const [region, setRegion] = useState(null);
+  const [profileImage, setProfileImage] = useState(null);
   const [user, setUser] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [userOrder, setUserOrder] = useState([]);
@@ -70,7 +71,6 @@ const HomeScreen = () => {
   const fetchUser = async () => {
     try {
       const user = await API.graphql(graphqlOperation(listUsers));
-
       setUser(user.data.listUsers.items);
     } catch (e) {
       console.log(e);
@@ -175,6 +175,9 @@ const HomeScreen = () => {
     user.map(userData => {
       if (userData.id == newOrders[0]?.userId) {
         setUserOrder(userData.username);
+      }
+      if (userData.id === currentUser.attributes.sub) {
+        setProfileImage(userData.profilePicture)
       }
     });
   });
@@ -311,6 +314,7 @@ const HomeScreen = () => {
     }
   };
 
+
   const renderModalData = () => {
     if (modalVisible) {
       return (
@@ -339,7 +343,7 @@ const HomeScreen = () => {
                     shadowOpacity: 5.25,
                     shadowRadius: 4,
                   }}
-                  source={{ uri: user[0].profilePicture }}
+                  source={{ uri: profileImage }}
                 />
 
                 <Entypo
@@ -358,8 +362,8 @@ const HomeScreen = () => {
                     fullStarColor={'orange'}
                   />
                 </Text>
-                <Text style={styles.username}>{currentUser.username}</Text>
-                <Text style={styles.email}>{currentUser.attributes.email}</Text>
+                <Text style={styles.username}>{currentUser?.username}</Text>
+                <Text style={styles.email}>{currentUser?.attributes.email}</Text>
                 <Image
                   style={{
                     width: 90,

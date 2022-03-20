@@ -30,6 +30,7 @@ export const createUser = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -101,6 +102,7 @@ export const updateUser = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -172,6 +174,7 @@ export const deleteUser = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -245,6 +248,7 @@ export const createCar = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -321,6 +325,7 @@ export const updateCar = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -397,6 +402,7 @@ export const deleteCar = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -464,6 +470,7 @@ export const createOrder = /* GraphQL */ `
       duration
       pret
       paymentMethod
+      hasPromotion
       userId
       user {
         id
@@ -549,6 +556,7 @@ export const updateOrder = /* GraphQL */ `
       duration
       pret
       paymentMethod
+      hasPromotion
       userId
       user {
         id
@@ -634,6 +642,7 @@ export const deleteOrder = /* GraphQL */ `
       duration
       pret
       paymentMethod
+      hasPromotion
       userId
       user {
         id

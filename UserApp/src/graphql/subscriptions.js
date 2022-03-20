@@ -20,6 +20,7 @@ export const onOrderUpdated = /* GraphQL */ `
       duration
       pret
       paymentMethod
+      hasPromotion
       userId
       user {
         id
@@ -111,6 +112,7 @@ export const onCarUpdated = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -182,6 +184,7 @@ export const onCreateUser = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -250,6 +253,7 @@ export const onUpdateUser = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -318,6 +322,7 @@ export const onDeleteUser = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -388,6 +393,7 @@ export const onCreateCar = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -461,6 +467,7 @@ export const onUpdateCar = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -534,6 +541,7 @@ export const onDeleteCar = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -598,6 +606,7 @@ export const onCreateOrder = /* GraphQL */ `
       duration
       pret
       paymentMethod
+      hasPromotion
       userId
       user {
         id
@@ -680,6 +689,7 @@ export const onUpdateOrder = /* GraphQL */ `
       duration
       pret
       paymentMethod
+      hasPromotion
       userId
       user {
         id
@@ -762,6 +772,7 @@ export const onDeleteOrder = /* GraphQL */ `
       duration
       pret
       paymentMethod
+      hasPromotion
       userId
       user {
         id

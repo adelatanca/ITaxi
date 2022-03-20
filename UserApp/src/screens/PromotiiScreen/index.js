@@ -10,17 +10,27 @@ import {
 } from "react-native";
 import styles from "./styles.js";
 import { Entypo } from "@expo/vector-icons";
+import { useNavigation, useRoute } from "@react-navigation/native";
+
 const PromotiiScreen = (props) => {
   let colorScheme = useColorScheme();
+  const navigation = useNavigation();
+  const route = useRoute();
+  const [hasPromotion, setHasPromotion] = useState(false);
+
+  const { originPlace, destinationPlace, stopPlace, destinatie } = route.params;
+  const goToSearchResult = () => {
+    navigation.navigate("SearchResults", { originPlace, destinationPlace, stopPlace, destinatie, hasPromotion })
+  }
 
   return (
     <View>
       <Text style={styles.title}>Introdu codul promoțional</Text>
-      <TextInput style={styles.input} placeholder="Cod promoțional"></TextInput>
+      <TextInput style={styles.input} placeholder="Cod promoțional" onChangeText={promotion => setHasPromotion(true)}></TextInput>
       <Text style={styles.subtitle}>
         Introdu codul și reducerea va fi aplicată la următoarea cursă
       </Text>
-      <Pressable style={styles.aplica}>
+      <Pressable onPress={() => goToSearchResult()} style={styles.aplica}>
         <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
           Aplică
         </Text>

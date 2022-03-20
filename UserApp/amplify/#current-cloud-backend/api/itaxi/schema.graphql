@@ -110,6 +110,8 @@ type Order
 
   paymentMethod: String
 
+  hasPromotion: String
+
   userId: ID! @index(name: "byUser")
   user: User @hasOne
 

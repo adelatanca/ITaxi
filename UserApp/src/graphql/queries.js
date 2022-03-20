@@ -27,6 +27,7 @@ export const getUser = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -134,6 +135,7 @@ export const getCar = /* GraphQL */ `
           duration
           pret
           paymentMethod
+          hasPromotion
           userId
           carId
           updatedAt
@@ -235,6 +237,7 @@ export const getOrder = /* GraphQL */ `
       duration
       pret
       paymentMethod
+      hasPromotion
       userId
       user {
         id
@@ -322,6 +325,7 @@ export const listOrders = /* GraphQL */ `
         duration
         pret
         paymentMethod
+        hasPromotion
         userId
         user {
           id

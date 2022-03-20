@@ -21,7 +21,7 @@ const HomeScreen = ({ navigation }) => {
     {
       id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
       title: "Aplicația ITaxi - reducere",
-      image: "https://fv9-2.failiem.lv/thumb_show.php?i=kwxukp8r4&view",
+      image: "file:///Users/Adela/Desktop/ITaxi_App.png",
       content:
         "Invită-ți prietenii prin aplicație și primești o reducere la următoarele 5 călătorii.",
       subtitle: "50% pentru fiecare călătorie",

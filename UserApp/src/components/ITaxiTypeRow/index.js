@@ -5,7 +5,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 
 const ITaxiTypeRow = (props) => {
-  const { type, onPress, isSelected, hours, minutes, km } = props;
+  const { type, onPress, isSelected, hours, minutes, km, hasPromotion } = props;
   const getImage = () => {
     if (type.type === "ITaxiX") {
       return require(`../../assets/images/UberX.png`);
@@ -31,6 +31,17 @@ const ITaxiTypeRow = (props) => {
     }
     if (type.type == "ITaxiXL") {
       price = (props?.km * 2.79).toString().substr(0, 5);
+    }
+  }
+
+  if (hasPromotion) {
+    var pricePromo = (((props?.km * 3.49).toString().substr(0, 5)) - ((props?.km * 3.49).toString().substr(0, 5)) * 0.3).toString().substr(0, 5);
+
+    if (type.type == "Confort") {
+      pricePromo = (((props?.km * 4.59).toString().substr(0, 5)) - ((props?.km * 4.59).toString().substr(0, 5)) * 0.3).toString().substr(0, 5);
+    }
+    if (type.type == "ITaxiXL") {
+      pricePromo = (((props?.km * 2.79).toString().substr(0, 5)) - ((props?.km * 2.79).toString().substr(0, 5)) * 0.3).toString().substr(0, 5);
     }
   }
 
@@ -84,22 +95,43 @@ const ITaxiTypeRow = (props) => {
     }
   };
 
-  return (
-    <Pressable
-      onPress={onPress}
-      style={[
-        styles.container,
-        { backgroundColor: isSelected ? "#efefef" : "white" },
-      ]}
-    >
-      <Image style={styles.image} source={getImage()} />
-      {renderMiddle()}
-      <View style={styles.rightContainer}>
-        <Ionicons name={"cash"} size={18} color={"#47d742"} />
-        <Text style={styles.price}>{price} LEI </Text>
-      </View>
-    </Pressable>
-  );
+  if (!hasPromotion) {
+    return (
+      <Pressable
+        onPress={onPress}
+        style={[
+          styles.container,
+          { backgroundColor: isSelected ? "#efefef" : "white" },
+        ]}
+      >
+        <Image style={styles.image} source={getImage()} />
+        {renderMiddle()}
+        <View style={styles.rightContainer}>
+          <Ionicons name={"cash"} size={18} color={"#47d742"} />
+          <Text style={styles.priceNoPromo}>{price} LEI </Text>
+        </View>
+      </Pressable>
+    );
+  }
+  else if (hasPromotion) {
+    return (
+      <Pressable
+        onPress={onPress}
+        style={[
+          styles.container,
+          { backgroundColor: isSelected ? "#efefef" : "white" },
+        ]}
+      >
+        <Image style={styles.image} source={getImage()} />
+        {renderMiddle()}
+        <View style={styles.rightContainer}>
+          <Text style={styles.price}><Ionicons name={"cash"} size={18} color={"#47d742"} /> {pricePromo} LEI </Text>
+          <Text style={styles.priceReduced}><Ionicons name={"cash"} size={15} color={"#47d742"} /> {price} LEI </Text>
+        </View>
+      </Pressable>
+    );
+  }
+
 };
 
 export default ITaxiTypeRow;

@@ -163,13 +163,13 @@ const StatsScreen = props => {
             data: [
               comenziIan || 0,
               comenziFeb || 0,
-              comenziMar || 0
+              comenziMar || 0,
             ],
           }
         ],
       }}
       width={Dimensions.get("window").width} // from react-native
-      height={650}
+      height={600}
       verticalLabelRotation={30}
       yAxisInterval={10} // optional, defaults to 1
       chartConfig={{
@@ -188,7 +188,7 @@ const StatsScreen = props => {
           stroke: "#45a8f2"
         }
       }}
-      // bezier
+      bezier
       style={{
         borderRadius: 16,
         top: 20,
