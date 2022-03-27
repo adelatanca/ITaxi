@@ -17,6 +17,7 @@ const CustomDrawer = (props) => {
   const fetchUser = async () => {
     try {
       const userData = await Auth.currentAuthenticatedUser();
+      //console.log("USER DATA LOGGED ", userData)
       setUser(userData);
     } catch (e) {
       console.log(e);

@@ -6,14 +6,17 @@ import HistoryMap from "../../components/HistoryMap";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Entypo from "react-native-vector-icons/Entypo";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { API, graphqlOperation } from "aws-amplify";
+import Amplify, { Auth, API, graphqlOperation } from "aws-amplify";
 import { listCars } from "../../graphql/queries";
 import { getOrder, getCar, getUser } from "../../graphql/queries";
+import { updateUser } from '../../graphql/mutations';
 import moment from 'moment';
 import StarRating from "react-native-star-rating";
 
+
 const HistorySpecificScreen = () => {
     const navigation = useNavigation();
+    const [user, setUser] = useState(null);
     const [cars, setCars] = useState([]);
     const [driverName, setDriverName] = useState(null);
     const [driverImage, setDriverImage] = useState(null);
@@ -72,7 +75,28 @@ const HistorySpecificScreen = () => {
         }
     }
 
-    const sendRating = () => {
+
+    const onStarRatingPress = (rating) => {
+        setRating(rating);
+    };
+
+    const sendRating = async () => {
+        try {
+            let reviewAmount = driverImage.reviewAmount + rating;
+            let reviewNumbers = driverImage.reviewNumbers + 1;
+            const input = {
+                id: driverImage.id,
+                reviewNumbers: reviewNumbers,
+                reviewAmount: reviewAmount,
+            };
+            const updatedUser = await API.graphql(
+                graphqlOperation(updateUser, { input }),
+            );
+            setUser(updatedUser.data.updateUser);
+        } catch (e) {
+            console.log(e);
+        }
+
         Alert.alert('Multumim pentru rating!', '', [
             {
                 text: 'Închide',
@@ -80,15 +104,9 @@ const HistorySpecificScreen = () => {
         ]);
     }
 
-
-
-    const onStarRatingPress = (rating) => {
-        setRating(rating);
-    };
-
-    useEffect(() => {
-        console.log(rating);
-    }, [rating]);
+    // useEffect(() => {
+    //     console.log(rating);
+    // }, [rating]);
 
     const renderModalData = () => {
         if (modalVisible) {

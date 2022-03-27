@@ -9,6 +9,8 @@ export const getUser = /* GraphQL */ `
       email
       phoneNumber
       profilePicture
+      reviewNumbers
+      reviewAmount
       orders {
         items {
           id
@@ -57,6 +59,8 @@ export const getUser = /* GraphQL */ `
           email
           phoneNumber
           profilePicture
+          reviewNumbers
+          reviewAmount
           createdAt
           updatedAt
         }
@@ -83,6 +87,8 @@ export const listUsers = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -154,6 +160,8 @@ export const getCar = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -206,6 +214,8 @@ export const listCars = /* GraphQL */ `
           email
           phoneNumber
           profilePicture
+          reviewNumbers
+          reviewAmount
           createdAt
           updatedAt
         }
@@ -245,6 +255,8 @@ export const getOrder = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -284,6 +296,8 @@ export const getOrder = /* GraphQL */ `
           email
           phoneNumber
           profilePicture
+          reviewNumbers
+          reviewAmount
           createdAt
           updatedAt
         }
@@ -333,6 +347,8 @@ export const listOrders = /* GraphQL */ `
           email
           phoneNumber
           profilePicture
+          reviewNumbers
+          reviewAmount
           createdAt
           updatedAt
         }

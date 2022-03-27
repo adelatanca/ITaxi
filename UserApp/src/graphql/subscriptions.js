@@ -28,6 +28,8 @@ export const onOrderUpdated = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -67,6 +69,8 @@ export const onOrderUpdated = /* GraphQL */ `
           email
           phoneNumber
           profilePicture
+          reviewNumbers
+          reviewAmount
           createdAt
           updatedAt
         }
@@ -131,6 +135,8 @@ export const onCarUpdated = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -166,6 +172,8 @@ export const onCreateUser = /* GraphQL */ `
       email
       phoneNumber
       profilePicture
+      reviewNumbers
+      reviewAmount
       orders {
         items {
           id
@@ -214,6 +222,8 @@ export const onCreateUser = /* GraphQL */ `
           email
           phoneNumber
           profilePicture
+          reviewNumbers
+          reviewAmount
           createdAt
           updatedAt
         }
@@ -235,6 +245,8 @@ export const onUpdateUser = /* GraphQL */ `
       email
       phoneNumber
       profilePicture
+      reviewNumbers
+      reviewAmount
       orders {
         items {
           id
@@ -283,6 +295,8 @@ export const onUpdateUser = /* GraphQL */ `
           email
           phoneNumber
           profilePicture
+          reviewNumbers
+          reviewAmount
           createdAt
           updatedAt
         }
@@ -304,6 +318,8 @@ export const onDeleteUser = /* GraphQL */ `
       email
       phoneNumber
       profilePicture
+      reviewNumbers
+      reviewAmount
       orders {
         items {
           id
@@ -352,6 +368,8 @@ export const onDeleteUser = /* GraphQL */ `
           email
           phoneNumber
           profilePicture
+          reviewNumbers
+          reviewAmount
           createdAt
           updatedAt
         }
@@ -412,6 +430,8 @@ export const onCreateCar = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -486,6 +506,8 @@ export const onUpdateCar = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -560,6 +582,8 @@ export const onDeleteCar = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -614,6 +638,8 @@ export const onCreateOrder = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -653,6 +679,8 @@ export const onCreateOrder = /* GraphQL */ `
           email
           phoneNumber
           profilePicture
+          reviewNumbers
+          reviewAmount
           createdAt
           updatedAt
         }
@@ -697,6 +725,8 @@ export const onUpdateOrder = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -736,6 +766,8 @@ export const onUpdateOrder = /* GraphQL */ `
           email
           phoneNumber
           profilePicture
+          reviewNumbers
+          reviewAmount
           createdAt
           updatedAt
         }
@@ -780,6 +812,8 @@ export const onDeleteOrder = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -819,6 +853,8 @@ export const onDeleteOrder = /* GraphQL */ `
           email
           phoneNumber
           profilePicture
+          reviewNumbers
+          reviewAmount
           createdAt
           updatedAt
         }

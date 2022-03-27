@@ -76,7 +76,7 @@ const RootNavigator = (props) => {
             ),
           }}
         ></Drawer.Screen> */}
-        <Drawer.Screen
+        {/* <Drawer.Screen
           name="Asistență"
           component={AsistentaScreen}
           options={{
@@ -84,7 +84,7 @@ const RootNavigator = (props) => {
               <AntDesign name={"phone"} size={20} color={"gray"} />
             ),
           }}
-        ></Drawer.Screen>
+        ></Drawer.Screen> */}
         <Drawer.Screen
           name="Despre noi"
           component={AboutUsScreen}

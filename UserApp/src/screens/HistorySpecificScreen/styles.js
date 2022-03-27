@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
     },
     orderDate: {
         flexDirection: "column",
-        width: "50%",
+        width: "45%",
         height: 20,
         fontSize: 13,
         color: "gray",
         textTransform: 'capitalize',
         top: 40,
-        right: 417,
+        right: 347,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -48,9 +48,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3.34,
     },
     avatar: {
-        width: "auto",
-        top: 5,
-        right: 50,
+        right: 220,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,

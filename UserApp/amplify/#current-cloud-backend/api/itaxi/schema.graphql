@@ -31,6 +31,9 @@ type User
 
   profilePicture: String
 
+  reviewNumbers: Float
+  reviewAmount: Float
+
   orders: [Order] @hasMany
   car: Car
 }

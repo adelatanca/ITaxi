@@ -40,6 +40,8 @@ export const getUser = /* GraphQL */ `
       email
       phoneNumber
       profilePicture
+      reviewNumbers
+      reviewAmount
       orders {
         items {
           id
@@ -133,6 +135,8 @@ export const listOrders = /* GraphQL */ `
           profilePicture
           createdAt
           updatedAt
+          reviewNumbers
+          reviewAmount
         }
         carId
         car {
@@ -173,6 +177,8 @@ export const listUsers = /* GraphQL */ `
         email
         phoneNumber
         profilePicture
+        reviewNumbers
+        reviewAmount
         orders {
           nextToken
         }
@@ -224,6 +230,8 @@ export const listCars = /* GraphQL */ `
           profilePicture
           createdAt
           updatedAt
+          reviewNumbers
+          reviewAmount
         }
         createdAt
         updatedAt

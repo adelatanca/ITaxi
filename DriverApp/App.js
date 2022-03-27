@@ -73,8 +73,6 @@ const App = () => {
         graphqlOperation(getCarId, { id: authenticatedUser.attributes.sub }),
       );
 
-      console.log(carData);
-
       if (!!carData.data.getCar) {
         console.log('User already has a car assigned');
         return;

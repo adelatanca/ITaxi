@@ -31,6 +31,7 @@ import StarRating from 'react-native-star-rating';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw';
 
 const HomeScreen = () => {
+  const [reviewUser, setReviewUser] = useState(null);
   const [car, setCar] = useState(null);
   const [order, setOrder] = useState(null);
   const [myPosition, setMyPosition] = useState(null);
@@ -177,6 +178,8 @@ const HomeScreen = () => {
         setUserOrder(userData.username);
       }
       if (userData.id === currentUser.attributes.sub) {
+        console.log(userData.reviewAmount / userData.reviewNumbers);
+        setReviewUser((userData.reviewAmount / userData.reviewNumbers));
         setProfileImage(userData.profilePicture)
       }
     });
@@ -357,7 +360,7 @@ const HomeScreen = () => {
                     style={styles.rating}
                     halfStarEnabled={true}
                     maxStars={5}
-                    rating={3}
+                    rating={reviewUser}
                     // starStyle={{fontSize: 15}}
                     fullStarColor={'orange'}
                   />
@@ -377,10 +380,10 @@ const HomeScreen = () => {
                     shadowOpacity: 5.25,
                     shadowRadius: 4,
                   }}
-                  source={getImage(car.type)}
+                  source={getImage(car?.type)}
                 />
-                <Text style={styles.car}>{car.carNumber}</Text>
-                <Text style={styles.car}>{car.type}</Text>
+                <Text style={styles.car}>{car?.carNumber}</Text>
+                <Text style={styles.car}>{car?.type}</Text>
                 <Pressable
                   style={[styles.button, styles.buttonClose]}
                   onPress={() => setModalVisible(!modalVisible)}>
@@ -409,9 +412,9 @@ const HomeScreen = () => {
               padding: 10,
             }}>
             <Text style={{ color: 'white', fontWeight: 'bold' }}>
-              Complete {order.type}</Text>
+              Complete {order?.type}</Text>
           </View>
-          <Text style={styles.bottomText}> {order.username}</Text>
+          <Text style={styles.bottomText}> {order?.username}</Text>
         </View>
       );
     }
@@ -432,7 +435,7 @@ const HomeScreen = () => {
               }}>
               <Entypo name={'user'} size={35} color={'white'} />
             </View>
-            <Text> {order.distance ? order.distance.toFixed(2) : '?'} km</Text>
+            <Text> {order?.distance ? order.distance.toFixed(2) : '?'} km</Text>
           </View>
           <Text style={styles.bottomText}>{usernameOrdered} coboară</Text>
         </View>
@@ -458,7 +461,7 @@ const HomeScreen = () => {
               }}>
               <Entypo name={'user'} size={35} color={'white'} />
             </View>
-            <Text> {order.distance ? order.distance.toFixed(2) : '?'} km</Text>
+            <Text> {order?.distance ? order.distance.toFixed(2) : '?'} km</Text>
           </View>
           <Text style={styles.bottomText}>Preluare {usernameOrdered}</Text>
         </View>
@@ -482,7 +485,7 @@ const HomeScreen = () => {
               }}>
               <Entypo name={'user'} size={35} color={'white'} />
             </View>
-            <Text> {order.distance ? order.distance.toFixed(2) : '?'} km</Text>
+            <Text> {order?.distance ? order.distance.toFixed(2) : '?'} km</Text>
           </View>
           <Text style={styles.bottomText}>{usernameOrdered} coboară</Text>
         </View>
@@ -508,7 +511,7 @@ const HomeScreen = () => {
               }}>
               <Entypo name={'user'} size={35} color={'white'} />
             </View>
-            <Text> {order.distance ? order.distance.toFixed(2) : '?'} km</Text>
+            <Text> {order?.distance ? order.distance.toFixed(2) : '?'} km</Text>
           </View>
           <Text style={styles.bottomText}>Preluare {usernameOrdered}</Text>
         </View>
@@ -560,9 +563,9 @@ const HomeScreen = () => {
               strokeWidth={5}
             />
           )}
-          {originLocation.latitude !== undefined ? (<Marker coordinate={originLocation} title={'Origin'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Origin'} />)}
-          {stopLocation.latitude !== undefined ? (<Marker coordinate={stopLocation} title={'Stop'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Stop'} />)}
-          {destinationLocation.latitude !== undefined ? (<Marker coordinate={destinationLocation} title={'Destination'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Destination'} />)}
+          {originLocation?.latitude !== undefined ? (<Marker coordinate={originLocation} title={'Origin'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Origin'} />)}
+          {stopLocation?.latitude !== undefined ? (<Marker coordinate={stopLocation} title={'Stop'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Stop'} />)}
+          {destinationLocation?.latitude !== undefined ? (<Marker coordinate={destinationLocation} title={'Destination'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Destination'} />)}
         </MapView>
         <Pressable
           onPress={() => console.warn('Balance')}
@@ -592,7 +595,7 @@ const HomeScreen = () => {
             <Entypo name={'direction'} size={35} color={'orange'} />
           </Pressable>
         </View>
-        {newOrders.length > 0 && !order && isActive === true && (
+        {newOrders?.length > 0 && !order && isActive === true && (
           <NewOrderPopup
             client={userOrder}
             newOrder={newOrders[0]}
@@ -642,8 +645,8 @@ const HomeScreen = () => {
             />
           )}
 
-          {originLocation.latitude !== undefined ? (<Marker coordinate={originLocation} title={'Origin'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Origin'} />)}
-          {destinationLocation.latitude !== undefined ? (<Marker coordinate={destinationLocation} title={'Destination'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Destination'} />)}
+          {originLocation?.latitude !== undefined ? (<Marker coordinate={originLocation} title={'Origin'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Origin'} />)}
+          {destinationLocation?.latitude !== undefined ? (<Marker coordinate={destinationLocation} title={'Destination'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Destination'} />)}
         </MapView>
         <Pressable
           onPress={() => console.warn('Balance')}
@@ -673,7 +676,7 @@ const HomeScreen = () => {
             <Entypo name={'direction'} size={35} color={'orange'} />
           </Pressable>
         </View>
-        {newOrders.length > 0 && !order && isActive === true && (
+        {newOrders?.length > 0 && !order && isActive === true && (
           <NewOrderPopup
             client={userOrder}
             newOrder={newOrders[0]}
