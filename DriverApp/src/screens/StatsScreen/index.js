@@ -1,22 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Image, Appearance, useColorScheme, Text, View, Pressable, useWindowDimensions } from 'react-native';
-import HistoryRow from '../../components/HistoryRow';
-import { ScrollView } from "react-native-gesture-handler";
+import { useWindowDimensions } from 'react-native';
 import { Auth, API, graphqlOperation } from 'aws-amplify';
-import { listOrders, listUsers } from '../../graphql/queries';
+import { listOrders } from '../../graphql/queries';
 import styles from './styles';
-import Ionicons from "react-native-vector-icons/Ionicons";
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart
-} from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 import { Dimensions } from "react-native";
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
-
 
 const StatsScreen = props => {
   const layout = useWindowDimensions();
@@ -26,12 +15,12 @@ const StatsScreen = props => {
     { key: 'second', title: 'Comenzi' },
   ]);
   const [orders, setOrders] = useState(null);
-  const [pretIan, setPretIan] = useState(null);
-  const [pretFeb, setPretFeb] = useState(null);
-  const [pretMar, setPretMar] = useState(null);
-  const [comenziIan, setComenziIan] = useState(null);
-  const [comenziFeb, setComenziFeb] = useState(null);
-  const [comenziMar, setComenziMar] = useState(null);
+  const [pretApr, setPretApr] = useState(null);
+  const [pretMai, setPretMai] = useState(null);
+  const [pretIun, setPretIun] = useState(null);
+  const [comenziApr, setComenziApr] = useState(null);
+  const [comenziMai, setComenziMai] = useState(null);
+  const [comenziIun, setComenziIun] = useState(null);
 
   const fetchOrders = async () => {
     try {
@@ -54,29 +43,29 @@ const StatsScreen = props => {
   });
 
   const iterateOrders = () => {
-    var priceIan = 0;
-    var priceFeb = 0;
-    var priceMar = 0;
+    var priceApr = 0;
+    var priceMai = 0;
+    var priceIun = 0;
 
-    var nrComenziIan = 0;
-    var nrComenziFeb = 0;
-    var nrComenziMar = 0;
+    var nrComenziApr = 0;
+    var nrComenziMai = 0;
+    var nrComenziIun = 0;
 
     orders?.map(order => {
-      if (order.createdAt.slice(5, 7) == '01') {
-        priceIan += order.pret;
-        nrComenziIan++;
-        console.log("IAN ", order.pret)
+      if (order.createdAt.slice(5, 7) == '04') {
+        priceApr += order.pret;
+        nrComenziApr++;
+        //  console.log("Apr ", order.pret)
       }
-      else if (order.createdAt.slice(5, 7) == '02') {
-        priceFeb += order.pret;
-        nrComenziFeb++;
-        console.log("FEB ", order.pret, " - nr ", nrComenziFeb)
+      else if (order.createdAt.slice(5, 7) == '05') {
+        priceMai += order.pret;
+        nrComenziMai++;
+        //console.log("Mai ", order.pret, " - nr ", nrComenziFeb)
       }
-      else if (order.createdAt.slice(5, 7) == '03') {
-        priceMar += order.pret;
-        nrComenziMar++;
-        console.log("MAR ", order.pret, " - nr ", nrComenziMar)
+      else if (order.createdAt.slice(5, 7) == '06') {
+        priceIun += order.pret;
+        nrComenziIun++;
+        // console.log("Iunie ", order.pret, " - nr ", nrComenziMar)
       }
       // else if (order.createdAt.slice(5, 7) == '04') {
       //   priceApr += order.pret;
@@ -92,27 +81,27 @@ const StatsScreen = props => {
       // }
     })
 
-    setPretIan(priceIan);
-    setPretFeb(priceFeb);
-    setPretMar(priceMar);
+    setPretApr(priceApr);
+    setPretMai(priceMai);
+    setPretIun(priceIun);
 
-    setComenziIan(nrComenziIan);
-    setComenziFeb(nrComenziFeb);
-    setComenziMar(nrComenziMar);
+    setComenziApr(nrComenziApr);
+    setComenziMai(nrComenziMai);
+    setComenziIun(nrComenziIun);
   }
 
-  console.log(" LISTA PRETURI ", pretIan, " - ", pretFeb, " - ", pretMar);
+  // console.log(" LISTA PRETURI ", pretIan, " - ", pretFeb, " - ", pretMar);
 
   const Castiguri = () => (
     <LineChart
       data={{
-        labels: ["Ian", "Feb", "Mar"],
+        labels: ["Apr", "Mai", "Iun"],
         datasets: [
           {
             data: [
-              pretIan || 0,  // PUT HERE THE AVERAGE FOR EACH MONTH
-              pretFeb || 0,
-              pretMar || 0
+              pretApr || 0,  // PUT HERE THE AVERAGE FOR EACH MONTH
+              pretMai || 0,
+              pretIun || 0
             ],
           }
         ],
@@ -157,13 +146,13 @@ const StatsScreen = props => {
   const Comenzi = () => (
     <LineChart
       data={{
-        labels: ["Ian", "Feb", "Mar"],
+        labels: ["Apr", "Mai", "Iun"],
         datasets: [
           {
             data: [
-              comenziIan || 0,
-              comenziFeb || 0,
-              comenziMar || 0,
+              comenziApr || 0,
+              comenziMai || 0,
+              comenziIun || 0,
             ],
           }
         ],

@@ -74,7 +74,7 @@ const App = () => {
       );
 
       if (!!carData.data.getCar) {
-        console.log('User already has a car assigned');
+        //  console.log('User already has a car assigned');
         return;
       }
 

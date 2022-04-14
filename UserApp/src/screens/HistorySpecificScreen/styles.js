@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         bottom: 10
     },
     driverName: {
-        width: "90%",
+        width: "80%",
         fontWeight: "bold",
         fontSize: 18,
         top: 10,
@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
     },
     orderDate: {
         flexDirection: "column",
-        width: "45%",
+        width: "35%",
         height: 20,
         fontSize: 13,
         color: "gray",
         textTransform: 'capitalize',
         top: 40,
-        right: 347,
+        right: 307,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3.34,
     },
     avatar: {
-        right: 220,
+        right: 140,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,

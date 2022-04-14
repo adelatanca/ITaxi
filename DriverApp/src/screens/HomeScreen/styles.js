@@ -21,14 +21,14 @@ const styles = StyleSheet.create({
   },
   goButton: {
     position: 'absolute',
-    backgroundColor: '#1495ff',
-    width: 75,
-    height: 75,
+    backgroundColor: '#e47723fa',
+    width: 130,
+    height: 60,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 50,
     bottom: 110,
-    left: Dimensions.get('window').width / 2 - 37,
+    left: Dimensions.get('window').width / 2 - 53,
   },
   goText: {
     fontSize: 30,

@@ -33,7 +33,7 @@ const HistoryScreen = props => {
     navigation.navigate('Statistici');
   };
 
-  console.log({ orders })
+  //console.log({ orders })
 
   return (
     <View style={styles.container}>

@@ -54,7 +54,7 @@ app.post("/create-payment-intent", async (req, res) => {
             publishableKey: PUBLISHABLE_KEY
         });
     } catch (e) {
-        console.log("THE ERROR", e.message);
+        console.log(e.message);
         res.json({ error: e.message });
     }
 });

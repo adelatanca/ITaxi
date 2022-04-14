@@ -34,7 +34,7 @@ const SearchOnMapScreen = () => {
 
         // alert(JSON.stringify(region))
         setRegion(region);
-        console.log("THEREGION ", region)
+        //  console.log("THEREGION ", region)
     }
 
 

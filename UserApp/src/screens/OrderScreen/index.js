@@ -6,8 +6,6 @@ import { API, graphqlOperation } from "aws-amplify";
 import { getOrder, getCar, getUser } from "../../graphql/queries";
 import { onOrderUpdated } from "./subscriptions";
 import { onCarUpdated } from "./subscriptions";
-import UserAvatar from 'react-native-user-avatar';
-
 import { useRoute } from "@react-navigation/native";
 
 const OrderScreen = (props) => {
@@ -30,7 +28,7 @@ const OrderScreen = (props) => {
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  });
 
   // Fetch order on initial render
   useEffect(() => {

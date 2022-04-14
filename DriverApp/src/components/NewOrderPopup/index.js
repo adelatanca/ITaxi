@@ -83,7 +83,7 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
     return (
       <View style={styles.root}>
         <Pressable onPress={onDecline} style={styles.declineButton}>
-          <Text style={styles.declineText}>Refuza </Text>
+          <Text style={styles.declineText}>Refuză </Text>
         </Pressable>
 
         <Pressable onPress={onAccept} style={styles.popupContainer}>
@@ -118,7 +118,7 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
     return (
       <View style={styles.root}>
         <Pressable onPress={onDecline} style={styles.declineButton}>
-          <Text style={styles.declineText}>Refuza </Text>
+          <Text style={styles.declineText}>Refuză </Text>
         </Pressable>
 
         <Pressable onPress={onAccept} style={styles.popupContainer}>

@@ -87,7 +87,7 @@ const HomeScreen = () => {
       );
       setCar(carData.data.getCar);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 
@@ -108,7 +108,7 @@ const HomeScreen = () => {
       );
       setNewOrders(ordersData.data.listOrders.items);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 
@@ -123,7 +123,7 @@ const HomeScreen = () => {
         // console.log("ACTIVE - ", carData.data.getCar.isActive)
         setIsActive(carData.data.getCar.isActive);
       } catch (e) {
-        console.log(e);
+        //console.log(e);
       }
     }
     const interval = setInterval(() => {
@@ -178,7 +178,7 @@ const HomeScreen = () => {
         setUserOrder(userData.username);
       }
       if (userData.id === currentUser.attributes.sub) {
-        console.log(userData.reviewAmount / userData.reviewNumbers);
+        //  console.log(userData.reviewAmount / userData.reviewNumbers);
         setReviewUser((userData.reviewAmount / userData.reviewNumbers));
         setProfileImage(userData.profilePicture)
       }
@@ -584,7 +584,7 @@ const HomeScreen = () => {
           <Entypo name={'stopwatch'} size={35} color={'orange'} />
         </Pressable>
         <Pressable onPress={onGoPress} style={styles.goButton}>
-          <Text style={styles.goText}>{car?.isActive ? 'END' : 'GO'}</Text>
+          <Text style={styles.goText}>{car?.isActive ? 'STOP' : 'START'}</Text>
         </Pressable>
         <View style={styles.bottomContainer}>
           <Pressable onPress={() => Auth.signOut()}>
@@ -665,7 +665,7 @@ const HomeScreen = () => {
           <Entypo name={'stopwatch'} size={35} color={'orange'} />
         </Pressable>
         <Pressable onPress={onGoPress} style={styles.goButton}>
-          <Text style={styles.goText}>{car?.isActive ? 'END' : 'GO'}</Text>
+          <Text style={styles.goText}>{car?.isActive ? 'STOP' : 'START'}</Text>
         </Pressable>
         <View style={styles.bottomContainer}>
           <Pressable onPress={() => Auth.signOut()}>

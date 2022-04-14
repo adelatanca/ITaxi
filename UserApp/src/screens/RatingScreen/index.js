@@ -11,7 +11,7 @@ const RatingScreen = () => {
   };
 
   useEffect(() => {
-    console.log(rating);
+    // console.log(rating);
   }, [rating]);
 
   return (

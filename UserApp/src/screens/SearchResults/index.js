@@ -131,12 +131,12 @@ const SearchResult = (props) => {
 
   AsyncStorage.setItem("destination", destinatie || destinationPlace?.data.description);
 
-  const getValue = () => {
-    AsyncStorage.getItem("destination").then((value) => {
-      console.log("from AsyncStorage", value);
-    });
-    console.log("from AsyncStorage", destinatie);
-  };
+  // const getValue = () => {
+  //   AsyncStorage.getItem("destination").then((value) => {
+  //     console.log("from AsyncStorage", value);
+  //   });
+  //   console.log("from AsyncStorage", destinatie);
+  // };
 
   const timeConvert = (n) => {
     var num = n;
