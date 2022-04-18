@@ -108,7 +108,7 @@ const CustomDrawer = (props) => {
               color: "grey",
               padding: 5,
               paddingLeft: 20,
-              marginTop: 370,
+              marginTop: 450,
             }}
           >
             <AntDesign name={"logout"} size={20} color={"gray"} /> Logout

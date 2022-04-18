@@ -110,7 +110,7 @@ const HistoryRow = ({ orderObject, orderPrice, orderDay, orderMonth, orderHour, 
 
     if (orderObject?.stopName === null) {
         return (
-            <Pressable onPress={() => { console.log("history driver") }} style={styles.container}>
+            <Pressable onPress={() => { console.log("") }} style={styles.container}>
                 <View style={styles.insideContainer}>
                     <Text style={styles.clientName} ellipsizeMode='tail' numberOfLines={1}>Cursa cu {client?.username}</Text>
                     <Text style={styles.clientPhone}> <AntDesign name={"phone"} size={13} color={"#45a8f2"} /> 073838383</Text>
@@ -138,7 +138,7 @@ const HistoryRow = ({ orderObject, orderPrice, orderDay, orderMonth, orderHour, 
     }
     else if (orderObject.stopName != null) {
         return (
-            <Pressable onPress={() => { console.log("history driver") }} style={styles.container}>
+            <Pressable onPress={() => { console.log("") }} style={styles.container}>
                 <View style={styles.insideContainer}>
                     <Text style={styles.clientName} ellipsizeMode='tail' numberOfLines={1}>Cursa cu {client?.username}</Text>
                     <Text style={styles.clientPhone}> <AntDesign name={"phone"} size={13} color={"#45a8f2"} /> 073838383</Text>

@@ -57,16 +57,6 @@ const RootNavigator = (props) => {
             ),
           }}
         ></Drawer.Screen>
-
-        <Drawer.Screen
-          name="Promoții"
-          component={PromotiiScreen}
-          options={{
-            drawerIcon: (config) => (
-              <AntDesign name={"tago"} size={20} color={"gray"} />
-            ),
-          }}
-        ></Drawer.Screen>
         {/* <Drawer.Screen
           name="Rating"
           component={RatingScreen}
@@ -91,6 +81,16 @@ const RootNavigator = (props) => {
           options={{
             drawerIcon: (config) => (
               <AntDesign name={"infocirlceo"} size={20} color={"gray"} />
+            ),
+          }}
+        ></Drawer.Screen>
+        <Drawer.Screen
+          name="Promoții"
+          component={PromotiiScreen}
+          options={{
+            drawerItemStyle: { height: 0 },
+            drawerIcon: (config) => (
+              <AntDesign name={"tago"} size={20} color={"white"} />
             ),
           }}
         ></Drawer.Screen>

@@ -157,10 +157,10 @@ const HistorySpecificScreen = () => {
     if (orderObject.stopName === null) {
         return (
             <View style={styles.container}>
-                <Pressable onPress={() => { console.log("Dots") }} style={styles.dots}>
+                <Pressable onPress={() => { console.log("") }} style={styles.dots}>
                     <Entypo name={"dots-three-horizontal"} size={20} color={"#45a8f2"} />
                 </Pressable>
-                <Pressable onPress={() => { goToHistoryScreen(), console.log("Hist") }} style={styles.backButton}>
+                <Pressable onPress={() => { goToHistoryScreen(), console.log("") }} style={styles.backButton}>
                     <AntDesign name={"back"} size={25} color={"#45a8f2"} />
                 </Pressable>
                 <View style={styles.avatarDateName}>
@@ -220,10 +220,10 @@ const HistorySpecificScreen = () => {
     else {
         return (
             <View style={styles.container}>
-                <Pressable onPress={() => { console.log("Dots") }} style={styles.dots}>
+                <Pressable onPress={() => { console.log("") }} style={styles.dots}>
                     <Entypo name={"dots-three-horizontal"} size={20} color={"#45a8f2"} />
                 </Pressable>
-                <Pressable onPress={() => { goToHistoryScreen(), console.log("Hist") }} style={styles.backButton}>
+                <Pressable onPress={() => { goToHistoryScreen(), console.log("") }} style={styles.backButton}>
                     <AntDesign name={"back"} size={25} color={"#45a8f2"} />
                 </Pressable>
                 <View style={styles.avatarDateName}>
