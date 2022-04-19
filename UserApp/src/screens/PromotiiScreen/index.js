@@ -5,6 +5,7 @@ import {
   useColorScheme,
   Text,
   View,
+  Alert,
   TextInput,
   Pressable,
 } from "react-native";
@@ -20,13 +21,23 @@ const PromotiiScreen = (props) => {
 
   const { originPlace, destinationPlace, stopPlace, destinatie } = route.params;
   const goToSearchResult = () => {
-    navigation.navigate("SearchResults", { originPlace, destinationPlace, stopPlace, destinatie, hasPromotion })
+    if (!hasPromotion) {
+      Alert.alert('Cod de reducere invalid!', '', [
+        {
+          text: 'Închide',
+        }
+      ]);
+      navigation.navigate("SearchResults", { originPlace, destinationPlace, stopPlace, destinatie, hasPromotion })
+    }
+    else {
+      navigation.navigate("SearchResults", { originPlace, destinationPlace, stopPlace, destinatie, hasPromotion })
+    }
   }
 
   return (
     <View>
       <Text style={styles.title}>Introdu codul promoțional</Text>
-      <TextInput style={styles.input} placeholder="Cod promoțional" onChangeText={promotion => setHasPromotion(true)}></TextInput>
+      <TextInput style={styles.input} placeholder="Cod promoțional" onChangeText={promotion => { if (promotion === 'COD30') { setHasPromotion(true) } }}></TextInput>
       <Text style={styles.subtitle}>
         Introdu codul și reducerea va fi aplicată la următoarea cursă
       </Text>
