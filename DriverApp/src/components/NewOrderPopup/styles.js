@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#00000099',
   },
   popupContainer: {
-    backgroundColor: '#ec7211bd',
+    backgroundColor: '#45a8f2',
     borderRadius: 10,
     height: 350,
     alignItems: 'center',
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     borderRadius: 60,
   },
   declineButton: {
-    backgroundColor: '#ec7211bd',
+    backgroundColor: '#45a8f2',
     padding: 20,
     borderRadius: 50,
     width: 100,

@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
   goButton: {
     position: 'absolute',
-    backgroundColor: '#e47723fa',
+    backgroundColor: '#45a8f2',
     width: 130,
     height: 60,
     justifyContent: 'center',

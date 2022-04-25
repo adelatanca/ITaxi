@@ -13,7 +13,7 @@ import PostCarouselItem from "../../components/PostCarouselItem";
 
 const HomeScreen = ({ navigation }) => {
   useEffect(() => {
-    console.log(navigation);
+    // console.log(navigation);
   }, []);
 
   const width = useWindowDimensions().width;

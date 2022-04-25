@@ -578,21 +578,21 @@ const HomeScreen = () => {
         <Pressable
           onPress={() => setModalVisible(true)}
           style={styles.hamburgerButton}>
-          <Entypo name={'menu'} size={35} color={'orange'} />
+          <Entypo name={'menu'} size={35} color={'#45a8f2'} />
         </Pressable>
         <Pressable onPress={() => goToHistory()} style={styles.historyButton}>
-          <Entypo name={'stopwatch'} size={35} color={'orange'} />
+          <Entypo name={'stopwatch'} size={35} color={'#45a8f2'} />
         </Pressable>
         <Pressable onPress={onGoPress} style={styles.goButton}>
           <Text style={styles.goText}>{car?.isActive ? 'STOP' : 'START'}</Text>
         </Pressable>
         <View style={styles.bottomContainer}>
           <Pressable onPress={() => Auth.signOut()}>
-            <Entypo name={'log-out'} size={35} color={'orange'} />
+            <Entypo name={'log-out'} size={35} color={'#45a8f2'} />
           </Pressable>
           {renderBottomTitle()}
           <Pressable onPress={() => goToCurrentLocation()}>
-            <Entypo name={'direction'} size={35} color={'orange'} />
+            <Entypo name={'direction'} size={35} color={'#45a8f2'} />
           </Pressable>
         </View>
         {newOrders?.length > 0 && !order && isActive === true && (
@@ -659,21 +659,21 @@ const HomeScreen = () => {
         <Pressable
           onPress={() => setModalVisible(true)}
           style={styles.hamburgerButton}>
-          <Entypo name={'menu'} size={35} color={'orange'} />
+          <Entypo name={'menu'} size={35} color={'#45a8f2'} />
         </Pressable>
         <Pressable onPress={() => goToHistory()} style={styles.historyButton}>
-          <Entypo name={'stopwatch'} size={35} color={'orange'} />
+          <Entypo name={'stopwatch'} size={35} color={'#45a8f2'} />
         </Pressable>
         <Pressable onPress={onGoPress} style={styles.goButton}>
           <Text style={styles.goText}>{car?.isActive ? 'STOP' : 'START'}</Text>
         </Pressable>
         <View style={styles.bottomContainer}>
           <Pressable onPress={() => Auth.signOut()}>
-            <Entypo name={'log-out'} size={35} color={'orange'} />
+            <Entypo name={'log-out'} size={35} color={'#45a8f2'} />
           </Pressable>
           {renderBottomTitle()}
           <Pressable onPress={() => goToCurrentLocation()}>
-            <Entypo name={'direction'} size={35} color={'orange'} />
+            <Entypo name={'direction'} size={35} color={'#45a8f2'} />
           </Pressable>
         </View>
         {newOrders?.length > 0 && !order && isActive === true && (

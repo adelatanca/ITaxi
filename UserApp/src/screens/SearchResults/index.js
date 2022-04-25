@@ -163,6 +163,12 @@ const SearchResult = (props) => {
     navigation.navigate("Promoții", { originPlace, destinationPlace, stopPlace, destinatie })
   }
 
+  const goToDestinationSearch = () => {
+    const region = "";
+    const destinatie = "";
+    navigation.navigate("DestinationSearch", { region, destinatie });
+  }
+
 
   return (
     <View style={styles.container}>
@@ -175,7 +181,10 @@ const SearchResult = (props) => {
           passKm={(km) => setKm(km)}
         />
       </View>
-      <Pressable onPress={() => goToPromotii()} style={styles.historyButton}>
+      <Pressable onPress={() => goToDestinationSearch()} style={styles.backButton}>
+        <AntDesign name={'back'} size={30} color={'#45a8f2'} />
+      </Pressable>
+      <Pressable onPress={() => goToPromotii()} style={styles.promotiiButton}>
         <Entypo name={'price-tag'} size={35} color={'#45a8f2'} />
       </Pressable>
       <View style={{ flexDirection: "row" }}>
