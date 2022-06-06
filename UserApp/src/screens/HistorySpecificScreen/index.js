@@ -63,7 +63,6 @@ const HistorySpecificScreen = () => {
             }
         })
     })
-
     const calculateHours = () => {
         var duration = Math.round(orderObject.duration);
         if (orderObject.stopName === null) {
@@ -74,12 +73,9 @@ const HistorySpecificScreen = () => {
             setDestinationTime(moment(orderObject.createdAt, "YYYY/MM/DD HH:mm").add(duration, 'minutes').format('HH:mm'));
         }
     }
-
-
     const onStarRatingPress = (rating) => {
         setRating(rating);
     };
-
     const sendRating = async () => {
         try {
             let reviewAmount = driverImage.reviewAmount + rating;
@@ -96,7 +92,6 @@ const HistorySpecificScreen = () => {
         } catch (e) {
             console.log(e);
         }
-
         Alert.alert('Multumim pentru rating!', '', [
             {
                 text: 'Închide',

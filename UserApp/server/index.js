@@ -23,7 +23,6 @@ app.post('/price', (req, res) => {
         PRICE = + (req.body.pret) * 100;
         emailPayment = req.body.emailPayment
     } catch (e) {
-        console.log("EROARE PRET", e.message);
         res.json({ error: e.message });
     }
 });

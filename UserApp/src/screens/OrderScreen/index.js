@@ -109,10 +109,8 @@ const OrderScreen = (props) => {
         <View style={{ height: Dimensions.get("window").height - 550 }}>
           <OrderMap car={car} />
         </View>
-
         <View style={styles.container}>
           <Text style={styles.title}>Rezumatul călătoriei</Text>
-          {/* <UserAvatar size={55} style={{ width: "30%", left: 145, height: 80 }} name={"Ade"} /> */}
           <View style={{
             shadowColor: '#000',
             shadowOffset: { width: 0, height: 2 },
@@ -129,7 +127,6 @@ const OrderScreen = (props) => {
               source={{ uri: user?.profilePicture }}
             />
           </View>
-
           <View style={styles.line}>
             <Text style={styles.comanda}>Comandă </Text>
             <Text style={styles.comandaData}>{order?.status} </Text>

@@ -81,40 +81,7 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
       return () => clearInterval(interval);
     }
   });
-
-  if (isStop == null) {
-    return (
-      <View style={styles.root}>
-        <Pressable onPress={onDecline} style={styles.declineButton}>
-          <Text style={styles.declineText}>Refuză </Text>
-        </Pressable>
-        <Pressable onPress={onAccept} style={styles.popupContainer}>
-          <View style={styles.row}>
-            <View style={styles.userBg}>
-              <Entypo name={'user'} size={30} color={'white'} />
-            </View>
-            <Text style={styles.username}>{client}</Text>
-          </View>
-          <View style={styles.info}>
-            <View style={styles.line}>
-              <Entypo name={'phone'} size={18} color={'white'} />
-              <Text style={styles.phone} numberOfLines={1} ellipsizeMode='tail'>  035353443</Text>
-            </View>
-            <View style={styles.line}>
-              <Entypo name={'location-pin'} size={20} color={'white'} />
-              <Text style={styles.pornire} numberOfLines={1} ellipsizeMode='tail'> {newOrder.originName}</Text>
-            </View>
-            <View style={styles.line}>
-              <Entypo name={'location'} size={18} color={'white'} />
-              <Text style={styles.destinatie} numberOfLines={1} ellipsizeMode='tail'> {newOrder.destinationName}</Text>
-            </View>
-          </View>
-        </Pressable>
-      </View>
-    );
-  }
-
-  else if (isStop != null) {
+  if (isStop != null) {
     return (
       <View style={styles.root}>
         <Pressable onPress={onDecline} style={styles.declineButton}>
@@ -138,6 +105,37 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
               <Text style={styles.pornire} numberOfLines={1} ellipsizeMode='tail'> {newOrder.originName}</Text>
             </View>
             <View style={styles.line}><Entypo name={'time-slot'} size={18} color={'white'} /><Text style={styles.oprire} numberOfLines={1} ellipsizeMode='tail'> {newOrder.stopName}</Text></View>
+            <View style={styles.line}>
+              <Entypo name={'location'} size={18} color={'white'} />
+              <Text style={styles.destinatie} numberOfLines={1} ellipsizeMode='tail'> {newOrder.destinationName}</Text>
+            </View>
+          </View>
+        </Pressable>
+      </View>
+    );
+  }
+  else if (isStop == null) {
+    return (
+      <View style={styles.root}>
+        <Pressable onPress={onDecline} style={styles.declineButton}>
+          <Text style={styles.declineText}>Refuză </Text>
+        </Pressable>
+        <Pressable onPress={onAccept} style={styles.popupContainer}>
+          <View style={styles.row}>
+            <View style={styles.userBg}>
+              <Entypo name={'user'} size={30} color={'white'} />
+            </View>
+            <Text style={styles.username}>{client}</Text>
+          </View>
+          <View style={styles.info}>
+            <View style={styles.line}>
+              <Entypo name={'phone'} size={18} color={'white'} />
+              <Text style={styles.phone} numberOfLines={1} ellipsizeMode='tail'>  035353443</Text>
+            </View>
+            <View style={styles.line}>
+              <Entypo name={'location-pin'} size={20} color={'white'} />
+              <Text style={styles.pornire} numberOfLines={1} ellipsizeMode='tail'> {newOrder.originName}</Text>
+            </View>
             <View style={styles.line}>
               <Entypo name={'location'} size={18} color={'white'} />
               <Text style={styles.destinatie} numberOfLines={1} ellipsizeMode='tail'> {newOrder.destinationName}</Text>

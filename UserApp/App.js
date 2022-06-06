@@ -1,12 +1,7 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import RootNavigator from "./src/navigation/Root";
-import SearchResults from "./src/screens/SearchResults";
-import HomeScreen from "./src/screens/HomeScreen";
-import "react-native-gesture-handler";
-import { NavigationContainer } from "@react-navigation/native";
 
+import React from "react";
+import RootNavigator from "./src/navigation/Root";
+import "react-native-gesture-handler";
 import { withAuthenticator } from "aws-amplify-react-native";
 import Amplify from "@aws-amplify/core";
 import Auth from "@aws-amplify/auth";

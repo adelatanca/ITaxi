@@ -7,7 +7,6 @@ import styles from './styles';
 import HomeNavigator from "./Home";
 import HistoryScreen from "../screens/HistoryScreen";
 import AboutUsScreen from "../screens/AboutUsScreen";
-import AsistentaScreen from "../screens/AsistentaScreen";
 import PromotiiScreen from "../screens/PromotiiScreen";
 import RatingScreen from "../screens/RatingScreen";
 import PaymentScreen from "../screens/PaymentScreen";
@@ -57,24 +56,6 @@ const RootNavigator = (props) => {
             ),
           }}
         ></Drawer.Screen>
-        {/* <Drawer.Screen
-          name="Rating"
-          component={RatingScreen}
-          options={{
-            drawerIcon: (config) => (
-              <AntDesign name={"staro"} size={20} color={"gray"} />
-            ),
-          }}
-        ></Drawer.Screen> */}
-        {/* <Drawer.Screen
-          name="Asistență"
-          component={AsistentaScreen}
-          options={{
-            drawerIcon: (config) => (
-              <AntDesign name={"phone"} size={20} color={"gray"} />
-            ),
-          }}
-        ></Drawer.Screen> */}
         <Drawer.Screen
           name="Despre noi"
           component={AboutUsScreen}

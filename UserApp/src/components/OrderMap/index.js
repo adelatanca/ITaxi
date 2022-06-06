@@ -24,8 +24,8 @@ const OrderMap = ({ car }) => {
   const currentCarLocation = {
     latitude: car?.latitude,
     longitude: car?.longitude,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
+    latitudeDelta: 0.05,
+    longitudeDelta: 0.05,
   };
 
   let colorScheme = useColorScheme();
