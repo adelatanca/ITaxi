@@ -11,7 +11,7 @@ const StatsScreen = props => {
   const layout = useWindowDimensions();
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'first', title: 'Castiguri' },
+    { key: 'first', title: 'Câștiguri' },
     { key: 'second', title: 'Comenzi' },
   ]);
   const [orders, setOrders] = useState(null);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Dimensions, Image, SafeAreaView, ScrollView } from "react-native";
+import { ActivityIndicator, View, Text, Dimensions, Image, SafeAreaView, ScrollView } from "react-native";
 import styles from "./styles";
 import OrderMap from "../../components/OrderMap";
 import { API, graphqlOperation } from "aws-amplify";
@@ -103,60 +103,77 @@ const OrderScreen = (props) => {
     return () => subscription.unsubscribe();
   }, [order]);
 
-  return (
-    <SafeAreaView >
-      <ScrollView >
-        <View style={{ height: Dimensions.get("window").height - 550 }}>
-          <OrderMap car={car} />
-        </View>
-        <View style={styles.container}>
-          <Text style={styles.title}>Rezumatul călătoriei</Text>
-          <View style={{
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 1.2,
-            shadowRadius: 2,
-          }}>
-            <Image
-              style={{
-                width: 140,
-                height: 100,
-                borderRadius: 20,
-                left: 130,
-              }}
-              source={{ uri: user?.profilePicture }}
-            />
+  if (car !== null && user !== null) {
+    return (
+      <SafeAreaView>
+        <ScrollView>
+          <View style={{ height: Dimensions.get("window").height - 550 }}>
+            <OrderMap car={car} />
           </View>
-          <View style={styles.line}>
-            <Text style={styles.comanda}>Comandă </Text>
-            <Text style={styles.comandaData}>{order?.status} </Text>
+          <View style={styles.container}>
+            <Text style={styles.title}>Rezumatul călătoriei</Text>
+            <View style={{
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 1.2,
+              shadowRadius: 2,
+            }}>
+              <Image
+                style={{
+                  width: 140,
+                  height: 100,
+                  borderRadius: 20,
+                  left: 130,
+                }}
+                source={{ uri: user?.profilePicture }}
+              />
+            </View>
+            <View style={styles.line}>
+              <Text style={styles.comanda}>Comandă </Text>
+              <Text style={styles.comandaData}>{order?.status} </Text>
+            </View>
+            <View style={styles.line}>
+              <Text style={styles.comanda}>Număr mașină </Text>
+              <Text style={styles.comandaData}>{car?.carNumber} </Text>
+            </View>
+            <View style={styles.line}>
+              <Text style={styles.comanda}>Tipul </Text>
+              <Text style={styles.comandaData}> {car?.type} </Text>
+            </View>
+            <View style={styles.line}>
+              <Text style={styles.comanda}>Cursă cu </Text>
+              <Text style={styles.comandaData}> {car?.username} </Text>
+            </View>
+            <View style={styles.line}>
+              <Text style={styles.comanda}>Telefon</Text>
+              <Text style={styles.comandaData}>
+                {user?.phoneNumber.slice(2, 12)}
+              </Text>
+            </View>
+            <View style={styles.line}>
+              <Text style={styles.comanda}>Preț</Text>
+              <Text style={styles.comandaData}>{order?.pret} LEI</Text>
+            </View>
           </View>
-          <View style={styles.line}>
-            <Text style={styles.comanda}>Număr mașină </Text>
-            <Text style={styles.comandaData}>{car?.carNumber} </Text>
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+  else {
+    return (
+      <SafeAreaView>
+        <ScrollView>
+          <View style={{ height: Dimensions.get("window").height - 550 }}>
+            <OrderMap car={car} />
           </View>
-          <View style={styles.line}>
-            <Text style={styles.comanda}>Tipul </Text>
-            <Text style={styles.comandaData}> {car?.type} </Text>
+          <View style={styles.container}>
+            <Text style={styles.title}>Rezumatul călătoriei</Text>
+            <ActivityIndicator style={{ top: 150 }} size="large" />
           </View>
-          <View style={styles.line}>
-            <Text style={styles.comanda}>Cursă cu </Text>
-            <Text style={styles.comandaData}> {car?.username} </Text>
-          </View>
-          <View style={styles.line}>
-            <Text style={styles.comanda}>Telefon</Text>
-            <Text style={styles.comandaData}>
-              {user?.phoneNumber.slice(2, 12)}
-            </Text>
-          </View>
-          <View style={styles.line}>
-            <Text style={styles.comanda}>Preț</Text>
-            <Text style={styles.comandaData}>{order?.pret} LEI</Text>
-          </View>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
 };
 
 export default OrderScreen;
