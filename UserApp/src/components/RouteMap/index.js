@@ -150,9 +150,9 @@ const RouteMap = ({ origin, destination, passTime, passKm, stop }) => {
           </Marker>
         ))}
 
-        <Marker coordinate={originLocation} title={"Origin"} />
+        <Marker coordinate={originLocation} title={"Origine"} />
         <Marker coordinate={stopLocation} title={"Oprire"} />
-        <Marker coordinate={destinationLocation} title={"Destination"} />
+        <Marker coordinate={destinationLocation} title={"Destinatie"} />
       </MapView>
     );
   }
@@ -203,8 +203,8 @@ const RouteMap = ({ origin, destination, passTime, passKm, stop }) => {
           </Marker>
         ))}
 
-        <Marker coordinate={originLocation} title={"Origin"} />
-        <Marker coordinate={destinationLocation} title={"Destination"} />
+        <Marker coordinate={originLocation} title={"Origine"} />
+        <Marker coordinate={destinationLocation} title={"Destinatie"} />
       </MapView>
     );
   }

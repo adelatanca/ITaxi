@@ -11,10 +11,7 @@ import HomeMap from "../../components/HomeMap";
 import HomeSearch from "../../components/HomeSearch";
 import PostCarouselItem from "../../components/PostCarouselItem";
 
-const HomeScreen = ({ navigation }) => {
-  useEffect(() => {
-    // console.log(navigation);
-  }, []);
+const HomeScreen = () => {
 
   const width = useWindowDimensions().width;
   const DATA = [

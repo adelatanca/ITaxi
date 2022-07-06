@@ -9,3 +9,6 @@ expo start
 cd UserApp
 cd server
 npx nodemon server.js
+
+
+ killall node

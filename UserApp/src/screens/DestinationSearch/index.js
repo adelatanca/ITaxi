@@ -100,32 +100,7 @@ const DestinationSearch = (props) => {
 
   Location.installWebGeolocationPolyfill();
   navigator.geolocation.getCurrentPosition();
-  // console.log(originPlace.data.description)
 
-  const renderError = () => {
-    // if (!destinationPlace?.data.geometry.location.lat) {
-    //   return (
-    //     <View>
-    //       <Text
-    //         style={{
-    //           bottom: 600,
-    //           width: "100%",
-    //           left: 130,
-    //         }}
-    //       >
-    //         Adresa nu a fost gasita
-    //       </Text>
-    //       <Image
-    //         style={{
-    //           bottom: 600,
-    //           left: 140,
-    //         }}
-    //         source={require("../../assets/images/notFound.png")}
-    //       />
-    //     </View>
-    //   );
-    // }
-  };
 
   if (addStopStation) {
     return (
@@ -231,7 +206,6 @@ const DestinationSearch = (props) => {
             </Pressable>
           </View>
         </View>
-        {renderError()}
       </SafeAreaView>
     );
 
@@ -318,7 +292,6 @@ const DestinationSearch = (props) => {
           </View>
 
         </View>
-        {renderError()}
       </SafeAreaView>
     );
   }

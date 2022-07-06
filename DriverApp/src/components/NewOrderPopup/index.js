@@ -11,70 +11,8 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
   const [oprire, setOprire] = useState(null);
   const [isStop, setIsStop] = useState(null);
 
-  // const getOriginAddress = () => {
-  //   fetch(
-  //     'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-  //     newOrder?.originLatitude +
-  //     ',' +
-  //     newOrder?.originLongitude +
-  //     '&key=' +
-  //     GOOGLE_MAPS_APIKEY,
-  //   )
-  //     .then(response => response.json())
-  //     .then(responseJson => {
-  //       const responseAdd = responseJson.results.map(
-  //         address => address.formatted_address,
-  //       );
-  //       // console.log('FORMATAT origin ' + JSON.stringify(responseAdd[3]));
-  //       setPornire(responseAdd[3]);
-  //       //  console.log('FORMATAT ' + JSON.stringify(responseJson.results));
-  //     });
-  // };
-
-  // const getDestinationAddress = () => {
-  //   fetch(
-  //     'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-  //     newOrder?.destLatitude +
-  //     ',' +
-  //     newOrder?.destLongitude +
-  //     '&key=' +
-  //     GOOGLE_MAPS_APIKEY,
-  //   )
-  //     .then(response => response.json())
-  //     .then(responseJson => {
-  //       const responseAdd = responseJson.results.map(
-  //         address => address.formatted_address,
-  //       );
-  //       // console.log('FORMATAT ' + JSON.stringify(responseAdd[3]));
-  //       setDestinatie(responseAdd[3]);
-  //       //  console.log('FORMATAT ' + JSON.stringify(responseJson.results));
-  //     });
-  // };
-  // const getStopAddress = () => {
-  //   fetch(
-  //     'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-  //     newOrder?.stopLatitude +
-  //     ',' +
-  //     newOrder?.stopLongitude +
-  //     '&key=' +
-  //     GOOGLE_MAPS_APIKEY,
-  //   )
-  //     .then(response => response.json())
-  //     .then(responseJson => {
-  //       const responseAdd = responseJson.results.map(
-  //         address => address.formatted_address,
-  //       );
-  //       // console.log('FORMATAT ' + JSON.stringify(responseAdd[3]));
-  //       setOprire(responseAdd[3]);
-  //       //  console.log('FORMATAT ' + JSON.stringify(responseJson.results));
-  //     });
-  // };
-
   useEffect(() => {
-    // getOriginAddress();
-    // getDestinationAddress();
     if (newOrder?.stopLatitude != newOrder?.destLatitude) {
-      // getStopAddress();
       const interval = setInterval(() => {
         setIsStop(true);
       }, 100);

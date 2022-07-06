@@ -49,7 +49,6 @@ const SearchResult = (props) => {
         const responseAdd = responseJson.results.map(
           address => address.formatted_address,
         );
-        //   console.log('FORMATAT ' + JSON.stringify(responseAdd[3]));
         originName = responseAdd[3];
       });
   }
@@ -57,7 +56,6 @@ const SearchResult = (props) => {
     originName = originPlace?.data?.description;
   }
   let stopName = stopPlace ? stopPlace?.data?.description : null;
-  // let destinationName = destinationPlace?.data?.description;
 
   const onSubmit = async () => {
     const [type] = typeState;

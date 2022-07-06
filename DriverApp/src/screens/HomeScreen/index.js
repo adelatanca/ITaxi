@@ -559,13 +559,13 @@ const HomeScreen = () => {
               lineDashPattern={[0]}
               //  destination={getDestination()}
               apikey={GOOGLE_MAPS_APIKEY}
-              strokeColor="pink"
+              strokeColor="#45a8f2"
               strokeWidth={5}
             />
           )}
-          {originLocation?.latitude !== undefined ? (<Marker coordinate={originLocation} title={'Origin'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Origin'} />)}
-          {stopLocation?.latitude !== undefined ? (<Marker coordinate={stopLocation} title={'Stop'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Stop'} />)}
-          {destinationLocation?.latitude !== undefined ? (<Marker coordinate={destinationLocation} title={'Destination'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Destination'} />)}
+          {originLocation?.latitude !== undefined ? (<Marker coordinate={originLocation} title={'Origine'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Origin'} />)}
+          {stopLocation?.latitude !== undefined ? (<Marker coordinate={stopLocation} title={'Oprire'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Stop'} />)}
+          {destinationLocation?.latitude !== undefined ? (<Marker coordinate={destinationLocation} title={'Destinatie'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Destinatie'} />)}
         </MapView>
         <Pressable
           onPress={() => console.warn('Balance')}
@@ -640,13 +640,13 @@ const HomeScreen = () => {
               lineDashPattern={[0]}
               //  destination={getDestination()}
               apikey={GOOGLE_MAPS_APIKEY}
-              strokeColor="pink"
+              strokeColor="#45a8f2"
               strokeWidth={5}
             />
           )}
 
-          {originLocation?.latitude !== undefined ? (<Marker coordinate={originLocation} title={'Origin'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Origin'} />)}
-          {destinationLocation?.latitude !== undefined ? (<Marker coordinate={destinationLocation} title={'Destination'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Destination'} />)}
+          {originLocation?.latitude !== undefined ? (<Marker coordinate={originLocation} title={'Origine'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Origin'} />)}
+          {destinationLocation?.latitude !== undefined ? (<Marker coordinate={destinationLocation} title={'Destinatie'} />) : (<Marker coordinate={{ latitude: 0, longitude: 0 }} title={'Destinatie'} />)}
         </MapView>
         <Pressable
           onPress={() => console.warn('Balance')}

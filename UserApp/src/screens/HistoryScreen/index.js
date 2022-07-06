@@ -26,21 +26,6 @@ const HistoryScreen = (props) => {
     fetchOrders();
   }, []);
 
-
-  // const dateConstruct = () => {
-  //   orders?.map((order, i) => {
-  //     console.log("DATA - day ", order.createdAt.slice(8, 10));
-  //     console.log("DATA - month ", order.createdAt.slice(5, 7));
-  //     console.log("DATA - year ", order.createdAt.slice(0, 4))
-  //     console.log("HOUR ", order.createdAt.slice(11, 16))
-  //   })
-  // }
-
-  // useEffect(() => {
-  //   dateConstruct();
-  // });
-
-
   return (
     <View style={styles.container}>
       <Text style={styles.istoricTitle}> Istoric curse </Text>

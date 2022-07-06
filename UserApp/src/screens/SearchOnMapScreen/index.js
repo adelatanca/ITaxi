@@ -31,10 +31,7 @@ const SearchOnMapScreen = () => {
     };
 
     const onChangeValue = region => {
-
-        // alert(JSON.stringify(region))
         setRegion(region);
-        //  console.log("THEREGION ", region)
     }
 
 
@@ -52,7 +49,6 @@ const SearchOnMapScreen = () => {
                 const responseAdd = responseJson.results.map(
                     address => address.formatted_address,
                 );
-                //   console.log('FORMATAT ' + JSON.stringify(responseAdd[3]));
                 setDestinatie(responseAdd[3]);
             });
     };

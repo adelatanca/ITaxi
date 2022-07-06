@@ -46,9 +46,9 @@ const HistoryMap = ({ orderObject }) => {
                     }}
                 >
 
-                    <Marker coordinate={originLocation} title={"Origin"} pinColor="#108ef0" />
+                    <Marker coordinate={originLocation} title={"Origine"} pinColor="#108ef0" />
                     <Marker coordinate={stopLocation} title={"Oprire"} pinColor="#a54bffbd" />
-                    <Marker coordinate={destinationLocation} title={"Destination"} pinColor="#7110f0" />
+                    <Marker coordinate={destinationLocation} title={"Destinatie"} pinColor="#7110f0" />
                 </MapView>
             </View>
         );
@@ -68,8 +68,8 @@ const HistoryMap = ({ orderObject }) => {
                         longitudeDelta: 0.521,
                     }}
                 >
-                    <Marker coordinate={originLocation} title={"Origin"} pinColor="#108ef0" />
-                    <Marker coordinate={destinationLocation} title={"Destination"} pinColor="#7110f0" />
+                    <Marker coordinate={originLocation} title={"Origine"} pinColor="#108ef0" />
+                    <Marker coordinate={destinationLocation} title={"Destinatie"} pinColor="#7110f0" />
                 </MapView>
             </View>
         );
