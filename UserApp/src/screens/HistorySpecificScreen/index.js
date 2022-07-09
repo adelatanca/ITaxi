@@ -98,11 +98,6 @@ const HistorySpecificScreen = () => {
             }
         ]);
     }
-
-    // useEffect(() => {
-    //     console.log(rating);
-    // }, [rating]);
-
     const renderModalData = () => {
         if (modalVisible) {
             return (
