@@ -1,0 +1,127 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public }
+} # FOR TESTING ONLY!
+schema {
+  query: Query
+  subscription: Subscription
+}
+type User
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read, create, delete, update] }
+      {
+        allow: owner
+        ownerField: "username"
+        operations: [read, create, delete, update]
+      }
+      {
+        allow: groups
+        groups: ["Admin"]
+        operations: [read, create, delete, update]
+      }
+    ]
+  ) {
+  id: ID!
+  username: String!
+  email: String!
+  phoneNumber: String!
+
+  profilePicture: String
+
+  reviewNumbers: Float
+  reviewAmount: Float
+
+  orders: [Order] @hasMany
+  car: Car
+}
+
+type Car
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read, create, delete, update] }
+      {
+        allow: owner
+        ownerField: "username"
+        operations: [read, create, delete, update]
+      }
+      {
+        allow: groups
+        groups: ["Admin"]
+        operations: [read, create, delete, update]
+      }
+    ]
+  ) {
+  id: ID!
+  type: String!
+  latitude: Float
+  longitude: Float
+  heading: Float
+  carNumber: String
+  isActive: Boolean
+
+  orders: [Order] @hasMany
+
+  userId: ID! @index(name: "byUser")
+  user: User @hasOne
+}
+
+type Order
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read, create, delete, update] }
+      {
+        allow: owner
+        ownerField: "username"
+        operations: [read, create, delete, update]
+      }
+      {
+        allow: groups
+        groups: ["Admin"]
+        operations: [read, create, delete, update]
+      }
+    ]
+  ) {
+  id: ID!
+  createdAt: String!
+
+  type: String!
+  status: String
+
+  originName: String
+
+  originLatitude: Float!
+  originLongitude: Float!
+
+  destLatitude: Float!
+  destLongitude: Float!
+
+  destinationName: String
+
+  stopLatitude: Float!
+  stopLongitude: Float!
+
+  stopName: String
+
+  duration: Float
+
+  pret: Float
+
+  paymentMethod: String
+
+  hasPromotion: String
+
+  userId: ID! @index(name: "byUser")
+  user: User @hasOne
+
+  carId: ID! @index(name: "byCar", sortKeyFields: ["createdAt"])
+  car: Car @hasOne
+}
+type Subscription {
+  onOrderUpdated(id: ID!): Order @aws_subscribe(mutations: ["updateOrder"])
+  onCarUpdated(id: ID!): Car @aws_subscribe(mutations: ["updateCar"])
+}

@@ -12,9 +12,18 @@
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/netinfo": "^7.1.6",
+<<<<<<< HEAD
     "@react-navigation/drawer": "^6.1.8",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
+=======
+    "@react-native-picker/picker": "^2.2.1",
+    "@react-navigation/drawer": "^6.1.8",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/stack": "^6.0.11",
+    "@stripe/stripe-react-native": "0.2.2",
+    "@testing-library/react-native": "^9.1.0",
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
     "amazon-cognito-identity-js": "^5.2.3",
     "aws-amplify": "^4.3.11",
     "aws-amplify-react-native": "^6.0.2",
@@ -24,22 +33,51 @@
     "expo-splash-screen": "~0.13.5",
     "expo-status-bar": "~1.1.0",
     "expo-updates": "~0.10.13",
+    "fbjs": "^3.0.2",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-moment": "^1.1.1",
     "react-native": "0.64.3",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-google-places-autocomplete": "^2.4.1",
     "react-native-maps": "0.29.4",
     "react-native-maps-directions": "^1.8.0",
+    "react-native-paper": "^4.11.1",
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.1",
+    "react-native-star-rating": "^1.1.0",
+    "react-native-user-avatar": "^1.0.8",
     "react-native-vector-icons": "^9.0.0",
+<<<<<<< HEAD
     "react-native-web": "^0.17.5"
+=======
+    "react-native-web": "^0.17.5",
+    "react-rating-stars-component": "^2.2.0"
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "jest-expo": "^43.0.1"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "preset": "jest-expo",
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "!node_modules/react-runtime"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
 }

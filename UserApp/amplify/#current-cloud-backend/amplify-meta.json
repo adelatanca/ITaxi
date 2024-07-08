@@ -1,0 +1,117 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-itaxi-dev-212124-authRole",
+      "UnauthRoleArn": "arn:aws:iam::889382976572:role/amplify-itaxi-dev-212124-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::889382976572:role/amplify-itaxi-dev-212124-authRole",
+      "Region": "eu-west-3",
+      "DeploymentBucketName": "amplify-itaxi-dev-212124-deployment",
+      "UnauthRoleName": "amplify-itaxi-dev-212124-unauthRole",
+      "StackName": "amplify-itaxi-dev-212124",
+      "StackId": "arn:aws:cloudformation:eu-west-3:889382976572:stack/amplify-itaxi-dev-212124/aff24240-6037-11ec-86d6-06020862e834",
+      "AmplifyAppId": "d215uc9tep1cn1"
+    }
+  },
+  "auth": {
+    "itaxi7ff407ce7ff407ce": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "output": {
+        "UserPoolId": "eu-west-3_WKmApiQ4N",
+        "AppClientIDWeb": "5t68gkd4f2t0pn0ammiskdkktb",
+        "AppClientID": "6ug96cd66h87qra8lbfedepqq7",
+        "IdentityPoolId": "eu-west-3:71d69bc1-e4d9-4a7b-bcfc-94c39095c0f7",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-west-3:889382976572:userpool/eu-west-3_WKmApiQ4N",
+        "IdentityPoolName": "itaxi7ff407ce_identitypool_7ff407ce__dev",
+        "UserPoolName": "itaxi7ff407ce_userpool_7ff407ce"
+      },
+      "lastPushTimeStamp": "2022-03-27T18:00:44.700Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-itaxi-dev-212124-deployment/amplify-cfn-templates/auth/itaxi7ff407ce7ff407ce-cloudformation-template.json",
+        "logicalId": "authitaxi7ff407ce7ff407ce"
+      }
+    }
+  },
+  "function": {
+    "itaxi7ff407ce7ff407cePostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "output": {
+        "Region": "eu-west-3",
+        "Arn": "arn:aws:lambda:eu-west-3:889382976572:function:itaxi7ff407ce7ff407cePostConfirmation-dev",
+        "Name": "itaxi7ff407ce7ff407cePostConfirmation-dev",
+        "LambdaExecutionRole": "itaxi7ff407ce7ff407cePostConfirmation-dev"
+      },
+      "lastPushTimeStamp": "2022-03-27T18:00:44.703Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-itaxi-dev-212124-deployment/amplify-cfn-templates/function/itaxi7ff407ce7ff407cePostConfirmation-cloudformation-template.json",
+        "logicalId": "functionitaxi7ff407ce7ff407cePostConfirmation"
+      },
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-itaxi-dev-212124-deployment",
+        "s3Key": "amplify-builds/itaxi7ff407ce7ff407cePostConfirmation-472f583145626c58656e-build.zip"
+      },
+      "lastBuildTimeStamp": "2022-01-03T15:33:10.764Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-01-03T15:33:10.830Z",
+      "distZipFilename": "itaxi7ff407ce7ff407cePostConfirmation-472f583145626c58656e-build.zip",
+      "lastPushDirHash": "CsH1ZEvmaEclRDny4aFbbG/8Rj8="
+    }
+  },
+  "api": {
+    "itaxi": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authitaxi7ff407ce7ff407ce"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "API_KEY",
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 7,
+                "apiKeyExpirationDate": "2021-12-27T09:56:32.912Z",
+                "description": ""
+              }
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "juhpshjhnjaujf473obhloli2y",
+        "GraphQLAPIEndpointOutput": "https://l33oul33bfbmpif6vljxd3zjnq.appsync-api.eu-west-3.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-actc4hxyd5fvjh4mac5lnrz2qa"
+      },
+      "lastPushTimeStamp": "2022-03-27T18:00:46.903Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-itaxi-dev-212124-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiitaxi"
+      },
+      "lastPushDirHash": "TbR5TsaUydNamXr8ZafUAxkxQIY="
+    }
+  }
+}

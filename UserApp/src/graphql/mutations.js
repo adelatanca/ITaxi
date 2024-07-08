@@ -10,15 +10,38 @@ export const createUser = /* GraphQL */ `
       id
       username
       email
+<<<<<<< HEAD
+=======
+      phoneNumber
+      profilePicture
+      reviewNumbers
+      reviewAmount
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
+<<<<<<< HEAD
+=======
+          status
+          originName
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+<<<<<<< HEAD
+=======
+          destinationName
+          stopLatitude
+          stopLongitude
+          stopName
+          duration
+          pret
+          paymentMethod
+          hasPromotion
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -30,6 +53,37 @@ export const createUser = /* GraphQL */ `
         }
         nextToken
       }
+<<<<<<< HEAD
+=======
+      car {
+        id
+        type
+        latitude
+        longitude
+        heading
+        carNumber
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          phoneNumber
+          profilePicture
+          reviewNumbers
+          reviewAmount
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+        carUserId
+        username
+      }
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       createdAt
       updatedAt
     }
@@ -44,15 +98,38 @@ export const updateUser = /* GraphQL */ `
       id
       username
       email
+<<<<<<< HEAD
+=======
+      phoneNumber
+      profilePicture
+      reviewNumbers
+      reviewAmount
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
+<<<<<<< HEAD
+=======
+          status
+          originName
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+<<<<<<< HEAD
+=======
+          destinationName
+          stopLatitude
+          stopLongitude
+          stopName
+          duration
+          pret
+          paymentMethod
+          hasPromotion
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -64,6 +141,37 @@ export const updateUser = /* GraphQL */ `
         }
         nextToken
       }
+<<<<<<< HEAD
+=======
+      car {
+        id
+        type
+        latitude
+        longitude
+        heading
+        carNumber
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          phoneNumber
+          profilePicture
+          reviewNumbers
+          reviewAmount
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+        carUserId
+        username
+      }
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       createdAt
       updatedAt
     }
@@ -78,15 +186,38 @@ export const deleteUser = /* GraphQL */ `
       id
       username
       email
+<<<<<<< HEAD
+=======
+      phoneNumber
+      profilePicture
+      reviewNumbers
+      reviewAmount
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
+<<<<<<< HEAD
+=======
+          status
+          originName
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+<<<<<<< HEAD
+=======
+          destinationName
+          stopLatitude
+          stopLongitude
+          stopName
+          duration
+          pret
+          paymentMethod
+          hasPromotion
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -98,6 +229,37 @@ export const deleteUser = /* GraphQL */ `
         }
         nextToken
       }
+<<<<<<< HEAD
+=======
+      car {
+        id
+        type
+        latitude
+        longitude
+        heading
+        carNumber
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          phoneNumber
+          profilePicture
+          reviewNumbers
+          reviewAmount
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+        carUserId
+        username
+      }
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       createdAt
       updatedAt
     }
@@ -114,15 +276,36 @@ export const createCar = /* GraphQL */ `
       latitude
       longitude
       heading
+<<<<<<< HEAD
+=======
+      carNumber
+      isActive
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
+<<<<<<< HEAD
+=======
+          status
+          originName
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+<<<<<<< HEAD
+=======
+          destinationName
+          stopLatitude
+          stopLongitude
+          stopName
+          duration
+          pret
+          paymentMethod
+          hasPromotion
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -134,8 +317,43 @@ export const createCar = /* GraphQL */ `
         }
         nextToken
       }
+<<<<<<< HEAD
       createdAt
       updatedAt
+=======
+      userId
+      user {
+        id
+        username
+        email
+        phoneNumber
+        profilePicture
+        reviewNumbers
+        reviewAmount
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          carNumber
+          isActive
+          userId
+          createdAt
+          updatedAt
+          carUserId
+          username
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      carUserId
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       username
     }
   }
@@ -151,15 +369,36 @@ export const updateCar = /* GraphQL */ `
       latitude
       longitude
       heading
+<<<<<<< HEAD
+=======
+      carNumber
+      isActive
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
+<<<<<<< HEAD
+=======
+          status
+          originName
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+<<<<<<< HEAD
+=======
+          destinationName
+          stopLatitude
+          stopLongitude
+          stopName
+          duration
+          pret
+          paymentMethod
+          hasPromotion
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -171,8 +410,43 @@ export const updateCar = /* GraphQL */ `
         }
         nextToken
       }
+<<<<<<< HEAD
       createdAt
       updatedAt
+=======
+      userId
+      user {
+        id
+        username
+        email
+        phoneNumber
+        profilePicture
+        reviewNumbers
+        reviewAmount
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          carNumber
+          isActive
+          userId
+          createdAt
+          updatedAt
+          carUserId
+          username
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      carUserId
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       username
     }
   }
@@ -188,15 +462,36 @@ export const deleteCar = /* GraphQL */ `
       latitude
       longitude
       heading
+<<<<<<< HEAD
+=======
+      carNumber
+      isActive
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
+<<<<<<< HEAD
+=======
+          status
+          originName
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+<<<<<<< HEAD
+=======
+          destinationName
+          stopLatitude
+          stopLongitude
+          stopName
+          duration
+          pret
+          paymentMethod
+          hasPromotion
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -208,8 +503,43 @@ export const deleteCar = /* GraphQL */ `
         }
         nextToken
       }
+<<<<<<< HEAD
       createdAt
       updatedAt
+=======
+      userId
+      user {
+        id
+        username
+        email
+        phoneNumber
+        profilePicture
+        reviewNumbers
+        reviewAmount
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          carNumber
+          isActive
+          userId
+          createdAt
+          updatedAt
+          carUserId
+          username
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      carUserId
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       username
     }
   }
@@ -223,18 +553,58 @@ export const createOrder = /* GraphQL */ `
       id
       createdAt
       type
+<<<<<<< HEAD
+=======
+      status
+      originName
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       originLatitude
       originLongitude
       destLatitude
       destLongitude
+<<<<<<< HEAD
+=======
+      destinationName
+      stopLatitude
+      stopLongitude
+      stopName
+      duration
+      pret
+      paymentMethod
+      hasPromotion
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       userId
       user {
         id
         username
         email
+<<<<<<< HEAD
         orders {
           nextToken
         }
+=======
+        phoneNumber
+        profilePicture
+        reviewNumbers
+        reviewAmount
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          carNumber
+          isActive
+          userId
+          createdAt
+          updatedAt
+          carUserId
+          username
+        }
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         createdAt
         updatedAt
       }
@@ -245,11 +615,34 @@ export const createOrder = /* GraphQL */ `
         latitude
         longitude
         heading
+<<<<<<< HEAD
         orders {
           nextToken
         }
         createdAt
         updatedAt
+=======
+        carNumber
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          phoneNumber
+          profilePicture
+          reviewNumbers
+          reviewAmount
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+        carUserId
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         username
       }
       updatedAt
@@ -270,18 +663,58 @@ export const updateOrder = /* GraphQL */ `
       id
       createdAt
       type
+<<<<<<< HEAD
+=======
+      status
+      originName
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       originLatitude
       originLongitude
       destLatitude
       destLongitude
+<<<<<<< HEAD
+=======
+      destinationName
+      stopLatitude
+      stopLongitude
+      stopName
+      duration
+      pret
+      paymentMethod
+      hasPromotion
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       userId
       user {
         id
         username
         email
+<<<<<<< HEAD
         orders {
           nextToken
         }
+=======
+        phoneNumber
+        profilePicture
+        reviewNumbers
+        reviewAmount
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          carNumber
+          isActive
+          userId
+          createdAt
+          updatedAt
+          carUserId
+          username
+        }
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         createdAt
         updatedAt
       }
@@ -292,11 +725,34 @@ export const updateOrder = /* GraphQL */ `
         latitude
         longitude
         heading
+<<<<<<< HEAD
         orders {
           nextToken
         }
         createdAt
         updatedAt
+=======
+        carNumber
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          phoneNumber
+          profilePicture
+          reviewNumbers
+          reviewAmount
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+        carUserId
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         username
       }
       updatedAt
@@ -317,18 +773,58 @@ export const deleteOrder = /* GraphQL */ `
       id
       createdAt
       type
+<<<<<<< HEAD
+=======
+      status
+      originName
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       originLatitude
       originLongitude
       destLatitude
       destLongitude
+<<<<<<< HEAD
+=======
+      destinationName
+      stopLatitude
+      stopLongitude
+      stopName
+      duration
+      pret
+      paymentMethod
+      hasPromotion
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       userId
       user {
         id
         username
         email
+<<<<<<< HEAD
         orders {
           nextToken
         }
+=======
+        phoneNumber
+        profilePicture
+        reviewNumbers
+        reviewAmount
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          carNumber
+          isActive
+          userId
+          createdAt
+          updatedAt
+          carUserId
+          username
+        }
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         createdAt
         updatedAt
       }
@@ -339,11 +835,34 @@ export const deleteOrder = /* GraphQL */ `
         latitude
         longitude
         heading
+<<<<<<< HEAD
         orders {
           nextToken
         }
         createdAt
         updatedAt
+=======
+        carNumber
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          phoneNumber
+          profilePicture
+          reviewNumbers
+          reviewAmount
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+        carUserId
+>>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         username
       }
       updatedAt

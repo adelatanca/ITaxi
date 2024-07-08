@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "ITaxi",
+    "userInterfaceStyle": "automatic",
     "slug": "ITaxi",
     "version": "1.0.0",
     "assetBundlePatterns": [

@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 20,
+    borderRadius: 35,
   },
   image: {
     height: 70,
@@ -19,6 +20,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 18,
     marginBottom: 5,
+    color: "#45a8f2",
   },
   time: {
     color: "#5d5d5d",
@@ -26,13 +28,26 @@ const styles = StyleSheet.create({
   rightContainer: {
     width: 100,
     justifyContent: "flex-end",
-    flexDirection: "row",
+    flexDirection: "column",
   },
   price: {
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 15,
     marginLeft: 5,
   },
+  priceNoPromo: {
+    fontWeight: "bold",
+    fontSize: 15,
+    marginLeft: 22,
+    bottom: 20,
+  },
+  priceReduced: {
+    fontSize: 12,
+    left: 10,
+    color: "red",
+    textDecorationLine: 'line-through',
+    textDecorationStyle: 'solid',
+  }
 });
 
 export default styles;
