@@ -8,23 +8,27 @@ import { useNavigation } from "@react-navigation/native";
 
 const homePlace = {
   description: "Acasa",
-  geometry: { location: { latitude: 48.8152937, longitude: 2.4597668 } },
+  geometry: { location: { latitude: 47.093271, longitude: 21.9024223 } },
 };
 const workPlace = {
   description: "Job",
-  geometry: { location: { latitude: 48.8496818, longitude: 2.2940881 } },
+  geometry: { location: { latitude: 47.0606603, longitude: 21.9188051 } },
 };
 
 const DestinationSearch = (props) => {
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
+
   const navigation = useNavigation();
 
   const checkNavigation = () => {
     console.warn("checkNavigation is called");
     if (originPlace && destinationPlace) {
       console.warn("here");
-      navigation.navigate("SearchResults");
+      navigation.navigate("SearchResults", {
+        originPlace,
+        destinationPlace,
+      });
     }
   };
 
@@ -41,7 +45,7 @@ const DestinationSearch = (props) => {
         <GooglePlacesAutocomplete
           placeholder="Where from?"
           onPress={(data, details = null) => {
-            setOriginPlace({ data, details }, checkNavigation);
+            setOriginPlace({ data, details });
             console.log(data, details);
           }}
           suppressDefaultStyles
@@ -67,7 +71,7 @@ const DestinationSearch = (props) => {
         <GooglePlacesAutocomplete
           placeholder="Where to?"
           onPress={(data, details = null) => {
-            setDestinationPlace({ data, details }, checkNavigation);
+            setDestinationPlace({ data, details });
             console.log(data, details);
           }}
           suppressDefaultStyles

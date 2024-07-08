@@ -5,6 +5,7 @@ import RootNavigator from "./src/navigation/Root";
 import SearchResults from "./src/screens/SearchResults";
 import HomeScreen from "./src/screens/HomeScreen";
 import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
 
 // import Geolocation from "@react-native-community/geolocation";
 // import { PermissionsAndroid, Platform } from "react-native";
@@ -44,11 +45,5 @@ export default function App() {
   //     Geolocation.requestForegroundPermissionsAsync();
   //   }
   // }, []);
-  return (
-    <View>
-      <RootNavigator />
-      {/* <HomeScreen /> */}
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <RootNavigator />;
 }
