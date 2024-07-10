@@ -1,27 +1,9 @@
-<<<<<<< HEAD
-import React from "react";
-=======
 import React, { useState } from "react";
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 import { View, Text, Pressable } from "react-native";
 import styles from "./styles";
 import ITaxiTypeRow from "..//ITaxiTypeRow";
 import typesData from "../../assets/data/types";
 
-<<<<<<< HEAD
-const ITaxiTypes = ({ typeState, onSubmit }) => {
-  // console.log("Type state " + props.typeState);
-  const [selectedType, setSelectedType] = typeState;
-  //    isSelected={type.type === selectedType}
-  //         onPress={() => setSelectedType(type.type)}
-
-  const confirm = () => {
-    console.warn("confirm");
-  };
-
-  return (
-    <View>
-=======
 const ITaxiTypes = ({
   typeState,
   onSubmit,
@@ -64,15 +46,10 @@ const ITaxiTypes = ({
 
   return (
     <View style={styles.container}>
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       {typesData.map((type, i) => (
         <ITaxiTypeRow
           type={type}
           key={type.id}
-<<<<<<< HEAD
-          isSelected={type.type === selectedType}
-          onPress={() => setSelectedType(type.type)}
-=======
           hours={hours}
           minutes={minutes}
           km={km}
@@ -87,23 +64,12 @@ const ITaxiTypes = ({
               setSelectedPrice(pricePromo);
             }
           }}
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         />
       ))}
 
       <Pressable
         onPress={onSubmit}
         style={{
-<<<<<<< HEAD
-          backgroundColor: "black",
-          padding: 10,
-          margin: 10,
-          alignItems: "center",
-        }}
-      >
-        <Text style={{ color: "white", fontWeight: "bold" }}>
-          Confirm ITaxi
-=======
           backgroundColor: "#45a8f2",
           padding: 10,
           margin: 10,
@@ -120,7 +86,6 @@ const ITaxiTypes = ({
       >
         <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
           Confirmă ITaxi
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         </Text>
       </Pressable>
     </View>

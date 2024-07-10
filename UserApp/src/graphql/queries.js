@@ -7,29 +7,21 @@ export const getUser = /* GraphQL */ `
       id
       username
       email
-<<<<<<< HEAD
-=======
       phoneNumber
       profilePicture
       reviewNumbers
       reviewAmount
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
-<<<<<<< HEAD
-=======
           status
           originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
-<<<<<<< HEAD
-=======
           destinationName
           stopLatitude
           stopLongitude
@@ -38,7 +30,6 @@ export const getUser = /* GraphQL */ `
           pret
           paymentMethod
           hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -50,8 +41,6 @@ export const getUser = /* GraphQL */ `
         }
         nextToken
       }
-<<<<<<< HEAD
-=======
       car {
         id
         type
@@ -80,7 +69,6 @@ export const getUser = /* GraphQL */ `
         carUserId
         username
       }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       createdAt
       updatedAt
     }
@@ -97,11 +85,6 @@ export const listUsers = /* GraphQL */ `
         id
         username
         email
-<<<<<<< HEAD
-        orders {
-          nextToken
-        }
-=======
         phoneNumber
         profilePicture
         reviewNumbers
@@ -123,7 +106,6 @@ export const listUsers = /* GraphQL */ `
           carUserId
           username
         }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         createdAt
         updatedAt
       }
@@ -139,27 +121,19 @@ export const getCar = /* GraphQL */ `
       latitude
       longitude
       heading
-<<<<<<< HEAD
-=======
       carNumber
       isActive
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
-<<<<<<< HEAD
-=======
           status
           originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
-<<<<<<< HEAD
-=======
           destinationName
           stopLatitude
           stopLongitude
@@ -168,7 +142,6 @@ export const getCar = /* GraphQL */ `
           pret
           paymentMethod
           hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -180,10 +153,6 @@ export const getCar = /* GraphQL */ `
         }
         nextToken
       }
-<<<<<<< HEAD
-      createdAt
-      updatedAt
-=======
       userId
       user {
         id
@@ -216,7 +185,6 @@ export const getCar = /* GraphQL */ `
       createdAt
       updatedAt
       carUserId
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       username
     }
   }
@@ -234,13 +202,6 @@ export const listCars = /* GraphQL */ `
         latitude
         longitude
         heading
-<<<<<<< HEAD
-        orders {
-          nextToken
-        }
-        createdAt
-        updatedAt
-=======
         carNumber
         isActive
         orders {
@@ -261,7 +222,6 @@ export const listCars = /* GraphQL */ `
         createdAt
         updatedAt
         carUserId
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         username
       }
       nextToken
@@ -274,17 +234,12 @@ export const getOrder = /* GraphQL */ `
       id
       createdAt
       type
-<<<<<<< HEAD
-=======
       status
       originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       originLatitude
       originLongitude
       destLatitude
       destLongitude
-<<<<<<< HEAD
-=======
       destinationName
       stopLatitude
       stopLongitude
@@ -293,17 +248,11 @@ export const getOrder = /* GraphQL */ `
       pret
       paymentMethod
       hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       userId
       user {
         id
         username
         email
-<<<<<<< HEAD
-        orders {
-          nextToken
-        }
-=======
         phoneNumber
         profilePicture
         reviewNumbers
@@ -325,7 +274,6 @@ export const getOrder = /* GraphQL */ `
           carUserId
           username
         }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         createdAt
         updatedAt
       }
@@ -336,13 +284,6 @@ export const getOrder = /* GraphQL */ `
         latitude
         longitude
         heading
-<<<<<<< HEAD
-        orders {
-          nextToken
-        }
-        createdAt
-        updatedAt
-=======
         carNumber
         isActive
         orders {
@@ -363,7 +304,6 @@ export const getOrder = /* GraphQL */ `
         createdAt
         updatedAt
         carUserId
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         username
       }
       updatedAt
@@ -386,17 +326,12 @@ export const listOrders = /* GraphQL */ `
         id
         createdAt
         type
-<<<<<<< HEAD
-=======
         status
         originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         originLatitude
         originLongitude
         destLatitude
         destLongitude
-<<<<<<< HEAD
-=======
         destinationName
         stopLatitude
         stopLongitude
@@ -405,19 +340,15 @@ export const listOrders = /* GraphQL */ `
         pret
         paymentMethod
         hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         userId
         user {
           id
           username
           email
-<<<<<<< HEAD
-=======
           phoneNumber
           profilePicture
           reviewNumbers
           reviewAmount
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           createdAt
           updatedAt
         }
@@ -428,17 +359,12 @@ export const listOrders = /* GraphQL */ `
           latitude
           longitude
           heading
-<<<<<<< HEAD
-          createdAt
-          updatedAt
-=======
           carNumber
           isActive
           userId
           createdAt
           updatedAt
           carUserId
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           username
         }
         updatedAt

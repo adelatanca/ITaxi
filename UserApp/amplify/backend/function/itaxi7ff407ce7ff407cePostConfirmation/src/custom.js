@@ -18,10 +18,7 @@ exports.handler = async (event, context) => {
         email: { S: event.request.userAttributes.email },
         createdAt: { S: date.toISOString() },
         updatedAt: { S: date.toISOString() },
-<<<<<<< HEAD
-=======
         phoneNumber: { S: event.request.userAttributes.phone_number },
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       },
       TableName: process.env.USERTABLE,
     };

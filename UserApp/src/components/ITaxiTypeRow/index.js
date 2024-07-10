@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { View, Image, Text, Pressable } from "react-native";
-import styles from "./styles";
-
-import Ionicons from "react-native-vector-icons/Ionicons";
-
-const ITaxiTypeRow = (props) => {
-  const { type, onPress, isSelected } = props;
-=======
 import React, { useEffect } from "react";
 import { View, Image, Text, Pressable } from "react-native";
 import styles from "./styles";
@@ -16,47 +6,17 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 const ITaxiTypeRow = (props) => {
   const { type, onPress, isSelected, hours, minutes, km, hasPromotion } = props;
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
   const getImage = () => {
     if (type.type === "ITaxiX") {
       return require(`../../assets/images/UberX.png`);
     }
-<<<<<<< HEAD
-    if (type.type === "Comfort") {
-=======
     if (type.type === "Confort") {
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       return require(`../../assets/images/Mercedes.png`);
     }
     if (type.type === "ITaxiXL") {
       return require(`../../assets/images/UberXL.png`);
     }
   };
-<<<<<<< HEAD
-  return (
-    <Pressable
-      onPress={onPress}
-      style={[
-        styles.container,
-        { backgroundColor: isSelected ? "#efefef" : "white" },
-      ]}
-    >
-      <Image style={styles.image} source={getImage()} />
-      <View style={styles.middleContainer}>
-        <Text style={styles.type}>
-          {type.type} <Ionicons name={"person"} size={16} />3
-        </Text>
-
-        <Text style={styles.time}>9:03PM drop off </Text>
-      </View>
-
-      <View style={styles.rightContainer}>
-        <Ionicons name={"pricetag"} size={18} color={"#47d742"} />
-        <Text style={styles.price}>est. ${type.price} </Text>
-      </View>
-    </Pressable>
-  );
-=======
 
   if (props.km == null) {
     // console.log("props null");
@@ -172,7 +132,6 @@ const ITaxiTypeRow = (props) => {
     );
   }
 
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 };
 
 export default ITaxiTypeRow;

@@ -1,10 +1,4 @@
 {
-<<<<<<< HEAD
-  "providers": [
-    "awscloudformation"
-  ],
-=======
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
   "projectName": "ITaxi",
   "version": "3.1",
   "frontend": "javascript",
@@ -16,12 +10,8 @@
       "BuildCommand": "npm run-script build",
       "StartCommand": "npm run-script start"
     }
-<<<<<<< HEAD
-  }
-=======
   },
   "providers": [
     "awscloudformation"
   ]
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 }

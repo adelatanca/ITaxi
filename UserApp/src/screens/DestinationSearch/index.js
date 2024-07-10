@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react";
-import { View, Text, TextInput, SafeAreaView } from "react-native";
-=======
 import React, { useState, useEffect, useRef } from "react";
 import {
   View,
@@ -9,24 +5,16 @@ import {
   SafeAreaView,
   Pressable,
 } from "react-native";
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import styles from "./styles";
 import PlaceRow from "./PlaceRow.js";
 import * as Location from "expo-location";
-<<<<<<< HEAD
-import { useNavigation } from "@react-navigation/native";
-
-const homePlace = {
-  description: "Acasa",
-=======
 import { useRoute, useNavigation } from "@react-navigation/native";
 import Entypo from "react-native-vector-icons/Entypo";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
 const homePlace = {
   description: "Acasă",
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
   geometry: { location: { lat: 47.093271, lng: 21.9024223 } },
 };
 const workPlace = {
@@ -34,11 +22,6 @@ const workPlace = {
   geometry: { location: { lat: 47.0606603, lng: 21.9188051 } },
 };
 
-<<<<<<< HEAD
-const DestinationSearch = (props) => {
-  const [originPlace, setOriginPlace] = useState(null);
-  const [destinationPlace, setDestinationPlace] = useState(null);
-=======
 const latitudeDelta = 0.025;
 const longitudeDelta = 0.025;
 
@@ -69,17 +52,10 @@ const DestinationSearch = (props) => {
     }, 99999999999999999999999999999)
     return () => clearInterval(interval)
   });
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 
   const navigation = useNavigation();
 
   const checkNavigation = () => {
-<<<<<<< HEAD
-    if (originPlace && destinationPlace) {
-      navigation.navigate("SearchResults", {
-        originPlace,
-        destinationPlace,
-=======
     let hasPromotion = false;
     if (originPlace && destinationPlace && !addStopStation) {
       setStopPlace(false);
@@ -97,16 +73,10 @@ const DestinationSearch = (props) => {
         stopPlace,
         destinatie,
         hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       });
     }
   };
 
-<<<<<<< HEAD
-  useEffect(() => {
-    checkNavigation();
-  }, [originPlace, destinationPlace]);
-=======
   const goToHome = () => {
     navigation.navigate("Home");
   };
@@ -127,71 +97,10 @@ const DestinationSearch = (props) => {
     checkNavigation();
   }, [originPlace, destinationPlace, stopPlace]);
 
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 
   Location.installWebGeolocationPolyfill();
   navigator.geolocation.getCurrentPosition();
 
-<<<<<<< HEAD
-  return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <GooglePlacesAutocomplete
-          placeholder="Where from?"
-          onPress={(data, details = null) => {
-            setOriginPlace({ data, details });
-            console.log(data, details);
-          }}
-          suppressDefaultStyles
-          currentLocation={true}
-          currentLocationLabel="Locatia curenta"
-          styles={{
-            textInput: styles.textInput,
-            container: styles.autocompleteContainer,
-            listView: styles.listView,
-            separator: styles.separator,
-          }}
-          enablePoweredByContainer={false}
-          fetchDetails
-          query={{
-            key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
-            language: "en",
-          }}
-          renderRow={(data) => <PlaceRow data={data} />}
-          renderDescription={(data) => data.description || data.vecinity}
-          predefinedPlaces={[homePlace, workPlace]}
-        />
-
-        <GooglePlacesAutocomplete
-          placeholder="Where to?"
-          onPress={(data, details = null) => {
-            setDestinationPlace({ data, details });
-            console.log(data, details);
-          }}
-          suppressDefaultStyles
-          styles={{
-            textInput: styles.textInput,
-            container: {
-              ...styles.autocompleteContainer,
-              top: 55,
-            },
-            separator: styles.separator,
-          }}
-          enablePoweredByContainer={false}
-          fetchDetails
-          query={{
-            key: "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk",
-            language: "en",
-          }}
-          renderRow={(data) => <PlaceRow data={data} />}
-        />
-        <View style={styles.circle} />
-        <View style={styles.line} />
-        <View style={styles.square} />
-      </View>
-    </SafeAreaView>
-  );
-=======
 
   if (addStopStation) {
     return (
@@ -386,7 +295,6 @@ const DestinationSearch = (props) => {
       </SafeAreaView>
     );
   }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 };
 
 export default DestinationSearch;

@@ -1,73 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import { View, Text, Dimensions, Alert } from "react-native";
-// import styles from "./styles";
-import ITaxiTypes from "../../components/ITaxiTypes";
-import RouteMap from "../../components/RouteMap";
-
-import { useRoute, useNavigation } from "@react-navigation/native";
-import { API, graphqlOperation, Auth } from "aws-amplify";
-import { createOrder } from "../../graphql/mutations";
-
-const SearchResult = (props) => {
-  const typeState = useState({});
-
-  const route = useRoute();
-  const navigation = useNavigation();
-
-  console.log(route.params);
-
-  const { originPlace, destinationPlace } = route.params;
-
-  const onSubmit = async () => {
-    const [type] = typeState;
-    if (!type) {
-      return;
-    }
-
-    try {
-      const userInfo = await Auth.currentAuthenticatedUser();
-
-      const date = new Date();
-
-      const input = {
-        createdAt: date.toISOString(),
-        type,
-        originLatitude: originPlace.details.geometry.location.lat,
-        originLongitude: originPlace.details.geometry.location.lng,
-
-        destLatitude: destinationPlace.details.geometry.location.lat,
-        destLongitude: destinationPlace.details.geometry.location.lng,
-
-        userId: userInfo.attributes.sub,
-        carId: "1",
-      };
-
-      const response = await API.graphql(
-        graphqlOperation(createOrder, {
-          input: input,
-        })
-      );
-      console.log(response);
-      Alert.alert("Yeey!", "Your order has been placed!", [
-        {
-          text: "Go home",
-          onPress: () => navigation.navigate("Home"),
-        },
-      ]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  return (
-    <View style={{ display: "flex", justifyContent: "space-between" }}>
-      <View style={{ height: Dimensions.get("window").height - 500 }}>
-        <RouteMap origin={originPlace} destination={destinationPlace} />
-      </View>
-      <View style={{ height: 400 }}>
-        <ITaxiTypes typeState={typeState} onSubmit={onSubmit} />
-=======
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -87,7 +17,7 @@ import { createOrder } from "../../graphql/mutations";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-const GOOGLE_MAPS_APIKEY = "AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw";
+const GOOGLE_MAPS_APIKEY = "test";
 
 const SearchResult = (props) => {
   const typeState = useState({});
@@ -290,7 +220,6 @@ const SearchResult = (props) => {
           km={km}
           hasPromotion={hasPromotion}
         />
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       </View>
     </View>
   );

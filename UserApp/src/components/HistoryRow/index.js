@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Image, Appearance, useColorScheme, Text, View, Pressable } from "react-native";
+import {  useColorScheme, Text, View, Pressable } from "react-native";
 import styles from './styles';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import { Auth, API, graphqlOperation } from 'aws-amplify';
-import { listOrders, listUsers } from '../../graphql/queries';
-
+import { listOrders } from '../../graphql/queries';
 import { useNavigation } from '@react-navigation/native';
-const GOOGLE_MAPS_APIKEY = 'AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw';
+
 
 const HistoryRow = ({ orderObject, orderPrice, orderDay, orderMonth, orderHour, orderYear, destination }) => {
     const [orders, setOrders] = useState(null);

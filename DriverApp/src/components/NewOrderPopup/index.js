@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, Pressable, Image } from 'react-native';
-import { Entypo } from '@expo/vector-icons';
+import React, {useState, useEffect} from 'react';
+import {View, Text, Pressable} from 'react-native';
+import {Entypo} from '@expo/vector-icons';
 import styles from './styles.js';
 
-const GOOGLE_MAPS_APIKEY = 'AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw';
-
-const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
+const NewOrderPopup = ({newOrder, onAccept, onDecline, client}) => {
   const [pornire, setPornire] = useState(null);
   const [destinatie, setDestinatie] = useState(null);
   const [oprire, setOprire] = useState(null);
@@ -36,23 +34,46 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
           <View style={styles.info}>
             <View style={styles.line}>
               <Entypo name={'phone'} size={18} color={'white'} />
-              <Text style={styles.phone} numberOfLines={1} ellipsizeMode='tail'>  035353443</Text>
+              <Text style={styles.phone} numberOfLines={1} ellipsizeMode="tail">
+                {' '}
+                035353443
+              </Text>
             </View>
             <View style={styles.line}>
               <Entypo name={'location-pin'} size={20} color={'white'} />
-              <Text style={styles.pornire} numberOfLines={1} ellipsizeMode='tail'> {newOrder.originName}</Text>
+              <Text
+                style={styles.pornire}
+                numberOfLines={1}
+                ellipsizeMode="tail">
+                {' '}
+                {newOrder.originName}
+              </Text>
             </View>
-            <View style={styles.line}><Entypo name={'time-slot'} size={18} color={'white'} /><Text style={styles.oprire} numberOfLines={1} ellipsizeMode='tail'> {newOrder.stopName}</Text></View>
+            <View style={styles.line}>
+              <Entypo name={'time-slot'} size={18} color={'white'} />
+              <Text
+                style={styles.oprire}
+                numberOfLines={1}
+                ellipsizeMode="tail">
+                {' '}
+                {newOrder.stopName}
+              </Text>
+            </View>
             <View style={styles.line}>
               <Entypo name={'location'} size={18} color={'white'} />
-              <Text style={styles.destinatie} numberOfLines={1} ellipsizeMode='tail'> {newOrder.destinationName}</Text>
+              <Text
+                style={styles.destinatie}
+                numberOfLines={1}
+                ellipsizeMode="tail">
+                {' '}
+                {newOrder.destinationName}
+              </Text>
             </View>
           </View>
         </Pressable>
       </View>
     );
-  }
-  else if (isStop == null) {
+  } else if (isStop == null) {
     return (
       <View style={styles.root}>
         <Pressable onPress={onDecline} style={styles.declineButton}>
@@ -68,15 +89,30 @@ const NewOrderPopup = ({ newOrder, onAccept, onDecline, client }) => {
           <View style={styles.info}>
             <View style={styles.line}>
               <Entypo name={'phone'} size={18} color={'white'} />
-              <Text style={styles.phone} numberOfLines={1} ellipsizeMode='tail'>  035353443</Text>
+              <Text style={styles.phone} numberOfLines={1} ellipsizeMode="tail">
+                {' '}
+                035353443
+              </Text>
             </View>
             <View style={styles.line}>
               <Entypo name={'location-pin'} size={20} color={'white'} />
-              <Text style={styles.pornire} numberOfLines={1} ellipsizeMode='tail'> {newOrder.originName}</Text>
+              <Text
+                style={styles.pornire}
+                numberOfLines={1}
+                ellipsizeMode="tail">
+                {' '}
+                {newOrder.originName}
+              </Text>
             </View>
             <View style={styles.line}>
               <Entypo name={'location'} size={18} color={'white'} />
-              <Text style={styles.destinatie} numberOfLines={1} ellipsizeMode='tail'> {newOrder.destinationName}</Text>
+              <Text
+                style={styles.destinatie}
+                numberOfLines={1}
+                ellipsizeMode="tail">
+                {' '}
+                {newOrder.destinationName}
+              </Text>
             </View>
           </View>
         </Pressable>

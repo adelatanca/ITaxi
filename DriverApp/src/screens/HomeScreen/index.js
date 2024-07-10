@@ -26,9 +26,8 @@ import { listOrders, listUsers } from '../../graphql/queries';
 import { updateCar, updateOrder } from '../../graphql/mutations';
 import mapDarkStyle from '../../assets/data/mapDarkStyle';
 import { useNavigation } from '@react-navigation/native';
-import UserAvatar from 'react-native-user-avatar';
 import StarRating from 'react-native-star-rating';
-const GOOGLE_MAPS_APIKEY = 'AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw';
+const GOOGLE_MAPS_APIKEY = 'test';
 
 const HomeScreen = () => {
   const [reviewUser, setReviewUser] = useState(null);

@@ -3,13 +3,10 @@
 input AMPLIFY {
   globalAuthRule: AuthRule = { allow: public }
 } # FOR TESTING ONLY!
-<<<<<<< HEAD
-=======
 schema {
   query: Query
   subscription: Subscription
 }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 type User
   @model
   @auth(
@@ -20,23 +17,16 @@ type User
         ownerField: "username"
         operations: [read, create, delete, update]
       }
-<<<<<<< HEAD
-=======
       {
         allow: groups
         groups: ["Admin"]
         operations: [read, create, delete, update]
       }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
     ]
   ) {
   id: ID!
   username: String!
   email: String!
-<<<<<<< HEAD
-
-  orders: [Order] @hasMany
-=======
   phoneNumber: String!
 
   profilePicture: String
@@ -46,7 +36,6 @@ type User
 
   orders: [Order] @hasMany
   car: Car
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 }
 
 type Car
@@ -59,14 +48,11 @@ type Car
         ownerField: "username"
         operations: [read, create, delete, update]
       }
-<<<<<<< HEAD
-=======
       {
         allow: groups
         groups: ["Admin"]
         operations: [read, create, delete, update]
       }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
     ]
   ) {
   id: ID!
@@ -74,10 +60,6 @@ type Car
   latitude: Float
   longitude: Float
   heading: Float
-<<<<<<< HEAD
-
-  orders: [Order] @hasMany
-=======
   carNumber: String
   isActive: Boolean
 
@@ -85,7 +67,6 @@ type Car
 
   userId: ID! @index(name: "byUser")
   user: User @hasOne
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 }
 
 type Order
@@ -98,14 +79,6 @@ type Order
         ownerField: "username"
         operations: [read, create, delete, update]
       }
-<<<<<<< HEAD
-    ]
-  ) {
-  id: ID!
-  createdAt: ID!
-
-  type: String!
-=======
       {
         allow: groups
         groups: ["Admin"]
@@ -120,7 +93,6 @@ type Order
   status: String
 
   originName: String
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 
   originLatitude: Float!
   originLongitude: Float!
@@ -128,8 +100,6 @@ type Order
   destLatitude: Float!
   destLongitude: Float!
 
-<<<<<<< HEAD
-=======
   destinationName: String
 
   stopLatitude: Float!
@@ -145,17 +115,13 @@ type Order
 
   hasPromotion: String
 
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
   userId: ID! @index(name: "byUser")
   user: User @hasOne
 
   carId: ID! @index(name: "byCar", sortKeyFields: ["createdAt"])
   car: Car @hasOne
 }
-<<<<<<< HEAD
-=======
 type Subscription {
   onOrderUpdated(id: ID!): Order @aws_subscribe(mutations: ["updateOrder"])
   onCarUpdated(id: ID!): Car @aws_subscribe(mutations: ["updateCar"])
 }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee

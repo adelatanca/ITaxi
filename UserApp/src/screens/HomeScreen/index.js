@@ -1,21 +1,4 @@
 import React, { useEffect } from "react";
-<<<<<<< HEAD
-import { View, Text, Dimensions } from "react-native";
-import styles from "./styles";
-import HomeMap from "../../components/HomeMap";
-import HomeSearch from "../../components/HomeSearch";
-import CovidMessage from "../../components/CovidMessage";
-import ITaxiTypes from "../../components/ITaxiTypes";
-
-const HomeScreen = ({ navigation }) => {
-  useEffect(() => {
-    console.log(navigation);
-  }, []);
-  return (
-    <View style={{ height: Dimensions.get("window").height - 400 }}>
-      <HomeMap />
-      <CovidMessage />
-=======
 import {
   View,
   Text,
@@ -83,7 +66,6 @@ const HomeScreen = () => {
           keyExtractor={(item) => item.id}
         />
       </View>
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       <HomeSearch />
     </View>
   );

@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-// import styles from "./styles";
-import MapViewDirections from "react-native-maps-directions";
-import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
-
-const GOOGLE_MAPS_APIKEY = "AIzaSyCHPuKJ6RU3VXX2JIpfwwzSP_yLuAco4vk";
-
-const RouteMap = ({ origin, destination }) => {
-=======
 import React, { useState, useEffect } from "react";
 // import styles from "./styles";
 import MapViewDirections from "react-native-maps-directions";
@@ -17,48 +7,17 @@ import { Appearance, useColorScheme, Image } from "react-native";
 import mapDarkStyle from "../../assets/data/mapDarkStyle";
 import { API, graphqlOperation } from "aws-amplify";
 import { listCars } from "../../graphql/queries";
-const GOOGLE_MAPS_APIKEY = "AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw";
+const GOOGLE_MAPS_APIKEY = "test";
 
 const RouteMap = ({ origin, destination, passTime, passKm, stop }) => {
   const [cars, setCars] = useState([]);
 
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
   const originLocation = {
     latitude: origin.details.geometry.location.lat,
     longitude: origin.details.geometry.location.lng,
   };
 
   const destinationLocation = {
-<<<<<<< HEAD
-    latitude: destination.details.geometry.location.lat,
-    longitude: destination.details.geometry.location.lng,
-  };
-
-  return (
-    <MapView
-      style={{ height: 450, width: "100%" }}
-      provider={PROVIDER_GOOGLE}
-      showsUserLocation={true}
-      initialRegion={{
-        latitude: 47.0416,
-        longitude: 21.9159,
-        latitudeDelta: 0.0222,
-        longitudeDelta: 0.0121,
-      }}
-    >
-      <MapViewDirections
-        origin={originLocation}
-        destination={destinationLocation}
-        apikey={GOOGLE_MAPS_APIKEY}
-        strokeColor="black"
-        strokeWidth={5}
-      />
-
-      <Marker coordinate={originLocation} title={"Origin"} />
-      <Marker coordinate={destinationLocation} title={"Destination"} />
-    </MapView>
-  );
-=======
     latitude: destination?.details?.geometry?.location?.lat || destination?.latitude,
     longitude: destination?.details?.geometry?.location?.lng || destination?.longitude,
   };
@@ -249,7 +208,6 @@ const RouteMap = ({ origin, destination, passTime, passKm, stop }) => {
       </MapView>
     );
   }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
 };
 
 export default RouteMap;

@@ -1,14 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-<<<<<<< HEAD
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser($username: String) {
-    onCreateUser(username: $username) {
-      id
-      username
-      email
-=======
 export const onOrderUpdated = /* GraphQL */ `
   subscription OnOrderUpdated($id: ID!) {
     onOrderUpdated(id: $id) {
@@ -106,23 +98,17 @@ export const onCarUpdated = /* GraphQL */ `
       heading
       carNumber
       isActive
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
-<<<<<<< HEAD
-=======
           status
           originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
-<<<<<<< HEAD
-=======
           destinationName
           stopLatitude
           stopLongitude
@@ -131,7 +117,6 @@ export const onCarUpdated = /* GraphQL */ `
           pret
           paymentMethod
           hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -143,8 +128,6 @@ export const onCarUpdated = /* GraphQL */ `
         }
         nextToken
       }
-<<<<<<< HEAD
-=======
       userId
       user {
         id
@@ -249,7 +232,6 @@ export const onCreateUser = /* GraphQL */ `
         carUserId
         username
       }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       createdAt
       updatedAt
     }
@@ -261,29 +243,21 @@ export const onUpdateUser = /* GraphQL */ `
       id
       username
       email
-<<<<<<< HEAD
-=======
       phoneNumber
       profilePicture
       reviewNumbers
       reviewAmount
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
-<<<<<<< HEAD
-=======
           status
           originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
-<<<<<<< HEAD
-=======
           destinationName
           stopLatitude
           stopLongitude
@@ -292,7 +266,6 @@ export const onUpdateUser = /* GraphQL */ `
           pret
           paymentMethod
           hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -304,8 +277,6 @@ export const onUpdateUser = /* GraphQL */ `
         }
         nextToken
       }
-<<<<<<< HEAD
-=======
       car {
         id
         type
@@ -334,7 +305,6 @@ export const onUpdateUser = /* GraphQL */ `
         carUserId
         username
       }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       createdAt
       updatedAt
     }
@@ -346,29 +316,21 @@ export const onDeleteUser = /* GraphQL */ `
       id
       username
       email
-<<<<<<< HEAD
-=======
       phoneNumber
       profilePicture
       reviewNumbers
       reviewAmount
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
-<<<<<<< HEAD
-=======
           status
           originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
-<<<<<<< HEAD
-=======
           destinationName
           stopLatitude
           stopLongitude
@@ -377,7 +339,6 @@ export const onDeleteUser = /* GraphQL */ `
           pret
           paymentMethod
           hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -389,8 +350,6 @@ export const onDeleteUser = /* GraphQL */ `
         }
         nextToken
       }
-<<<<<<< HEAD
-=======
       car {
         id
         type
@@ -419,7 +378,6 @@ export const onDeleteUser = /* GraphQL */ `
         carUserId
         username
       }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       createdAt
       updatedAt
     }
@@ -433,27 +391,19 @@ export const onCreateCar = /* GraphQL */ `
       latitude
       longitude
       heading
-<<<<<<< HEAD
-=======
       carNumber
       isActive
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
-<<<<<<< HEAD
-=======
           status
           originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
-<<<<<<< HEAD
-=======
           destinationName
           stopLatitude
           stopLongitude
@@ -462,7 +412,6 @@ export const onCreateCar = /* GraphQL */ `
           pret
           paymentMethod
           hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -474,10 +423,6 @@ export const onCreateCar = /* GraphQL */ `
         }
         nextToken
       }
-<<<<<<< HEAD
-      createdAt
-      updatedAt
-=======
       userId
       user {
         id
@@ -510,7 +455,6 @@ export const onCreateCar = /* GraphQL */ `
       createdAt
       updatedAt
       carUserId
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       username
     }
   }
@@ -523,27 +467,19 @@ export const onUpdateCar = /* GraphQL */ `
       latitude
       longitude
       heading
-<<<<<<< HEAD
-=======
       carNumber
       isActive
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
-<<<<<<< HEAD
-=======
           status
           originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
-<<<<<<< HEAD
-=======
           destinationName
           stopLatitude
           stopLongitude
@@ -552,7 +488,6 @@ export const onUpdateCar = /* GraphQL */ `
           pret
           paymentMethod
           hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -564,10 +499,6 @@ export const onUpdateCar = /* GraphQL */ `
         }
         nextToken
       }
-<<<<<<< HEAD
-      createdAt
-      updatedAt
-=======
       userId
       user {
         id
@@ -600,7 +531,6 @@ export const onUpdateCar = /* GraphQL */ `
       createdAt
       updatedAt
       carUserId
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       username
     }
   }
@@ -613,27 +543,19 @@ export const onDeleteCar = /* GraphQL */ `
       latitude
       longitude
       heading
-<<<<<<< HEAD
-=======
       carNumber
       isActive
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       orders {
         items {
           id
           createdAt
           type
-<<<<<<< HEAD
-=======
           status
           originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           originLatitude
           originLongitude
           destLatitude
           destLongitude
-<<<<<<< HEAD
-=======
           destinationName
           stopLatitude
           stopLongitude
@@ -642,7 +564,6 @@ export const onDeleteCar = /* GraphQL */ `
           pret
           paymentMethod
           hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
           userId
           carId
           updatedAt
@@ -654,10 +575,6 @@ export const onDeleteCar = /* GraphQL */ `
         }
         nextToken
       }
-<<<<<<< HEAD
-      createdAt
-      updatedAt
-=======
       userId
       user {
         id
@@ -690,7 +607,6 @@ export const onDeleteCar = /* GraphQL */ `
       createdAt
       updatedAt
       carUserId
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       username
     }
   }
@@ -701,17 +617,12 @@ export const onCreateOrder = /* GraphQL */ `
       id
       createdAt
       type
-<<<<<<< HEAD
-=======
       status
       originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       originLatitude
       originLongitude
       destLatitude
       destLongitude
-<<<<<<< HEAD
-=======
       destinationName
       stopLatitude
       stopLongitude
@@ -720,17 +631,11 @@ export const onCreateOrder = /* GraphQL */ `
       pret
       paymentMethod
       hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       userId
       user {
         id
         username
         email
-<<<<<<< HEAD
-        orders {
-          nextToken
-        }
-=======
         phoneNumber
         profilePicture
         reviewNumbers
@@ -752,7 +657,6 @@ export const onCreateOrder = /* GraphQL */ `
           carUserId
           username
         }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         createdAt
         updatedAt
       }
@@ -763,13 +667,6 @@ export const onCreateOrder = /* GraphQL */ `
         latitude
         longitude
         heading
-<<<<<<< HEAD
-        orders {
-          nextToken
-        }
-        createdAt
-        updatedAt
-=======
         carNumber
         isActive
         orders {
@@ -790,7 +687,6 @@ export const onCreateOrder = /* GraphQL */ `
         createdAt
         updatedAt
         carUserId
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         username
       }
       updatedAt
@@ -808,17 +704,12 @@ export const onUpdateOrder = /* GraphQL */ `
       id
       createdAt
       type
-<<<<<<< HEAD
-=======
       status
       originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       originLatitude
       originLongitude
       destLatitude
       destLongitude
-<<<<<<< HEAD
-=======
       destinationName
       stopLatitude
       stopLongitude
@@ -827,17 +718,11 @@ export const onUpdateOrder = /* GraphQL */ `
       pret
       paymentMethod
       hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       userId
       user {
         id
         username
         email
-<<<<<<< HEAD
-        orders {
-          nextToken
-        }
-=======
         phoneNumber
         profilePicture
         reviewNumbers
@@ -859,7 +744,6 @@ export const onUpdateOrder = /* GraphQL */ `
           carUserId
           username
         }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         createdAt
         updatedAt
       }
@@ -870,13 +754,6 @@ export const onUpdateOrder = /* GraphQL */ `
         latitude
         longitude
         heading
-<<<<<<< HEAD
-        orders {
-          nextToken
-        }
-        createdAt
-        updatedAt
-=======
         carNumber
         isActive
         orders {
@@ -897,7 +774,6 @@ export const onUpdateOrder = /* GraphQL */ `
         createdAt
         updatedAt
         carUserId
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         username
       }
       updatedAt
@@ -915,17 +791,12 @@ export const onDeleteOrder = /* GraphQL */ `
       id
       createdAt
       type
-<<<<<<< HEAD
-=======
       status
       originName
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       originLatitude
       originLongitude
       destLatitude
       destLongitude
-<<<<<<< HEAD
-=======
       destinationName
       stopLatitude
       stopLongitude
@@ -934,17 +805,11 @@ export const onDeleteOrder = /* GraphQL */ `
       pret
       paymentMethod
       hasPromotion
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
       userId
       user {
         id
         username
         email
-<<<<<<< HEAD
-        orders {
-          nextToken
-        }
-=======
         phoneNumber
         profilePicture
         reviewNumbers
@@ -966,7 +831,6 @@ export const onDeleteOrder = /* GraphQL */ `
           carUserId
           username
         }
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         createdAt
         updatedAt
       }
@@ -977,13 +841,6 @@ export const onDeleteOrder = /* GraphQL */ `
         latitude
         longitude
         heading
-<<<<<<< HEAD
-        orders {
-          nextToken
-        }
-        createdAt
-        updatedAt
-=======
         carNumber
         isActive
         orders {
@@ -1004,7 +861,6 @@ export const onDeleteOrder = /* GraphQL */ `
         createdAt
         updatedAt
         carUserId
->>>>>>> f309f4de629da70f6abc7c22d1846646794ed3ee
         username
       }
       updatedAt

@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 
 const PUBLISHABLE_KEY = "pk_test_51JzPIZA4k0mm4xmZYM4CHZVpC9qC1eZbNT1PG7uca95jZNSvJJIwTZSqpoNHpHGbi2fgMRTRYW2r5pglH3zhrDaw00dqv4RakX";
-const SECRET_KEY = "sk_test_51JzPIZA4k0mm4xmZeSPMPfNYVupmsHf2oNF4CmDrCeYTnwjYvrI96AsgAreEfKSH1kjIHR2SXT6vMeYSE1FXY0lG00CVww0y32";
+const SECRET_KEY = "sk_test";
 const stripe = Stripe(SECRET_KEY, { apiVersion: "2020-08-27" });
 let PRICE;
 let emailPayment;

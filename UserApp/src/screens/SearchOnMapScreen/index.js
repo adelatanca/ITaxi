@@ -7,7 +7,7 @@ import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import styles from '../SearchOnMapScreen/styles';
 
-const GOOGLE_MAPS_APIKEY = "AIzaSyA35VCq4KZN3CRPY-Q23ALhxLjiO4S7mZw";
+const GOOGLE_MAPS_APIKEY = "test";
 
 const SearchOnMapScreen = () => {
     const [region, setRegion] = useState(null);
